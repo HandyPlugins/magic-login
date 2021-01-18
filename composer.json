@@ -1,0 +1,29 @@
+{
+  "name": "handyplugins/magic-login",
+  "description": "WordPress plugin for passwordless login.",
+  "type": "wordpress-plugin",
+  "license": "GPL-2.0-or-later",
+  "authors": [
+    {
+      "name": "HandyPlugins",
+      "email": "support@handyplugins.co"
+    }
+  ],
+  "require": {
+    "php": ">=5.6"
+  },
+  "autoload": {
+    "psr-4": {
+      "MagicLogin\\": "includes/"
+    }
+  },
+  "require-dev": {
+    "phpunit/phpunit": "^8.2",
+    "10up/wp_mock": "dev-master",
+    "10up/phpcs-composer": "dev-master"
+  },
+  "scripts": {
+    "lint": "phpcs . -s",
+    "lint-fix": "phpcbf ."
+  }
+}
