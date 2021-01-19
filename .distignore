@@ -39,5 +39,6 @@ config
 postcss.config.js
 yarn.lock
 .wordpress-org
+.github
 LICENSE.md
 vendor
