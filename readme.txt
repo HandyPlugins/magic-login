@@ -37,7 +37,7 @@ By upgrading to Magic Login Pro you also get access to one-on-one help from our 
 Bug reports and pull requests are welcome on [Github](https://github.com/HandyPlugins/magic-login). Some of our features are pro only, please consider before sending PR.
 
 = Documentation =
-Our documentation can be found on [https://handyplugins.co/paddlepress-pro/docs/](https://handyplugins.co/magic-login-pro/docs/)
+Our documentation can be found on [https://handyplugins.co/magic-login-pro/docs/](https://handyplugins.co/magic-login-pro/docs/)
 
 
 == Installation ==
