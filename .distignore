@@ -12,6 +12,7 @@
 .npmrc
 .nvmrc
 .stylelintrc
+.stylelintignore
 babel.config.js
 Thumbs.db
 behat.yml

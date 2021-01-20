@@ -1366,10 +1366,10 @@
   resolved "https://registry.yarnpkg.com/@wordpress/warning/-/warning-1.3.0.tgz#9254f77b0cc79b1b356c93d2b726be78d82588ad"
   integrity sha512-xwvgwqugc3zQawSPMMA09knAgap7IGgp0PxTXpFqizGFRIohoXFWERnPBZT0VsSCovqYS0ADcH+ZZgQ+BKAzLA==
 
-"@wpmudev/shared-ui@^2.10.1":
-  version "2.10.1"
-  resolved "https://registry.yarnpkg.com/@wpmudev/shared-ui/-/shared-ui-2.10.1.tgz#485f50ea79af66662cd12835cf5a520a1a238e8b"
-  integrity sha512-OZIgwss2s+QCYzc0Ve4svigZfJzqt7bQbtsRYyI00h8rVQwpbUB/cvOIO/Hz8DZ1Orupfxw+XOzUuAO3ijO46A==
+"@wpmudev/shared-ui@2.10.2":
+  version "2.10.2"
+  resolved "https://registry.yarnpkg.com/@wpmudev/shared-ui/-/shared-ui-2.10.2.tgz#ea98ee8dfa06b7d1ebce20cc5520eb2d60725e7d"
+  integrity sha512-J//VBPohb8Oq0yid1vM7cx5Voc94CNig7X+F9dwzpqS/InOJVBWlvbEaYgnIAu9ak4deqiSYoJKyfIVXsRIFPQ==
 
 "@xtuc/ieee754@^1.2.0":
   version "1.2.0"
