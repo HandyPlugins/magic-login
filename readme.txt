@@ -2,9 +2,9 @@
 Contributors:      handyplugins,m_uysl
 Tags:              login,one-time-login,passwordless-login,magic-login,magic-link
 Requires at least: 5.0
-Tested up to:      5.6
+Tested up to:      5.7
 Requires PHP:      5.6
-Stable tag:        1.0.1
+Stable tag:        1.0.2
 License:           GPLv2 or later
 License URI:       http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -71,6 +71,10 @@ Magic Login uses WordPress built-in mail functions. So, it depends on your confi
 2. Login Email
 
 == Changelog ==
+
+= 1.0.2 =
+* Update Shared UI
+* Tested with WP 5.7
 
 = 1.0.1 =
 * Update Shared UI
