@@ -49,7 +49,7 @@ function setup() {
  * @see https://wpmudev.github.io/shared-ui/installation/
  */
 function add_sui_admin_body_class( $classes ) {
-	$classes .= ' sui-2-10-2 ';
+	$classes .= ' sui-2-10-7 ';
 
 	return $classes;
 }
@@ -610,9 +610,9 @@ function save_settings() {
 			return;
 		}
 
-		$settings                                  = [];
-		$settings['is_default']                    = boolval( filter_input( INPUT_POST, 'is_default' ) );
-		$settings['token_ttl']                     = absint( filter_input( INPUT_POST, 'token_ttl' ) );
+		$settings               = [];
+		$settings['is_default'] = boolval( filter_input( INPUT_POST, 'is_default' ) );
+		$settings['token_ttl']  = absint( filter_input( INPUT_POST, 'token_ttl' ) );
 
 		if ( MAGIC_LOGIN_IS_NETWORK ) {
 			update_site_option( SETTING_OPTION, $settings );
