@@ -1371,10 +1371,10 @@
   "resolved" "https://registry.npmjs.org/@wordpress/warning/-/warning-1.3.0.tgz"
   "version" "1.3.0"
 
-"@wpmudev/shared-ui@2.10.7":
-  "integrity" "sha512-Ek4uws6hW1GKV54QNjkb1qw/OVPx2JVJJlcU8u6v+4QA30OtV7osphvY6QlK6lng2NtIUZyRc8jM6kDk7MhG+g=="
-  "resolved" "https://registry.npmjs.org/@wpmudev/shared-ui/-/shared-ui-2.10.7.tgz"
-  "version" "2.10.7"
+"@wpmudev/shared-ui@2.10.8":
+  "integrity" "sha512-EzUdKuC12PHV0cN+v8YTcapRxixG8s2v/D4bpXMirlfX8naSeJIjTlg0P48R8esk/DOCS8vHtEdIV3x/F7KNpA=="
+  "resolved" "https://registry.npmjs.org/@wpmudev/shared-ui/-/shared-ui-2.10.8.tgz"
+  "version" "2.10.8"
 
 "@xtuc/ieee754@^1.2.0":
   "integrity" "sha512-DX8nKgqcGwsc0eJSqYt5lwP4DH5FlHnmuWWBRy7X0NcaGR0ZtuyeESgMwTYVEtxmsNGY+qit4QYT/MIYTOTPeA=="
