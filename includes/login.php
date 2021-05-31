@@ -37,7 +37,7 @@ function setup() {
 function action_magic_login() {
 	$show_form = true;
 	$errors    = new WP_Error();
-	$info      = '<p class="message">' . __( 'Please enter your username or email address. You will receive an email message to log in.' ) . '</p>';
+	$info      = '<p class="message">' . __( 'Please enter your username or email address. You will receive an email message to log in.', 'magic-login' ) . '</p>';
 
 	// process form request
 	if ( 'POST' === $_SERVER['REQUEST_METHOD'] && ! empty( $_POST['log'] ) ) {
@@ -60,7 +60,7 @@ function action_magic_login() {
 
 		if ( ! is_wp_error( $errors ) ) {
 			$show_form = false;
-			$info      = '<p class="message">' . __( 'Please check your inbox for login link. If you did not receive an login email, check your spam folder too.' ) . '</p>';
+			$info      = '<p class="message">' . __( 'Please check your inbox for login link. If you did not receive an login email, check your spam folder too.', 'magic-login' ) . '</p>';
 		}
 	}
 

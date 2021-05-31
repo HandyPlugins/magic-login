@@ -13,6 +13,14 @@ msgstr ""
 "X-Poedit-SourceCharset: UTF-8\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
+#: ../includes/login.php:40
+msgid "Please enter your username or email address. You will receive an email message to log in."
+msgstr ""
+
+#: ../includes/login.php:63
+msgid "Please check your inbox for login link. If you did not receive an login email, check your spam folder too."
+msgstr ""
+
 #: ../includes/login.php:67
 msgid "Log in"
 msgstr ""
