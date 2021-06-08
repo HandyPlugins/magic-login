@@ -28,6 +28,10 @@ define( 'MAGIC_LOGIN_INC', MAGIC_LOGIN_PATH . 'includes/' );
 
 // deactivate pro
 if ( defined( 'MAGIC_LOGIN_PRO_PLUGIN_FILE' ) ) {
+	if ( ! function_exists( 'deactivate_plugins' ) ) {
+		include_once ABSPATH . 'wp-admin/includes/plugin.php';
+	}
+
 	deactivate_plugins( plugin_basename( MAGIC_LOGIN_PRO_PLUGIN_FILE ) );
 
 	return;
