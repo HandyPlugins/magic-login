@@ -10,6 +10,7 @@ module.exports = {
 		'admin-style': './assets/css/admin/admin-style.css',
 		'editor-style': './assets/css/frontend/editor-style.css',
 		'shared-style': './assets/css/shared/shared-style.css',
+		'shortcode-style': './assets/css/shortcode/shortcode-style.css',
 		style: './assets/css/frontend/style.css',
 	},
 	filename: {

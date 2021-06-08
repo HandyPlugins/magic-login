@@ -44,6 +44,7 @@ require_once MAGIC_LOGIN_INC . 'utils.php';
 require_once MAGIC_LOGIN_INC . 'core.php';
 require_once MAGIC_LOGIN_INC . 'login.php';
 require_once MAGIC_LOGIN_INC . 'settings.php';
+require_once MAGIC_LOGIN_INC . 'shortcode.php';
 
 $network_activated = Utils\is_network_wide( MAGIC_LOGIN_PLUGIN_FILE );
 if ( ! defined( 'MAGIC_LOGIN_IS_NETWORK' ) ) {
@@ -54,3 +55,4 @@ if ( ! defined( 'MAGIC_LOGIN_IS_NETWORK' ) ) {
 Core\setup();
 Login\setup();
 Settings\setup();
+Shortcode\setup();

@@ -53,7 +53,7 @@ function init() {
  * @return array
  */
 function get_enqueue_contexts() {
-	return [ 'admin', 'frontend', 'shared' ];
+	return [ 'admin', 'frontend', 'shared', 'shortcode' ];
 }
 
 /**
