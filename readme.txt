@@ -2,9 +2,9 @@
 Contributors:      handyplugins,m_uysl
 Tags:              login,one-time-login,passwordless-login,magic-login,magic-link
 Requires at least: 5.0
-Tested up to:      5.7
+Tested up to:      5.8
 Requires PHP:      5.6
-Stable tag:        1.0.3
+Stable tag:        1.1
 License:           GPLv2 or later
 License URI:       http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -32,6 +32,8 @@ Here are the premium features comes with Magic Login Pro:
 - __Login Redirect:__ Redirect users to a specific page right after login. You can also redirect different pages based on the user role.
 
 By upgrading to Magic Login Pro you also get access to one-on-one help from our knowledgeable support team and our extensive documentation site.
+
+**[Learn more about Magic Login Pro](https://handyplugins.co/magic-login-pro/)**
 
 = Contributing & Bug Report =
 Bug reports and pull requests are welcome on [Github](https://github.com/HandyPlugins/magic-login). Some of our features are pro only, please consider before sending PR.
@@ -65,12 +67,22 @@ It expires in 5 minutes by default. You can change it to anywhere between 1-60 m
 
 Magic Login uses WordPress built-in mail functions. So, it depends on your configuration. We highly recommend to use a SMTP services for better email delivery.
 
+= How can I use a passwordless login form on any page? =
+
+You can use `[magic_login_form]` shortcode.
+
+
 == Screenshots ==
 
 1. Settings Page
 2. Login Email
 
 == Changelog ==
+
+= 1.1 =
+* Tested with WP 5.8
+* Shortcode `magic_login_form` support added!
+* fix: make sure `deactivate_plugins` exists when manually switching versions
 
 = 1.0.3 =
 * Update Shared UI
