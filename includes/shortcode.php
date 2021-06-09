@@ -29,6 +29,8 @@ function setup() {
  * not like the form in login.php which designed to fit on the standard login screen
  */
 function shortcode_login_form() {
+	ob_start();
+
 	wp_enqueue_style(
 		'magic_login_admin',
 		style_url( 'shortcode-style', 'shortcode' ),
@@ -87,4 +89,5 @@ function shortcode_login_form() {
 		<?php endif; ?>
 	</div>
 	<?php
+	return ob_get_clean();
 }
