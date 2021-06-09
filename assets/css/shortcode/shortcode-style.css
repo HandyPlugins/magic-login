@@ -2,23 +2,44 @@
  * Shortcode
  */
 
-.magic-login-inline-login-form {
+/* stylelint-disable sh-waqar/declaration-use-variable */
+
+#magic-login-shortcode {
 	display: flex;
 	flex-wrap: wrap;
 	margin: auto;
+	width: 320px;
 }
 
-.magic-login-inline-login-form label {
+#magic-login-shortcode label {
 	display: block;
 	width: 100%;
 }
 
-.magic-login-inline-login-form .input {
+#magic-login-shortcode .input {
 	margin: 0;
 	width: 100%;
 }
 
-.magic-login-inline-login-form .magic-login-submit {
+#magic-login-shortcode .magic-login-submit {
 	margin: 10px 0 0 0;
 	width: 100%;
+}
+
+#magic-login-shortcode .message,
+#magic-login-shortcode .success,
+#magic-login-shortcode #login_error {
+	background-color: #fff;
+	border-left: 4px solid #72aee6;
+	margin-bottom: 20px;
+	margin-left: 0;
+	padding: 12px;
+}
+
+#magic-login-shortcode .success {
+	border-left-color: #00a32a;
+}
+
+#magic-login-shortcode #login_error {
+	border-left-color: #d63638;
 }

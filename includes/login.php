@@ -31,10 +31,13 @@ function setup() {
 	add_action( 'magic_login_cleanup_expired_tokens', $n( 'cleanup_expired_tokens' ), 10, 2 );
 }
 
+
 /**
- * Login form actions
+ * Process login request
+ *
+ * @return array
  */
-function action_magic_login() {
+function process_login_request() {
 	$show_form = true;
 	$errors    = new WP_Error();
 	$info      = '<p class="message">' . __( 'Please enter your username or email address. You will receive an email message to log in.', 'magic-login' ) . '</p>';
@@ -64,9 +67,23 @@ function action_magic_login() {
 		}
 	}
 
-	login_header( esc_html__( 'Log in', 'magic-login' ), $info, $errors );
+	return [
+		'show_form' => $show_form,
+		'errors'    => $errors,
+		'info'      => $info,
+	];
+}
 
-	if ( $show_form ) {
+/**
+ * Login form actions
+ */
+function action_magic_login() {
+
+	$login_request = process_login_request();
+
+	login_header( esc_html__( 'Log in', 'magic-login' ), $login_request['info'], $login_request['errors'] );
+
+	if ( $login_request['show_form'] ) {
 		login_form();
 	}
 

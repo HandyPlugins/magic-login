@@ -8,6 +8,7 @@
 namespace MagicLogin\Shortcode;
 
 use function MagicLogin\Core\style_url;
+use function MagicLogin\Login\process_login_request;
 
 /**
  * Default setup routine
@@ -35,23 +36,55 @@ function shortcode_login_form() {
 		MAGIC_LOGIN_VERSION
 	);
 
+	$form_action = apply_filters( 'magic_login_shortcode_form_action', '' );
+
+	$login_request = process_login_request();
 	?>
-	<form name="magicloginform" class="magic-login-inline-login-form" id="magicloginform" action="<?php echo esc_url( site_url( 'wp-login.php?action=magic_login', 'login_post' ) ); ?>" method="post" autocomplete="off">
-		<p>
-			<label for="user_login"><?php esc_html_e( 'Username or Email Address', 'magic-login' ); ?></label>
-			<input type="text" name="log" id="user_login" class="input" value="" size="20" autocapitalize="off" />
-			<?php
+	<div id="magic-login-shortcode">
+		<?php
+		$login_errors = $login_request['errors'];
 
-			/**
-			 * Fires following the 'email' field in the login form.
-			 *
-			 * @since 1.0
-			 */
-			do_action( 'magic_login_form' );
+		// error messages
+		if ( ! empty( $login_errors ) && is_wp_error( $login_errors ) && $login_errors->has_errors() ) {
+			$error_messages = '';
 
-			?>
-			<input type="submit" name="wp-submit" id="wp-submit" class="magic-login-submit button button-primary button-large" value="<?php esc_attr_e( 'Send me the link', 'magic-login' ); ?>" />
-			<input type="hidden" name="testcookie" value="1" />
-	</form>
+			foreach ( $login_errors->get_error_codes() as $code ) {
+				foreach ( $login_errors->get_error_messages( $code ) as $message ) {
+					$error_messages .= $message . "<br />\n";
+				}
+			}
+
+			if ( ! empty( $error_messages ) ) {
+				printf( '<div id="login_error">%s</div>', wp_kses_post( $error_messages ) );
+			}
+		}
+
+		// display info messages
+		if ( ! empty( $login_request['info'] ) ) {
+			echo wp_kses_post( $login_request['info'] );
+		}
+		?>
+
+
+		<?php if ( $login_request['show_form'] ) : ?>
+			<form name="magicloginform" class="magic-login-inline-login-form" id="magicloginform" action="<?php echo esc_attr( $form_action ); ?>" method="post" autocomplete="off">
+				<p>
+					<label for="user_login"><?php esc_html_e( 'Username or Email Address', 'magic-login' ); ?></label>
+					<input type="text" name="log" id="user_login" class="input" value="" size="20" autocapitalize="off" required />
+					<?php
+
+					/**
+					 * Fires following the 'email' field in the login form.
+					 *
+					 * @since 1.0
+					 */
+					do_action( 'magic_login_form' );
+
+					?>
+					<input type="submit" name="wp-submit" id="wp-submit" class="magic-login-submit button button-primary button-large" value="<?php esc_attr_e( 'Send me the link', 'magic-login' ); ?>" />
+					<input type="hidden" name="testcookie" value="1" />
+			</form>
+		<?php endif; ?>
+	</div>
 	<?php
 }
