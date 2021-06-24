@@ -4,7 +4,7 @@ Tags:              login,one-time-login,passwordless-login,magic-login,magic-lin
 Requires at least: 5.0
 Tested up to:      5.8
 Requires PHP:      5.6
-Stable tag:        1.1.1
+Stable tag:        1.1.2
 License:           GPLv2 or later
 License URI:       http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -78,6 +78,11 @@ You can use `[magic_login_form]` shortcode.
 2. Login Email
 
 == Changelog ==
+
+= 1.1.2 =
+* Update Shared UI
+* Shortcode `magic_login_form` now supports `redirect_to` attribute
+* fix: don't display login form if the user already logged-in
 
 = 1.1.1 =
 * Hotfix: return shortcode output instead of printing
