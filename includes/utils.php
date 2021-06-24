@@ -56,6 +56,10 @@ function create_login_link( $user ) {
 		'token'   => $token,
 	);
 
+	if ( ! empty( $_POST['redirect_to'] ) ) {
+		$query_args['redirect_to'] = esc_url_raw( $_POST['redirect_to'] );
+	}
+
 	$login_url = esc_url_raw( add_query_arg( $query_args, wp_login_url() ) );
 
 	return $login_url;

@@ -22,14 +22,30 @@ function setup() {
 	};
 
 	add_shortcode( 'magic_login_form', $n( 'shortcode_login_form' ) );
+	add_filter( 'magic_login_redirect', $n( 'maybe_shortcode_redirect' ), 99, 2 );
 }
 
 /**
  * This form needs to be compatible with various themes as much as possible
  * not like the form in login.php which designed to fit on the standard login screen
+ *
+ * @param array $shortcode_atts Shortcode Attributes
+ *
+ * @return string|void
  */
-function shortcode_login_form() {
+function shortcode_login_form( $shortcode_atts ) {
+	if ( is_user_logged_in() ) {
+		return;
+	}
+
 	ob_start();
+
+	$atts = shortcode_atts(
+		[
+			'redirect_to' => ( is_ssl() ? 'https://' : 'http://' ) . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'],
+		],
+		$shortcode_atts
+	);
 
 	wp_enqueue_style(
 		'magic_login_admin',
@@ -67,7 +83,6 @@ function shortcode_login_form() {
 		}
 		?>
 
-
 		<?php if ( $login_request['show_form'] ) : ?>
 			<form name="magicloginform" class="magic-login-inline-login-form" id="magicloginform" action="<?php echo esc_attr( $form_action ); ?>" method="post" autocomplete="off">
 				<p>
@@ -84,10 +99,27 @@ function shortcode_login_form() {
 
 					?>
 					<input type="submit" name="wp-submit" id="wp-submit" class="magic-login-submit button button-primary button-large" value="<?php esc_attr_e( 'Send me the link', 'magic-login' ); ?>" />
+					<input type="hidden" name="redirect_to" value="<?php echo esc_url( $atts['redirect_to'] ); ?>" />
 					<input type="hidden" name="testcookie" value="1" />
 			</form>
 		<?php endif; ?>
 	</div>
 	<?php
 	return ob_get_clean();
+}
+
+/**
+ * Get magic link redirect url after login
+ *
+ * @param string   $redirect_url default redirection url
+ * @param \WP_User $user         User object
+ *
+ * @return mixed
+ */
+function maybe_shortcode_redirect( $redirect_url, $user ) {
+	if ( $_GET['redirect_to'] ) { // phpcs:ignore WordPress.Security.NonceVerification.Recommended
+		$redirect_url = esc_url_raw( $_GET['redirect_to'] ); // phpcs:ignore WordPress.Security.NonceVerification.Recommended
+	}
+
+	return $redirect_url;
 }
