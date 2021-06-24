@@ -29,11 +29,11 @@ msgstr ""
 msgid "Log in to %s"
 msgstr ""
 
-#: ../includes/login.php:145, ../includes/shortcode.php:72
+#: ../includes/login.php:145, ../includes/shortcode.php:89
 msgid "Username or Email Address"
 msgstr ""
 
-#: ../includes/login.php:159, ../includes/shortcode.php:84
+#: ../includes/login.php:159, ../includes/shortcode.php:101
 msgid "Send me the link"
 msgstr ""
 
@@ -246,7 +246,7 @@ msgid "Settings saved."
 msgstr ""
 
 #. translators: Do not translate USERNAME, SITENAME,EXPIRES, MAGIC_LINK, SITENAME, SITEURL: those are placeholders.
-#: ../includes/utils.php:124
+#: ../includes/utils.php:128
 msgid ""
 "Hi {{USERNAME}},\n"
 "\n"
