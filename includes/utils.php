@@ -7,6 +7,7 @@
 
 namespace MagicLogin\Utils;
 
+use const MagicLogin\Constants\CRON_HOOK_NAME;
 use const MagicLogin\Constants\SETTING_OPTION;
 use const MagicLogin\Constants\TOKEN_USER_META;
 
@@ -35,7 +36,7 @@ function create_user_token( $user ) {
 	];
 
 	update_user_meta( $user->ID, TOKEN_USER_META, $tokens );
-	wp_schedule_single_event( time() + ( $settings['token_ttl'] * MINUTE_IN_SECONDS ), 'magic_login_cleanup_expired_tokens', array( $user->ID, $new_token ) );
+	wp_schedule_single_event( time() + ( $settings['token_ttl'] * MINUTE_IN_SECONDS ), CRON_HOOK_NAME, array( $user->ID ) );
 
 	return $new_token;
 }

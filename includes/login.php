@@ -7,6 +7,7 @@
 
 namespace MagicLogin\Login;
 
+use const MagicLogin\Constants\CRON_HOOK_NAME;
 use const MagicLogin\Constants\TOKEN_USER_META;
 use function MagicLogin\Utils\create_login_link;
 use function MagicLogin\Utils\get_user_default_redirect;
@@ -28,7 +29,7 @@ function setup() {
 	add_action( 'login_form_magic_login', $n( 'action_magic_login' ) );
 	add_action( 'login_form_login', $n( 'maybe_redirect' ) );
 	add_action( 'init', $n( 'handle_login_request' ) );
-	add_action( 'magic_login_cleanup_expired_tokens', $n( 'cleanup_expired_tokens' ), 10, 2 );
+	add_action( CRON_HOOK_NAME, $n( 'cleanup_expired_tokens' ) );
 }
 
 
@@ -264,17 +265,25 @@ function handle_login_request() {
 /**
  * Handle cleanup process for expired tokens
  *
- * @param int   $user_id        user id
- * @param array $expired_tokens expired tokens
+ * @param int $user_id user id
  */
-function one_time_login_cleanup_expired_tokens( $user_id, $expired_tokens ) {
-	$tokens     = get_user_meta( $user_id, TOKEN_USER_META, true );
-	$tokens     = is_string( $tokens ) ? array( $tokens ) : $tokens;
-	$new_tokens = array();
+function cleanup_expired_tokens( $user_id ) {
+	$settings    = \MagicLogin\Utils\get_settings();
+	$ttl         = absint( $settings['token_ttl'] );
+	$tokens      = get_user_meta( $user_id, TOKEN_USER_META, true );
+	$tokens      = is_string( $tokens ) ? array( $tokens ) : $tokens;
+	$live_tokens = array();
+
 	foreach ( $tokens as $token ) {
-		if ( ! in_array( $token, $expired_tokens, true ) ) {
-			$new_tokens[] = $token;
+		if ( empty( $token ) || ! isset( $token['time'] ) ) {
+			continue;
+		}
+
+		// not expired yet
+		if ( absint( $token['time'] ) + ( $ttl * MINUTE_IN_SECONDS ) > time() ) {
+			$live_tokens[] = $token;
 		}
 	}
-	update_user_meta( $user_id, TOKEN_USER_META, $new_tokens );
+
+	update_user_meta( $user_id, TOKEN_USER_META, $live_tokens );
 }
