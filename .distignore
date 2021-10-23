@@ -13,6 +13,7 @@
 .nvmrc
 .stylelintrc
 .stylelintignore
+.husky
 babel.config.js
 Thumbs.db
 behat.yml
@@ -43,3 +44,7 @@ yarn.lock
 .github
 LICENSE.md
 vendor
+.husky
+.lintstagedrc.json
+lerna.json
+hookdoc-conf.json

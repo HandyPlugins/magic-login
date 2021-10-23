@@ -3,6 +3,7 @@
  */
 
 /* stylelint-disable sh-waqar/declaration-use-variable */
+/* stylelint-disable selector-id-pattern */
 
 #magic-login-shortcode {
 	display: flex;
