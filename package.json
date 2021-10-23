@@ -22,7 +22,7 @@
     "lint-release": "npm install && composer install && npm run lint"
   },
   "devDependencies": {
-    "@wpmudev/shared-ui": "2.10.9",
+    "@wpmudev/shared-ui": "2.11.1",
     "10up-toolkit": "^1.0",
     "wp-pot-cli": "1.2.4"
   },
