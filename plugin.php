@@ -19,7 +19,7 @@
 namespace MagicLogin;
 
 // Useful global constants.
-define( 'MAGIC_LOGIN_VERSION', '1.1.3' );
+define( 'MAGIC_LOGIN_VERSION', '1.2.0-beta' );
 define( 'MAGIC_LOGIN_PLUGIN_FILE', __FILE__ );
 define( 'MAGIC_LOGIN_URL', plugin_dir_url( __FILE__ ) );
 define( 'MAGIC_LOGIN_PATH', plugin_dir_path( __FILE__ ) );
@@ -49,6 +49,7 @@ require_once MAGIC_LOGIN_INC . 'core.php';
 require_once MAGIC_LOGIN_INC . 'login.php';
 require_once MAGIC_LOGIN_INC . 'settings.php';
 require_once MAGIC_LOGIN_INC . 'shortcode.php';
+require_once MAGIC_LOGIN_INC . 'block.php';
 
 $network_activated = Utils\is_network_wide( MAGIC_LOGIN_PLUGIN_FILE );
 if ( ! defined( 'MAGIC_LOGIN_IS_NETWORK' ) ) {
@@ -60,3 +61,4 @@ Core\setup();
 Login\setup();
 Settings\setup();
 Shortcode\setup();
+Block\setup();

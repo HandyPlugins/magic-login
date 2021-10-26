@@ -24,3 +24,4 @@ Session.vim
 # Windows
 Thumbs.db
 Desktop.ini
+dist/js/*.txt

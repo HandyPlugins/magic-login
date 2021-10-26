@@ -22,6 +22,8 @@
     "lint-release": "npm install && composer install && npm run lint"
   },
   "devDependencies": {
+    "@wordpress/element": "^4.0.0",
+    "@wordpress/server-side-render": "^3.0.4",
     "@wpmudev/shared-ui": "2.11.1",
     "10up-toolkit": "^1.0",
     "wp-pot-cli": "1.2.4"
@@ -35,13 +37,10 @@
   "10up-toolkit": {
     "entry": {
       "admin": "./assets/js/admin/admin.js",
-      "frontend": "./assets/js/frontend/frontend.js",
-      "shared": "./assets/js/shared/shared.js",
+      "block-editor": "./assets/js/admin/block-editor.js",
       "admin-style": "./assets/css/admin/admin-style.css",
-      "editor-style": "./assets/css/frontend/editor-style.css",
-      "shared-style": "./assets/css/shared/shared-style.css",
-      "shortcode-style": "./assets/css/shortcode/shortcode-style.css",
-      "style": "./assets/css/frontend/style.css"
+      "login-block-style": "./assets/css/blocks/login-block.css",
+      "shortcode-style": "./assets/css/shortcode/shortcode-style.css"
     },
     "wpDependencyExternals": false
   }

@@ -39,9 +39,10 @@ function setup() {
  * @return array
  */
 function process_login_request() {
-	$show_form = true;
-	$errors    = new WP_Error();
-	$info      = '<p class="message">' . __( 'Please enter your username or email address. You will receive an email message to log in.', 'magic-login' ) . '</p>';
+	$show_form    = true;
+	$errors       = new WP_Error();
+	$info         = '<p class="message">' . __( 'Please enter your username or email address. You will receive an email message to log in.', 'magic-login' ) . '</p>';
+	$is_processed = false;
 
 	// process form request
 	if ( 'POST' === $_SERVER['REQUEST_METHOD'] && ! empty( $_POST['log'] ) ) {
@@ -52,9 +53,18 @@ function process_login_request() {
 			$user = get_user_by( 'email', $user_name );
 		}
 
+		$is_processed = true;
+
+		/**
+		 * Short circuit to prevent unwanted requests
+		 */
 		$send_link = apply_filters( 'magic_login_pre_send_login_link', null, $user );
 
-		if ( null !== $send_link ) {
+		if ( ! is_a( $user, '\WP_User' ) ) {
+			$info      = '';
+			$errors    = new WP_Error( 'missing_user', esc_html__( 'There is no account with that username or email address.', 'magic-login' ) );
+			$show_form = true;
+		} elseif ( null !== $send_link ) {
 			$info      = '';
 			$errors    = $send_link;
 			$show_form = false;
@@ -64,14 +74,15 @@ function process_login_request() {
 
 		if ( ! is_wp_error( $errors ) ) {
 			$show_form = false;
-			$info      = '<p class="message">' . __( 'Please check your inbox for login link. If you did not receive an login email, check your spam folder too.', 'magic-login' ) . '</p>';
+			$info      = '<p class="message magic_login_block_login_success">' . __( 'Please check your inbox for the login link. If you did not receive a login email, check your spam folder too.', 'magic-login' ) . '</p>';
 		}
 	}
 
 	return [
-		'show_form' => $show_form,
-		'errors'    => $errors,
-		'info'      => $info,
+		'show_form'    => $show_form,
+		'errors'       => $errors,
+		'info'         => $info,
+		'is_processed' => $is_processed,
 	];
 }
 
