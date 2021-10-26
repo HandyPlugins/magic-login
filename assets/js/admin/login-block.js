@@ -9,7 +9,7 @@ const { serverSideRender: ServerSideRender } = wp;
 
 export default registerBlockType('magic-login/login-block', {
 	title: __('Magic Login', 'magic-login'),
-	description: __('Passwordlesss login form', 'magic-login'),
+	description: __('Passwordless login block', 'magic-login'),
 	// https://raw.githubusercontent.com/ionic-team/ionicons/master/docs/ionicons/svg/md-color-wand.svg
 	icon: (
 		<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
