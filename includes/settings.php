@@ -641,6 +641,7 @@ function save_settings() {
 
 		$settings               = [];
 		$settings['is_default'] = boolval( filter_input( INPUT_POST, 'is_default' ) );
+		$settings['token_ttl']  = absint( filter_input( INPUT_POST, 'token_ttl' ) );
 
 		// convert TTL in minute
 		if ( $_POST['token_ttl'] > 0 && isset( $_POST['token_interval'] ) ) {
