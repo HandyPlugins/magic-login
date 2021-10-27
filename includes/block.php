@@ -34,8 +34,6 @@ function register_blocks() {
 		'magic-login-block-editor',
 		script_url( 'block-editor', 'admin' ),
 		[
-			'jquery',
-			'lodash',
 			'wp-i18n',
 			'wp-components',
 			'wp-element',
