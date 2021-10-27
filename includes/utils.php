@@ -36,7 +36,10 @@ function create_user_token( $user ) {
 	];
 
 	update_user_meta( $user->ID, TOKEN_USER_META, $tokens );
-	wp_schedule_single_event( time() + ( $settings['token_ttl'] * MINUTE_IN_SECONDS ), CRON_HOOK_NAME, array( $user->ID ) );
+
+	if ( absint( $settings['token_ttl'] ) > 0 ) { // eternal token
+		wp_schedule_single_event( time() + ( $settings['token_ttl'] * MINUTE_IN_SECONDS ), CRON_HOOK_NAME, array( $user->ID ) );
+	}
 
 	return $new_token;
 }
@@ -90,6 +93,7 @@ function get_settings() {
 	$defaults = [
 		'is_default'                    => false,
 		'token_ttl'                     => 5,
+		'token_interval'                => 'MINUTE',
 		'enable_brute_force_protection' => false,
 		'brute_force_bantime'           => 60, // in minutes
 		'brute_force_login_attempt'     => 10,
@@ -125,11 +129,11 @@ function get_settings() {
  * @return mixed|string|void
  */
 function get_default_login_email_text() {
-	/* translators: Do not translate USERNAME, SITENAME,EXPIRES, MAGIC_LINK, SITENAME, SITEURL: those are placeholders. */
+	/* translators: Do not translate USERNAME, SITENAME,EXPIRES, MAGIC_LINK, SITENAME, SITEUR, EXPIRES_WITH_INTERVAL: those are placeholders. */
 	$email_text = __(
 		'Hi {{USERNAME}},
 
-Click and confirm that you want to log in to {{SITENAME}}. This link will expire in {{EXPIRES}} minutes and can only be used once:
+Click and confirm that you want to log in to {{SITENAME}}. This link will expire in {{EXPIRES_WITH_INTERVAL}} and can only be used once:
 
 <a href="{{MAGIC_LINK}}" target="_blank" rel="noreferrer noopener">Log In</a>
 
@@ -192,6 +196,10 @@ function get_user_tokens( $user_id, $clear_expired = false ) {
 		$settings = get_settings(); //phpcs:ignore
 		$ttl      = absint( $settings['token_ttl'] );
 
+		if ( 0 === $ttl ) { // means token lives forever till used
+			return $tokens;
+		}
+
 		foreach ( $tokens as $index => $token_data ) {
 			if ( empty( $token_data ) ) {
 				unset( $tokens[ $index ] );
@@ -241,4 +249,73 @@ function delete_all_tokens() {
 			'meta_key' => TOKEN_USER_META,
 		]
 	);
+}
+
+
+/**
+ * Allowed intervals for TTL.
+ *
+ * @return array
+ * @since 1.2
+ */
+function get_allowed_intervals() {
+	return [
+		'MINUTE' => esc_html__( 'Minute(s)', 'magic-login' ),
+		'HOUR'   => esc_html__( 'Hour(s)', 'magic-login' ),
+		'DAY'    => esc_html__( 'Day(s)', 'magic-login' ),
+	];
+}
+
+/**
+ * Convert minutes to possible time format
+ *
+ * @param int $timeout_in_minutes TTL in minutes
+ *
+ * @return array
+ * @since 1.2
+ */
+function get_ttl_with_interval( $timeout_in_minutes ) {
+	$ttl      = $timeout_in_minutes;
+	$interval = 'MINUTE';
+
+	if ( $ttl > 0 ) {
+		if ( 0 === (int) ( $ttl % 1440 ) ) {
+			$ttl      = $ttl / 1440;
+			$interval = 'DAY';
+		} elseif ( 0 === (int) ( $ttl % 60 ) ) {
+			$ttl      = $ttl / 60;
+			$interval = 'HOUR';
+		}
+	}
+
+	return array(
+		$ttl,
+		$interval,
+	);
+}
+
+
+/**
+ * Get the documentation url
+ *
+ * @param string $path     The path of documentation
+ * @param string $fragment URL Fragment
+ *
+ * @return string final URL
+ */
+function get_doc_url( $path = null, $fragment = '' ) {
+	$doc_base       = 'https://handyplugins.co/magic-login-pro/docs/';
+	$utm_parameters = '?utm_source=wp_admin&utm_medium=plugin&utm_campaign=settings_page';
+
+	if ( ! empty( $path ) ) {
+		$doc_base .= ltrim( $path, '/' );
+	}
+
+	$doc_url = trailingslashit( $doc_base ) . $utm_parameters;
+
+	if ( ! empty( $fragment ) ) {
+		$doc_url .= '#' . $fragment;
+	}
+
+	return $doc_url;
 }

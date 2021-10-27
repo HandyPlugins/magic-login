@@ -15,6 +15,9 @@ use const MagicLogin\Constants\SUPPORT_URL;
 use const MagicLogin\Constants\SETTING_OPTION;
 use const MagicLogin\Constants\TWITTER_URL;
 use function MagicLogin\Utils\delete_all_tokens;
+use function MagicLogin\Utils\get_allowed_intervals;
+use function MagicLogin\Utils\get_doc_url;
+use function MagicLogin\Utils\get_ttl_with_interval;
 
 // phpcs:disable WordPress.WhiteSpace.PrecisionAlignment.Found
 // phpcs:disable Generic.WhiteSpace.DisallowSpaceIndent.SpacesUsed
@@ -141,32 +144,58 @@ function settings_page() {
 										);
 										?>
 									</span>
+									<div class="sui-notice sui-notice-info" style="padding: 10px 20px 10px 0; margin:0;">
+										<div class="sui-notice-content">
+											<div class="sui-notice-message">
+												<span class="sui-notice-icon sui-icon-info sui-md" aria-hidden="true"></span>
+												<p>
+													<?php
+													echo wp_kses_post(
+														sprintf(
+															__( 'In order to add a login form to any page, you can use shortcode <code>%1$s</code> or block. <a href="%2$s">%3$s</a>' ),
+															'[magic_login_form]',
+															get_doc_url( 'add-login-form-to-a-page' ),
+															__( 'Learn More', 'magic-login' )
+														)
+													);
+													?>
+												</p>
+											</div>
+										</div>
+									</div>
 								</div>
 							</div>
 						</div>
 
 						<!-- TTL -->
+						<?php list( $token_ttl, $selected_interval ) = get_ttl_with_interval( $settings['token_ttl'] ); ?>
+						<?php $allowed_intervals = get_allowed_intervals(); ?>
 						<div class="sui-box-settings-row">
 							<div class="sui-box-settings-col-1">
 								<span class="sui-settings-label" id="token_ttl_label"><?php esc_html_e( 'Token Lifespan', 'magic-login' ); ?></span>
-								<span class="sui-description"><?php esc_html_e( 'The TTL (time to live) of the login link. Expired tokens remove with WP Cron. Enter between 1-60.', 'magic-login' ); ?></span>
+								<span class="sui-description">
+									<?php esc_html_e( 'The TTL (time to live) of the login link. WP-Cron removes expired tokens.', 'magic-login' ); ?>
+									<a href="<?php echo esc_url( get_doc_url( 'token-lifespan' ) ); ?>" target="_blank"><?php esc_html_e( 'Learn More.', 'magic-login' ); ?></a>
+								</span>
 							</div>
 
 							<div class="sui-box-settings-col-2">
-
 								<div class="sui-form-field">
 									<input
 											name="token_ttl"
 											id="token_ttl"
 											class="sui-form-control sui-field-has-suffix"
 											aria-labelledby="token_ttl_label"
-											min="1"
-											max="60"
 											type="number"
-											value="<?php echo absint( $settings['token_ttl'] ); ?>"
+											value="<?php echo absint( $token_ttl ); ?>"
+											min="0"
 									/>
 									<span class="sui-field-suffix">
-										<?php esc_html_e( 'Minutes', 'magic-login' ); ?>
+										<select id="token_interval" name="token_interval" class="sui-form-control">
+											<?php foreach ( $allowed_intervals as $val => $label ) : ?>
+												<option <?php selected( $val, $selected_interval ); ?> value="<?php echo esc_attr( $val ); ?>"><?php echo esc_html( $label ); ?></option>
+											<?php endforeach; ?>
+										</select>
 									</span>
 								</div>
 							</div>
@@ -393,7 +422,7 @@ function settings_page() {
 											)
 										);
 										?>
-										<span class="sui-description"><?php esc_html_e( 'Supported placeholders: {{SITEURL}}, {{USERNAME}}, {{SITENAME}}, {{EXPIRES}}, {{MAGIC_LINK}}', 'magic-login' ); ?></span>
+										<span class="sui-description"><?php esc_html_e( 'Supported placeholders: {{SITEURL}}, {{USERNAME}}, {{SITENAME}}, {{EXPIRES}}, {{EXPIRES_WITH_INTERVAL}}, {{MAGIC_LINK}}', 'magic-login' ); ?></span>
 									</div>
 								</div>
 							</div>
@@ -533,7 +562,7 @@ function settings_page() {
 						<div class="sui-box-settings-row sui-upsell-row">
 							<div class="sui-upsell-notice" style="padding-left: 0;">
 								<p><?php esc_html_e( 'With our pro version of magic login, you will unlock the advanced configurations of the plugin and get access to the WP-CLI command along with our premium support.' ); ?><br>
-									<a href="https://handyplugins.co/magic-login-pro/" rel="noopener noreferrer nofollow" target="_blank" class="sui-button sui-button-purple" style="margin-top: 10px;color:#fff;"><?php esc_html_e( 'Try Magic Login Pro Today', 'magic-login' ); ?></a>
+									<a href="https://handyplugins.co/magic-login-pro/?utm_source=wp_admin&utm_medium=plugin&utm_campaign=settings_page" rel="noopener noreferrer nofollow" target="_blank" class="sui-button sui-button-purple" style="margin-top: 10px;color:#fff;"><?php esc_html_e( 'Try Magic Login Pro Today', 'magic-login' ); ?></a>
 								</p>
 							</div>
 						</div>
@@ -612,7 +641,28 @@ function save_settings() {
 
 		$settings               = [];
 		$settings['is_default'] = boolval( filter_input( INPUT_POST, 'is_default' ) );
-		$settings['token_ttl']  = absint( filter_input( INPUT_POST, 'token_ttl' ) );
+
+		// convert TTL in minute
+		if ( $_POST['token_ttl'] > 0 && isset( $_POST['token_interval'] ) ) {
+			switch ( $_POST['token_interval'] ) {
+				case 'DAY':
+					$settings['token_ttl'] = absint( $_POST['token_ttl'] ) * 1440;
+					break;
+				case 'HOUR':
+					$settings['token_ttl'] = absint( $_POST['token_ttl'] ) * 60;
+					break;
+				case 'MINUTE':
+				default:
+					$settings['token_ttl'] = absint( $_POST['token_ttl'] ) * 1;
+			}
+		}
+
+		$token_interval    = sanitize_text_field( filter_input( INPUT_POST, 'token_interval' ) );
+		$allowed_intervals = get_allowed_intervals();
+
+		if ( isset( $allowed_intervals[ $token_interval ] ) ) {
+			$settings['token_interval'] = $token_interval;
+		}
 
 		if ( MAGIC_LOGIN_IS_NETWORK ) {
 			update_site_option( SETTING_OPTION, $settings );

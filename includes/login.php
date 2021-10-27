@@ -10,6 +10,8 @@ namespace MagicLogin\Login;
 use const MagicLogin\Constants\CRON_HOOK_NAME;
 use const MagicLogin\Constants\TOKEN_USER_META;
 use function MagicLogin\Utils\create_login_link;
+use function MagicLogin\Utils\get_allowed_intervals;
+use function MagicLogin\Utils\get_ttl_with_interval;
 use function MagicLogin\Utils\get_user_default_redirect;
 use function MagicLogin\Utils\get_user_tokens;
 use \WP_Error as WP_Error;
@@ -122,12 +124,22 @@ function send_login_link( $user ) {
 	$login_link  = create_login_link( $user );
 	$login_email = $settings['login_email'];
 
+	list( $token_ttl, $selected_interval ) = get_ttl_with_interval( $settings['token_ttl'] );
+	$selected_interval_str                 = strtolower( $selected_interval );
+
+	$allowed_intervals = get_allowed_intervals();
+
+	if ( isset( $allowed_intervals[ $selected_interval ] ) ) {
+		$selected_interval_str = strtolower( $allowed_intervals[ $selected_interval ] ); // translated interval
+	}
+
 	$placeholder_values = [
-		'{{SITEURL}}'    => home_url(),
-		'{{USERNAME}}'   => $user->user_login,
-		'{{SITENAME}}'   => $site_name,
-		'{{EXPIRES}}'    => $settings['token_ttl'],
-		'{{MAGIC_LINK}}' => $login_link,
+		'{{SITEURL}}'               => home_url(),
+		'{{USERNAME}}'              => $user->user_login,
+		'{{SITENAME}}'              => $site_name,
+		'{{EXPIRES}}'               => $settings['token_ttl'],
+		'{{EXPIRES_WITH_INTERVAL}}' => $token_ttl . ' ' . $selected_interval_str,
+		'{{MAGIC_LINK}}'            => $login_link,
 	];
 
 	// convert line breaks to br
@@ -247,7 +259,13 @@ function handle_login_request() {
 
 	if ( ! $is_valid ) {
 		do_action( 'magic_login_invalid_token' );
-		wp_die( wp_kses_post( $error ) );
+
+		/**
+		 * Invalid token error message.
+		 * Since 1.2
+		 */
+		$error_message = apply_filters( 'magic_login_invalid_token_error_message', $error );
+		wp_die( wp_kses_post( $error_message ) );
 	}
 
 	/**
