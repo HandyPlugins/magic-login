@@ -1,10 +1,10 @@
 === Magic Login - Passwordless Authentication for WordPress ===
 Contributors:      handyplugins,m_uysl
-Tags:              login,one-time-login,passwordless-login,magic-login,magic-link
+Tags:              login, passwordless, passwordless-login, magic-login, magic-link
 Requires at least: 5.0
 Tested up to:      5.8
 Requires PHP:      5.6
-Stable tag:        1.1.3
+Stable tag:        1.2
 License:           GPLv2 or later
 License URI:       http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -17,7 +17,7 @@ Easy, secure, and passwordless authentication for WordPress.
 __Plugin Website__: [https://handyplugins.co/magic-login-pro/](https://handyplugins.co/magic-login-pro/)
 
 = How does it work? 🪄 =
-Magic login uses a technique called "magic links". The magic link is a unique link sent directly to your email inbox which allows to authenticate you once.
+Magic login uses a technique called "magic links". The magic link is a unique link sent directly to your email inbox which allows users to authenticate once.
 
 = PRO Features 🎩 =
 
@@ -69,15 +69,26 @@ Magic Login uses WordPress built-in mail functions. So, it depends on your confi
 
 = How can I use a passwordless login form on any page? =
 
-You can use `[magic_login_form]` shortcode.
+You can use `[magic_login_form]` shortcode or block. [Learn More.](https://handyplugins.co/magic-login-pro/docs/add-login-form-to-a-page/)
 
 
 == Screenshots ==
 
 1. Settings Page
 2. Login Email
+3. Login Block
 
 == Changelog ==
+
+
+= 1.2 =
+* New: Magic Login Block - It's much easier to add and customize the login form in the block editor.
+* Customizable token intervals added. (removed 1-60 minutes restriction)
+* New placeholder added: {{EXPIRES_WITH_INTERVAL}} to display TTL with the interval.
+* Updated Shared UI
+* Improved documentation on settings page.
+* New: Show an error message when the user doesn't exist.
+* New filter: Added `magic_login_invalid_token_error_message` to customize error message.
 
 = 1.1.3 =
 * Fix: Scheduled expired token cleanup

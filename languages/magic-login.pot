@@ -13,244 +13,252 @@ msgstr ""
 "X-Poedit-SourceCharset: UTF-8\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: ../includes/login.php:43
+#: ../includes/block.php:67
+msgid "Login with Email"
+msgstr ""
+
+#: ../includes/block.php:71, ../includes/login.php:46
 msgid "Please enter your username or email address. You will receive an email message to log in."
 msgstr ""
 
-#: ../includes/login.php:66
-msgid "Please check your inbox for login link. If you did not receive an login email, check your spam folder too."
-msgstr ""
-
-#: ../includes/login.php:84
-msgid "Log in"
-msgstr ""
-
-#: ../includes/login.php:125
-msgid "Log in to %s"
-msgstr ""
-
-#: ../includes/login.php:145, ../includes/shortcode.php:89
+#: ../includes/block.php:75, ../includes/login.php:169, ../includes/shortcode.php:89
 msgid "Username or Email Address"
 msgstr ""
 
-#: ../includes/login.php:159, ../includes/shortcode.php:101
+#: ../includes/block.php:79, ../includes/login.php:183, ../includes/shortcode.php:101
 msgid "Send me the link"
 msgstr ""
 
-#: ../includes/login.php:214
+#: ../includes/login.php:67
+msgid "There is no account with that username or email address."
+msgstr ""
+
+#: ../includes/login.php:79
+msgid "Please check your inbox for the login link. If you did not receive a login email, check your spam folder too."
+msgstr ""
+
+#: ../includes/login.php:98
+msgid "Log in"
+msgstr ""
+
+#: ../includes/login.php:149
+msgid "Log in to %s"
+msgstr ""
+
+#: ../includes/login.php:238
 msgid "Invalid magic login token. <a href=\"%s\">Try signing in instead</a>?"
 msgstr ""
 
-#: ../includes/login.php:212
+#: ../includes/login.php:236
 msgid "Invalid magic login token, but you are logged in as '%1$s'. <a href=\"%2$s\">Go to the dashboard instead</a>?"
 msgstr ""
 
-#: ../includes/settings.php:66, ../includes/settings.php:67, ../includes/settings.php:87
+#: ../includes/settings.php:69, ../includes/settings.php:70, ../includes/settings.php:90
 msgid "Magic Login"
 msgstr ""
 
-#: ../includes/settings.php:94
+#: ../includes/settings.php:97
 msgid "Documentation"
 msgstr ""
 
-#: ../includes/settings.php:108
+#: ../includes/settings.php:111
 msgid "Settings"
 msgstr ""
 
-#: ../includes/settings.php:117
+#: ../includes/settings.php:120
 msgid "Force Magic Login"
 msgstr ""
 
-#: ../includes/settings.php:118
+#: ../includes/settings.php:121
 msgid "Change default login behaviour and use magic login as default login method."
 msgstr ""
 
-#: ../includes/settings.php:132
+#: ../includes/settings.php:135
 msgid "Use magic login by default"
 msgstr ""
 
-#: ../includes/settings.php:151
+#: ../includes/settings.php:158, ../includes/settings.php:178
+msgid "Learn More."
+msgstr ""
+
+#: ../includes/settings.php:175
 msgid "Token Lifespan"
 msgstr ""
 
-#: ../includes/settings.php:152
-msgid "The TTL (time to live) of the login link. Expired tokens remove with WP Cron. Enter between 1-60."
+#: ../includes/settings.php:177
+msgid "The TTL (time to live) of the login link. WP-Cron removes expired tokens."
 msgstr ""
 
-#: ../includes/settings.php:169
-msgid "Minutes"
-msgstr ""
-
-#: ../includes/settings.php:179
+#: ../includes/settings.php:208
 msgid "Brute Force Protection"
 msgstr ""
 
-#: ../includes/settings.php:180, ../includes/settings.php:246, ../includes/settings.php:303, ../includes/settings.php:333, ../includes/settings.php:380, ../includes/settings.php:407
+#: ../includes/settings.php:209, ../includes/settings.php:275, ../includes/settings.php:332, ../includes/settings.php:362, ../includes/settings.php:409, ../includes/settings.php:436
 msgid "Pro"
 msgstr ""
 
-#: ../includes/settings.php:182
+#: ../includes/settings.php:211
 msgid "Enable additional security mechanisms to limit login requests."
 msgstr ""
 
-#: ../includes/settings.php:196
+#: ../includes/settings.php:225
 msgid "Enable brute force protection"
 msgstr ""
 
-#: ../includes/settings.php:203
+#: ../includes/settings.php:232
 msgid "Block the IP address for"
 msgstr ""
 
-#: ../includes/settings.php:213
+#: ../includes/settings.php:242
 msgid "minutes when it fails to login "
 msgstr ""
 
-#: ../includes/settings.php:223
+#: ../includes/settings.php:252
 msgid "times in"
 msgstr ""
 
-#: ../includes/settings.php:233
+#: ../includes/settings.php:262
 msgid "minutes."
 msgstr ""
 
-#: ../includes/settings.php:245
+#: ../includes/settings.php:274
 msgid "Login Request Throttling"
 msgstr ""
 
-#: ../includes/settings.php:248
+#: ../includes/settings.php:277
 msgid "Limit login URL generation for the given time span."
 msgstr ""
 
-#: ../includes/settings.php:302
+#: ../includes/settings.php:331
 msgid "IP Check"
 msgstr ""
 
-#: ../includes/settings.php:306
+#: ../includes/settings.php:335
 msgid "The user should log in from the same IP that makes a login request. (except for the login links generated via CLI)"
 msgstr ""
 
-#: ../includes/settings.php:332
+#: ../includes/settings.php:361
 msgid "Domain Restriction"
 msgstr ""
 
-#: ../includes/settings.php:335
+#: ../includes/settings.php:364
 msgid "Allow only listed domains to login via magic links."
 msgstr ""
 
-#: ../includes/settings.php:350
+#: ../includes/settings.php:379
 msgid "Enable domain restriction"
 msgstr ""
 
-#: ../includes/settings.php:365
+#: ../includes/settings.php:394
 msgid "Enter allowed domains line by line."
 msgstr ""
 
-#: ../includes/settings.php:379
+#: ../includes/settings.php:408
 msgid "Email Content"
 msgstr ""
 
-#: ../includes/settings.php:396
-msgid "Supported placeholders: {{SITEURL}}, {{USERNAME}}, {{SITENAME}}, {{EXPIRES}}, {{MAGIC_LINK}}"
+#: ../includes/settings.php:425
+msgid "Supported placeholders: {{SITEURL}}, {{USERNAME}}, {{SITENAME}}, {{EXPIRES}}, {{EXPIRES_WITH_INTERVAL}}, {{MAGIC_LINK}}"
 msgstr ""
 
-#: ../includes/settings.php:406
+#: ../includes/settings.php:435
 msgid "Login Redirect"
 msgstr ""
 
-#: ../includes/settings.php:409
+#: ../includes/settings.php:438
 msgid "Redirect users to custom URL after login."
 msgstr ""
 
-#: ../includes/settings.php:425
+#: ../includes/settings.php:454
 msgid "Enable custom login redirection"
 msgstr ""
 
-#: ../includes/settings.php:431
+#: ../includes/settings.php:460
 msgid "Target URL:"
 msgstr ""
 
-#: ../includes/settings.php:441
+#: ../includes/settings.php:470
 msgid "By default it redirects to admin dashboard"
 msgstr ""
 
-#: ../includes/settings.php:456
+#: ../includes/settings.php:485
 msgid "Apply redirection to normal WordPress login too."
 msgstr ""
 
-#: ../includes/settings.php:471
+#: ../includes/settings.php:500
 msgid "Enable role-based redirection."
 msgstr ""
 
-#: ../includes/settings.php:472
+#: ../includes/settings.php:501
 msgid "Leave it blank to use default redirection rule."
 msgstr ""
 
-#: ../includes/settings.php:483
+#: ../includes/settings.php:512
 msgid "Role"
 msgstr ""
 
-#: ../includes/settings.php:484
+#: ../includes/settings.php:513
 msgid "Target URL"
 msgstr ""
 
-#: ../includes/settings.php:522
+#: ../includes/settings.php:551
 msgid "Reset Tokens"
 msgstr ""
 
-#: ../includes/settings.php:523
+#: ../includes/settings.php:552
 msgid "If you want to clean all tokens at once click to reset button."
 msgstr ""
 
-#: ../includes/settings.php:527
+#: ../includes/settings.php:556
 msgid "Reset"
 msgstr ""
 
-#: ../includes/settings.php:536
+#: ../includes/settings.php:565
 msgid "Try Magic Login Pro Today"
 msgstr ""
 
-#: ../includes/settings.php:547
+#: ../includes/settings.php:576
 msgid "Update settings"
 msgstr ""
 
-#: ../includes/settings.php:562
+#: ../includes/settings.php:591
 msgid "Made with <i class=\"sui-icon-heart\"></i> by <a href=\"%s\" rel=\"noopener\" target=\"_blank\">HandyPlugins</a>"
 msgstr ""
 
-#: ../includes/settings.php:572
+#: ../includes/settings.php:601
 msgid "FAQ"
 msgstr ""
 
-#: ../includes/settings.php:573
+#: ../includes/settings.php:602
 msgid "Blog"
 msgstr ""
 
-#: ../includes/settings.php:574
+#: ../includes/settings.php:603
 msgid "Support"
 msgstr ""
 
-#: ../includes/settings.php:575
+#: ../includes/settings.php:604
 msgid "Docs"
 msgstr ""
 
-#: ../includes/settings.php:607
+#: ../includes/settings.php:636
 msgid "Tokens could not be removed."
 msgstr ""
 
-#: ../includes/settings.php:605
+#: ../includes/settings.php:634
 msgid "Tokens has been removed."
 msgstr ""
 
-#: ../includes/settings.php:623
+#: ../includes/settings.php:674
 msgid "Settings saved."
 msgstr ""
 
-#. translators: Do not translate USERNAME, SITENAME,EXPIRES, MAGIC_LINK, SITENAME, SITEURL: those are placeholders.
-#: ../includes/utils.php:128
+#. translators: Do not translate USERNAME, SITENAME,EXPIRES, MAGIC_LINK, SITENAME, SITEUR, EXPIRES_WITH_INTERVAL: those are placeholders.
+#: ../includes/utils.php:133
 msgid ""
 "Hi {{USERNAME}},\n"
 "\n"
-"Click and confirm that you want to log in to {{SITENAME}}. This link will expire in {{EXPIRES}} minutes and can only be used once:\n"
+"Click and confirm that you want to log in to {{SITENAME}}. This link will expire in {{EXPIRES_WITH_INTERVAL}} and can only be used once:\n"
 "\n"
 "<a href=\"{{MAGIC_LINK}}\" target=\"_blank\" rel=\"noreferrer noopener\">Log In</a>\n"
 "\n"
@@ -262,4 +270,16 @@ msgid ""
 "Regards,\n"
 "All at {{SITENAME}}\n"
 "{{SITEURL}}"
+msgstr ""
+
+#: ../includes/utils.php:263
+msgid "Minute(s)"
+msgstr ""
+
+#: ../includes/utils.php:264
+msgid "Hour(s)"
+msgstr ""
+
+#: ../includes/utils.php:265
+msgid "Day(s)"
 msgstr ""
