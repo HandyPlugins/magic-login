@@ -152,10 +152,10 @@ function settings_page() {
 													<?php
 													echo wp_kses_post(
 														sprintf(
-															__( 'In order to add a login form to any page, you can use shortcode <code>%1$s</code> or block. <a href="%2$s">%3$s</a>' ),
+															__( 'In order to add a login form to any page, you can use shortcode <code>%1$s</code> or block. <a href="%2$s" target="_blank" rel="noopener">%3$s</a>' ),
 															'[magic_login_form]',
 															get_doc_url( 'add-login-form-to-a-page' ),
-															__( 'Learn More', 'magic-login' )
+															__( 'Learn More.', 'magic-login' )
 														)
 													);
 													?>
