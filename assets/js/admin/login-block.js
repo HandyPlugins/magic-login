@@ -24,6 +24,7 @@ export default registerBlockType('magic-login/login-block', {
 	],
 	supports: {
 		align: true,
+		multiple: false,
 	},
 	attributes: {
 		title: {
