@@ -167,6 +167,30 @@ function settings_page() {
 							</div>
 						</div>
 
+						<!-- Add to login form  -->
+						<div class="sui-box-settings-row">
+							<div class="sui-box-settings-col-1">
+								<span class="sui-settings-label" for="force-magic-login"><?php esc_html_e( 'Show on Login Form', 'magic-login' ); ?></span>
+								<span class="sui-description"><?php esc_html_e( 'Adds magic login button to WordPress login form.', 'magic-login' ); ?></span>
+							</div>
+
+							<div class="sui-box-settings-col-2">
+								<div class="sui-form-field">
+									<label for="add_login_button" class="sui-toggle">
+										<input type="checkbox"
+										       value="1"
+										       name="add_login_button"
+										       id="add_login_button"
+										       aria-labelledby="add-to-login-form-label"
+											<?php checked( 1, $settings['add_login_button'] ); ?>
+										>
+										<span class="sui-toggle-slider" aria-hidden="true"></span>
+										<span id="add-to-login-form-label" class="sui-toggle-label"><?php esc_html_e( 'Add magic login button to standard login form', 'magic-login' ); ?></span>
+									</label>
+								</div>
+							</div>
+						</div>
+
 						<!-- TTL -->
 						<?php list( $token_ttl, $selected_interval ) = get_ttl_with_interval( $settings['token_ttl'] ); ?>
 						<?php $allowed_intervals = get_allowed_intervals(); ?>
@@ -639,9 +663,10 @@ function save_settings() {
 			return;
 		}
 
-		$settings               = [];
-		$settings['is_default'] = boolval( filter_input( INPUT_POST, 'is_default' ) );
-		$settings['token_ttl']  = absint( filter_input( INPUT_POST, 'token_ttl' ) );
+		$settings                     = [];
+		$settings['is_default']       = boolval( filter_input( INPUT_POST, 'is_default' ) );
+		$settings['add_login_button'] = boolval( filter_input( INPUT_POST, 'add_login_button' ) );
+		$settings['token_ttl']        = absint( filter_input( INPUT_POST, 'token_ttl' ) );
 
 		// convert TTL in minute
 		if ( $_POST['token_ttl'] > 0 && isset( $_POST['token_interval'] ) ) {

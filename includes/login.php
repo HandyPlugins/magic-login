@@ -32,6 +32,8 @@ function setup() {
 	add_action( 'login_form_login', $n( 'maybe_redirect' ) );
 	add_action( 'init', $n( 'handle_login_request' ) );
 	add_action( CRON_HOOK_NAME, $n( 'cleanup_expired_tokens' ) );
+	add_action( 'login_footer', $n( 'print_login_button' ) );
+	add_action( 'login_head', $n( 'login_css' ) );
 }
 
 
@@ -167,7 +169,7 @@ function login_form() {
 	<form name="magicloginform" id="magicloginform" action="<?php echo esc_url( site_url( 'wp-login.php?action=magic_login', 'login_post' ) ); ?>" method="post" autocomplete="off">
 		<p>
 			<label for="user_login"><?php esc_html_e( 'Username or Email Address', 'magic-login' ); ?></label>
-			<input type="text" name="log" id="user_login" class="input" value="" size="20" autocapitalize="off" />
+			<input type="text" name="log" id="user_login" class="input" value="" size="20" autocapitalize="off" required />
 		</p>
 		<?php
 
@@ -180,7 +182,7 @@ function login_form() {
 
 		?>
 		<p class="submit">
-			<input type="submit" name="wp-submit" id="wp-submit" style="float: none;width: 100%;" class="magic-login-submit button button-primary button-large" value="<?php esc_attr_e( 'Send me the link', 'magic-login' ); ?>" />
+			<input type="submit" name="wp-submit" id="wp-submit" style="float: none;width: 100%;" class="magic-login-submit button button-primary button-hero" value="<?php esc_attr_e( 'Send me the link', 'magic-login' ); ?>" />
 			<input type="hidden" name="testcookie" value="1" />
 		</p>
 	</form>
@@ -315,4 +317,59 @@ function cleanup_expired_tokens( $user_id ) {
 	}
 
 	update_user_meta( $user_id, TOKEN_USER_META, $live_tokens );
+}
+
+/**
+ * Add login button to wp-login.php
+ */
+function print_login_button() {
+	$settings = \MagicLogin\Utils\get_settings();
+
+	if ( ! $settings['add_login_button'] ) {
+		return;
+	}
+
+	$login_url = site_url( 'wp-login.php?action=magic_login', 'login_post' );
+	?>
+	<script type="text/javascript">
+		(function () {
+			document.getElementById('loginform').insertAdjacentHTML(
+				'beforeend',
+				'<div id="continue-with-magic-login" class="continue-with-magic-login">' +
+				'<a href="<?php echo esc_url( $login_url ); ?>" class="button button-primary button-hero">' +
+				'<?php esc_html_e( 'Send me the login link', 'magic-login' ); ?>' +
+				'</a>' +
+				'</div>'
+			);
+		})();
+	</script>
+	<?php
+
+}
+
+/**
+ * Add small tweaks to login form
+ */
+function login_css() {
+	$settings = \MagicLogin\Utils\get_settings();
+
+	if ( ! $settings['add_login_button'] ) {
+		return;
+	}
+
+	?>
+	<style>
+		.continue-with-magic-login {
+			width: 80%;
+			margin:auto;
+			display: block;
+			text-align: center;
+		}
+
+		.continue-with-magic-login .button {
+			margin-top: 10px;
+		}
+
+	</style>
+	<?php
 }

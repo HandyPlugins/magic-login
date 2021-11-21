@@ -92,6 +92,7 @@ function get_client_ip() {
 function get_settings() {
 	$defaults = [
 		'is_default'                    => false,
+		'add_login_button'              => true,
 		'token_ttl'                     => 5,
 		'token_interval'                => 'MINUTE',
 		'enable_brute_force_protection' => false,
