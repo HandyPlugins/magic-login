@@ -320,3 +320,23 @@ function get_doc_url( $path = null, $fragment = '' ) {
 
 	return $doc_url;
 }
+
+/**
+ * Check weather current screen is magic login settings page or not
+ *
+ * @return bool
+ * @since 1.2.1
+ */
+function is_magic_login_settings_screen() {
+	$current_screen = get_current_screen();
+
+	if ( ! is_a( $current_screen, '\WP_Screen' ) ) {
+		return false;
+	}
+
+	if ( false !== strpos( $current_screen->base, 'magic-login' ) ) {
+		return true;
+	}
+
+	return false;
+}

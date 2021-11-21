@@ -7,6 +7,7 @@
 
 namespace MagicLogin\Core;
 
+use function MagicLogin\Utils\is_magic_login_settings_screen;
 use \WP_Error as WP_Error;
 
 /**
@@ -93,13 +94,16 @@ function style_url( $stylesheet, $context ) {
 }
 
 
-
 /**
  * Enqueue scripts for admin.
  *
  * @return void
  */
 function admin_scripts() {
+	if ( ! is_magic_login_settings_screen() ) {
+		return;
+	}
+
 	wp_enqueue_script(
 		'magic_login_admin',
 		script_url( 'admin', 'admin' ),
@@ -115,6 +119,11 @@ function admin_scripts() {
  * @return void
  */
 function admin_styles() {
+
+	if ( ! is_magic_login_settings_screen() ) {
+		return;
+	}
+
 	wp_enqueue_style(
 		'magic_login_admin',
 		style_url( 'admin-style', 'admin' ),
