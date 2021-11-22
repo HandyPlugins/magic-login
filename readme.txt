@@ -4,7 +4,7 @@ Tags:              login, passwordless, passwordless-login, magic-login, magic-l
 Requires at least: 5.0
 Tested up to:      5.8
 Requires PHP:      5.6
-Stable tag:        1.2
+Stable tag:        1.2.1
 License:           GPLv2 or later
 License URI:       http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -80,6 +80,11 @@ You can use `[magic_login_form]` shortcode or block. [Learn More.](https://handy
 
 == Changelog ==
 
+= 1.2.1 =
+* New: Integrate with the standard login form.
+* Fix: Enqueue admin assets on the settings page only.
+* Allow login block only once for a post.
+* Small tweaks and improvements.
 
 = 1.2 =
 * New: Magic Login Block - It's much easier to add and customize the login form in the block editor.
