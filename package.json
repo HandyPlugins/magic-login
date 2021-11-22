@@ -1,6 +1,6 @@
 {
   "name": "magic-login",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "WordPress plugin for passwordless login",
   "author": {
     "name": "handyplugins",
@@ -18,7 +18,7 @@
     "lint-style": "10up-toolkit lint-style",
     "test": "10up-toolkit test-unit-jest",
     "make-pot": "wp-pot --src 'includes/*.php' 'plugin.php' 'assets' --dest-file 'languages/magic-login.pot' --domain 'magic-login'",
-    "build-release": "npm install && composer install --no-dev -o && npm run build && npm run make-pot",
+    "build-release": "npm install --production=false && composer install --no-dev -o && npm run build && npm run make-pot",
     "lint-release": "npm install && composer install && npm run lint"
   },
   "devDependencies": {
