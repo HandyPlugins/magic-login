@@ -61,7 +61,7 @@ Yes! In fact, we thought this is more secure than the regular login due to most 
 
 = When does login links expire? =
 
-It expires in 5 minutes by default. You can change it to anywhere between 1-60 minutes under the "Token Lifespan" on settings page.
+It expires in 5 minutes by default. You can change TTL under the "Token Lifespan" on the settings page. Enter "0" to disable automatic expiration.
 
 = Why am I not getting login links? =
 
