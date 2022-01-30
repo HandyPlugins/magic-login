@@ -228,7 +228,15 @@ function maybe_redirect() {
 function handle_login_request() {
 	global $pagenow;
 
-	if ( 'wp-login.php' !== $pagenow || empty( $_GET['user_id'] ) || empty( $_GET['token'] ) ) { // phpcs:ignore WordPress.Security.NonceVerification.Recommended
+	/**
+	 * Since 1.2.2 $pagenow control has been deprecated
+	 * in favor compatibility with 3rd party plugins
+	 */
+	if ( 'wp-login.php' !== $pagenow && empty( $_GET['magic-login'] ) ) { // phpcs:ignore WordPress.Security.NonceVerification.Recommended
+		return;
+	}
+
+	if ( empty( $_GET['user_id'] ) || empty( $_GET['token'] ) ) { // phpcs:ignore WordPress.Security.NonceVerification.Recommended
 		return;
 	}
 

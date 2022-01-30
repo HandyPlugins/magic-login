@@ -56,8 +56,9 @@ function create_login_link( $user ) {
 	$token = create_user_token( $user );
 
 	$query_args = array(
-		'user_id' => $user->ID,
-		'token'   => $token,
+		'user_id'     => $user->ID,
+		'token'       => $token,
+		'magic-login' => 1,
 	);
 
 	if ( ! empty( $_POST['redirect_to'] ) ) {
