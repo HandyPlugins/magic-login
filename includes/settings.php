@@ -650,6 +650,11 @@ function settings_page() {
  * Save settings
  */
 function save_settings() {
+
+	if ( ! is_user_logged_in() ) {
+		return;
+	}
+
 	$nonce = filter_input( INPUT_POST, 'magic_login_settings', FILTER_SANITIZE_STRING );
 	if ( wp_verify_nonce( $nonce, 'magic_login_settings' ) ) {
 
