@@ -4,7 +4,7 @@ Tags:              login, passwordless, passwordless-login, magic-login, magic-l
 Requires at least: 5.0
 Tested up to:      5.8
 Requires PHP:      5.6
-Stable tag:        1.2.1
+Stable tag:        1.2.2
 License:           GPLv2 or later
 License URI:       http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -79,6 +79,14 @@ You can use `[magic_login_form]` shortcode or block. [Learn More.](https://handy
 3. Login Block
 
 == Changelog ==
+
+= 1.2.2 =
+* Tested with WP 5.9
+* Update Shared UI
+* Fix compatibility issue with TML plugin
+* Add redirection cancellation option to the login block.
+* Check `logged-in` while saving the settings
+* Small tweaks and improvements.
 
 = 1.2.1 =
 * New: Integrate with the standard login form.
