@@ -57,6 +57,10 @@ export default registerBlockType('magic-login/login-block', {
 			type: 'boolean',
 			default: true,
 		},
+		cancelRedirection: {
+			type: 'boolean',
+			default: false,
+		},
 	},
 	edit: (props) => {
 		const {
@@ -68,6 +72,7 @@ export default registerBlockType('magic-login/login-block', {
 				redirectTo,
 				hideLoggedIn,
 				hideFormAfterSubmit,
+				cancelRedirection,
 			},
 			className,
 			setAttributes,
@@ -110,12 +115,15 @@ export default registerBlockType('magic-login/login-block', {
 								value={buttonLabel}
 								onChange={(value) => setAttributes({ buttonLabel: value })}
 							/>
-							<TextControl
-								label={__('Redirect URL', 'magic-login')}
-								help={__('Leave it empty to use this page', 'magic-login')}
-								value={redirectTo}
-								onChange={(value) => setAttributes({ redirectTo: value })}
-							/>
+							{!cancelRedirection && (
+								<TextControl
+									label={__('Redirect URL', 'magic-login')}
+									help={__('Leave it empty to use this page', 'magic-login')}
+									value={redirectTo}
+									onChange={(value) => setAttributes({ redirectTo: value })}
+								/>
+							)}
+
 							<CheckboxControl
 								label={__('Hide the block when user is logged-in', 'magic-login')}
 								checked={hideLoggedIn}
@@ -132,6 +140,17 @@ export default registerBlockType('magic-login/login-block', {
 								checked={hideFormAfterSubmit}
 								onChange={() => {
 									setAttributes({ hideFormAfterSubmit: !hideFormAfterSubmit });
+								}}
+							/>
+							<CheckboxControl
+								label={__('Cancel redirection', 'magic-login')}
+								help={__(
+									'Cancel custom redirection for this login form',
+									'magic-login',
+								)}
+								checked={cancelRedirection}
+								onChange={() => {
+									setAttributes({ cancelRedirection: !cancelRedirection });
 								}}
 							/>
 						</PanelBody>

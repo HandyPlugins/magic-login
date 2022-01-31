@@ -89,6 +89,10 @@ function register_blocks() {
 					'type'    => 'boolean',
 					'default' => true,
 				],
+				'cancelRedirection'   => [
+					'type'    => 'boolean',
+					'default' => false,
+				],
 			],
 			'editor_script'   => 'magic-login-block-editor',
 			'editor_style'    => 'magic-login-login-block',
@@ -112,28 +116,25 @@ function render_login_block( $args ) {
 	$form_action = apply_filters( 'magic_login_login_block_form_action', '' );
 
 	$class = 'magic-login-login-block';
-	if ( ! empty( $atts['align'] ) ) {
-		$class .= ' align' . $atts['align'];
+	if ( ! empty( $args['align'] ) ) {
+		$class .= ' align' . $args['align'];
 	}
 
 	if ( ! empty( $args['className'] ) ) {
 		$class .= ' ' . esc_attr( $args['className'] );
 	}
 
-	$atts = wp_parse_args(
-		$args,
-		[
-			'redirectTo' => ( is_ssl() ? 'https://' : 'http://' ) . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'],
-		]
-	);
+	if ( empty( $args['redirectTo'] ) ) {
+		$args['redirectTo'] = ( is_ssl() ? 'https://' : 'http://' ) . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];
+	}
 
-	if ( ! defined( 'REST_REQUEST' ) && ! is_admin() && is_user_logged_in() && $atts['hideLoggedIn'] ) { // already logged-in dont show
+	if ( ! defined( 'REST_REQUEST' ) && ! is_admin() && is_user_logged_in() && $args['hideLoggedIn'] ) { // already logged-in dont show
 		return;
 	}
 
 	ob_start();
 	$login_request = process_login_request();
-	if ( false === $login_request['show_form'] && ! $atts['hideFormAfterSubmit'] ) {
+	if ( false === $login_request['show_form'] && ! $args['hideFormAfterSubmit'] ) {
 		$login_request['show_form'] = true;
 	}
 
@@ -153,8 +154,8 @@ function render_login_block( $args ) {
 	?>
 
 	<div id="magic-login-login-block" class="<?php echo esc_attr( $class ); ?>">
-		<?php if ( ! empty( $atts['title'] ) ) : ?>
-			<h2 id="magic-login-block-title"><?php echo esc_html( $atts['title'] ); ?></h2>
+		<?php if ( ! empty( $args['title'] ) ) : ?>
+			<h2 id="magic-login-block-title"><?php echo esc_html( $args['title'] ); ?></h2>
 		<?php endif; ?>
 
 		<?php
@@ -167,25 +168,25 @@ function render_login_block( $args ) {
 			<?php echo wp_kses_post( $login_request['info'] ); ?>
 		<?php endif; ?>
 
-		<?php if ( ! empty( $atts['description'] ) && $login_request['show_form'] ) : ?>
-			<p class="magic-login-block-description"><?php echo esc_html( $atts['description'] ); ?></p>
+		<?php if ( ! empty( $args['description'] ) && $login_request['show_form'] ) : ?>
+			<p class="magic-login-block-description"><?php echo esc_html( $args['description'] ); ?></p>
 		<?php endif; ?>
 
 		<?php if ( $login_request['show_form'] ) : ?>
 			<form name="magicloginform" class="block-login-form" id="magicloginform" action="<?php echo esc_attr( $form_action ); ?>" method="post" autocomplete="off">
 				<div class="magicloginform-inner">
-					<?php if ( ! empty( $atts['loginLabel'] ) ) : ?>
-						<label for="user_login"><?php echo esc_html( $atts['loginLabel'] ); ?></label>
+					<?php if ( ! empty( $args['loginLabel'] ) ) : ?>
+						<label for="user_login"><?php echo esc_html( $args['loginLabel'] ); ?></label>
 					<?php endif; ?>
 
 					<input type="text" name="log" id="user_login" class="input" value="" size="20" autocapitalize="off" required />
 					<?php do_action( 'magic_login_form' ); ?>
-					<?php if ( ! empty( $atts['buttonLabel'] ) ) : ?>
-						<input type="submit" name="wp-submit" id="wp-submit" class="magic-login-submit button button-primary button-large" value="<?php echo esc_attr( $atts['buttonLabel'] ); ?>" />
+					<?php if ( ! empty( $args['buttonLabel'] ) ) : ?>
+						<input type="submit" name="wp-submit" id="wp-submit" class="magic-login-submit button button-primary button-large" value="<?php echo esc_attr( $args['buttonLabel'] ); ?>" />
 					<?php endif; ?>
 
-					<?php if ( ! empty( $atts['redirectTo'] ) ) : ?>
-						<input type="hidden" name="redirect_to" value="<?php echo esc_url( $atts['redirectTo'] ); ?>" />
+					<?php if ( ! empty( $args['redirectTo'] ) && ! $args['cancelRedirection'] ) : ?>
+						<input type="hidden" name="redirect_to" value="<?php echo esc_url( $args['redirectTo'] ); ?>" />
 					<?php endif; ?>
 					<input type="hidden" name="testcookie" value="1" />
 				</div>
