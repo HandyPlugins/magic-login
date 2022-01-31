@@ -21,12 +21,12 @@ Magic login uses a technique called "magic links". The magic link is a unique li
 
 = PRO Features 🎩 =
 
-Here are the premium features comes with Magic Login Pro:
+Here are the premium features that come with Magic Login Pro:
 
 - __CLI Command:__ Use WP-CLI to create login links.
 - __Brute Force Protection:__ Limit rate of login attempts and block IP temporarily.
-- __Login request throttling:__ Limit login link generation for certain time of period.
-- __IP Check:__ Enhance the security by restricting users to login from the same IP address that requested the link.
+- __Login request throttling:__ Limit login link generation for a certain time of period.
+- __IP Check:__ Enhance the security by restricting users to log in from the same IP address that requested the link.
 - __Domain Restriction:__ Allow only certain domains to use the magic link.
 - __Login Email Customization:__ Customize login message by using email placeholders.
 - __Login Redirect:__ Redirect users to a specific page right after login. You can also redirect different pages based on the user role.
@@ -53,19 +53,19 @@ Our documentation can be found on [https://handyplugins.co/magic-login-pro/docs/
 
 = What is passwordless authentication? =
 
-Passwordless authentication is an authentication method in which a user can log in to a computer system without the entering (and remembering) a password.
+Passwordless authentication is an authentication method in which a user can log in to a computer system without entering (and remembering) a password.
 
 = Is the magic links are secure? =
 
 Yes! In fact, we thought this is more secure than the regular login due to most of the users are using weak passwords. Since magic login generates a random token for a limited time frame it makes the links quite strong and secure. Also, tokens can be used only once.
 
-= When does login links expire? =
+= When do login links expire? =
 
 It expires in 5 minutes by default. You can change TTL under the "Token Lifespan" on the settings page. Enter "0" to disable automatic expiration.
 
 = Why am I not getting login links? =
 
-Magic Login uses WordPress built-in mail functions. So, it depends on your configuration. We highly recommend to use a SMTP services for better email delivery.
+Magic Login uses WordPress built-in mail functions. So, it depends on your configuration. We highly recommend to use an SMTP service for better email delivery.
 
 = How can I use a passwordless login form on any page? =
 
