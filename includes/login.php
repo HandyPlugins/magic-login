@@ -144,16 +144,21 @@ function send_login_link( $user ) {
 		'{{MAGIC_LINK}}'            => $login_link,
 	];
 
-	// convert line breaks to br
-	$login_email = nl2br( $login_email );
-
 	$login_email   = str_replace( array_keys( $placeholder_values ), $placeholder_values, $login_email );
-	$email_subject = sprintf( esc_html__( 'Log in to %s', 'magic-login' ), $site_name ); // phpcs:ignore WordPress.WP.I18n.MissingTranslatorsComment
+	$email_subject = sprintf( __( 'Log in to %s', 'magic-login' ), $site_name ); // phpcs:ignore WordPress.WP.I18n.MissingTranslatorsComment
 
 	$login_email   = apply_filters( 'magic_login_email_content', $login_email, $placeholder_values );
 	$email_subject = apply_filters( 'magic_login_email_subject', $email_subject );
 
-	$headers = array( 'Content-Type: text/html; charset=UTF-8' );
+	$headers = apply_filters( 'magic_login_email_headers', array( 'Content-Type: text/html; charset=UTF-8' ) );
+
+	foreach ( (array) $headers as $header ) {
+		if ( false !== stripos( $header, 'text/html' ) ) {
+			// convert line breaks to br
+			$login_email = nl2br( $login_email );
+			break;
+		}
+	}
 
 	do_action( 'magic_login_send_login_link', $user );
 
