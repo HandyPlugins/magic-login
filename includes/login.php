@@ -300,6 +300,14 @@ function handle_login_request() {
 	 */
 	do_action( 'magic_login_logged_in', $user );
 
+	/**
+	 * Some plugins integrated with core's wp_login hook.
+	 * So fire it here too.
+	 *
+	 * @since 1.3
+	 */
+	do_action( 'wp_login', $user->user_login, $user );
+
 	$default_redirect = get_user_default_redirect( $user );
 	$login_redirect   = apply_filters( 'magic_login_redirect', $default_redirect, $user );
 	wp_safe_redirect( $login_redirect );
