@@ -4,7 +4,7 @@ Tags:              login, passwordless, passwordless-login, magic-login, magic-l
 Requires at least: 5.0
 Tested up to:      6.0
 Requires PHP:      5.6
-Stable tag:        1.3
+Stable tag:        1.5
 License:           GPLv2 or later
 License URI:       http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -80,6 +80,12 @@ You can use `[magic_login_form]` shortcode or block. [Learn More.](https://handy
 
 == Changelog ==
 
+= 1.5 (September 12, 2022) =
+* Fixed: save tokens hashed in DB. Props [@snicco](https://github.com/snicco/snicco)
+* Added: username-only mode. define `MAGIC_LOGIN_USERNAME_ONLY` in the config file to use it.
+* Email improvements: Check email contents before converting line breaks to `<br/>` tags.
+* Small tweaks and improvements.
+
 = 1.3 (April 19, 2022) =
 * Tested with WP 6.0
 * UI updates.
@@ -142,6 +148,9 @@ You can use `[magic_login_form]` shortcode or block. [Learn More.](https://handy
 * First release
 
 == Upgrade Notice ==
+
+= 1.5 =
+ - The tokens will be hashed before saving in meta with this version. Due to this change, existing tokens will not work right after the update.
 
 = 1.0 =
 First Release

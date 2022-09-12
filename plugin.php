@@ -3,7 +3,7 @@
  * Plugin Name:       Magic Login - Passwordless Authentication for WordPress
  * Plugin URI:        https://handyplugins.co/magic-login-pro/
  * Description:       Passwordless login for WordPress.
- * Version:           1.3
+ * Version:           1.5
  * Requires at least: 5.0
  * Requires PHP:      5.6
  * Author:            HandyPlugins
