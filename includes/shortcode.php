@@ -86,7 +86,11 @@ function shortcode_login_form( $shortcode_atts ) {
 		<?php if ( $login_request['show_form'] ) : ?>
 			<form name="magicloginform" class="magic-login-inline-login-form" id="magicloginform" action="<?php echo esc_attr( $form_action ); ?>" method="post" autocomplete="off">
 				<p>
-					<label for="user_login"><?php esc_html_e( 'Username or Email Address', 'magic-login' ); ?></label>
+					<?php if ( defined( 'MAGIC_LOGIN_USERNAME_ONLY' ) && MAGIC_LOGIN_USERNAME_ONLY ) : ?>
+						<label for="user_login"><?php esc_html_e( 'Username', 'magic-login' ); ?></label>
+					<?php else : ?>
+						<label for="user_login"><?php esc_html_e( 'Username or Email Address', 'magic-login' ); ?></label>
+					<?php endif; ?>
 					<input type="text" name="log" id="user_login" class="input" value="" size="20" autocapitalize="off" required />
 					<?php
 

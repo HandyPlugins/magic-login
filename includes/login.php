@@ -53,8 +53,10 @@ function process_login_request() {
 		$user_name = sanitize_user( wp_unslash( $_POST['log'] ) );
 		$user      = get_user_by( 'login', $user_name );
 
-		if ( ! $user && strpos( $user_name, '@' ) ) {
-			$user = get_user_by( 'email', $user_name );
+		if ( ! defined( 'MAGIC_LOGIN_USERNAME_ONLY' ) || false === MAGIC_LOGIN_USERNAME_ONLY ) {
+			if ( ! $user && strpos( $user_name, '@' ) ) {
+				$user = get_user_by( 'email', $user_name );
+			}
 		}
 
 		$is_processed = true;
@@ -65,8 +67,12 @@ function process_login_request() {
 		$send_link = apply_filters( 'magic_login_pre_send_login_link', null, $user );
 
 		if ( ! is_a( $user, '\WP_User' ) ) {
-			$info      = '';
-			$errors    = new WP_Error( 'missing_user', esc_html__( 'There is no account with that username or email address.', 'magic-login' ) );
+			$info = '';
+			if ( defined( 'MAGIC_LOGIN_USERNAME_ONLY' ) && MAGIC_LOGIN_USERNAME_ONLY ) {
+				$errors = new WP_Error( 'missing_user', esc_html__( 'There is no account with that username.', 'magic-login' ) );
+			} else {
+				$errors = new WP_Error( 'missing_user', esc_html__( 'There is no account with that username or email address.', 'magic-login' ) );
+			}
 			$show_form = true;
 		} elseif ( null !== $send_link ) {
 			$info      = '';
@@ -177,7 +183,11 @@ function login_form() {
 	?>
 	<form name="magicloginform" id="magicloginform" action="<?php echo esc_url( site_url( 'wp-login.php?action=magic_login', 'login_post' ) ); ?>" method="post" autocomplete="off">
 		<p>
-			<label for="user_login"><?php esc_html_e( 'Username or Email Address', 'magic-login' ); ?></label>
+			<?php if ( defined( 'MAGIC_LOGIN_USERNAME_ONLY' ) && MAGIC_LOGIN_USERNAME_ONLY ) : ?>
+				<label for="user_login"><?php esc_html_e( 'Username', 'magic-login' ); ?></label>
+			<?php else : ?>
+				<label for="user_login"><?php esc_html_e( 'Username or Email Address', 'magic-login' ); ?></label>
+			<?php endif; ?>
 			<input type="text" name="log" id="user_login" class="input" value="" size="20" autocapitalize="off" required />
 		</p>
 		<?php
