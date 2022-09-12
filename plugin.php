@@ -25,6 +25,9 @@ define( 'MAGIC_LOGIN_URL', plugin_dir_url( __FILE__ ) );
 define( 'MAGIC_LOGIN_PATH', plugin_dir_path( __FILE__ ) );
 define( 'MAGIC_LOGIN_INC', MAGIC_LOGIN_PATH . 'includes/' );
 
+if ( ! defined( 'MAGIC_LOGIN_USERNAME_ONLY' ) ) {
+	define( 'MAGIC_LOGIN_USERNAME_ONLY', false );
+}
 
 // deactivate pro
 if ( defined( 'MAGIC_LOGIN_PRO_PLUGIN_FILE' ) ) {
