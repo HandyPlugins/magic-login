@@ -264,7 +264,7 @@ function handle_login_request() {
 	$is_valid      = false;
 	$current_token = null;
 	foreach ( $tokens as $i => $token_data ) {
-		if ( hash_equals( $token_data['token'], $_GET['token'] ) ) { // phpcs:ignore WordPress.Security.NonceVerification.Recommended
+		if ( hash_equals( $token_data['token'], hash_hmac( 'sha256', $_GET['token'], wp_salt() ) ) ) { // phpcs:ignore WordPress.Security.NonceVerification.Recommended
 			$is_valid      = true;
 			$current_token = $token_data;
 			unset( $tokens[ $i ] );

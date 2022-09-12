@@ -19,10 +19,11 @@ use const MagicLogin\Constants\TOKEN_USER_META;
  * @return string
  */
 function create_user_token( $user ) {
-	$settings  = get_settings(); // phpcs:ignore
-	$tokens    = get_user_meta( $user->ID, TOKEN_USER_META, true );
-	$tokens    = is_string( $tokens ) ? array( $tokens ) : $tokens;
-	$new_token = sha1( wp_generate_password() );
+	$settings     = get_settings(); // phpcs:ignore
+	$tokens       = get_user_meta( $user->ID, TOKEN_USER_META, true );
+	$tokens       = is_string( $tokens ) ? array( $tokens ) : $tokens;
+	$new_token    = sha1( wp_generate_password() );
+	$hashed_token = hash_hmac( 'sha256', $new_token, wp_salt() );
 
 	$ip = sha1( get_client_ip() );
 	if ( defined( 'WP_CLI' ) && WP_CLI ) {
@@ -30,7 +31,7 @@ function create_user_token( $user ) {
 	}
 
 	$tokens[] = [
-		'token'   => $new_token,
+		'token'   => $hashed_token,
 		'time'    => time(),
 		'ip_hash' => $ip,
 	];
