@@ -59,9 +59,13 @@ if ( ! defined( 'MAGIC_LOGIN_IS_NETWORK' ) ) {
 	define( 'MAGIC_LOGIN_IS_NETWORK', $network_activated );
 }
 
-// Bootstrap.
-Core\setup();
-Login\setup();
-Settings\setup();
-Shortcode\setup();
-Block\setup();
+function setup_magic_login() {
+	// Bootstrap.
+	Core\setup();
+	Login\setup();
+	Settings\setup();
+	Shortcode\setup();
+	Block\setup();
+}
+
+add_action( 'plugins_loaded', __NAMESPACE__ . '\\setup_magic_login' );
