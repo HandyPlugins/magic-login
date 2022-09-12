@@ -163,7 +163,7 @@ function send_login_link( $user ) {
 		if ( false !== stripos( $header, 'text/html' ) ) {
 			// convert line breaks to br when content type is html but
 			// input doesn't contain HTML tags (adding <br/> can ruin the templating)
-			if ( $login_email === strip_tags( $login_email, '<a>' ) ) {
+			if ( strip_tags( $login_email, '<a>' ) === $login_email ) {
 				$login_email = nl2br( $login_email );
 			}
 			break;
