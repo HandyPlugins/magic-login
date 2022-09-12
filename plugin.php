@@ -59,6 +59,12 @@ if ( ! defined( 'MAGIC_LOGIN_IS_NETWORK' ) ) {
 	define( 'MAGIC_LOGIN_IS_NETWORK', $network_activated );
 }
 
+/**
+ * Setup routine
+ *
+ * @return void
+ * @since 1.5 bootstrapping with plugins_loaded hook
+ */
 function setup_magic_login() {
 	// Bootstrap.
 	Core\setup();
