@@ -78,13 +78,19 @@ function create_login_link( $user ) {
  * @return mixed
  */
 function get_client_ip() {
-	if ( ! empty( $_SERVER['HTTP_X_FORWARDED_FOR'] ) ) {
-		return $_SERVER['HTTP_X_FORWARDED_FOR'];
-	}
-
-	return $_SERVER['REMOTE_ADDR'];
+	/**
+	 * `HTTP_X_FORWARDED_FOR` removed in 1.5
+	 * Filters the ip address
+	 *
+	 * @hook   magic_login_client_ip
+	 *
+	 * @param  {string} REMOTE_ADDR
+	 *
+	 * @return {string} New value.
+	 * @since  1.5
+	 */
+	return apply_filters( 'magic_login_client_ip', $_SERVER['REMOTE_ADDR'] );
 }
-
 /**
  * Get settings with defaults
  *
