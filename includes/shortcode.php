@@ -117,7 +117,7 @@ function shortcode_login_form( $shortcode_atts ) {
  * @return mixed
  */
 function maybe_shortcode_redirect( $redirect_url, $user ) {
-	if ( $_GET['redirect_to'] ) { // phpcs:ignore WordPress.Security.NonceVerification.Recommended
+	if ( isset( $_GET['redirect_to'] ) ) { // phpcs:ignore WordPress.Security.NonceVerification.Recommended
 		$redirect_url = esc_url_raw( $_GET['redirect_to'] ); // phpcs:ignore WordPress.Security.NonceVerification.Recommended
 	}
 
