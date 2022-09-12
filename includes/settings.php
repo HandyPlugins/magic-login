@@ -423,7 +423,30 @@ function settings_page() {
 							</div>
 						</div>
 
-						<!-- E-mail -->
+						<!-- E-mail Subject -->
+						<div class="sui-box-settings-row sui-disabled">
+							<div class="sui-box-settings-col-1">
+								<span class="sui-settings-label" id="email_subject_label">
+									<?php esc_html_e( 'Email Subject', 'magic-login' ); ?>
+									<span class="sui-tag sui-tag-pro"><?php esc_html_e( 'Pro', 'magic-login' ); ?></span>
+								</span>
+							</div>
+
+							<div class="sui-box-settings-col-2">
+								<div class="sui-form-field">
+									<input
+											name="email_subject"
+											id="email_subject"
+											class="sui-form-control"
+											aria-labelledby="email_subject_label"
+											type="text"
+											value="<?php echo esc_attr( $settings['email_subject'] ); ?>"
+									/>
+								</div>
+							</div>
+						</div>
+
+						<!-- E-mail Content -->
 						<div class="sui-box-settings-row sui-disabled">
 							<div class="sui-box-settings-col-2">
 								<div class="sui-form-field">

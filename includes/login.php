@@ -122,9 +122,10 @@ function send_login_link( $user ) {
 		$site_name = wp_specialchars_decode( get_option( 'blogname' ), ENT_QUOTES );
 	}
 
-	$settings    = \MagicLogin\Utils\get_settings();
-	$login_link  = create_login_link( $user );
-	$login_email = $settings['login_email'];
+	$settings      = \MagicLogin\Utils\get_settings();
+	$login_link    = create_login_link( $user );
+	$login_email   = $settings['login_email'];
+	$email_subject = $settings['email_subject'];
 
 	list( $token_ttl, $selected_interval ) = get_ttl_with_interval( $settings['token_ttl'] );
 	$selected_interval_str                 = strtolower( $selected_interval );
@@ -145,10 +146,10 @@ function send_login_link( $user ) {
 	];
 
 	$login_email   = str_replace( array_keys( $placeholder_values ), $placeholder_values, $login_email );
-	$email_subject = sprintf( __( 'Log in to %s', 'magic-login' ), $site_name ); // phpcs:ignore WordPress.WP.I18n.MissingTranslatorsComment
+	$email_subject = str_replace( array_keys( $placeholder_values ), $placeholder_values, $email_subject );
 
 	$login_email   = apply_filters( 'magic_login_email_content', $login_email, $placeholder_values );
-	$email_subject = apply_filters( 'magic_login_email_subject', $email_subject );
+	$email_subject = apply_filters( 'magic_login_email_subject', $email_subject, $placeholder_values );
 
 	$headers = apply_filters( 'magic_login_email_headers', array( 'Content-Type: text/html; charset=UTF-8' ) );
 

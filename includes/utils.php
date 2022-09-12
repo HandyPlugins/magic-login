@@ -119,6 +119,7 @@ function get_settings() {
 		'enable_wp_login_redirection'   => false,
 		'enable_role_based_redirection' => false,
 		'role_based_redirection_rules'  => [],
+		'email_subject'                 => __( 'Log in to {{SITENAME}}', 'magic-login' ),
 	];
 
 	if ( MAGIC_LOGIN_IS_NETWORK ) {
