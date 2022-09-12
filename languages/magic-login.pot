@@ -6,6 +6,8 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2022-09-12 10:14+0000\n"
+"Project-Id-Version: undefined\n"
 "X-Poedit-Basepath: ..\n"
 "X-Poedit-KeywordsList: __;_e;_ex:1,2c;_n:1,2;_n_noop:1,2;_nx:1,2,4c;_nx_noop:1,2,3c;_x:1,2c;esc_attr__;esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c\n"
 "X-Poedit-SearchPath-0: .\n"
@@ -21,39 +23,43 @@ msgstr ""
 msgid "Please enter your username or email address. You will receive an email message to log in."
 msgstr ""
 
-#: ../includes/block.php:75, ../includes/login.php:176, ../includes/shortcode.php:89
+#: ../includes/block.php:75, ../includes/login.php:189, ../includes/shortcode.php:92
 msgid "Username or Email Address"
 msgstr ""
 
-#: ../includes/block.php:79, ../includes/login.php:190, ../includes/shortcode.php:101
+#: ../includes/block.php:79, ../includes/login.php:204, ../includes/shortcode.php:105
 msgid "Send me the link"
 msgstr ""
 
-#: ../includes/login.php:69
+#: ../includes/login.php:74
 msgid "There is no account with that username or email address."
 msgstr ""
 
-#: ../includes/login.php:81
+#: ../includes/login.php:72
+msgid "There is no account with that username."
+msgstr ""
+
+#: ../includes/login.php:87
 msgid "Please check your inbox for the login link. If you did not receive a login email, check your spam folder too."
 msgstr ""
 
-#: ../includes/login.php:100
+#: ../includes/login.php:106
 msgid "Log in"
 msgstr ""
 
-#: ../includes/login.php:148
-msgid "Log in to %s"
+#: ../includes/login.php:187, ../includes/shortcode.php:90
+msgid "Username"
 msgstr ""
 
-#: ../includes/login.php:253
+#: ../includes/login.php:267
 msgid "Invalid magic login token. <a href=\"%s\">Try signing in instead</a>?"
 msgstr ""
 
-#: ../includes/login.php:251
+#: ../includes/login.php:265
 msgid "Invalid magic login token, but you are logged in as '%1$s'. <a href=\"%2$s\">Go to the dashboard instead</a>?"
 msgstr ""
 
-#: ../includes/login.php:361
+#: ../includes/login.php:375
 msgid "Send me the login link"
 msgstr ""
 
@@ -109,7 +115,7 @@ msgstr ""
 msgid "Brute Force Protection"
 msgstr ""
 
-#: ../includes/settings.php:233, ../includes/settings.php:299, ../includes/settings.php:356, ../includes/settings.php:386, ../includes/settings.php:433, ../includes/settings.php:460
+#: ../includes/settings.php:233, ../includes/settings.php:299, ../includes/settings.php:356, ../includes/settings.php:386, ../includes/settings.php:431, ../includes/settings.php:456, ../includes/settings.php:483
 msgid "Pro"
 msgstr ""
 
@@ -169,108 +175,116 @@ msgstr ""
 msgid "Enter allowed domains line by line."
 msgstr ""
 
-#: ../includes/settings.php:432
+#: ../includes/settings.php:430
+msgid "Email Subject"
+msgstr ""
+
+#: ../includes/settings.php:455
 msgid "Email Content"
 msgstr ""
 
-#: ../includes/settings.php:449
+#: ../includes/settings.php:472
 msgid "Supported placeholders: {{SITEURL}}, {{USERNAME}}, {{SITENAME}}, {{EXPIRES}}, {{EXPIRES_WITH_INTERVAL}}, {{MAGIC_LINK}}"
 msgstr ""
 
-#: ../includes/settings.php:459
+#: ../includes/settings.php:482
 msgid "Login Redirect"
 msgstr ""
 
-#: ../includes/settings.php:462
+#: ../includes/settings.php:485
 msgid "Redirect users to custom URL after login."
 msgstr ""
 
-#: ../includes/settings.php:478
+#: ../includes/settings.php:501
 msgid "Enable custom login redirection"
 msgstr ""
 
-#: ../includes/settings.php:484
+#: ../includes/settings.php:507
 msgid "Target URL:"
 msgstr ""
 
-#: ../includes/settings.php:494
+#: ../includes/settings.php:517
 msgid "By default it redirects to admin dashboard"
 msgstr ""
 
-#: ../includes/settings.php:509
+#: ../includes/settings.php:532
 msgid "Apply redirection to normal WordPress login too."
 msgstr ""
 
-#: ../includes/settings.php:524
+#: ../includes/settings.php:547
 msgid "Enable role-based redirection."
 msgstr ""
 
-#: ../includes/settings.php:525
+#: ../includes/settings.php:548
 msgid "Leave it blank to use default redirection rule."
 msgstr ""
 
-#: ../includes/settings.php:536
+#: ../includes/settings.php:559
 msgid "Role"
 msgstr ""
 
-#: ../includes/settings.php:537
+#: ../includes/settings.php:560
 msgid "Target URL"
 msgstr ""
 
-#: ../includes/settings.php:575
+#: ../includes/settings.php:598
 msgid "Reset Tokens"
 msgstr ""
 
-#: ../includes/settings.php:576
+#: ../includes/settings.php:599
 msgid "If you want to clean all tokens at once click to reset button."
 msgstr ""
 
-#: ../includes/settings.php:580
+#: ../includes/settings.php:603
 msgid "Reset"
 msgstr ""
 
-#: ../includes/settings.php:589
+#: ../includes/settings.php:612
 msgid "Try Magic Login Pro Today"
 msgstr ""
 
-#: ../includes/settings.php:600
+#: ../includes/settings.php:623
 msgid "Update settings"
 msgstr ""
 
-#: ../includes/settings.php:615
+#: ../includes/settings.php:638
 msgid "Made with <i class=\"sui-icon-heart\"></i> by <a href=\"%s\" rel=\"noopener\" target=\"_blank\">HandyPlugins</a>"
 msgstr ""
 
-#: ../includes/settings.php:625
+#: ../includes/settings.php:648
 msgid "FAQ"
 msgstr ""
 
-#: ../includes/settings.php:626
+#: ../includes/settings.php:649
 msgid "Blog"
 msgstr ""
 
-#: ../includes/settings.php:627
+#: ../includes/settings.php:650
 msgid "Support"
 msgstr ""
 
-#: ../includes/settings.php:628
+#: ../includes/settings.php:651
 msgid "Docs"
 msgstr ""
 
-#: ../includes/settings.php:665
+#: ../includes/settings.php:688
 msgid "Tokens could not be removed."
 msgstr ""
 
-#: ../includes/settings.php:663
+#: ../includes/settings.php:686
 msgid "Tokens has been removed."
 msgstr ""
 
-#: ../includes/settings.php:704
+#: ../includes/settings.php:727
 msgid "Settings saved."
 msgstr ""
 
+#: ../includes/utils.php:122
+msgid "Log in to {{SITENAME}}"
+msgstr ""
+
 #. translators: Do not translate USERNAME, SITENAME,EXPIRES, MAGIC_LINK, SITENAME, SITEUR, EXPIRES_WITH_INTERVAL: those are placeholders.
-#: ../includes/utils.php:135
+#: ../includes/utils.php:143
 msgid ""
 "Hi {{USERNAME}},\n"
 "\n"
@@ -288,14 +302,14 @@ msgid ""
 "{{SITEURL}}"
 msgstr ""
 
-#: ../includes/utils.php:265
+#: ../includes/utils.php:273
 msgid "Minute(s)"
 msgstr ""
 
-#: ../includes/utils.php:266
+#: ../includes/utils.php:274
 msgid "Hour(s)"
 msgstr ""
 
-#: ../includes/utils.php:267
+#: ../includes/utils.php:275
 msgid "Day(s)"
 msgstr ""
