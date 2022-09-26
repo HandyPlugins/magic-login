@@ -2,9 +2,9 @@
 Contributors:      handyplugins,m_uysl
 Tags:              login, passwordless, passwordless-login, magic-login, magic-link
 Requires at least: 5.0
-Tested up to:      6.0
+Tested up to:      6.1
 Requires PHP:      5.6
-Stable tag:        1.5
+Stable tag:        1.5.1
 License:           GPLv2 or later
 License URI:       http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -79,6 +79,12 @@ You can use `[magic_login_form]` shortcode or block. [Learn More.](https://handy
 3. Login Block
 
 == Changelog ==
+
+= 1.5.1 (September 26, 2022) =
+* Fixed: redirection issue.
+* Minor UI updates.
+* Small tweaks and improvements.
+* Tested with WP 6.1
 
 = 1.5 (September 12, 2022) =
 * Fixed: save tokens hashed in DB. Props [@snicco](https://github.com/snicco/snicco)
