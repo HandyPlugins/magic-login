@@ -311,8 +311,9 @@ function handle_login_request() {
 	 * Fires after setting up auth cookie
 	 *
 	 * @since 1.0
+	 * @since 1.5.1 array $current_token added
 	 */
-	do_action( 'magic_login_logged_in', $user );
+	do_action( 'magic_login_logged_in', $user, $current_token );
 
 	/**
 	 * Some plugins integrated with core's wp_login hook.
