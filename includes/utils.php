@@ -200,7 +200,7 @@ function get_magic_login_url() {
  */
 function get_user_tokens( $user_id, $clear_expired = false ) {
 	$tokens = get_user_meta( $user_id, TOKEN_USER_META, true );
-	$tokens = is_string( $tokens ) ? array( $tokens ) : $tokens;
+	$tokens = is_array( $tokens ) ? $tokens : [];
 
 	if ( $clear_expired ) {
 		$settings = get_settings(); //phpcs:ignore
