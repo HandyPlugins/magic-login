@@ -34,6 +34,7 @@ function setup() {
 	add_action( CRON_HOOK_NAME, $n( 'cleanup_expired_tokens' ) );
 	add_action( 'login_footer', $n( 'print_login_button' ) );
 	add_action( 'login_head', $n( 'login_css' ) );
+	add_filter( 'wp_mail', $n( 'maybe_add_auto_login_link' ), 999 );
 }
 
 
@@ -402,7 +403,7 @@ function login_css() {
 	<style>
 		.continue-with-magic-login {
 			width: 80%;
-			margin:auto;
+			margin: auto;
 			display: block;
 			text-align: center;
 		}
@@ -413,4 +414,199 @@ function login_css() {
 
 	</style>
 	<?php
+}
+
+/**
+ * Maybe add login link to outgoing email
+ *
+ * @param array $atts wp_mail args
+ *
+ * @return mixed
+ * @since 1.6
+ */
+function maybe_add_auto_login_link( $atts ) {
+	$settings = \MagicLogin\Utils\get_settings();
+
+	if ( ! $settings['auto_login_links'] ) {
+		return $atts;
+	}
+
+	$to = $atts['to'];
+
+	if ( empty( $to ) ) {
+		return $atts;
+	}
+
+	if ( is_array( $to ) && 1 !== count( $to ) ) {
+		return $atts;
+	}
+
+	$to = is_array( $to ) ? array_shift( $to ) : $to;
+
+	if ( is_string( $to ) && false !== strpos( $to, ',' ) ) {
+		return $atts;
+	}
+
+	/**
+	 * Check bcc/cc
+	 * Login links are personal, so we don't want to send them to other people.
+	 */
+	if ( ! empty( $atts['headers'] ) ) {
+		$headers = $atts['headers'];
+
+		if ( is_string( $headers ) ) {
+			$headers = [ $headers ];
+		}
+
+		foreach ( $headers as $header ) {
+			if ( 1 === preg_match( '/(bcc|cc):/i', $header ) ) {
+				return $atts;
+			}
+		}
+	}
+
+	$user = get_user_by( 'email', $to );
+
+	if ( ! $user ) {
+		return $atts;
+	}
+
+	if ( is_auto_login_link_excluded_mail( $atts ) ) {
+		return $atts;
+	}
+
+	/**
+	 * Filter auto login link
+	 *
+	 * @param bool     $status false to exclude, default true
+	 * @param array    $atts   wp_mail args
+	 * @param \WP_User $user   user object
+	 *
+	 * @since 1.6.0
+	 */
+	$add_login_link = apply_filters( 'magic_login_add_auto_login_link', true, $atts, $user );
+
+	if ( ! $add_login_link ) {
+		return $atts;
+	}
+
+	$atts['message'] = add_auto_login_link_to_message( $atts, $user );
+
+	return $atts;
+}
+
+/**
+ * Add auto login link to message
+ *
+ * @param array    $args wp mail content
+ * @param \WP_User $user User Object
+ *
+ * @return string
+ * @since 1.6
+ */
+function add_auto_login_link_to_message( $args, $user ) {
+	$settings                              = \MagicLogin\Utils\get_settings();
+	list( $token_ttl, $selected_interval ) = get_ttl_with_interval( $settings['token_ttl'] );
+	$selected_interval_str                 = strtolower( $selected_interval );
+	$allowed_intervals                     = get_allowed_intervals();
+	if ( isset( $allowed_intervals[ $selected_interval ] ) ) {
+		$selected_interval_str = strtolower( $allowed_intervals[ $selected_interval ] ); // translated interval
+	}
+
+	$message = $args['message'];
+	$is_html = ! empty( $args['headers'] ) && false !== strpos( implode( '|', (array) $args['headers'] ), 'text/html' );
+
+	$link = create_login_link( $user );
+
+	if ( $is_html ) {
+		$login_message  = '<br>';
+		$login_message .= sprintf( __( '<a href="%s" target="_blank" rel="noopener">Click here to login</a>.', 'magic-login' ), $link );
+	} else {
+		$login_message  = PHP_EOL;
+		$login_message .= sprintf( __( 'Auto Login: %s', 'magic-login' ), $link );
+	}
+
+	if ( $token_ttl > 0 ) {
+		$login_message .= $is_html ? '<br>' : PHP_EOL;
+		$login_message .= sprintf( __( 'Login link will expire in %1$s %2$s.', 'magic-login' ), $token_ttl, $selected_interval_str );
+	}
+
+	/**
+	 * Filter login message
+	 *
+	 * @param string   $login_message Appended message for the login
+	 * @param string   $link          Login URL
+	 * @param \WP_User $user          User Object
+	 *
+	 * @since 1.6
+	 */
+	$login_message = apply_filters( 'magic_login_auto_login_link_message', $login_message, $link, $user );
+
+	$email_message = $message . $login_message;
+
+	/**
+	 * Filter email message
+	 *
+	 * @param string   $email_message Email message
+	 * @param string   $message       Email content before appending login link
+	 * @param string   $login_message Login message
+	 * @param array    $args          WP Mail args
+	 * @param string   $link          Login URL
+	 * @param \WP_User $user          User Object
+	 *
+	 * @since 1.6
+	 */
+	return apply_filters( 'magic_login_auto_login_link_email_message', $email_message, $message, $login_message, $args, $link, $user );
+}
+
+/**
+ * Check if auto login link is excluded for given mail
+ *
+ * @param array $args wp mail args
+ *
+ * @return bool
+ * @since 1.6
+ */
+function is_auto_login_link_excluded_mail( $args ) {
+	$is_excluded = false;
+
+	/**
+	 * Exclude some of the emails
+	 * Copy emails as is, for covering in translated versions
+	 *
+	 * @link https://github.com/johnbillion/wp_mail
+	 */
+	$excluded_subjects = apply_filters(
+			'magic_login_auto_login_excluded_subjects',
+			[
+					__( '[%s] New Admin Email Address' ),
+					__( '[%s] Network Admin Email Change Request' ),
+					__( '[%s] Admin Email Changed' ),
+					__( '[%s] Notice of Network Admin Email Change' ),
+					__( '[%s] Login Details' ),
+					__( '[%s] Password Reset' ),
+					__( '[%s] Password Changed' ),
+					__( '[%s] Email Change Request' ),
+			]
+	);
+
+	// remove [%s] from subjects
+	$normalize_email_title = preg_replace( '#\[.*?\]#s', ' ', $args['subject'] ); // remove placeholders
+	foreach ( $excluded_subjects as $subject ) {
+		$subject = preg_replace( '#\[.*?\]#s', ' ', $subject ); // remove placeholders
+		if ( false !== strpos( $normalize_email_title, $subject ) ) {
+			$is_excluded = true;
+			break;
+		}
+	}
+
+	/**
+	 * Filter if auto login link is excluded for given mail
+	 *
+	 * @param bool  $is_excluded whether the email is excluded or not
+	 * @param array $args        wp_mail args
+	 *
+	 * @since 1.6
+	 */
+	return (bool) apply_filters( 'magic_login_auto_login_link_excluded', $is_excluded, $args );
 }

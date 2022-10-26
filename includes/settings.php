@@ -225,6 +225,33 @@ function settings_page() {
 							</div>
 						</div>
 
+						<!-- Auto Login links  -->
+						<div class="sui-box-settings-row">
+							<div class="sui-box-settings-col-1">
+								<span class="sui-settings-label"><?php esc_html_e( 'Auto Login Links', 'magic-login' ); ?></span>
+								<span class="sui-description"><?php esc_html_e( 'If the recipient exists, automatically adds the login link to outgoing emails sent from WordPress. ', 'magic-login' ); ?></span>
+							</div>
+
+							<div class="sui-box-settings-col-2">
+								<div class="sui-form-field">
+									<label for="auto_login_links" class="sui-toggle">
+										<input type="checkbox"
+										       value="1"
+										       name="auto_login_links"
+										       id="auto_login_links"
+										       aria-labelledby="add-to-login-form-label"
+												<?php checked( 1, $settings['auto_login_links'] ); ?>
+										>
+										<span class="sui-toggle-slider" aria-hidden="true"></span>
+										<span id="add-to-login-form-label" class="sui-toggle-label"><?php esc_html_e( 'Add magic login links to outgoing emails', 'magic-login' ); ?></span>
+										<span class="sui-description">
+											<?php esc_html_e( 'This could be useful when there is an action waiting for the user. (eg: reply comment, complete shopping etc...)', 'magic-login' ); ?>
+										</span>
+									</label>
+								</div>
+							</div>
+						</div>
+
 						<!-- Brute Force Protection -->
 						<div class="sui-box-settings-row sui-disabled">
 							<div class="sui-box-settings-col-1">
@@ -372,7 +399,7 @@ function settings_page() {
 											<?php checked( 1, $settings['enable_ip_check'] ); ?>
 										>
 										<span class="sui-toggle-slider" aria-hidden="true"></span>
-										<span id="enable-ip-check-label" class="sui-toggle-label"><?php esc_html_e( 'Enable IP address check' ); ?></span>
+										<span id="enable-ip-check-label" class="sui-toggle-label"><?php esc_html_e( 'Enable IP address check', 'magic-login' ); ?></span>
 									</label>
 								</div>
 							</div>
@@ -695,6 +722,7 @@ function save_settings() {
 		$settings['is_default']       = boolval( filter_input( INPUT_POST, 'is_default' ) );
 		$settings['add_login_button'] = boolval( filter_input( INPUT_POST, 'add_login_button' ) );
 		$settings['token_ttl']        = absint( filter_input( INPUT_POST, 'token_ttl' ) );
+		$settings['auto_login_links'] = boolval( filter_input( INPUT_POST, 'auto_login_links' ) );
 
 		// convert TTL in minute
 		if ( $_POST['token_ttl'] > 0 && isset( $_POST['token_interval'] ) ) {
