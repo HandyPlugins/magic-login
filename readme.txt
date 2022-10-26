@@ -14,10 +14,14 @@ Passwordless login for WordPress.
 
 Easy, secure, and passwordless authentication for WordPress.
 
-__Plugin Website__: [https://handyplugins.co/magic-login-pro/](https://handyplugins.co/magic-login-pro/)
+Streamline the login process by sending links to your users. No more passwords to remember, no more password resets, and no more password strength requirements.
+
+**[Learn more about Magic Login](https://handyplugins.co/magic-login-pro/)**
 
 = How does it work? 🪄 =
-Magic login uses a technique called "magic links". The magic link is a unique link sent directly to your email inbox which allows users to authenticate once.
+Magic login uses a technique called "magic links". The magic link is a unique link sent directly to your email inbox which allows you to authenticate once.
+
+__Auto Login__: Magic Login also supports auto-login links for outgoing emails. It's useful when pending action from a user, such as reply a comment, complete the checkout, etc..
 
 = PRO Features 🎩 =
 
