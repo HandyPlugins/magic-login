@@ -191,6 +191,10 @@ function login_form() {
 			<?php endif; ?>
 			<input type="text" name="log" id="user_login" class="input" value="" size="20" autocapitalize="off" required />
 		</p>
+		<?php if(isset($_GET['redirect_to'])) : ?>
+			<input type="hidden" name="redirect_to" value="<?php $_GET['redirect_to']; ?>">
+		<?php endif; ?>
+
 		<?php
 
 		/**
