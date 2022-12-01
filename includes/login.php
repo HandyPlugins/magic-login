@@ -191,10 +191,6 @@ function login_form() {
 			<?php endif; ?>
 			<input type="text" name="log" id="user_login" class="input" value="" size="20" autocapitalize="off" required />
 		</p>
-		<?php if(isset($_GET['redirect_to'])) : ?>
-			<input type="hidden" name="redirect_to" value="<?php $_GET['redirect_to']; ?>">
-		<?php endif; ?>
-
 		<?php
 
 		/**
@@ -207,6 +203,10 @@ function login_form() {
 		?>
 		<p class="submit">
 			<input type="submit" name="wp-submit" id="wp-submit" style="float: none;width: 100%;" class="magic-login-submit button button-primary button-hero" value="<?php esc_attr_e( 'Send me the link', 'magic-login' ); ?>" />
+			<?php if ( isset( $_GET['redirect_to'] ) ) : ?>
+				<input type="hidden" name="redirect_to" value="<?php echo esc_url( $_GET['redirect_to'] ); ?>">
+			<?php endif; ?>
+
 			<input type="hidden" name="testcookie" value="1" />
 		</p>
 	</form>
@@ -376,6 +376,11 @@ function print_login_button() {
 	}
 
 	$login_url = site_url( 'wp-login.php?action=magic_login', 'login_post' );
+
+	if ( isset( $_GET['redirect_to'] ) ) {
+		$login_url = esc_url( add_query_arg( 'redirect_to', $_GET['redirect_to'], $login_url ) );
+	}
+
 	?>
 	<script type="text/javascript">
 		(function () {
