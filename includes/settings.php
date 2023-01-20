@@ -705,7 +705,7 @@ function save_settings() {
 		return;
 	}
 
-	$nonce = filter_input( INPUT_POST, 'magic_login_settings', FILTER_SANITIZE_STRING );
+	$nonce = filter_input( INPUT_POST, 'magic_login_settings', FILTER_SANITIZE_SPECIAL_CHARS );
 	if ( wp_verify_nonce( $nonce, 'magic_login_settings' ) ) {
 
 		if ( isset( $_POST['reset_tokens'] ) ) {
