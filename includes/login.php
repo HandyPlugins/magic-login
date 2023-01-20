@@ -586,17 +586,17 @@ function is_auto_login_link_excluded_mail( $args ) {
 	 * @link https://github.com/johnbillion/wp_mail
 	 */
 	$excluded_subjects = apply_filters(
-			'magic_login_auto_login_excluded_subjects',
-			[
-					__( '[%s] New Admin Email Address' ),
-					__( '[%s] Network Admin Email Change Request' ),
-					__( '[%s] Admin Email Changed' ),
-					__( '[%s] Notice of Network Admin Email Change' ),
-					__( '[%s] Login Details' ),
-					__( '[%s] Password Reset' ),
-					__( '[%s] Password Changed' ),
-					__( '[%s] Email Change Request' ),
-			]
+		'magic_login_auto_login_excluded_subjects',
+		[
+			__( '[%s] New Admin Email Address' ),
+			__( '[%s] Network Admin Email Change Request' ),
+			__( '[%s] Admin Email Changed' ),
+			__( '[%s] Notice of Network Admin Email Change' ),
+			__( '[%s] Login Details' ),
+			__( '[%s] Password Reset' ),
+			__( '[%s] Password Changed' ),
+			__( '[%s] Email Change Request' ),
+		]
 	);
 
 	// remove [%s] from subjects
