@@ -34,18 +34,22 @@ function setup() {
  * @return string|void
  */
 function shortcode_login_form( $shortcode_atts ) {
-	if ( is_user_logged_in() ) {
+	$atts = shortcode_atts(
+		[
+			'redirect_to'    => ( is_ssl() ? 'https://' : 'http://' ) . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'],
+			'hide_logged_in' => true,
+		],
+		$shortcode_atts
+	);
+
+	// accept on/off yes/no true/false
+	$hide_logged_in = filter_var( $atts['hide_logged_in'], FILTER_VALIDATE_BOOLEAN );
+
+	if ( is_user_logged_in() && $hide_logged_in && ! is_preview() ) {
 		return;
 	}
 
 	ob_start();
-
-	$atts = shortcode_atts(
-		[
-			'redirect_to' => ( is_ssl() ? 'https://' : 'http://' ) . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'],
-		],
-		$shortcode_atts
-	);
 
 	wp_enqueue_style(
 		'magic_login_admin',
