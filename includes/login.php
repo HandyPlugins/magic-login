@@ -609,6 +609,11 @@ function is_auto_login_link_excluded_mail( $args ) {
 		}
 	}
 
+	// no need to add for login email itself
+	if ( did_action( 'magic_login_send_login_link' ) ) {
+		$is_excluded = true;
+	}
+
 	/**
 	 * Filter if auto login link is excluded for given mail
 	 *
