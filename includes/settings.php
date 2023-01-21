@@ -282,37 +282,45 @@ function settings_page() {
 
 									<div style=" <?php echo( ! $settings['enable_brute_force_protection'] ? 'display:none' : '' ); ?>" tabindex="0" id="brute-force-protection-controls" class="sui-toggle-content sui-border-frame">
 										<div class="sui-form-field">
-											<?php esc_html_e( 'Block the IP address for', 'magic-login' ); ?>
-											<input
-													id="brute_force_bantime"
-													name="brute_force_bantime"
-													min="1"
-													max="1440"
-													type="number"
-													class="sui-form-control sui-field-has-suffix"
-													value="<?php echo absint( $settings['brute_force_bantime'] ); ?>"
-											>
-											<?php esc_html_e( 'minutes when it fails to login ', 'magic-login' ); ?>
-											<input
-													id="brute_force_login_attempt"
-													name="brute_force_login_attempt"
-													min="1"
-													max="100"
-													type="number"
-													class="sui-form-control sui-field-has-suffix"
-													value="<?php echo absint( $settings['brute_force_login_attempt'] ); ?>"
-											>
-											<?php esc_html_e( 'times in', 'magic-login' ); ?>
-											<input
-													id="brute_force_login_time"
-													name="brute_force_login_time"
-													min="1"
-													max="600"
-													type="number"
-													class="sui-form-control sui-field-has-suffix"
-													value="<?php echo absint( $settings['brute_force_login_time'] ); ?>"
-											>
-											<?php esc_html_e( 'minutes.', 'magic-login' ); ?>
+											<?php
+											$brute_force_fields = array(
+												'brute_force_bantime' => array(
+													'min' => 1,
+													'max' => 1440,
+												),
+												'brute_force_login_attempt' => array(
+													'min' => 1,
+													'max' => 100,
+												),
+												'brute_force_login_time' => array(
+													'min' => 1,
+													'max' => 600,
+												),
+											);
+											foreach ( $brute_force_fields as $field => $args ) {
+												${$field . '_input'} = sprintf(
+													'<input
+															id="%1$s"
+															name="%1$s"
+															min="%2$d"
+															max="%3$d"
+															type="number"
+															class="sui-form-control sui-field-has-suffix"
+															value="%4$d"
+													>',
+													esc_attr( $field ),
+													absint( $args['min'] ),
+													absint( $args['max'] ),
+													absint( $settings[ $field ] )
+												);
+											}
+											/* translators: 1: Ban duration (number) 2: Trial count (number) 3: Interval (number) */
+											printf( _( 'Block the IP address for %1$s minutes when it fails to login %2$s times in %3$s minutes.', 'magic-login' ),
+												$brute_force_bantime_input,
+												$brute_force_login_attempt_input,
+												$brute_force_login_time_input
+											); // WPCS: XSS ok.
+											?>
 										</div>
 									</div>
 								</div>
