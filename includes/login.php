@@ -267,8 +267,10 @@ function handle_login_request() {
 	do_action( 'magic_login_handle_login_request' );
 
 	if ( is_user_logged_in() ) {
+		/* translators: 1: User login 2: Dashboard URL */
 		$error = sprintf( __( 'Invalid magic login token, but you are logged in as \'%1$s\'. <a href="%2$s">Go to the dashboard instead</a>?', 'magic-login' ), wp_get_current_user()->user_login, admin_url() );
 	} else {
+		/* translators: %s: Login URL */
 		$error = sprintf( __( 'Invalid magic login token. <a href="%s">Try signing in instead</a>?', 'magic-login' ), wp_login_url() );
 	}
 
@@ -529,14 +531,17 @@ function add_auto_login_link_to_message( $args, $user ) {
 
 	if ( $is_html ) {
 		$login_message  = '<br>';
+		/* translators: %s: The magic login link */
 		$login_message .= sprintf( __( '<a href="%s" target="_blank" rel="noopener">Click here to login</a>.', 'magic-login' ), $link );
 	} else {
 		$login_message  = PHP_EOL;
+		/* translators: %s: The magic login link */
 		$login_message .= sprintf( __( 'Auto Login: %s', 'magic-login' ), $link );
 	}
 
 	if ( $token_ttl > 0 ) {
 		$login_message .= $is_html ? '<br>' : PHP_EOL;
+		/* translators: 1: TTL value (number) 2: Unit (minute(s), hour(s), days(s)) */
 		$login_message .= sprintf( __( 'Login link will expire in %1$s %2$s.', 'magic-login' ), $token_ttl, $selected_interval_str );
 	}
 
