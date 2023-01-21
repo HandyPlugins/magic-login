@@ -9,7 +9,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2023-01-21T06:31:35+00:00\n"
+"POT-Creation-Date: 2023-01-21T06:33:18+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.7.1\n"
 "X-Domain: magic-login\n"
@@ -196,7 +196,7 @@ msgstr ""
 msgid "Enable brute force protection"
 msgstr ""
 
-#. translators: 1: Ban duration (number) 2: Trial count (number) 3: Interval (number)
+#. translators: 1: Ban duration input 2: Trial count input 3: Interval input
 #: includes/settings.php:318
 msgid "Block the IP address for %1$s minutes when it fails to login %2$s times in %3$s minutes."
 msgstr ""
