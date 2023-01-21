@@ -1,322 +1,364 @@
-# Copyright (C) 2022 magic-login
-# This file is distributed under the same license as the magic-login package.
+# Copyright (C) 2023 HandyPlugins
+# This file is distributed under the GPL v2 or later.
 msgid ""
 msgstr ""
-"Project-Id-Version: magic-login\n"
+"Project-Id-Version: Magic Login 1.6\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/magic-login\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2022-10-26 07:12+0000\n"
-"Project-Id-Version: undefined\n"
-"X-Poedit-Basepath: ..\n"
-"X-Poedit-KeywordsList: __;_e;_ex:1,2c;_n:1,2;_n_noop:1,2;_nx:1,2,4c;_nx_noop:1,2,3c;_x:1,2c;esc_attr__;esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c\n"
-"X-Poedit-SearchPath-0: .\n"
-"X-Poedit-SearchPathExcluded-0: *.js\n"
-"X-Poedit-SourceCharset: UTF-8\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"POT-Creation-Date: 2023-01-21T05:45:22+00:00\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"X-Generator: WP-CLI 2.7.1\n"
+"X-Domain: magic-login\n"
 
-#: ../includes/block.php:67
-msgid "Login with Email"
-msgstr ""
-
-#: ../includes/block.php:71, ../includes/login.php:49
-msgid "Please enter your username or email address. You will receive an email message to log in."
-msgstr ""
-
-#: ../includes/block.php:75, ../includes/login.php:190, ../includes/shortcode.php:92
-msgid "Username or Email Address"
-msgstr ""
-
-#: ../includes/block.php:79, ../includes/login.php:205, ../includes/shortcode.php:105
-msgid "Send me the link"
-msgstr ""
-
-#: ../includes/login.php:75
-msgid "There is no account with that username or email address."
-msgstr ""
-
-#: ../includes/login.php:73
-msgid "There is no account with that username."
-msgstr ""
-
-#: ../includes/login.php:88
-msgid "Please check your inbox for the login link. If you did not receive a login email, check your spam folder too."
-msgstr ""
-
-#: ../includes/login.php:107
-msgid "Log in"
-msgstr ""
-
-#: ../includes/login.php:188, ../includes/shortcode.php:90
-msgid "Username"
-msgstr ""
-
-#: ../includes/login.php:268
-msgid "Invalid magic login token. <a href=\"%s\">Try signing in instead</a>?"
-msgstr ""
-
-#: ../includes/login.php:266
-msgid "Invalid magic login token, but you are logged in as '%1$s'. <a href=\"%2$s\">Go to the dashboard instead</a>?"
-msgstr ""
-
-#: ../includes/login.php:382
-msgid "Send me the login link"
-msgstr ""
-
-#: ../includes/login.php:526
-msgid "Auto Login: %s"
-msgstr ""
-
-#: ../includes/login.php:523
-msgid "<a href=\"%s\" target=\"_blank\" rel=\"noopener\">Click here to login</a>."
-msgstr ""
-
-#: ../includes/login.php:531
-msgid "Login link will expire in %1$s %2$s."
-msgstr ""
-
-#: ../includes/settings.php:69, ../includes/settings.php:70, ../includes/settings.php:90
+#. Plugin Name of the plugin
+#: includes/settings.php:69
+#: includes/settings.php:70
+#: includes/settings.php:90
+#: assets/js/admin/login-block.js:11
 msgid "Magic Login"
 msgstr ""
 
-#: ../includes/settings.php:97
+#. Plugin URI of the plugin
+msgid "https://handyplugins.co/magic-login-pro/"
+msgstr ""
+
+#. Description of the plugin
+msgid "Passwordless login for WordPress."
+msgstr ""
+
+#. Author of the plugin
+msgid "HandyPlugins"
+msgstr ""
+
+#. Author URI of the plugin
+msgid "https://handyplugins.co/"
+msgstr ""
+
+#: includes/block.php:67
+#: assets/js/admin/login-block.js:32
+msgid "Login with Email"
+msgstr ""
+
+#: includes/block.php:71
+#: includes/login.php:49
+#: assets/js/admin/login-block.js:36
+msgid "Please enter your username or email address. You will receive an email message to log in."
+msgstr ""
+
+#: includes/block.php:75
+#: includes/login.php:190
+#: includes/shortcode.php:96
+#: assets/js/admin/login-block.js:43
+msgid "Username or Email Address"
+msgstr ""
+
+#: includes/block.php:79
+#: includes/login.php:205
+#: includes/shortcode.php:109
+#: assets/js/admin/login-block.js:47
+msgid "Send me the link"
+msgstr ""
+
+#: includes/login.php:73
+msgid "There is no account with that username."
+msgstr ""
+
+#: includes/login.php:75
+msgid "There is no account with that username or email address."
+msgstr ""
+
+#: includes/login.php:88
+msgid "Please check your inbox for the login link. If you did not receive a login email, check your spam folder too."
+msgstr ""
+
+#: includes/login.php:107
+msgid "Log in"
+msgstr ""
+
+#: includes/login.php:188
+#: includes/shortcode.php:94
+msgid "Username"
+msgstr ""
+
+#. translators: 1: User login 2: Dashboard URL
+#: includes/login.php:271
+msgid "Invalid magic login token, but you are logged in as '%1$s'. <a href=\"%2$s\">Go to the dashboard instead</a>?"
+msgstr ""
+
+#. translators: %s: Login URL
+#: includes/login.php:274
+msgid "Invalid magic login token. <a href=\"%s\">Try signing in instead</a>?"
+msgstr ""
+
+#: includes/login.php:393
+msgid "Send me the login link"
+msgstr ""
+
+#. translators: %s: The magic login link
+#: includes/login.php:535
+msgid "<a href=\"%s\" target=\"_blank\" rel=\"noopener\">Click here to login</a>."
+msgstr ""
+
+#. translators: %s: The magic login link
+#: includes/login.php:539
+msgid "Auto Login: %s"
+msgstr ""
+
+#. translators: 1: TTL value (number) 2: Unit (minute(s), hour(s), days(s))
+#: includes/login.php:545
+msgid "Login link will expire in %1$s %2$s."
+msgstr ""
+
+#: includes/settings.php:97
 msgid "Documentation"
 msgstr ""
 
-#: ../includes/settings.php:111
+#: includes/settings.php:111
 msgid "Settings"
 msgstr ""
 
-#: ../includes/settings.php:120
+#: includes/settings.php:120
 msgid "Force Magic Login"
 msgstr ""
 
-#: ../includes/settings.php:121
+#: includes/settings.php:121
 msgid "Change default login behaviour and use magic login as default login method."
 msgstr ""
 
-#: ../includes/settings.php:135
+#: includes/settings.php:135
 msgid "Use magic login by default"
 msgstr ""
 
-#: ../includes/settings.php:158, ../includes/settings.php:202
+#: includes/settings.php:160
+#: includes/settings.php:204
 msgid "Learn More."
 msgstr ""
 
-#: ../includes/settings.php:173
+#: includes/settings.php:175
 msgid "Show on Login Form"
 msgstr ""
 
-#: ../includes/settings.php:174
+#: includes/settings.php:176
 msgid "Adds magic login button to WordPress login form."
 msgstr ""
 
-#: ../includes/settings.php:188
+#: includes/settings.php:190
 msgid "Add magic login button to standard login form"
 msgstr ""
 
-#: ../includes/settings.php:199
+#: includes/settings.php:201
 msgid "Token Lifespan"
 msgstr ""
 
-#: ../includes/settings.php:201
+#: includes/settings.php:203
 msgid "The TTL (time to live) of the login link. WP-Cron removes expired tokens."
 msgstr ""
 
-#: ../includes/settings.php:231
+#: includes/settings.php:233
 msgid "Auto Login Links"
 msgstr ""
 
-#: ../includes/settings.php:232
+#: includes/settings.php:234
 msgid "If the recipient exists, automatically adds the login link to outgoing emails sent from WordPress. "
 msgstr ""
 
-#: ../includes/settings.php:246
+#: includes/settings.php:248
 msgid "Add magic login links to outgoing emails"
 msgstr ""
 
-#: ../includes/settings.php:248
+#: includes/settings.php:250
 msgid "This could be useful when there is an action waiting for the user. (eg: reply comment, complete shopping etc...)"
 msgstr ""
 
-#: ../includes/settings.php:259
+#: includes/settings.php:261
 msgid "Brute Force Protection"
 msgstr ""
 
-#: ../includes/settings.php:260, ../includes/settings.php:326, ../includes/settings.php:383, ../includes/settings.php:413, ../includes/settings.php:458, ../includes/settings.php:483, ../includes/settings.php:510
+#: includes/settings.php:262
+#: includes/settings.php:328
+#: includes/settings.php:385
+#: includes/settings.php:415
+#: includes/settings.php:460
+#: includes/settings.php:485
+#: includes/settings.php:512
 msgid "Pro"
 msgstr ""
 
-#: ../includes/settings.php:262
+#: includes/settings.php:264
 msgid "Enable additional security mechanisms to limit login requests."
 msgstr ""
 
-#: ../includes/settings.php:276
+#: includes/settings.php:278
 msgid "Enable brute force protection"
 msgstr ""
 
-#: ../includes/settings.php:283
+#: includes/settings.php:285
 msgid "Block the IP address for"
 msgstr ""
 
-#: ../includes/settings.php:293
+#: includes/settings.php:295
 msgid "minutes when it fails to login "
 msgstr ""
 
-#: ../includes/settings.php:303
+#: includes/settings.php:305
 msgid "times in"
 msgstr ""
 
-#: ../includes/settings.php:313
+#: includes/settings.php:315
 msgid "minutes."
 msgstr ""
 
-#: ../includes/settings.php:325
+#: includes/settings.php:327
 msgid "Login Request Throttling"
 msgstr ""
 
-#: ../includes/settings.php:328
+#: includes/settings.php:330
 msgid "Limit login URL generation for the given time span."
 msgstr ""
 
-#: ../includes/settings.php:382
+#: includes/settings.php:384
 msgid "IP Check"
 msgstr ""
 
-#: ../includes/settings.php:386
+#: includes/settings.php:388
 msgid "The user should log in from the same IP that makes a login request. (except for the login links generated via CLI)"
 msgstr ""
 
-#: ../includes/settings.php:402
+#: includes/settings.php:404
 msgid "Enable IP address check"
 msgstr ""
 
-#: ../includes/settings.php:412
+#: includes/settings.php:414
 msgid "Domain Restriction"
 msgstr ""
 
-#: ../includes/settings.php:415
+#: includes/settings.php:417
 msgid "Allow only listed domains to login via magic links."
 msgstr ""
 
-#: ../includes/settings.php:430
+#: includes/settings.php:432
 msgid "Enable domain restriction"
 msgstr ""
 
-#: ../includes/settings.php:445
+#: includes/settings.php:447
 msgid "Enter allowed domains line by line."
 msgstr ""
 
-#: ../includes/settings.php:457
+#: includes/settings.php:459
 msgid "Email Subject"
 msgstr ""
 
-#: ../includes/settings.php:482
+#: includes/settings.php:484
 msgid "Email Content"
 msgstr ""
 
-#: ../includes/settings.php:499
+#: includes/settings.php:501
 msgid "Supported placeholders: {{SITEURL}}, {{USERNAME}}, {{SITENAME}}, {{EXPIRES}}, {{EXPIRES_WITH_INTERVAL}}, {{MAGIC_LINK}}"
 msgstr ""
 
-#: ../includes/settings.php:509
+#: includes/settings.php:511
 msgid "Login Redirect"
 msgstr ""
 
-#: ../includes/settings.php:512
+#: includes/settings.php:514
 msgid "Redirect users to custom URL after login."
 msgstr ""
 
-#: ../includes/settings.php:528
+#: includes/settings.php:530
 msgid "Enable custom login redirection"
 msgstr ""
 
-#: ../includes/settings.php:534
+#: includes/settings.php:536
 msgid "Target URL:"
 msgstr ""
 
-#: ../includes/settings.php:544
+#: includes/settings.php:546
 msgid "By default it redirects to admin dashboard"
 msgstr ""
 
-#: ../includes/settings.php:559
+#: includes/settings.php:561
 msgid "Apply redirection to normal WordPress login too."
 msgstr ""
 
-#: ../includes/settings.php:574
+#: includes/settings.php:576
 msgid "Enable role-based redirection."
 msgstr ""
 
-#: ../includes/settings.php:575
+#: includes/settings.php:577
 msgid "Leave it blank to use default redirection rule."
 msgstr ""
 
-#: ../includes/settings.php:586
+#: includes/settings.php:588
 msgid "Role"
 msgstr ""
 
-#: ../includes/settings.php:587
+#: includes/settings.php:589
 msgid "Target URL"
 msgstr ""
 
-#: ../includes/settings.php:625
+#: includes/settings.php:627
 msgid "Reset Tokens"
 msgstr ""
 
-#: ../includes/settings.php:626
+#: includes/settings.php:628
 msgid "If you want to clean all tokens at once click to reset button."
 msgstr ""
 
-#: ../includes/settings.php:630
+#: includes/settings.php:632
 msgid "Reset"
 msgstr ""
 
-#: ../includes/settings.php:639
+#: includes/settings.php:641
 msgid "Try Magic Login Pro Today"
 msgstr ""
 
-#: ../includes/settings.php:650
+#: includes/settings.php:652
 msgid "Update settings"
 msgstr ""
 
-#: ../includes/settings.php:665
+#. translators: %s: HandyPlugins URL
+#: includes/settings.php:668
 msgid "Made with <i class=\"sui-icon-heart\"></i> by <a href=\"%s\" rel=\"noopener\" target=\"_blank\">HandyPlugins</a>"
 msgstr ""
 
-#: ../includes/settings.php:675
+#: includes/settings.php:678
 msgid "FAQ"
 msgstr ""
 
-#: ../includes/settings.php:676
+#: includes/settings.php:679
 msgid "Blog"
 msgstr ""
 
-#: ../includes/settings.php:677
+#: includes/settings.php:680
 msgid "Support"
 msgstr ""
 
-#: ../includes/settings.php:678
+#: includes/settings.php:681
 msgid "Docs"
 msgstr ""
 
-#: ../includes/settings.php:715
-msgid "Tokens could not be removed."
-msgstr ""
-
-#: ../includes/settings.php:713
+#: includes/settings.php:716
 msgid "Tokens has been removed."
 msgstr ""
 
-#: ../includes/settings.php:755
+#: includes/settings.php:718
+msgid "Tokens could not be removed."
+msgstr ""
+
+#: includes/settings.php:758
 msgid "Settings saved."
 msgstr ""
 
-#: ../includes/utils.php:122
+#: includes/utils.php:122
 msgid "Log in to {{SITENAME}}"
 msgstr ""
 
 #. translators: Do not translate USERNAME, SITENAME,EXPIRES, MAGIC_LINK, SITENAME, SITEUR, EXPIRES_WITH_INTERVAL: those are placeholders.
-#: ../includes/utils.php:144
+#: includes/utils.php:144
 msgid ""
 "Hi {{USERNAME}},\n"
 "\n"
@@ -334,14 +376,78 @@ msgid ""
 "{{SITEURL}}"
 msgstr ""
 
-#: ../includes/utils.php:274
+#: includes/utils.php:274
 msgid "Minute(s)"
 msgstr ""
 
-#: ../includes/utils.php:275
+#: includes/utils.php:275
 msgid "Hour(s)"
 msgstr ""
 
-#: ../includes/utils.php:276
+#: includes/utils.php:276
 msgid "Day(s)"
+msgstr ""
+
+#: assets/js/admin/login-block.js:12
+msgid "Passwordless login block"
+msgstr ""
+
+#: assets/js/admin/login-block.js:20
+msgid "magic-login"
+msgstr ""
+
+#: assets/js/admin/login-block.js:21
+msgid "login"
+msgstr ""
+
+#: assets/js/admin/login-block.js:22
+msgid "magic"
+msgstr ""
+
+#: assets/js/admin/login-block.js:23
+msgid "passwordless"
+msgstr ""
+
+#: assets/js/admin/login-block.js:99
+msgid "Title"
+msgstr ""
+
+#: assets/js/admin/login-block.js:104
+msgid "Description"
+msgstr ""
+
+#: assets/js/admin/login-block.js:109
+msgid "Login Label"
+msgstr ""
+
+#: assets/js/admin/login-block.js:114
+msgid "Button Label"
+msgstr ""
+
+#: assets/js/admin/login-block.js:120
+msgid "Redirect URL"
+msgstr ""
+
+#: assets/js/admin/login-block.js:121
+msgid "Leave it empty to use this page"
+msgstr ""
+
+#: assets/js/admin/login-block.js:128
+msgid "Hide the block when user is logged-in"
+msgstr ""
+
+#: assets/js/admin/login-block.js:135
+msgid "Don't display once submitted"
+msgstr ""
+
+#: assets/js/admin/login-block.js:136
+msgid "Hide the login form after sending the request"
+msgstr ""
+
+#: assets/js/admin/login-block.js:146
+msgid "Cancel redirection"
+msgstr ""
+
+#: assets/js/admin/login-block.js:147
+msgid "Cancel custom redirection for this login form"
 msgstr ""

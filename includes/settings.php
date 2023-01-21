@@ -138,6 +138,7 @@ function settings_page() {
 										<?php
 										echo wp_kses_post(
 											sprintf(
+												/* translators: 1: Login URL with Magic Login flavour */
 												__( 'Magic login form is accessible <a href="%1$s">%1$s</a>' ),
 												esc_url( site_url( 'wp-login.php?action=magic_login', 'login_post' ) )
 											)
@@ -152,6 +153,7 @@ function settings_page() {
 													<?php
 													echo wp_kses_post(
 														sprintf(
+															/* translators: 1: Magic Login shortcode 2: Documentation URL 3: 'Learn More' text */
 															__( 'In order to add a login form to any page, you can use shortcode <code>%1$s</code> or block. <a href="%2$s" target="_blank" rel="noopener">%3$s</a>' ),
 															'[magic_login_form]',
 															get_doc_url( 'add-login-form-to-a-page' ),
@@ -662,6 +664,7 @@ function settings_page() {
 			<?php
 			echo wp_kses_post(
 				sprintf(
+					/* translators: %s: HandyPlugins URL */
 					__( 'Made with <i class="sui-icon-heart"></i> by <a href="%s" rel="noopener" target="_blank">HandyPlugins</a>', 'magic-login' ),
 					'https://handyplugins.co/'
 				)
