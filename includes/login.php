@@ -171,6 +171,15 @@ function send_login_link( $user ) {
 		}
 	}
 
+	/**
+	 * Send the email only once at a run.
+	 * Eg: when having login block in a page, and shortcode at some other part of the page.
+	 * It will send the email twice due to the way we handle the request.
+	 */
+	if ( did_action( 'magic_login_send_login_link' ) ) {
+		return true;
+	}
+
 	do_action( 'magic_login_send_login_link', $user );
 
 	return wp_mail( $user->user_email, $email_subject, $login_email, $headers );
