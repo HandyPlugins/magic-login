@@ -4,7 +4,7 @@ Tags:              login, passwordless, passwordless-login, magic-login, magic-l
 Requires at least: 5.0
 Tested up to:      6.1
 Requires PHP:      5.6
-Stable tag:        1.6
+Stable tag:        1.7
 License:           GPLv2 or later
 License URI:       http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -83,6 +83,14 @@ You can use `[magic_login_form]` shortcode or block. [Learn More.](https://handy
 3. Login Block
 
 == Changelog ==
+
+= 1.7 (January 21, 2023) =
+* PHP 8.1: fix deprecated 'FILTER_SANITIZE_STRING'
+* UI/UX improvements on default login screen
+* i18n improvements. Props [@emreerkan](https://github.com/emreerkan)
+* Fix: standard wordpress redirect functionality. Props [@maartenhunink](https://github.com/maartenhunink)
+* Fix: Skip the auto-login link for the magic login itself.
+* Fix: Send email only once.
 
 = 1.6 (October 26, 2022) =
 * New feature: Auto Login Links

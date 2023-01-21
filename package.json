@@ -1,6 +1,6 @@
 {
   "name": "magic-login",
-  "version": "1.6.0",
+  "version": "1.7.0",
   "description": "WordPress plugin for passwordless login",
   "author": {
     "name": "handyplugins",
@@ -25,7 +25,7 @@
     "@wordpress/element": "^4.0.0",
     "@wordpress/server-side-render": "^3.0.4",
     "@wpmudev/shared-ui": "2.12.13",
-    "10up-toolkit": "^4.2",
+    "10up-toolkit": "^4.3",
     "wp-pot-cli": "1.2.4"
   },
   "engines": {
