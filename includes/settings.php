@@ -314,7 +314,7 @@ function settings_page() {
 													absint( $settings[ $field ] )
 												);
 											}
-											/* translators: 1: Ban duration (number) 2: Trial count (number) 3: Interval (number) */
+											/* translators: 1: Ban duration input 2: Trial count input 3: Interval input */
 											printf( _( 'Block the IP address for %1$s minutes when it fails to login %2$s times in %3$s minutes.', 'magic-login' ),
 												$brute_force_bantime_input,
 												$brute_force_login_attempt_input,

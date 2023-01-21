@@ -9,7 +9,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2023-01-21T05:45:22+00:00\n"
+"POT-Creation-Date: 2023-01-21T06:31:35+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.7.1\n"
 "X-Domain: magic-login\n"
@@ -179,12 +179,12 @@ msgid "Brute Force Protection"
 msgstr ""
 
 #: includes/settings.php:262
-#: includes/settings.php:328
-#: includes/settings.php:385
-#: includes/settings.php:415
-#: includes/settings.php:460
-#: includes/settings.php:485
-#: includes/settings.php:512
+#: includes/settings.php:336
+#: includes/settings.php:393
+#: includes/settings.php:423
+#: includes/settings.php:468
+#: includes/settings.php:493
+#: includes/settings.php:520
 msgid "Pro"
 msgstr ""
 
@@ -196,160 +196,149 @@ msgstr ""
 msgid "Enable brute force protection"
 msgstr ""
 
-#: includes/settings.php:285
-msgid "Block the IP address for"
+#. translators: 1: Ban duration (number) 2: Trial count (number) 3: Interval (number)
+#: includes/settings.php:318
+msgid "Block the IP address for %1$s minutes when it fails to login %2$s times in %3$s minutes."
 msgstr ""
 
-#: includes/settings.php:295
-msgid "minutes when it fails to login "
-msgstr ""
-
-#: includes/settings.php:305
-msgid "times in"
-msgstr ""
-
-#: includes/settings.php:315
-msgid "minutes."
-msgstr ""
-
-#: includes/settings.php:327
+#: includes/settings.php:335
 msgid "Login Request Throttling"
 msgstr ""
 
-#: includes/settings.php:330
+#: includes/settings.php:338
 msgid "Limit login URL generation for the given time span."
 msgstr ""
 
-#: includes/settings.php:384
+#: includes/settings.php:392
 msgid "IP Check"
 msgstr ""
 
-#: includes/settings.php:388
+#: includes/settings.php:396
 msgid "The user should log in from the same IP that makes a login request. (except for the login links generated via CLI)"
 msgstr ""
 
-#: includes/settings.php:404
+#: includes/settings.php:412
 msgid "Enable IP address check"
 msgstr ""
 
-#: includes/settings.php:414
+#: includes/settings.php:422
 msgid "Domain Restriction"
 msgstr ""
 
-#: includes/settings.php:417
+#: includes/settings.php:425
 msgid "Allow only listed domains to login via magic links."
 msgstr ""
 
-#: includes/settings.php:432
+#: includes/settings.php:440
 msgid "Enable domain restriction"
 msgstr ""
 
-#: includes/settings.php:447
+#: includes/settings.php:455
 msgid "Enter allowed domains line by line."
 msgstr ""
 
-#: includes/settings.php:459
+#: includes/settings.php:467
 msgid "Email Subject"
 msgstr ""
 
-#: includes/settings.php:484
+#: includes/settings.php:492
 msgid "Email Content"
 msgstr ""
 
-#: includes/settings.php:501
+#: includes/settings.php:509
 msgid "Supported placeholders: {{SITEURL}}, {{USERNAME}}, {{SITENAME}}, {{EXPIRES}}, {{EXPIRES_WITH_INTERVAL}}, {{MAGIC_LINK}}"
 msgstr ""
 
-#: includes/settings.php:511
+#: includes/settings.php:519
 msgid "Login Redirect"
 msgstr ""
 
-#: includes/settings.php:514
+#: includes/settings.php:522
 msgid "Redirect users to custom URL after login."
 msgstr ""
 
-#: includes/settings.php:530
+#: includes/settings.php:538
 msgid "Enable custom login redirection"
 msgstr ""
 
-#: includes/settings.php:536
+#: includes/settings.php:544
 msgid "Target URL:"
 msgstr ""
 
-#: includes/settings.php:546
+#: includes/settings.php:554
 msgid "By default it redirects to admin dashboard"
 msgstr ""
 
-#: includes/settings.php:561
+#: includes/settings.php:569
 msgid "Apply redirection to normal WordPress login too."
 msgstr ""
 
-#: includes/settings.php:576
+#: includes/settings.php:584
 msgid "Enable role-based redirection."
 msgstr ""
 
-#: includes/settings.php:577
+#: includes/settings.php:585
 msgid "Leave it blank to use default redirection rule."
 msgstr ""
 
-#: includes/settings.php:588
+#: includes/settings.php:596
 msgid "Role"
 msgstr ""
 
-#: includes/settings.php:589
+#: includes/settings.php:597
 msgid "Target URL"
 msgstr ""
 
-#: includes/settings.php:627
+#: includes/settings.php:635
 msgid "Reset Tokens"
 msgstr ""
 
-#: includes/settings.php:628
+#: includes/settings.php:636
 msgid "If you want to clean all tokens at once click to reset button."
 msgstr ""
 
-#: includes/settings.php:632
+#: includes/settings.php:640
 msgid "Reset"
 msgstr ""
 
-#: includes/settings.php:641
+#: includes/settings.php:649
 msgid "Try Magic Login Pro Today"
 msgstr ""
 
-#: includes/settings.php:652
+#: includes/settings.php:660
 msgid "Update settings"
 msgstr ""
 
 #. translators: %s: HandyPlugins URL
-#: includes/settings.php:668
+#: includes/settings.php:676
 msgid "Made with <i class=\"sui-icon-heart\"></i> by <a href=\"%s\" rel=\"noopener\" target=\"_blank\">HandyPlugins</a>"
 msgstr ""
 
-#: includes/settings.php:678
+#: includes/settings.php:686
 msgid "FAQ"
 msgstr ""
 
-#: includes/settings.php:679
+#: includes/settings.php:687
 msgid "Blog"
 msgstr ""
 
-#: includes/settings.php:680
+#: includes/settings.php:688
 msgid "Support"
 msgstr ""
 
-#: includes/settings.php:681
+#: includes/settings.php:689
 msgid "Docs"
 msgstr ""
 
-#: includes/settings.php:716
+#: includes/settings.php:724
 msgid "Tokens has been removed."
 msgstr ""
 
-#: includes/settings.php:718
+#: includes/settings.php:726
 msgid "Tokens could not be removed."
 msgstr ""
 
-#: includes/settings.php:758
+#: includes/settings.php:766
 msgid "Settings saved."
 msgstr ""
 
