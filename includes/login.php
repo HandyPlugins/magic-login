@@ -203,8 +203,8 @@ function login_form() {
 		?>
 		<p class="submit">
 			<input type="submit" name="wp-submit" id="wp-submit" style="float: none;width: 100%;" class="magic-login-submit button button-primary button-hero" value="<?php esc_attr_e( 'Send me the link', 'magic-login' ); ?>" />
-			<?php if ( isset( $_GET['redirect_to'] ) ) : ?>
-				<input type="hidden" name="redirect_to" value="<?php echo esc_url( $_GET['redirect_to'] ); ?>">
+			<?php if ( isset( $_GET['redirect_to'] ) ) :  // phpcs:ignore WordPress.Security.NonceVerification.Recommended ?>
+				<input type="hidden" name="redirect_to" value="<?php echo esc_url( $_GET['redirect_to'] ); // phpcs:ignore WordPress.Security.NonceVerification.Recommended ?>">
 			<?php endif; ?>
 
 			<input type="hidden" name="testcookie" value="1" />
@@ -379,8 +379,8 @@ function print_login_button() {
 
 	$login_url = site_url( 'wp-login.php?action=magic_login', 'login_post' );
 
-	if ( isset( $_GET['redirect_to'] ) ) {
-		$login_url = esc_url( add_query_arg( 'redirect_to', $_GET['redirect_to'], $login_url ) );
+	if ( isset( $_GET['redirect_to'] ) ) { // phpcs:ignore WordPress.Security.NonceVerification.Recommended
+		$login_url = esc_url( add_query_arg( 'redirect_to', $_GET['redirect_to'], $login_url ) ); // phpcs:ignore WordPress.Security.NonceVerification.Recommended
 	}
 
 	?>
@@ -593,7 +593,8 @@ function add_auto_login_link_to_message( $args, $user ) {
 
 	if ( $token_ttl > 0 ) {
 		$login_message .= $is_html ? '<br>' : PHP_EOL;
-		/* translators: 1: TTL value (number) 2: Unit (minute(s), hour(s), days(s)) */
+
+		/* translators: 1: TTL value (number) 2: Unit (minute(s), hour(s), days(s)) */ // phpcs:ignore Squiz.PHP.CommentedOutCode.Found
 		$login_message .= sprintf( __( 'Login link will expire in %1$s %2$s.', 'magic-login' ), $token_ttl, $selected_interval_str );
 	}
 
