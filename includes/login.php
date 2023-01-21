@@ -388,6 +388,10 @@ function print_login_button() {
 		(function () {
 			document.getElementById('loginform').insertAdjacentHTML(
 				'beforeend',
+				'<div class="magic-login-normal-login">' +
+				'<button type="submit" name="wp-submit" id="wp-login-submit" class="button button-primary button-hero" value="<?php esc_attr_e( 'Log In' ); ?>"><?php esc_attr_e( 'Log In' ); ?></button>'+
+				'</div>'+
+				'<span class="magic-login-or-seperator"></span>' +
 				'<div id="continue-with-magic-login" class="continue-with-magic-login">' +
 				'<a href="<?php echo esc_url( $login_url ); ?>" class="button button-primary button-hero">' +
 				'<?php esc_html_e( 'Send me the login link', 'magic-login' ); ?>' +
@@ -412,6 +416,24 @@ function login_css() {
 
 	?>
 	<style>
+		#loginform  #wp-submit {
+			display: none;
+		}
+
+		.magic-login-normal-login{
+			width: 80%;
+			margin: auto;
+			padding-top:10px;
+			display: block;
+			text-align: center;
+			clear:both;
+		}
+
+		.magic-login-normal-login .button{
+			width: 100%;
+			float: none!important;
+		}
+
 		.continue-with-magic-login {
 			width: 80%;
 			margin: auto;
@@ -420,7 +442,37 @@ function login_css() {
 		}
 
 		.continue-with-magic-login .button {
-			margin-top: 10px;
+			float: none;
+		}
+
+		.magic-login-or-seperator {
+			display: block;
+			text-align: center;
+			position: relative;
+			margin: 10px auto;
+			width: 80%;
+		}
+
+		.magic-login-or-seperator:before {
+			content: "<?php esc_html_e( 'or', 'magic-login' ); ?>";
+			background-color: #fff;
+			font-size: 13px;
+			color: #9b9b9b;
+			display: inline-block;
+			width: 62px;
+			position: relative;
+			z-index: 1;
+		}
+
+		.magic-login-or-seperator:after {
+			content: "";
+			width: 100%;
+			position: absolute;
+			left: 0;
+			top: 50%;
+			height: 1px;
+			margin-top: -0.5px;
+			background-color: #d8d8d8;
 		}
 
 	</style>
@@ -530,11 +582,11 @@ function add_auto_login_link_to_message( $args, $user ) {
 	$link = create_login_link( $user );
 
 	if ( $is_html ) {
-		$login_message  = '<br>';
+		$login_message = '<br>';
 		/* translators: %s: The magic login link */
 		$login_message .= sprintf( __( '<a href="%s" target="_blank" rel="noopener">Click here to login</a>.', 'magic-login' ), $link );
 	} else {
-		$login_message  = PHP_EOL;
+		$login_message = PHP_EOL;
 		/* translators: %s: The magic login link */
 		$login_message .= sprintf( __( 'Auto Login: %s', 'magic-login' ), $link );
 	}
