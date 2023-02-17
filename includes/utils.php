@@ -102,6 +102,7 @@ function get_settings() {
 		'is_default'                    => false,
 		'add_login_button'              => true,
 		'token_ttl'                     => 5,
+		'token_validity'                => 1,
 		'token_interval'                => 'MINUTE',
 		'enable_brute_force_protection' => false,
 		'brute_force_bantime'           => 60, // in minutes

@@ -227,6 +227,32 @@ function settings_page() {
 							</div>
 						</div>
 
+						<!-- Token Validity -->
+						<div class="sui-box-settings-row">
+							<div class="sui-box-settings-col-1">
+								<span class="sui-settings-label" id="token_validity_label"><?php esc_html_e( 'Token Validity', 'magic-login' ); ?></span>
+								<span class="sui-description">
+									<?php esc_html_e( 'Specify how many times a token can be used.', 'magic-login' ); ?>
+									<a href="<?php echo esc_url( get_doc_url( 'token-validity' ) ); ?>" target="_blank"><?php esc_html_e( 'Learn More.', 'magic-login' ); ?></a>
+								</span>
+							</div>
+
+							<div class="sui-box-settings-col-2">
+								<div class="sui-form-field">
+									<input
+										name="token_validity"
+										id="token_validity"
+										class="sui-form-control sui-field-has-suffix"
+										aria-labelledby="token_validity_label"
+										type="number"
+										value="<?php echo absint( $settings['token_validity'] ); ?>"
+										min="0"
+										max="10"
+									/>
+								</div>
+							</div>
+						</div>
+
 						<!-- Auto Login links  -->
 						<div class="sui-box-settings-row">
 							<div class="sui-box-settings-col-1">
@@ -734,6 +760,7 @@ function save_settings() {
 		$settings['is_default']       = boolval( filter_input( INPUT_POST, 'is_default' ) );
 		$settings['add_login_button'] = boolval( filter_input( INPUT_POST, 'add_login_button' ) );
 		$settings['token_ttl']        = absint( filter_input( INPUT_POST, 'token_ttl' ) );
+		$settings['token_validity']   = absint( filter_input( INPUT_POST, 'token_validity' ) );
 		$settings['auto_login_links'] = boolval( filter_input( INPUT_POST, 'auto_login_links' ) );
 
 		// convert TTL in minute

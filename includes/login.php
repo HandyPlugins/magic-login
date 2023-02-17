@@ -150,6 +150,7 @@ function send_login_link( $user ) {
 		'{{EXPIRES}}'               => $settings['token_ttl'],
 		'{{EXPIRES_WITH_INTERVAL}}' => $token_ttl . ' ' . $selected_interval_str,
 		'{{MAGIC_LINK}}'            => $login_link,
+		'{{TOKEN_VALIDITY_COUNT}}'  => $settings['token_validity'],
 	];
 
 	$login_email   = str_replace( array_keys( $placeholder_values ), $placeholder_values, $login_email );
@@ -290,6 +291,9 @@ function handle_login_request() {
 		wp_die( $error ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 	}
 
+	$settings       = \MagicLogin\Utils\get_settings();
+	$token_validity = $settings['token_validity'];
+
 	$tokens        = get_user_tokens( $user->ID, true );
 	$is_valid      = false;
 	$current_token = null;
@@ -300,9 +304,15 @@ function handle_login_request() {
 		}
 
 		if ( hash_equals( $token_data['token'], hash_hmac( 'sha256', $_GET['token'], wp_salt() ) ) ) { // phpcs:ignore WordPress.Security.NonceVerification.Recommended
-			$is_valid      = true;
-			$current_token = $token_data;
-			unset( $tokens[ $i ] );
+			$is_valid          = true;
+			$current_token     = $token_data;
+			$token_usage_count = isset( $token_data['usage_count'] ) ? absint( $token_data['usage_count'] ) + 1 : 1;
+
+			$tokens[ $i ]['usage_count'] = $token_usage_count;
+			if ( 0 !== $token_validity && $token_validity <= $token_usage_count ) {
+				unset( $tokens[ $i ] );
+			}
+
 			break;
 		}
 	}
