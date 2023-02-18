@@ -179,7 +179,7 @@ function render_login_block( $args ) {
 						<label for="user_login"><?php echo esc_html( $args['loginLabel'] ); ?></label>
 					<?php endif; ?>
 
-					<input type="text" name="log" id="user_login" class="input" value="" size="20" autocapitalize="off" required />
+					<input type="text" name="log" id="user_login" class="input" value="" size="20" autocapitalize="off" autocomplete="username" required />
 					<?php do_action( 'magic_login_form' ); ?>
 					<?php if ( ! empty( $args['buttonLabel'] ) ) : ?>
 						<input type="submit" name="wp-submit" id="wp-submit" class="magic-login-submit button button-primary button-large" value="<?php echo esc_attr( $args['buttonLabel'] ); ?>" />

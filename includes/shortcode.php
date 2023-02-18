@@ -95,7 +95,7 @@ function shortcode_login_form( $shortcode_atts ) {
 					<?php else : ?>
 						<label for="user_login"><?php esc_html_e( 'Username or Email Address', 'magic-login' ); ?></label>
 					<?php endif; ?>
-					<input type="text" name="log" id="user_login" class="input" value="" size="20" autocapitalize="off" required />
+					<input type="text" name="log" id="user_login" class="input" value="" size="20" autocapitalize="off" autocomplete="username" required />
 					<?php
 
 					/**
