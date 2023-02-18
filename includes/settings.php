@@ -110,6 +110,12 @@ function settings_page() {
 						<h2 class="sui-box-title">
 							<?php esc_html_e( 'Settings', 'magic-login' ); ?>
 						</h2>
+						<div class="sui-actions-right sui-hidden-important" style="display: none;">
+							<button type="submit" class="sui-button sui-button-blue" id="magic-login-save-settings" data-msg="">
+								<i class="sui-icon-save" aria-hidden="true"></i>
+								<?php esc_html_e( 'Update settings', 'magic-login' ); ?>
+							</button>
+						</div>
 					</div>
 
 					<div class="sui-box-body sui-upsell-items">
