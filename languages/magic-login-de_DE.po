@@ -3,8 +3,8 @@ msgstr ""
 "Project-Id-Version: Plugins - Magic Login &#8211; Passwordless "
 "Authentication for WordPress - Stable (latest release)\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/magic-login-pro\n"
-"POT-Creation-Date: 2023-02-17T14:40:02+00:00\n"
-"PO-Revision-Date: 2023-02-17 23:08+0300\n"
+"POT-Creation-Date: 2023-02-18T14:19:48+00:00\n"
+"PO-Revision-Date: 2023-02-18 17:20+0300\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: de\n"
@@ -209,7 +209,7 @@ msgstr ""
 "rel=\"noopener\">%3$s</a> nutzen."
 
 #: includes/settings.php:170 includes/settings.php:214
-#: includes/settings.php:245
+#: includes/settings.php:246
 msgid "Learn More."
 msgstr "Mehr erfahren."
 
@@ -237,19 +237,19 @@ msgstr ""
 "DIe Lebensdauer des Login-Links. WP-Cron entfernt abgelaufene Tokens "
 "automatisch."
 
-#: includes/settings.php:242
+#: includes/settings.php:243
 msgid "Token Validity"
 msgstr "Token-Gültigkeit"
 
-#: includes/settings.php:244
+#: includes/settings.php:245
 msgid "Specify how many times a token can be used."
 msgstr "Geben Sie an, wie oft ein Token verwendet werden kann."
 
-#: includes/settings.php:268
+#: includes/settings.php:269
 msgid "Auto Login Links"
 msgstr "Auto-Login Links"
 
-#: includes/settings.php:269
+#: includes/settings.php:270
 msgid ""
 "If the recipient exists, automatically adds the login link to outgoing "
 "emails sent from WordPress. "
@@ -257,11 +257,11 @@ msgstr ""
 "Wenn der Empfänger existiert, wird der Login-Link automatisch zu ausgehenden "
 "E-Mails von WordPress hinzugefügt. "
 
-#: includes/settings.php:283
+#: includes/settings.php:284
 msgid "Add magic login links to outgoing emails"
 msgstr "Magische Login-Links zu ausgehenden E-Mails hinzufügen"
 
-#: includes/settings.php:285
+#: includes/settings.php:286
 msgid ""
 "This could be useful when there is an action waiting for the user. (eg: "
 "reply comment, complete shopping etc...)"
@@ -269,21 +269,21 @@ msgstr ""
 "Dies könnte hilfreich sein, wenn eine Aktion auf eine Benutzereingabe "
 "wartet. (z.B. Kommentar, Shopping etc…)"
 
-#: includes/settings.php:296
+#: includes/settings.php:297
 msgid "Brute Force Protection"
 msgstr "Schutz vor Brute-Force-Angriffen"
 
-#: includes/settings.php:298
+#: includes/settings.php:299
 msgid "Enable additional security mechanisms to limit login requests."
 msgstr ""
 "Aktivieren Sie zusätzliche Sicherheitsmechanismen, um Login-Anfragen zu "
 "begrenzen."
 
-#: includes/settings.php:312
+#: includes/settings.php:313
 msgid "Enable brute force protection"
 msgstr "Brute-Force-Schutz aktivieren"
 
-#: includes/settings.php:353
+#: includes/settings.php:354
 msgid ""
 "Block the IP address for %1$s minutes when it fails to login %2$s times in "
 "%3$s minutes."
@@ -291,20 +291,20 @@ msgstr ""
 "Sperren Sie die IP-Adresse für %1$s Minuten, wenn sie sich innerhalb von "
 "%3$s Minuten %2$s Mal nicht anmelden kann."
 
-#: includes/settings.php:370
+#: includes/settings.php:371
 msgid "Login Request Throttling"
 msgstr "Drosselung von Login-Anfragen"
 
-#: includes/settings.php:372
+#: includes/settings.php:373
 msgid "Limit login URL generation for the given time span."
 msgstr ""
 "Begrenzen Sie die Generierung von Login-URLs für die angegebene Zeitspanne."
 
-#: includes/settings.php:426
+#: includes/settings.php:427
 msgid "IP Check"
 msgstr "IP-Check"
 
-#: includes/settings.php:429
+#: includes/settings.php:430
 msgid ""
 "The user should log in from the same IP that makes a login request. (except "
 "for the login links generated via CLI)"
@@ -313,115 +313,117 @@ msgstr ""
 "er eine Anmeldeanfrage stellt. (außer bei den über CLI generierten "
 "Anmeldelinks)"
 
-#: includes/settings.php:445
+#: includes/settings.php:446
 msgid "Enable IP address check"
 msgstr "Überprüfung der IP-Adresse aktivieren"
 
-#: includes/settings.php:455
+#: includes/settings.php:456
 msgid "Domain Restriction"
 msgstr "Einschränkung der Domäne"
 
-#: includes/settings.php:457
+#: includes/settings.php:458
 msgid "Allow only listed domains to login via magic links."
 msgstr ""
 "Erlauben Sie nur aufgelisteten Domains die Anmeldung über magische Links."
 
-#: includes/settings.php:472
+#: includes/settings.php:473
 msgid "Enable domain restriction"
 msgstr "Aktivieren der Domänenbeschränkung"
 
-#: includes/settings.php:487
+#: includes/settings.php:488
 msgid "Enter allowed domains line by line."
 msgstr "Geben Sie die erlaubten Domänen zeilenweise ein."
 
-#: includes/settings.php:498
+#: includes/settings.php:499
 msgid "Email Subject"
 msgstr "E-Mail Betreff"
 
-#: includes/settings.php:521
+#: includes/settings.php:522
 msgid "Email Content"
 msgstr "E-Mail Inhalt"
 
-#: includes/settings.php:537
+#: includes/settings.php:538
 msgid ""
 "Supported placeholders: {{SITEURL}}, {{USERNAME}}, {{SITENAME}}, "
-"{{EXPIRES}}, {{MAGIC_LINK}}, {{EXPIRES_WITH_INTERVAL}}"
+"{{EXPIRES}}, {{MAGIC_LINK}}, {{EXPIRES_WITH_INTERVAL}}, "
+"{{TOKEN_VALIDITY_COUNT}}"
 msgstr ""
 "Unterstützte Platzhalter: {{SITEURL}}, {{USERNAME}}, {{SITENAME}}, "
-"{{EXPIRES}}, {{EXPIRES_WITH_INTERVAL}}, {{MAGIC_LINK}}"
+"{{EXPIRES}}, {{EXPIRES_WITH_INTERVAL}}, {{MAGIC_LINK}}, "
+"{{TOKEN_VALIDITY_COUNT}}"
 
-#: includes/settings.php:547
+#: includes/settings.php:548
 msgid "Login Redirect"
 msgstr "Login-Umleitung"
 
-#: includes/settings.php:549
+#: includes/settings.php:550
 msgid "Redirect users to custom URL after login."
 msgstr ""
 "Leiten Sie Benutzer nach der Anmeldung zu einer benutzerdefinierten URL um."
 
-#: includes/settings.php:565
+#: includes/settings.php:566
 msgid "Enable custom login redirection"
 msgstr "Benutzerdefinierte Umleitung für die Anmeldung aktivieren"
 
-#: includes/settings.php:571
+#: includes/settings.php:572
 msgid "Target URL:"
 msgstr "Ziel URL:"
 
-#: includes/settings.php:581
+#: includes/settings.php:582
 msgid "By default it redirects to admin dashboard"
 msgstr "Standardmäßig wird zum Admin-Dashboard umgeleitet"
 
-#: includes/settings.php:596
+#: includes/settings.php:597
 msgid "Apply redirection to normal WordPress login too."
 msgstr "Wenden Sie die Umleitung auch auf den normalen WordPress-Login an."
 
-#: includes/settings.php:611
+#: includes/settings.php:612
 msgid "Enable role-based redirection."
 msgstr "Aktivieren Sie die rollenbasierte Umleitung."
 
-#: includes/settings.php:612
+#: includes/settings.php:613
 msgid "Leave it blank to use default redirection rule."
 msgstr "Frei lassen um Standard Umleitung zu benutzen."
 
-#: includes/settings.php:623
+#: includes/settings.php:624
 msgid "Role"
 msgstr "Rolle"
 
-#: includes/settings.php:624
+#: includes/settings.php:625
 msgid "Target URL"
 msgstr "Ziel URL"
 
-#: includes/settings.php:662
+#: includes/settings.php:663
 msgid "Reset Tokens"
 msgstr "Tokens Zurücksetzen"
 
-#: includes/settings.php:663
+#: includes/settings.php:664
 msgid "If you want to clean all tokens at once click to reset button."
 msgstr ""
 "Wenn Sie alle Token auf einmal löschen möchten, klicken Sie auf die "
 "Schaltfläche Zurücksetzen."
 
-#: includes/settings.php:667
+#: includes/settings.php:668
 msgid "Reset"
 msgstr "Zurücksetzen"
 
-#: includes/settings.php:676
+#: includes/settings.php:677
 msgid "License Key"
 msgstr "Lizenzschlüssel"
 
-#: includes/settings.php:691
+#: includes/settings.php:692
 msgid "Deactivate "
 msgstr "Deaktivieren "
 
-#: includes/settings.php:693
+#: includes/settings.php:694
 msgid "Activate "
 msgstr "Aktivieren "
 
-#: includes/settings.php:707
+#: includes/settings.php:708
 msgid "Update settings"
 msgstr "Einstellungen aktualisieren"
 
-#: includes/settings.php:722
+#: includes/settings.php:723
 msgid ""
 "Made with <i class=\"sui-icon-heart\"></i> by <a href=\"%s\" "
 "rel=\"noopener\" target=\"_blank\">HandyPlugins</a>"
@@ -429,35 +431,35 @@ msgstr ""
 "Made with <i class=\"sui-icon-heart\"></i> by <a href=\"%s\" "
 "rel=\"noopener\" target=\"_blank\">HandyPlugins</a>"
 
-#: includes/settings.php:732
+#: includes/settings.php:733
 msgid "FAQ"
 msgstr "FAQ"
 
-#: includes/settings.php:733
+#: includes/settings.php:734
 msgid "Blog"
 msgstr "Blog"
 
-#: includes/settings.php:734
+#: includes/settings.php:735
 msgid "Support"
 msgstr "Support"
 
-#: includes/settings.php:735
+#: includes/settings.php:736
 msgid "Docs"
 msgstr "Docs"
 
-#: includes/settings.php:770
+#: includes/settings.php:771
 msgid "Tokens has been removed."
 msgstr "Tokens wurde entfernt."
 
-#: includes/settings.php:772
+#: includes/settings.php:773
 msgid "Tokens could not be removed."
 msgstr "Die Token konnten nicht entfernt werden."
 
-#: includes/settings.php:836
+#: includes/settings.php:837
 msgid "Settings saved."
 msgstr "Einstellungen gespeichert."
 
-#: includes/settings.php:893
+#: includes/settings.php:894
 msgid ""
 "Please activate your license on this domain. A valid license key is required "
 "for access to automatic updates and support."
