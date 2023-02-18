@@ -191,6 +191,11 @@ function send_login_link( $user ) {
  * login form
  */
 function login_form() {
+	$user_login = '';
+
+	if ( isset( $_POST['log'] ) && is_string( $_POST['log'] ) ) {
+		$user_login = wp_unslash( $_POST['log'] );
+	}
 	?>
 	<form name="magicloginform" id="magicloginform" action="<?php echo esc_url( site_url( 'wp-login.php?action=magic_login', 'login_post' ) ); ?>" method="post" autocomplete="off">
 		<p>
@@ -199,7 +204,7 @@ function login_form() {
 			<?php else : ?>
 				<label for="user_login"><?php esc_html_e( 'Username or Email Address', 'magic-login' ); ?></label>
 			<?php endif; ?>
-			<input type="text" name="log" id="user_login" class="input" value="" size="20" autocapitalize="off" required />
+			<input type="text" name="log" id="user_login" class="input" value="<?php echo esc_attr( $user_login ); ?>" size="20" autocapitalize="off" required />
 		</p>
 		<?php
 
@@ -405,18 +410,36 @@ function print_login_button() {
 	?>
 	<script type="text/javascript">
 		(function () {
-			document.getElementById('loginform').insertAdjacentHTML(
-				'beforeend',
-				'<div class="magic-login-normal-login">' +
-				'<button type="submit" name="wp-submit" id="wp-login-submit" class="button button-primary button-hero" value="<?php esc_attr_e( 'Log In' ); ?>"><?php esc_attr_e( 'Log In' ); ?></button>'+
-				'</div>'+
-				'<span class="magic-login-or-seperator"></span>' +
-				'<div id="continue-with-magic-login" class="continue-with-magic-login">' +
-				'<a href="<?php echo esc_url( $login_url ); ?>" class="button button-primary button-hero">' +
-				'<?php esc_html_e( 'Send me the login link', 'magic-login' ); ?>' +
-				'</a>' +
-				'</div>'
-			);
+			let loginForm = document.getElementById('loginform');
+
+			if( loginForm ){
+				loginForm.insertAdjacentHTML(
+					'beforeend',
+					'<div class="magic-login-normal-login">' +
+					'<button type="submit" name="wp-submit" id="wp-login-submit" class="button button-primary button-hero" value="<?php esc_attr_e( 'Log In' ); ?>"><?php esc_attr_e( 'Log In' ); ?></button>'+
+					'</div>'+
+					'<span class="magic-login-or-seperator"></span>' +
+					'<div id="continue-with-magic-login" class="continue-with-magic-login">' +
+					'<button type="button" value="<?php echo esc_url( $login_url ); ?>" class="button button-primary button-hero" id="magic-login-button">' +
+					'<?php esc_html_e( 'Send me the login link', 'magic-login' ); ?>' +
+					'</button>'+
+					'</a>' +
+					'</div>'
+				);
+
+				document.getElementById('magic-login-button').onclick = function () {
+					let loginInput = document.getElementById('user_login');
+					if ( loginInput.value.length > 0 ) {
+						let frm = document.getElementById('loginform') || null;
+						if ( frm ) {
+							frm.action = "<?php echo esc_url( $login_url ); ?>";
+							frm.submit();
+						}
+					}else{
+						location.href = "<?php echo esc_url( $login_url ); ?>";
+					}
+				}
+			}
 		})();
 	</script>
 	<?php
