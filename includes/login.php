@@ -471,9 +471,14 @@ function login_css() {
 			clear:both;
 		}
 
-		.magic-login-normal-login .button{
+		.magic-login-normal-login .button,
+		#magic-login-button {
 			width: 100%;
 			float: none!important;
+		}
+
+		#magic-login-button {
+			padding: unset !important;
 		}
 
 		.continue-with-magic-login {
