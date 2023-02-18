@@ -2,9 +2,9 @@
 Contributors:      handyplugins,m_uysl
 Tags:              login, passwordless, passwordless-login, magic-login, magic-link
 Requires at least: 5.0
-Tested up to:      6.1
+Tested up to:      6.1.1
 Requires PHP:      5.6
-Stable tag:        1.7
+Stable tag:        1.8
 License:           GPLv2 or later
 License URI:       http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -19,7 +19,7 @@ Streamline the login process by sending links to your users. No more passwords t
 **[Learn more about Magic Login](https://handyplugins.co/magic-login-pro/)**
 
 = How does it work? 🪄 =
-Magic login uses a technique called "magic links". The magic link is a unique link sent directly to your email inbox which allows you to authenticate once.
+Magic login uses a technique called "magic links". The magic link is a unique link sent directly to your email inbox which allows you to authenticate.
 
 __Auto Login__: Magic Login also supports auto-login links for outgoing emails. It's useful when pending action from a user, such as reply a comment, complete the checkout, etc..
 
@@ -61,7 +61,7 @@ Passwordless authentication is an authentication method in which a user can log 
 
 = Is the magic links are secure? =
 
-Yes! In fact, we thought this is more secure than the regular login due to most of the users are using weak passwords. Since magic login generates a random token for a limited time frame it makes the links quite strong and secure. Also, tokens can be used only once.
+Yes! In fact, we thought this is more secure than the regular login due to most of the users are using weak passwords. Since magic login generates a random token for a limited time frame it makes the links quite strong and secure.
 
 = When do login links expire? =
 
@@ -78,11 +78,20 @@ You can use `[magic_login_form]` shortcode or block. [Learn More.](https://handy
 
 == Screenshots ==
 
-1. Settings Page
-2. Login Email
-3. Login Block
+1. Login Page
+2. Settings Page
+3. Login Email
+4. Login Block
 
 == Changelog ==
+
+= 1.8 (February 18, 2023) =
+* New feature: Token Validity - allows to specify how many times a token can be used.
+* Improvements on the default login screen
+* i18n improvements
+* Added: German translation.
+* Added: Autocomplete support.
+* Added: New token `{{TOKEN_VALIDITY_COUNT}}` to customize email content.
 
 = 1.7 (January 21, 2023) =
 * PHP 8.1: fix deprecated 'FILTER_SANITIZE_STRING'
