@@ -139,7 +139,7 @@ function settings_page() {
 										echo wp_kses_post(
 											sprintf(
 												/* translators: 1: Login URL with Magic Login flavour */
-												__( 'Magic login form is accessible <a href="%1$s">%1$s</a>' ),
+												__( 'Magic login form is accessible <a href="%1$s">%1$s</a>', 'magic-login' ),
 												esc_url( site_url( 'wp-login.php?action=magic_login', 'login_post' ) )
 											)
 										);
