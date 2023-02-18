@@ -17,7 +17,8 @@
     "lint-js": "10up-toolkit lint-js",
     "lint-style": "10up-toolkit lint-style",
     "test": "10up-toolkit test-unit-jest",
-    "make-pot": "wp-pot --src 'includes/*.php' 'plugin.php' 'assets' --dest-file 'languages/magic-login.pot' --domain 'magic-login'",
+    "make-pot": "wp i18n make-pot . languages/magic-login.pot --domain='magic-login'",
+    "make-json": "wp i18n make-json languages --no-purge",
     "build-release": "npm install --production=false && composer install --no-dev -o && npm run build && npm run make-pot",
     "lint-release": "npm install && composer install && npm run lint"
   },
@@ -25,8 +26,7 @@
     "@wordpress/element": "^4.0.0",
     "@wordpress/server-side-render": "^3.0.4",
     "@wpmudev/shared-ui": "2.12.16",
-    "10up-toolkit": "^4.3",
-    "wp-pot-cli": "1.2.4"
+    "10up-toolkit": "^4.3"
   },
   "engines": {
     "node": ">=12.0.0"
