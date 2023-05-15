@@ -2,11 +2,12 @@
 Contributors:      handyplugins,m_uysl
 Tags:              login, passwordless, passwordless-login, magic-login, magic-link
 Requires at least: 5.0
-Tested up to:      6.1.1
+Tested up to:      6.2
 Requires PHP:      5.6
-Stable tag:        1.8
+Stable tag:        1.8.1
 License:           GPLv2 or later
 License URI:       http://www.gnu.org/licenses/gpl-2.0.html
+Donate link:       https://handyplugins.co/donate/
 
 Passwordless login for WordPress.
 
@@ -84,6 +85,12 @@ You can use `[magic_login_form]` shortcode or block. [Learn More.](https://handy
 4. Login Block
 
 == Changelog ==
+
+= 1.8.1 (May 15, 2023) =
+* Added: Styling for two-factor plugin.
+* Minor UI changes.
+* Small tweaks and improvements.
+* Tested with WP 6.2
 
 = 1.8 (February 18, 2023) =
 * New feature: Token Validity - allows to specify how many times a token can be used.
