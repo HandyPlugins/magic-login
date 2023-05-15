@@ -429,7 +429,7 @@ function print_login_button() {
 
 				document.getElementById('magic-login-button').onclick = function () {
 					let loginInput = document.getElementById('user_login');
-					if ( loginInput.value.length > 0 ) {
+					if ( loginInput != null && loginInput.value.length > 0 ) {
 						let frm = document.getElementById('loginform') || null;
 						if ( frm ) {
 							frm.action = "<?php echo esc_url( $login_url ); ?>";
@@ -458,12 +458,26 @@ function login_css() {
 
 	?>
 	<style>
+		form[name="validate_2fa_form"] .submit {
+			display: none;
+		}
+
+		.two-factor-email-resend input[type="submit"] {
+			width: 100%;
+			margin: auto;
+			display: block;
+			text-align: center;
+			padding: 0 36px;
+			min-height: 46px;
+		}
+
+
 		#loginform  #wp-submit {
 			display: none;
 		}
 
 		.magic-login-normal-login{
-			width: 80%;
+			width: 100%;
 			margin: auto;
 			padding-top:10px;
 			display: block;
@@ -482,7 +496,7 @@ function login_css() {
 		}
 
 		.continue-with-magic-login {
-			width: 80%;
+			width: 100%;
 			margin: auto;
 			display: block;
 			text-align: center;
@@ -497,7 +511,7 @@ function login_css() {
 			text-align: center;
 			position: relative;
 			margin: 10px auto;
-			width: 80%;
+			width: 100%;
 		}
 
 		.magic-login-or-seperator:before {
