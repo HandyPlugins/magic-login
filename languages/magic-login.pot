@@ -2,16 +2,16 @@
 # This file is distributed under the GPL v2 or later.
 msgid ""
 msgstr ""
-"Project-Id-Version: Magic Login 1.7\n"
+"Project-Id-Version: Magic Login 1.8\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/magic-login\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2023-02-18T14:22:59+00:00\n"
+"POT-Creation-Date: 2023-05-15T17:52:34+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"X-Generator: WP-CLI 2.6.0\n"
+"X-Generator: WP-CLI 2.7.1\n"
 "X-Domain: magic-login\n"
 
 #. Plugin Name of the plugin
@@ -98,22 +98,22 @@ msgstr ""
 msgid "Send me the login link"
 msgstr ""
 
-#: includes/login.php:504
+#: includes/login.php:518
 msgid "or"
 msgstr ""
 
 #. translators: %s: The magic login link
-#: includes/login.php:634
+#: includes/login.php:648
 msgid "<a href=\"%s\" target=\"_blank\" rel=\"noopener\">Click here to login</a>."
 msgstr ""
 
 #. translators: %s: The magic login link
-#: includes/login.php:638
+#: includes/login.php:652
 msgid "Auto Login: %s"
 msgstr ""
 
 #. translators: 1: TTL value (number) 2: Unit (minute(s), hour(s), days(s))
-#: includes/login.php:645
+#: includes/login.php:659
 msgid "Login link will expire in %1$s %2$s."
 msgstr ""
 
@@ -125,237 +125,238 @@ msgstr ""
 msgid "Settings"
 msgstr ""
 
-#: includes/settings.php:120
+#: includes/settings.php:116
+#: includes/settings.php:693
+msgid "Update settings"
+msgstr ""
+
+#: includes/settings.php:126
 msgid "Force Magic Login"
 msgstr ""
 
-#: includes/settings.php:121
+#: includes/settings.php:127
 msgid "Change default login behaviour and use magic login as default login method."
 msgstr ""
 
-#: includes/settings.php:135
+#: includes/settings.php:141
 msgid "Use magic login by default"
 msgstr ""
 
 #. translators: 1: Login URL with Magic Login flavour
-#: includes/settings.php:142
+#: includes/settings.php:148
 msgid "Magic login form is accessible <a href=\"%1$s\">%1$s</a>"
 msgstr ""
 
-#: includes/settings.php:160
-#: includes/settings.php:204
-#: includes/settings.php:236
+#: includes/settings.php:166
+#: includes/settings.php:210
+#: includes/settings.php:242
 msgid "Learn More."
 msgstr ""
 
-#: includes/settings.php:175
+#: includes/settings.php:181
 msgid "Show on Login Form"
 msgstr ""
 
-#: includes/settings.php:176
+#: includes/settings.php:182
 msgid "Adds magic login button to WordPress login form."
 msgstr ""
 
-#: includes/settings.php:190
+#: includes/settings.php:196
 msgid "Add magic login button to standard login form"
 msgstr ""
 
-#: includes/settings.php:201
+#: includes/settings.php:207
 msgid "Token Lifespan"
 msgstr ""
 
-#: includes/settings.php:203
+#: includes/settings.php:209
 msgid "The TTL (time to live) of the login link. WP-Cron removes expired tokens."
 msgstr ""
 
-#: includes/settings.php:233
+#: includes/settings.php:239
 msgid "Token Validity"
 msgstr ""
 
-#: includes/settings.php:235
+#: includes/settings.php:241
 msgid "Specify how many times a token can be used."
 msgstr ""
 
-#: includes/settings.php:259
+#: includes/settings.php:265
 msgid "Auto Login Links"
 msgstr ""
 
-#: includes/settings.php:260
+#: includes/settings.php:266
 msgid "If the recipient exists, automatically adds the login link to outgoing emails sent from WordPress. "
 msgstr ""
 
-#: includes/settings.php:274
+#: includes/settings.php:280
 msgid "Add magic login links to outgoing emails"
 msgstr ""
 
-#: includes/settings.php:276
+#: includes/settings.php:282
 msgid "This could be useful when there is an action waiting for the user. (eg: reply comment, complete shopping etc...)"
 msgstr ""
 
-#: includes/settings.php:287
+#: includes/settings.php:293
 msgid "Brute Force Protection"
 msgstr ""
 
-#: includes/settings.php:288
-#: includes/settings.php:363
-#: includes/settings.php:420
-#: includes/settings.php:450
-#: includes/settings.php:495
-#: includes/settings.php:520
-#: includes/settings.php:547
+#: includes/settings.php:294
+#: includes/settings.php:369
+#: includes/settings.php:426
+#: includes/settings.php:456
+#: includes/settings.php:501
+#: includes/settings.php:526
+#: includes/settings.php:553
 msgid "Pro"
 msgstr ""
 
-#: includes/settings.php:290
+#: includes/settings.php:296
 msgid "Enable additional security mechanisms to limit login requests."
 msgstr ""
 
-#: includes/settings.php:304
+#: includes/settings.php:310
 msgid "Enable brute force protection"
 msgstr ""
 
-#: includes/settings.php:345
+#: includes/settings.php:351
 msgid "Block the IP address for %1$s minutes when it fails to login %2$s times in %3$s minutes."
 msgstr ""
 
-#: includes/settings.php:362
+#: includes/settings.php:368
 msgid "Login Request Throttling"
 msgstr ""
 
-#: includes/settings.php:365
+#: includes/settings.php:371
 msgid "Limit login URL generation for the given time span."
 msgstr ""
 
-#: includes/settings.php:419
+#: includes/settings.php:425
 msgid "IP Check"
 msgstr ""
 
-#: includes/settings.php:423
+#: includes/settings.php:429
 msgid "The user should log in from the same IP that makes a login request. (except for the login links generated via CLI)"
 msgstr ""
 
-#: includes/settings.php:439
+#: includes/settings.php:445
 msgid "Enable IP address check"
 msgstr ""
 
-#: includes/settings.php:449
+#: includes/settings.php:455
 msgid "Domain Restriction"
 msgstr ""
 
-#: includes/settings.php:452
+#: includes/settings.php:458
 msgid "Allow only listed domains to login via magic links."
 msgstr ""
 
-#: includes/settings.php:467
+#: includes/settings.php:473
 msgid "Enable domain restriction"
 msgstr ""
 
-#: includes/settings.php:482
+#: includes/settings.php:488
 msgid "Enter allowed domains line by line."
 msgstr ""
 
-#: includes/settings.php:494
+#: includes/settings.php:500
 msgid "Email Subject"
 msgstr ""
 
-#: includes/settings.php:519
+#: includes/settings.php:525
 msgid "Email Content"
 msgstr ""
 
-#: includes/settings.php:536
-msgid "Supported placeholders: {{SITEURL}}, {{USERNAME}}, {{SITENAME}}, {{EXPIRES}}, {{EXPIRES_WITH_INTERVAL}}, {{MAGIC_LINK}}, {{TOKEN_VALIDITY_COUNT}}"
+#: includes/settings.php:542
+msgid "Supported placeholders: {{SITEURL}}, {{USERNAME}}, {{SITENAME}}, {{EXPIRES}}, {{MAGIC_LINK}}, {{EXPIRES_WITH_INTERVAL}}, {{TOKEN_VALIDITY_COUNT}}"
 msgstr ""
 
-#: includes/settings.php:546
+#: includes/settings.php:552
 msgid "Login Redirect"
 msgstr ""
 
-#: includes/settings.php:549
+#: includes/settings.php:555
 msgid "Redirect users to custom URL after login."
 msgstr ""
 
-#: includes/settings.php:565
+#: includes/settings.php:571
 msgid "Enable custom login redirection"
 msgstr ""
 
-#: includes/settings.php:571
+#: includes/settings.php:577
 msgid "Target URL:"
 msgstr ""
 
-#: includes/settings.php:581
+#: includes/settings.php:587
 msgid "By default it redirects to admin dashboard"
 msgstr ""
 
-#: includes/settings.php:596
+#: includes/settings.php:602
 msgid "Apply redirection to normal WordPress login too."
 msgstr ""
 
-#: includes/settings.php:611
+#: includes/settings.php:617
 msgid "Enable role-based redirection."
 msgstr ""
 
-#: includes/settings.php:612
+#: includes/settings.php:618
 msgid "Leave it blank to use default redirection rule."
 msgstr ""
 
-#: includes/settings.php:623
+#: includes/settings.php:629
 msgid "Role"
 msgstr ""
 
-#: includes/settings.php:624
+#: includes/settings.php:630
 msgid "Target URL"
 msgstr ""
 
-#: includes/settings.php:662
+#: includes/settings.php:668
 msgid "Reset Tokens"
 msgstr ""
 
-#: includes/settings.php:663
+#: includes/settings.php:669
 msgid "If you want to clean all tokens at once click to reset button."
 msgstr ""
 
-#: includes/settings.php:667
+#: includes/settings.php:673
 msgid "Reset"
 msgstr ""
 
-#: includes/settings.php:676
+#: includes/settings.php:682
 msgid "Try Magic Login Pro Today"
 msgstr ""
 
-#: includes/settings.php:687
-msgid "Update settings"
-msgstr ""
-
 #. translators: %s: HandyPlugins URL
-#: includes/settings.php:703
+#: includes/settings.php:709
 msgid "Made with <i class=\"sui-icon-heart\"></i> by <a href=\"%s\" rel=\"noopener\" target=\"_blank\">HandyPlugins</a>"
 msgstr ""
 
-#: includes/settings.php:713
+#: includes/settings.php:719
 msgid "FAQ"
 msgstr ""
 
-#: includes/settings.php:714
+#: includes/settings.php:720
 msgid "Blog"
 msgstr ""
 
-#: includes/settings.php:715
+#: includes/settings.php:721
 msgid "Support"
 msgstr ""
 
-#: includes/settings.php:716
+#: includes/settings.php:722
 msgid "Docs"
 msgstr ""
 
-#: includes/settings.php:751
+#: includes/settings.php:757
 msgid "Tokens has been removed."
 msgstr ""
 
-#: includes/settings.php:753
+#: includes/settings.php:759
 msgid "Tokens could not be removed."
 msgstr ""
 
-#: includes/settings.php:794
+#: includes/settings.php:800
 msgid "Settings saved."
 msgstr ""
 
