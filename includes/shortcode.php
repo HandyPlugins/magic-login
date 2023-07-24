@@ -52,43 +52,50 @@ function shortcode_login_form( $shortcode_atts ) {
 	ob_start();
 
 	wp_enqueue_style(
-		'magic_login_admin',
+		'magic_login_shortcode',
 		style_url( 'shortcode-style', 'shortcode' ),
 		[],
 		MAGIC_LOGIN_VERSION
 	);
+
+	$settings = \MagicLogin\Utils\get_settings();
+
+	if ( $settings['enable_ajax'] ) {
+		wp_enqueue_script( 'magic-login-frontend', MAGIC_LOGIN_URL . 'dist/js/frontend.js', [ 'jquery' ], MAGIC_LOGIN_VERSION, true );
+	}
 
 	$form_action = apply_filters( 'magic_login_shortcode_form_action', '' );
 
 	$login_request = process_login_request();
 	?>
 	<div id="magic-login-shortcode">
-		<?php
-		$login_errors = $login_request['errors'];
+		<div class="magic-login-form-header">
+			<?php
+			$login_errors = $login_request['errors'];
 
-		// error messages
-		if ( ! empty( $login_errors ) && is_wp_error( $login_errors ) && $login_errors->has_errors() ) {
-			$error_messages = '';
+			// error messages
+			if ( ! empty( $login_errors ) && is_wp_error( $login_errors ) && $login_errors->has_errors() ) {
+				$error_messages = '';
 
-			foreach ( $login_errors->get_error_codes() as $code ) {
-				foreach ( $login_errors->get_error_messages( $code ) as $message ) {
-					$error_messages .= $message . "<br />\n";
+				foreach ( $login_errors->get_error_codes() as $code ) {
+					foreach ( $login_errors->get_error_messages( $code ) as $message ) {
+						$error_messages .= $message . "<br />\n";
+					}
+				}
+
+				if ( ! empty( $error_messages ) ) {
+					printf( '<div id="login_error">%s</div>', wp_kses_post( $error_messages ) );
 				}
 			}
 
-			if ( ! empty( $error_messages ) ) {
-				printf( '<div id="login_error">%s</div>', wp_kses_post( $error_messages ) );
+			// display info messages
+			if ( ! empty( $login_request['info'] ) ) {
+				echo wp_kses_post( $login_request['info'] );
 			}
-		}
-
-		// display info messages
-		if ( ! empty( $login_request['info'] ) ) {
-			echo wp_kses_post( $login_request['info'] );
-		}
-		?>
-
+			?>
+		</div>
 		<?php if ( $login_request['show_form'] ) : ?>
-			<form name="magicloginform" class="magic-login-inline-login-form" id="magicloginform" action="<?php echo esc_attr( $form_action ); ?>" method="post" autocomplete="off">
+			<form name="magicloginform" class="magic-login-inline-login-form" id="magicloginform" action="<?php echo esc_attr( $form_action ); ?>" method="post" autocomplete="off" data-ajax-url="<?php echo admin_url( 'admin-ajax.php' ); ?>">
 				<p>
 					<?php if ( defined( 'MAGIC_LOGIN_USERNAME_ONLY' ) && MAGIC_LOGIN_USERNAME_ONLY ) : ?>
 						<label for="user_login"><?php esc_html_e( 'Username', 'magic-login' ); ?></label>

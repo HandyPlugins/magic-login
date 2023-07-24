@@ -44,3 +44,7 @@
 #magic-login-shortcode #login_error {
 	border-left-color: #d63638;
 }
+
+.magic-login-submit{
+	cursor:pointer;
+}

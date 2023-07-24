@@ -113,6 +113,12 @@ function register_blocks() {
  */
 function render_login_block( $args ) {
 
+	$settings = \MagicLogin\Utils\get_settings();
+
+	if ( $settings['enable_ajax'] ) {
+		wp_enqueue_script( 'magic-login-frontend', MAGIC_LOGIN_URL . 'dist/js/frontend.js', [ 'jquery' ], MAGIC_LOGIN_VERSION, true );
+	}
+
 	$form_action = apply_filters( 'magic_login_login_block_form_action', '' );
 
 	$class = 'magic-login-login-block';
@@ -157,23 +163,23 @@ function render_login_block( $args ) {
 		<?php if ( ! empty( $args['title'] ) ) : ?>
 			<h2 id="magic-login-block-title"><?php echo esc_html( $args['title'] ); ?></h2>
 		<?php endif; ?>
+		<div class="magic-login-form-header">
+			<?php
+			if ( ! empty( $error_messages ) ) :
+				printf( '<div class="magic_login_block_login_error">%s</div>', wp_kses_post( $error_messages ) );
+			endif;
+			?>
 
-		<?php
-		if ( ! empty( $error_messages ) ) :
-			printf( '<div class="magic_login_block_login_error">%s</div>', wp_kses_post( $error_messages ) );
-		endif;
-		?>
+			<?php if ( $login_request['is_processed'] ) : ?>
+				<?php echo wp_kses_post( $login_request['info'] ); ?>
+			<?php endif; ?>
 
-		<?php if ( $login_request['is_processed'] ) : ?>
-			<?php echo wp_kses_post( $login_request['info'] ); ?>
-		<?php endif; ?>
-
-		<?php if ( ! empty( $args['description'] ) && $login_request['show_form'] ) : ?>
-			<p class="magic-login-block-description"><?php echo esc_html( $args['description'] ); ?></p>
-		<?php endif; ?>
-
+			<?php if ( ! empty( $args['description'] ) && $login_request['show_form'] ) : ?>
+				<p class="magic-login-block-description"><?php echo esc_html( $args['description'] ); ?></p>
+			<?php endif; ?>
+		</div>
 		<?php if ( $login_request['show_form'] ) : ?>
-			<form name="magicloginform" class="block-login-form" id="magicloginform" action="<?php echo esc_attr( $form_action ); ?>" method="post" autocomplete="off">
+			<form name="magicloginform" class="block-login-form" id="magicloginform" action="<?php echo esc_attr( $form_action ); ?>" method="post" autocomplete="off" data-ajax-url="<?php echo admin_url( 'admin-ajax.php' ); ?>">
 				<div class="magicloginform-inner">
 					<?php if ( ! empty( $args['loginLabel'] ) ) : ?>
 						<label for="user_login"><?php echo esc_html( $args['loginLabel'] ); ?></label>

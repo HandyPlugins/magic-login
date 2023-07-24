@@ -35,6 +35,9 @@ function setup() {
 	add_action( 'login_footer', $n( 'print_login_button' ) );
 	add_action( 'login_head', $n( 'login_css' ) );
 	add_filter( 'wp_mail', $n( 'maybe_add_auto_login_link' ), 999 );
+
+	add_action( 'wp_ajax_magic_login_ajax_request', __NAMESPACE__ . '\\ajax_request' );
+	add_action( 'wp_ajax_nopriv_magic_login_ajax_request', __NAMESPACE__ . '\\ajax_request' );
 }
 
 
@@ -742,4 +745,52 @@ function is_auto_login_link_excluded_mail( $args ) {
 	 * @since 1.6
 	 */
 	return (bool) apply_filters( 'magic_login_auto_login_link_excluded', $is_excluded, $args );
+}
+
+/**
+ * Ajax callback for login requests
+ *
+ * @return void
+ */
+function ajax_request() {
+	parse_str( $_POST['data'], $form_data );
+
+	if ( $form_data['log'] ) {
+		$_POST['log'] = $form_data['log'];
+	}
+
+	if ( $form_data['redirect_to'] ) {
+		$_POST['redirect_to'] = $form_data['redirect_to'];
+	}
+
+	$login_request = process_login_request();
+
+	if ( ! empty( $login_request['info'] ) ) {
+		wp_send_json_success(
+			[
+				'message'   => $login_request['info'],
+				'show_form' => $login_request['show_form'],
+			]
+		);
+	}
+
+	$error_messages = '';
+	$login_errors   = $login_request['errors'];
+	// error messages
+	if ( ! empty( $login_errors ) && is_wp_error( $login_errors ) && $login_errors->has_errors() ) {
+		foreach ( $login_errors->get_error_codes() as $code ) {
+			foreach ( $login_errors->get_error_messages( $code ) as $message ) {
+				$error_messages .= $message . "<br />\n";
+			}
+		}
+	}
+
+	$error_message = sprintf( '<div id="login_error" class="magic_login_block_login_error">%s</div>', wp_kses_post( $error_messages ) );
+
+	wp_send_json_error(
+		[
+			'message'   => $error_message,
+			'show_form' => $login_request['show_form'],
+		]
+	);
 }

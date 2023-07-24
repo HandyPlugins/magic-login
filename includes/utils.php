@@ -122,6 +122,7 @@ function get_settings() {
 		'role_based_redirection_rules'  => [],
 		'email_subject'                 => __( 'Log in to {{SITENAME}}', 'magic-login' ),
 		'auto_login_links'              => false,
+		'enable_ajax'                   => false,
 	];
 
 	if ( MAGIC_LOGIN_IS_NETWORK ) {

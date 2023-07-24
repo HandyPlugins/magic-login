@@ -33,3 +33,7 @@
 	font-weight: 700;
 	margin-bottom: 5px;
 }
+
+.magic-login-submit{
+	cursor:pointer;
+}

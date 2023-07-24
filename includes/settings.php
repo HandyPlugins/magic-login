@@ -662,6 +662,31 @@ function settings_page() {
 
 						</div>
 
+						<!-- Ajaxify magic login request  -->
+						<div class="sui-box-settings-row">
+							<div class="sui-box-settings-col-1">
+								<span class="sui-settings-label" for="ajax-magic-login"><?php esc_html_e( 'Enable AJAX', 'magic-login' ); ?></span>
+								<span class="sui-description"><?php esc_html_e( 'It will ajaxify the login requests added to pages via shortcode or block.', 'magic-login' ); ?></span>
+							</div>
+
+							<div class="sui-box-settings-col-2">
+								<div class="sui-form-field">
+									<label for="enable_ajax" class="sui-toggle">
+										<input type="checkbox"
+											   value="1"
+											   name="enable_ajax"
+											   id="enable_ajax"
+											   aria-labelledby="enable-ajax-form-label"
+											<?php checked( 1, $settings['enable_ajax'] ); ?>
+										>
+										<span class="sui-toggle-slider" aria-hidden="true"></span>
+										<span id="enable-ajax-form-label" class="sui-toggle-label"><?php esc_html_e( 'Enable AJAX for requesting magic login links.', 'magic-login' ); ?></span>
+										<span class="sui-description"><?php esc_html_e( 'It allows to send links without refreshing the current page.', 'magic-login' ); ?></span>
+									</label>
+								</div>
+							</div>
+						</div>
+
 						<!-- Reset Tokens -->
 						<div class="sui-box-settings-row">
 							<div class="sui-box-settings-col-1">
@@ -768,6 +793,7 @@ function save_settings() {
 		$settings['token_ttl']        = absint( filter_input( INPUT_POST, 'token_ttl' ) );
 		$settings['token_validity']   = absint( filter_input( INPUT_POST, 'token_validity' ) );
 		$settings['auto_login_links'] = boolval( filter_input( INPUT_POST, 'auto_login_links' ) );
+		$settings['enable_ajax']      = boolval( filter_input( INPUT_POST, 'enable_ajax' ) );
 
 		// convert TTL in minute
 		if ( $_POST['token_ttl'] > 0 && isset( $_POST['token_interval'] ) ) {
