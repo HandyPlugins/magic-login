@@ -26,7 +26,8 @@
     "@wordpress/element": "^4.0.0",
     "@wordpress/server-side-render": "^3.0.4",
     "@wpmudev/shared-ui": "2.12.18",
-    "10up-toolkit": "^5.1"
+    "10up-toolkit": "^5.1",
+    "@wordpress/scripts": "^24.6.0"
   },
   "engines": {
     "node": ">=12.0.0"
@@ -37,6 +38,7 @@
   "10up-toolkit": {
     "entry": {
       "admin": "./assets/js/admin/admin.js",
+      "frontend": "./assets/js/frontend/frontend.js",
       "block-editor": "./assets/js/admin/block-editor.js",
       "admin-style": "./assets/css/admin/admin-style.css",
       "login-block-style": "./assets/css/blocks/login-block.css",
