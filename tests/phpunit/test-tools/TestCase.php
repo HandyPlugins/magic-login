@@ -19,7 +19,7 @@ class TestCase extends BaseTestCase {
 		if ( ! empty( $this->testFiles ) ) {
 			foreach ( $this->testFiles as $file ) {
 				if ( file_exists( PROJECT . $file ) ) {
-					require_once( PROJECT . $file );
+					require_once PROJECT . $file;
 				}
 			}
 		}
@@ -67,9 +67,11 @@ class TestCase extends BaseTestCase {
 	 * @param \Text_Template $template
 	 */
 	public function prepareTemplate( Text_Template $template ) {
-		$template->setVar( [
-			'globals' => '$GLOBALS[\'__PHPUNIT_BOOTSTRAP\'] = \'' . $GLOBALS['__PHPUNIT_BOOTSTRAP'] . '\';',
-		] );
+		$template->setVar(
+			[
+				'globals' => '$GLOBALS[\'__PHPUNIT_BOOTSTRAP\'] = \'' . $GLOBALS['__PHPUNIT_BOOTSTRAP'] . '\';',
+			]
+		);
 		parent::prepareTemplate( $template );
 	}
 }

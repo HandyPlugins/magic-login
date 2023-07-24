@@ -18,7 +18,7 @@ use MagicLogin as Base;
 class Core_Tests extends Base\TestCase {
 
 	protected $testFiles = [
-		'core.php'
+		'core.php',
 	];
 
 	/**
@@ -42,25 +42,37 @@ class Core_Tests extends Base\TestCase {
 	 */
 	public function test_i18n() {
 		// Setup
-		\WP_Mock::userFunction( 'get_locale', array(
-			'times' => 1,
-			'args' => array(),
-			'return' => 'en_US',
-		) );
+		\WP_Mock::userFunction(
+			'get_locale',
+			array(
+				'times'  => 1,
+				'args'   => array(),
+				'return' => 'en_US',
+			)
+		);
 		\WP_Mock::onFilter( 'plugin_locale' )->with( 'en_US', 'magic-login' )->reply( 'en_US' );
-		\WP_Mock::userFunction( 'load_textdomain', array(
-			'times' => 1,
-			'args' => array( 'magic-login', 'lang_dir/magic-login/magic-login-en_US.mo' ),
-		) );
-		\WP_Mock::userFunction( 'plugin_basename', array(
-			'times' => 1,
-			'args' => array( 'path' ),
-			'return' => 'path',
-		) );
-		\WP_Mock::userFunction( 'load_plugin_textdomain', array(
-			'times' => 1,
-			'args' => array( 'magic-login', false, 'path/languages/' ),
-		) );
+		\WP_Mock::userFunction(
+			'load_textdomain',
+			array(
+				'times' => 1,
+				'args'  => array( 'magic-login', 'lang_dir/magic-login/magic-login-en_US.mo' ),
+			)
+		);
+		\WP_Mock::userFunction(
+			'plugin_basename',
+			array(
+				'times'  => 1,
+				'args'   => array( 'path' ),
+				'return' => 'path',
+			)
+		);
+		\WP_Mock::userFunction(
+			'load_plugin_textdomain',
+			array(
+				'times' => 1,
+				'args'  => array( 'magic-login', false, 'path/languages/' ),
+			)
+		);
 
 		// Act
 		i18n();

@@ -63,7 +63,7 @@ function create_login_link( $user ) {
 	);
 
 	if ( ! empty( $_POST['redirect_to'] ) ) {
-		$query_args['redirect_to'] = esc_url_raw( $_POST['redirect_to'] );
+		$query_args['redirect_to'] = esc_url_raw( $_POST['redirect_to'] ); // phpcs:ignore
 	}
 
 	$login_url = esc_url_raw( add_query_arg( $query_args, wp_login_url() ) );
@@ -89,7 +89,7 @@ function get_client_ip() {
 	 * @return {string} New value.
 	 * @since  1.5
 	 */
-	return apply_filters( 'magic_login_client_ip', $_SERVER['REMOTE_ADDR'] );
+	return apply_filters( 'magic_login_client_ip', $_SERVER['REMOTE_ADDR'] ); // phpcs:ignore
 }
 /**
  * Get settings with defaults
@@ -256,10 +256,10 @@ function get_user_default_redirect( $user ) {
 function delete_all_tokens() {
 	global $wpdb;
 
-	return $wpdb->delete(
+	return $wpdb->delete( // phpcs:ignore WordPress.DB.DirectDatabaseQuery.NoCaching,WordPress.DB.DirectDatabaseQuery.DirectQuery
 		$wpdb->usermeta,
 		[
-			'meta_key' => TOKEN_USER_META,
+			'meta_key' => TOKEN_USER_META, // phpcs:ignore WordPress.DB.SlowDBQuery.slow_db_query_meta_key
 		]
 	);
 }

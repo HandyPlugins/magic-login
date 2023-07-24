@@ -131,7 +131,7 @@ function render_login_block( $args ) {
 	}
 
 	if ( empty( $args['redirectTo'] ) ) {
-		$args['redirectTo'] = ( is_ssl() ? 'https://' : 'http://' ) . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];
+		$args['redirectTo'] = ( is_ssl() ? 'https://' : 'http://' ) . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI']; // phpcs:ignore
 	}
 
 	if ( ! defined( 'REST_REQUEST' ) && ! is_admin() && is_user_logged_in() && $args['hideLoggedIn'] ) { // already logged-in dont show
@@ -179,8 +179,8 @@ function render_login_block( $args ) {
 			<?php endif; ?>
 		</div>
 		<?php if ( $login_request['show_form'] ) : ?>
-			<form name="magicloginform" class="block-login-form" id="magicloginform" action="<?php echo esc_attr( $form_action ); ?>" method="post" autocomplete="off" data-ajax-url="<?php echo admin_url( 'admin-ajax.php' ); ?>">
-				<div class="magicloginform-inner">
+			<form name="magicloginform" class="block-login-form" id="magicloginform" action="<?php echo esc_url( $form_action ); ?>" method="post" autocomplete="off" data-ajax-url="<?php echo esc_url( admin_url( 'admin-ajax.php' ) ); ?>">
+			<div class="magicloginform-inner">
 					<?php if ( ! empty( $args['loginLabel'] ) ) : ?>
 						<label for="user_login"><?php echo esc_html( $args['loginLabel'] ); ?></label>
 					<?php endif; ?>

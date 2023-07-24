@@ -636,7 +636,7 @@ function settings_page() {
 												<?php if ( $roles ) : ?>
 													<?php foreach ( $roles as $role => $role_details ) : ?>
 														<tr>
-															<td class="sui-table-item-title"><?php echo esc_attr( $role_details['name'] ); ?></td>
+															<td class="sui-table-item-title"><?php echo esc_html( $role_details['name'] ); ?></td>
 															<td><input
 																		type="text"
 																		name="redirect_role[<?php echo esc_attr( $role ); ?>]"
@@ -695,7 +695,7 @@ function settings_page() {
 							</div>
 							<div class="sui-box-settings-col-2">
 								<div class="sui-form-field">
-									<input type="submit" name="reset_tokens" id="reset_tokens" aria-describedby="reset-tokens" class="sui-button sui-button-ghost" value="<?php esc_html_e( 'Reset', 'magic-login' ); ?>">
+									<input type="submit" name="reset_tokens" id="reset_tokens" aria-describedby="reset-tokens" class="sui-button sui-button-ghost" value="<?php echo esc_attr( __( 'Reset', 'magic-login' ) ); ?>">
 								</div>
 							</div>
 						</div>
@@ -796,7 +796,7 @@ function save_settings() {
 		$settings['enable_ajax']      = boolval( filter_input( INPUT_POST, 'enable_ajax' ) );
 
 		// convert TTL in minute
-		if ( $_POST['token_ttl'] > 0 && isset( $_POST['token_interval'] ) ) {
+		if ( isset( $_POST['token_ttl'] ) && $_POST['token_ttl'] > 0 && isset( $_POST['token_interval'] ) ) {
 			switch ( $_POST['token_interval'] ) {
 				case 'DAY':
 					$settings['token_ttl'] = absint( $_POST['token_ttl'] ) * 1440;

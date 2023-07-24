@@ -53,7 +53,7 @@ function process_login_request() {
 	$is_processed = false;
 
 	// process form request
-	if ( 'POST' === $_SERVER['REQUEST_METHOD'] && ! empty( $_POST['log'] ) ) {
+	if ( isset( $_SERVER['REQUEST_METHOD'] ) && 'POST' === $_SERVER['REQUEST_METHOD'] && ! empty( $_POST['log'] ) ) {
 		$user_name = sanitize_user( wp_unslash( $_POST['log'] ) );
 		$user      = get_user_by( 'login', $user_name );
 
@@ -197,7 +197,7 @@ function login_form() {
 	$user_login = '';
 
 	if ( isset( $_POST['log'] ) && is_string( $_POST['log'] ) ) {
-		$user_login = wp_unslash( $_POST['log'] );
+		$user_login = wp_unslash( $_POST['log'] ); // phpcs:ignore
 	}
 	?>
 	<form name="magicloginform" id="magicloginform" action="<?php echo esc_url( site_url( 'wp-login.php?action=magic_login', 'login_post' ) ); ?>" method="post" autocomplete="off">
@@ -222,7 +222,7 @@ function login_form() {
 		<p class="submit">
 			<input type="submit" name="wp-submit" id="wp-submit" style="float: none;width: 100%;" class="magic-login-submit button button-primary button-hero" value="<?php esc_attr_e( 'Send me the link', 'magic-login' ); ?>" />
 			<?php if ( isset( $_GET['redirect_to'] ) ) :  // phpcs:ignore WordPress.Security.NonceVerification.Recommended ?>
-				<input type="hidden" name="redirect_to" value="<?php echo esc_url( $_GET['redirect_to'] ); // phpcs:ignore WordPress.Security.NonceVerification.Recommended ?>">
+				<input type="hidden" name="redirect_to" value="<?php echo esc_url( $_GET['redirect_to'] ); // phpcs:ignore ?>">
 			<?php endif; ?>
 
 			<input type="hidden" name="testcookie" value="1" />
@@ -311,7 +311,7 @@ function handle_login_request() {
 			continue;
 		}
 
-		if ( hash_equals( $token_data['token'], hash_hmac( 'sha256', $_GET['token'], wp_salt() ) ) ) { // phpcs:ignore WordPress.Security.NonceVerification.Recommended
+		if ( hash_equals( $token_data['token'], hash_hmac( 'sha256', $_GET['token'], wp_salt() ) ) ) { // phpcs:ignore
 			$is_valid          = true;
 			$current_token     = $token_data;
 			$token_usage_count = isset( $token_data['usage_count'] ) ? absint( $token_data['usage_count'] ) + 1 : 1;
@@ -407,7 +407,7 @@ function print_login_button() {
 	$login_url = site_url( 'wp-login.php?action=magic_login', 'login_post' );
 
 	if ( isset( $_GET['redirect_to'] ) ) { // phpcs:ignore WordPress.Security.NonceVerification.Recommended
-		$login_url = esc_url( add_query_arg( 'redirect_to', $_GET['redirect_to'], $login_url ) ); // phpcs:ignore WordPress.Security.NonceVerification.Recommended
+		$login_url = esc_url( add_query_arg( 'redirect_to', $_GET['redirect_to'], $login_url ) ); // phpcs:ignore
 	}
 
 	?>
@@ -419,7 +419,7 @@ function print_login_button() {
 				loginForm.insertAdjacentHTML(
 					'beforeend',
 					'<div class="magic-login-normal-login">' +
-					'<button type="submit" name="wp-submit" id="wp-login-submit" class="button button-primary button-hero" value="<?php esc_attr_e( 'Log In' ); ?>"><?php esc_attr_e( 'Log In' ); ?></button>'+
+					'<button type="submit" name="wp-submit" id="wp-login-submit" class="button button-primary button-hero" value="<?php echo esc_attr( __( 'Log In', 'magic-login' ) ); // phpcs:ignore ?>"><?php echo esc_attr( __( 'Log In', 'magic-login' ) ); ?></button>'+
 					'</div>'+
 					'<span class="magic-login-or-seperator"></span>' +
 					'<div id="continue-with-magic-login" class="continue-with-magic-login">' +
@@ -753,7 +753,17 @@ function is_auto_login_link_excluded_mail( $args ) {
  * @return void
  */
 function ajax_request() {
-	parse_str( $_POST['data'], $form_data );
+
+	if ( ! isset( $_POST['data'] ) ) {
+		wp_send_json_error(
+			[
+				'message'   => esc_html__( 'Invalid request', 'magic-login' ),
+				'show_form' => true,
+			]
+		);
+	}
+
+	parse_str( wp_unslash( $_POST['data'] ), $form_data ); // phpcs:ignore WordPress.Security.ValidatedSanitizedInput.InputNotSanitized
 
 	if ( $form_data['log'] ) {
 		$_POST['log'] = $form_data['log'];

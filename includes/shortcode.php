@@ -36,7 +36,7 @@ function setup() {
 function shortcode_login_form( $shortcode_atts ) {
 	$atts = shortcode_atts(
 		[
-			'redirect_to'    => ( is_ssl() ? 'https://' : 'http://' ) . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'],
+			'redirect_to'    => ( is_ssl() ? 'https://' : 'http://' ) . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'], // phpcs:ignore
 			'hide_logged_in' => true,
 		],
 		$shortcode_atts
@@ -95,8 +95,8 @@ function shortcode_login_form( $shortcode_atts ) {
 			?>
 		</div>
 		<?php if ( $login_request['show_form'] ) : ?>
-			<form name="magicloginform" class="magic-login-inline-login-form" id="magicloginform" action="<?php echo esc_attr( $form_action ); ?>" method="post" autocomplete="off" data-ajax-url="<?php echo admin_url( 'admin-ajax.php' ); ?>">
-				<p>
+			<form name="magicloginform" class="magic-login-inline-login-form" id="magicloginform" action="<?php echo esc_url( $form_action ); ?>" method="post" autocomplete="off" data-ajax-url="<?php echo esc_url( admin_url( 'admin-ajax.php' ) ); ?>">
+			<p>
 					<?php if ( defined( 'MAGIC_LOGIN_USERNAME_ONLY' ) && MAGIC_LOGIN_USERNAME_ONLY ) : ?>
 						<label for="user_login"><?php esc_html_e( 'Username', 'magic-login' ); ?></label>
 					<?php else : ?>
@@ -132,8 +132,8 @@ function shortcode_login_form( $shortcode_atts ) {
  * @return mixed
  */
 function maybe_shortcode_redirect( $redirect_url, $user ) {
-	if ( isset( $_GET['redirect_to'] ) && $_GET['redirect_to'] ) { // phpcs:ignore WordPress.Security.NonceVerification.Recommended
-		$redirect_url = esc_url_raw( $_GET['redirect_to'] ); // phpcs:ignore WordPress.Security.NonceVerification.Recommended
+	if ( isset( $_GET['redirect_to'] ) && $_GET['redirect_to'] ) { // phpcs:ignore
+		$redirect_url = esc_url_raw( $_GET['redirect_to'] ); // phpcs:ignore
 	}
 
 	return $redirect_url;
