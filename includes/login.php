@@ -121,19 +121,23 @@ function action_magic_login() {
 /**
  * Send magic link to user
  *
- * @param object $user \WP_User object
+ * @param object            $user       \WP_User object
+ * @param mixed|string|bool $login_link use given link when it provided. @since 1.9
  *
  * @return bool
  */
-function send_login_link( $user ) {
+function send_login_link( $user, $login_link = false ) {
 	if ( is_multisite() ) {
 		$site_name = get_network()->site_name;
 	} else {
 		$site_name = wp_specialchars_decode( get_option( 'blogname' ), ENT_QUOTES );
 	}
 
+	if ( ! $login_link ) {
+		$login_link = create_login_link( $user );
+	}
+
 	$settings      = \MagicLogin\Utils\get_settings();
-	$login_link    = create_login_link( $user );
 	$login_email   = $settings['login_email'];
 	$email_subject = $settings['email_subject'];
 
