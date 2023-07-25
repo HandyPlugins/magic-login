@@ -9,6 +9,7 @@
 .browserslistrc
 .eslintrc.json
 .eslintignore
+.eslintrc.js
 .npmrc
 .nvmrc
 .stylelintrc
