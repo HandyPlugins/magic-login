@@ -666,7 +666,7 @@ function settings_page() {
 						<div class="sui-box-settings-row">
 							<div class="sui-box-settings-col-1">
 								<span class="sui-settings-label" for="ajax-magic-login"><?php esc_html_e( 'Enable AJAX', 'magic-login' ); ?></span>
-								<span class="sui-description"><?php esc_html_e( 'It will ajaxify the login requests added to pages via shortcode or block.', 'magic-login' ); ?></span>
+								<span class="sui-description"><?php esc_html_e( 'It will ajaxify the login requests on pages that use shortcode or block.', 'magic-login' ); ?></span>
 							</div>
 
 							<div class="sui-box-settings-col-2">
