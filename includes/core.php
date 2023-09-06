@@ -71,7 +71,7 @@ function script_url( $script, $context ) {
 		return new WP_Error( 'invalid_enqueue_context', 'Invalid $context specified in MagicLogin script loader.' );
 	}
 
-	return MAGIC_LOGIN_URL . "dist/js/${script}.js";
+	return MAGIC_LOGIN_URL . "dist/js/{$script}.js";
 
 }
 
@@ -89,7 +89,7 @@ function style_url( $stylesheet, $context ) {
 		return new WP_Error( 'invalid_enqueue_context', 'Invalid $context specified in MagicLogin stylesheet loader.' );
 	}
 
-	return MAGIC_LOGIN_URL . "dist/css/${stylesheet}.css";
+	return MAGIC_LOGIN_URL . "dist/css/{$stylesheet}.css";
 
 }
 
