@@ -30,7 +30,7 @@ Here are the premium features that come with Magic Login Pro:
 
 - __CLI Command:__ Use WP-CLI to create login links.
 - __Brute Force Protection:__ Limit rate of login attempts and block IP temporarily.
-- __Login request throttling:__ Limit login link generation for a certain time of period.
+- __Login request throttling:__ Limit login link generation for a certain period.
 - __IP Check:__ Enhance the security by restricting users to log in from the same IP address that requested the link.
 - __Domain Restriction:__ Allow only certain domains to use the magic link.
 - __Login Email Customization:__ Customize login message by using email placeholders.
@@ -52,6 +52,7 @@ __If you like Magic Login, then consider checking out our other projects:__
 * <a href="https://handyplugins.co/easy-text-to-speech/" rel="friend">Easy Text-to-Speech for WordPress</a> – Transform your textual content into high-quality synthesized speech with Amazon Polly.
 * <a href="https://handyplugins.co/handywriter/" rel="friend">Handywriter</a> – AI-powered writing assistant that can help you create content for your WordPress.
 * <a href="https://handyplugins.co/paddlepress-pro/" rel="friend">PaddlePress PRO</a> – Paddle Plugin for WordPress
+* <a href="https://poweredcache.com/" rel="friend">Powered Cache</a> – Caching and Optimization for WordPress – Easily Improve PageSpeed & Web Vitals Score
 
 
 == Installation ==
@@ -67,7 +68,7 @@ __If you like Magic Login, then consider checking out our other projects:__
 
 Passwordless authentication is an authentication method in which a user can log in to a computer system without entering (and remembering) a password.
 
-= Is the magic links are secure? =
+= Are the magic links secure? =
 
 Yes! In fact, we thought this is more secure than the regular login due to most of the users are using weak passwords. Since magic login generates a random token for a limited time frame it makes the links quite strong and secure.
 
