@@ -1,0 +1,418 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Plugins - Magic Login &#8211; Passwordless Authentication for WordPress - Development (trunk)\n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2023-10-25T19:38:25+00:00\n"
+"PO-Revision-Date: 2021-03-04 22:28:32+0000\n"
+"Language: fr\n"
+"Plural-Forms: nplurals=2; plural=n > 1;\n"
+"X-Generator: GlotPress/4.0.0-alpha.11\n"
+
+#: includes/settings.php:542
+msgid "Supported placeholders: {{SITEURL}}, {{USERNAME}}, {{SITENAME}}, {{EXPIRES}}, {{MAGIC_LINK}}, {{EXPIRES_WITH_INTERVAL}}, {{TOKEN_VALIDITY_COUNT}}"
+msgstr "Espaces réservés pris en charge : {{SITEURL}}, {{USERNAME}}, {{SITENAME}}, {{EXPIRES}}, {{MAGIC_LINK}}, {{EXPIRES_WITH_INTERVAL}}, {{TOKEN_VALIDITY_COUNT}}"
+
+#: includes/settings.php:239
+msgid "Token Validity"
+msgstr "Validité du jeton"
+
+#: includes/settings.php:241
+msgid "Specify how many times a token can be used."
+msgstr "Indiquer combien de fois un jeton peut être utilisé."
+
+#: includes/login.php:525
+msgid "or"
+msgstr "ou"
+
+#: includes/login.php:426
+msgid "Log In"
+msgstr "Se connecter"
+
+#: includes/settings.php:351
+msgid "Block the IP address for %1$s minutes when it fails to login %2$s times in %3$s minutes."
+msgstr "Bloquer l'adresse IP pendant %1$s minutes si elle ne se connecte pas %2$s fois en %3$s minutes."
+
+#: includes/settings.php:282
+msgid "This could be useful when there is an action waiting for the user. (eg: reply comment, complete shopping etc...)"
+msgstr "Cela peut être utile lorsqu'une action attend l'utilisateur. (ex : répondre à un commentaire, faire des achats, etc...)"
+
+#: includes/settings.php:280
+msgid "Add magic login links to outgoing emails"
+msgstr "Ajouter des liens magic login aux courriels sortants"
+
+#: includes/settings.php:266
+msgid "If the recipient exists, automatically adds the login link to outgoing emails sent from WordPress. "
+msgstr "Si le destinataire existe, ajoute automatiquement le lien de connexion aux courriels sortants envoyés par WordPress. "
+
+#: includes/settings.php:265
+msgid "Auto Login Links"
+msgstr "Liens de connexion automatique"
+
+#: includes/login.php:724
+msgid "[%s] Email Change Request"
+msgstr "[%s] Demande de changement par courriel"
+
+#: includes/login.php:723
+msgid "[%s] Password Changed"
+msgstr "[%s] Mot de passe changé"
+
+#: includes/login.php:722
+msgid "[%s] Password Reset"
+msgstr "[%s] Réinitialisation du mot de passe"
+
+#: includes/login.php:721
+msgid "[%s] Login Details"
+msgstr "[%s] Détails de connexion"
+
+#: includes/login.php:720
+msgid "[%s] Notice of Network Admin Email Change"
+msgstr "[%s] Notification de changement de l’e-mail d’administration du réseau"
+
+#: includes/login.php:719
+msgid "[%s] Admin Email Changed"
+msgstr "[%s] E-mail d’administration modifié"
+
+#: includes/login.php:718
+msgid "[%s] Network Admin Email Change Request"
+msgstr "[%s] demande de modification de l’e-mail d’administration du réseau"
+
+#: includes/login.php:717
+msgid "[%s] New Admin Email Address"
+msgstr "[%s] Nouvelle adresse e-mail d’administration"
+
+#. translators: 1: TTL value (number) 2: Unit (minute(s), hour(s), days(s))
+#: includes/login.php:666
+msgid "Login link will expire in %1$s %2$s."
+msgstr "Le lien de connexion expirera dans %1$s %2$s."
+
+#. translators: %s: The magic login link
+#: includes/login.php:659
+msgid "Auto Login: %s"
+msgstr "Connexion automatique : %s"
+
+#. translators: %s: The magic login link
+#: includes/login.php:655
+msgid "<a href=\"%s\" target=\"_blank\" rel=\"noopener\">Click here to login</a>."
+msgstr "<a href=\"%s\" target=\"_blank\" rel=\"noopener\">Cliquez ici pour vous connecter</a>."
+
+#: includes/utils.php:123
+msgid "Log in to {{SITENAME}}"
+msgstr "Se connecter à {{SITENAME}}"
+
+#: includes/settings.php:500
+msgid "Email Subject"
+msgstr "Sujet de l’e-mail"
+
+#: includes/login.php:210
+#: includes/shortcode.php:101
+msgid "Username"
+msgstr "Nom d‘utilisateur"
+
+#: includes/login.php:76
+msgid "There is no account with that username."
+msgstr "Il n'y a pas de compte avec ce nom d'utilisateur."
+
+#: includes/settings.php:196
+msgid "Add magic login button to standard login form"
+msgstr "Ajouter un bouton magic login au formulaire de connexion standard"
+
+#: includes/settings.php:182
+msgid "Adds magic login button to WordPress login form."
+msgstr "Ajoute un bouton magic login au formulaire de connexion de WordPress."
+
+#: includes/settings.php:181
+msgid "Show on Login Form"
+msgstr "Afficher sur la page de connexion"
+
+#: includes/login.php:431
+msgid "Send me the login link"
+msgstr "Envoyez-moi le lien de connexion"
+
+#: includes/utils.php:278
+msgid "Day(s)"
+msgstr "Jour(s)"
+
+#: includes/utils.php:277
+msgid "Hour(s)"
+msgstr "Heure(s)"
+
+#: includes/utils.php:276
+msgid "Minute(s)"
+msgstr "Minute(s)"
+
+#: includes/settings.php:209
+msgid "The TTL (time to live) of the login link. WP-Cron removes expired tokens."
+msgstr "La durée de vie du lien de connexion. WP-Cron supprime les jetons expirés."
+
+#: includes/settings.php:166
+#: includes/settings.php:210
+#: includes/settings.php:242
+msgid "Learn More."
+msgstr "En savoir plus."
+
+#. translators: 1: Magic Login shortcode 2: Documentation URL 3: 'Learn More'
+#. text
+#: includes/settings.php:163
+msgid "In order to add a login form to any page, you can use shortcode <code>%1$s</code> or block. <a href=\"%2$s\" target=\"_blank\" rel=\"noopener\">%3$s</a>"
+msgstr "Pour ajouter un formulaire de connexion à n'importe quelle page, vous pouvez utiliser un shortcod <code>%1$s</code> ou un bloc.  <a href=\"%2$s\" target=\"_blank\" rel=\"noopener\">%3$s</a>"
+
+#: includes/login.php:78
+msgid "There is no account with that username or email address."
+msgstr "Aucun compte ne correspond pour cet identifiant et adresse e-mail."
+
+#: includes/block.php:67
+#: assets/js/admin/login-block.js:32
+msgid "Login with Email"
+msgstr "Se connecter avec l'email"
+
+#. translators: Do not translate USERNAME, SITENAME,EXPIRES, MAGIC_LINK,
+#. SITENAME, SITEUR, EXPIRES_WITH_INTERVAL: those are placeholders.
+#: includes/utils.php:146
+msgid ""
+"Hi {{USERNAME}},\n"
+"\n"
+"Click and confirm that you want to log in to {{SITENAME}}. This link will expire in {{EXPIRES_WITH_INTERVAL}} and can only be used once:\n"
+"\n"
+"<a href=\"{{MAGIC_LINK}}\" target=\"_blank\" rel=\"noreferrer noopener\">Log In</a>\n"
+"\n"
+"Need the link? {{MAGIC_LINK}}\n"
+"\n"
+"\n"
+"You can safely ignore and delete this email if you do not want to log in.\n"
+"\n"
+"Regards,\n"
+"All at {{SITENAME}}\n"
+"{{SITEURL}}"
+msgstr ""
+"Bonjour {{USERNAME}},\n"
+"\n"
+"Cliquez et confirmez que vous voulez vous connecter à {{SITENAME}}. Ce lien expirera dans {{EXPIRES_WITH_INTERVAL}} et ne peut être utilisé qu'une seule fois :\n"
+"\n"
+"<a href=\"{{MAGIC_LINK}}\" target=\"_blank\" rel=\"noreferrer noopener\">Se connecter</a>\n"
+"\n"
+"Besoin du lien ?  {{MAGIC_LINK}}\n"
+"\n"
+"\n"
+"Vous pouvez ignorer et supprimer cet e-mail si vous ne souhaitez pas vous connecter.\n"
+"\n"
+"Cordialements,\n"
+"{{SITENAME}}\n"
+"{{SITEURL}}"
+
+#: includes/settings.php:707
+msgid "Try Magic Login Pro Today"
+msgstr "Essayez Magic Login Pro dès aujourd'hui"
+
+#: includes/settings.php:706
+msgid "With our pro version of magic login, you will unlock the advanced configurations of the plugin and get access to the WP-CLI command along with our premium support."
+msgstr "Avec notre version pro de magic login, vous débloquerez les configurations avancées du plugin et aurez accès à la commande WP-CLI ainsi qu'à notre support premium."
+
+#: includes/settings.php:694
+msgid "If you want to clean all tokens at once click to reset button."
+msgstr "Si vous souhaitez nettoyer tous les jetons en une seule fois, cliquez sur le bouton de réinitialisation."
+
+#: includes/settings.php:618
+msgid "Leave it blank to use default redirection rule."
+msgstr "Laissez ce champ vide pour utiliser la règle de redirection par défaut."
+
+#: includes/settings.php:617
+msgid "Enable role-based redirection."
+msgstr "Activer la redirection basée sur les rôles."
+
+#: includes/settings.php:602
+msgid "Apply redirection to normal WordPress login too."
+msgstr "Appliquer la redirection à la connexion normale de WordPress également."
+
+#: includes/settings.php:587
+msgid "By default it redirects to admin dashboard"
+msgstr "Par défaut, il redirige vers le tableau de bord de l'administrateur."
+
+#: includes/settings.php:577
+msgid "Target URL:"
+msgstr "URL cible :"
+
+#: includes/settings.php:571
+msgid "Enable custom login redirection"
+msgstr "Activer la redirection de connexion personnalisée"
+
+#: includes/settings.php:555
+msgid "Redirect users to custom URL after login."
+msgstr "Rediriger les utilisateurs vers une URL personnalisée après la connexion."
+
+#: includes/settings.php:552
+msgid "Login Redirect"
+msgstr "Redirection de connexion"
+
+#: includes/settings.php:525
+msgid "Email Content"
+msgstr "Contenu de l’e-mail"
+
+#: includes/settings.php:488
+msgid "Enter allowed domains line by line."
+msgstr "Saisir les domaines autorisés ligne par ligne."
+
+#: includes/settings.php:473
+msgid "Enable domain restriction"
+msgstr "Activer la restriction de domaine"
+
+#: includes/settings.php:458
+msgid "Allow only listed domains to login via magic links."
+msgstr "Autoriser uniquement les domaines listés à se connecter via des magic links."
+
+#: includes/settings.php:455
+msgid "Domain Restriction"
+msgstr "Restriction du domaine"
+
+#: includes/settings.php:445
+msgid "Enable IP address check"
+msgstr "Activer la vérification de l'adresse IP"
+
+#: includes/settings.php:429
+msgid "The user should log in from the same IP that makes a login request. (except for the login links generated via CLI)"
+msgstr "L'utilisateur doit se connecter à partir de la même adresse IP que celle qui émet la demande de connexion. (sauf pour les liens de connexion générés via CLI)"
+
+#: includes/settings.php:425
+msgid "IP Check"
+msgstr "Vérification de l'IP"
+
+#: includes/settings.php:403
+msgid "login links from the same IP within"
+msgstr "liens de connexion à partir de la même adresse IP au sein de"
+
+#: includes/settings.php:393
+msgid "Allow to create maximum"
+msgstr "Permettre de créer un maximum de"
+
+#: includes/settings.php:386
+msgid "Enable throttling"
+msgstr "Activer la limitation"
+
+#: includes/settings.php:371
+msgid "Limit login URL generation for the given time span."
+msgstr "Limiter la génération d'URL de connexion pour une période donnée."
+
+#: includes/settings.php:368
+msgid "Login Request Throttling"
+msgstr "Restriction de la demande de connexion"
+
+#: includes/settings.php:413
+msgid "minutes."
+msgstr "minutes."
+
+#: includes/settings.php:310
+msgid "Enable brute force protection"
+msgstr "Activer la Protection anti force brute"
+
+#: includes/settings.php:296
+msgid "Enable additional security mechanisms to limit login requests."
+msgstr "Activer des mécanismes de sécurité supplémentaires pour limiter les demandes de connexion."
+
+#: includes/settings.php:294
+#: includes/settings.php:369
+#: includes/settings.php:426
+#: includes/settings.php:456
+#: includes/settings.php:501
+#: includes/settings.php:526
+#: includes/settings.php:553
+msgid "Pro"
+msgstr "Pro"
+
+#: includes/settings.php:293
+msgid "Brute Force Protection"
+msgstr "Protection contre les attaques Force Brute"
+
+#: includes/settings.php:207
+msgid "Token Lifespan"
+msgstr "Durée de vie des jetons"
+
+#. translators: 1: Login URL with Magic Login flavour
+#: includes/settings.php:148
+msgid "Magic login form is accessible <a href=\"%1$s\">%1$s</a>"
+msgstr "Le formulaire magic login est accessible <a href=\"%1$s\">%1$s</a>"
+
+#: includes/settings.php:141
+msgid "Use magic login by default"
+msgstr "Utiliser magic login par défaut"
+
+#: includes/settings.php:127
+msgid "Change default login behaviour and use magic login as default login method."
+msgstr "Modifier le comportement de connexion par défaut et utiliser magic login comme méthode de connexion par défaut."
+
+#: includes/settings.php:126
+msgid "Force Magic Login"
+msgstr "Force Magic Login"
+
+#: includes/settings.php:111
+msgid "Settings"
+msgstr "Réglages"
+
+#: includes/settings.php:97
+msgid "Documentation"
+msgstr "Documentation"
+
+#. translators: %s: Login URL
+#: includes/login.php:296
+msgid "Invalid magic login token. <a href=\"%s\">Try signing in instead</a>?"
+msgstr "Jeton de connexion magique invalide. <a href=\"%s\">Essayez de vous connecter à la place </a>?"
+
+#. translators: 1: User login 2: Dashboard URL
+#: includes/login.php:293
+msgid "Invalid magic login token, but you are logged in as '%1$s'. <a href=\"%2$s\">Go to the dashboard instead</a>?"
+msgstr "Jeton de connexion magique invalide, mais vous êtes connecté en tant que '%1$s'. <a href=\"%2$s\">Aller au tableau de bord à la place</a>?"
+
+#: includes/block.php:79
+#: includes/login.php:227
+#: includes/shortcode.php:116
+#: assets/js/admin/login-block.js:47
+msgid "Send me the link"
+msgstr "Envoyer moi le lien"
+
+#: includes/block.php:75
+#: includes/login.php:212
+#: includes/shortcode.php:103
+#: assets/js/admin/login-block.js:43
+msgid "Username or Email Address"
+msgstr "Identifiant ou adresse de messagerie"
+
+#: includes/login.php:110
+msgid "Log in"
+msgstr "Se connecter"
+
+#: includes/login.php:91
+msgid "Please check your inbox for the login link. If you did not receive a login email, check your spam folder too."
+msgstr "Veuillez vérifier votre boîte de réception pour le lien de connexion. Si vous n'avez pas reçu d'e-mail de connexion, vérifiez également votre dossier spam."
+
+#: includes/block.php:71
+#: includes/login.php:52
+#: assets/js/admin/login-block.js:36
+msgid "Please enter your username or email address. You will receive an email message to log in."
+msgstr "Veuillez saisir votre nom d'utilisateur ou votre adresse électronique. Vous recevrez un message électronique pour vous connecter."
+
+#. Author URI of the plugin
+msgid "https://handyplugins.co/"
+msgstr "https://handyplugins.co/"
+
+#. Author of the plugin
+msgid "HandyPlugins"
+msgstr "HandyPlugins"
+
+#. Description of the plugin
+msgid "Passwordless login for WordPress."
+msgstr "Connexion sans mot de passe pour WordPress."
+
+#. Plugin URI of the plugin
+msgid "https://handyplugins.co/magic-login-pro/"
+msgstr "https://handyplugins.co/magic-login-pro/"
+
+#. Plugin Name of the plugin
+#: includes/settings.php:69
+#: includes/settings.php:70
+#: includes/settings.php:90
+#: assets/js/admin/login-block.js:11
+msgid "Magic Login"
+msgstr "Magic Login"
