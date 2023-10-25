@@ -24,18 +24,13 @@ use \WP_Error as WP_Error;
  * @return void
  */
 function setup() {
-	$n = function ( $function ) {
-		return __NAMESPACE__ . "\\$function";
-	};
-
-	add_action( 'login_form_magic_login', $n( 'action_magic_login' ) );
-	add_action( 'login_form_login', $n( 'maybe_redirect' ) );
-	add_action( 'init', $n( 'handle_login_request' ) );
-	add_action( CRON_HOOK_NAME, $n( 'cleanup_expired_tokens' ) );
-	add_action( 'login_footer', $n( 'print_login_button' ) );
-	add_action( 'login_head', $n( 'login_css' ) );
-	add_filter( 'wp_mail', $n( 'maybe_add_auto_login_link' ), 999 );
-
+	add_action( 'login_form_magic_login', __NAMESPACE__ . '\\action_magic_login' );
+	add_action( 'login_form_login', __NAMESPACE__ . '\\maybe_redirect' );
+	add_action( 'init', __NAMESPACE__ . '\\handle_login_request' );
+	add_action( CRON_HOOK_NAME, __NAMESPACE__ . '\\cleanup_expired_tokens' );
+	add_action( 'login_footer', __NAMESPACE__ . '\\print_login_button' );
+	add_action( 'login_head', __NAMESPACE__ . '\\login_css' );
+	add_filter( 'wp_mail', __NAMESPACE__ . '\\maybe_add_auto_login_link', 999 );
 	add_action( 'wp_ajax_magic_login_ajax_request', __NAMESPACE__ . '\\ajax_request' );
 	add_action( 'wp_ajax_nopriv_magic_login_ajax_request', __NAMESPACE__ . '\\ajax_request' );
 }

@@ -16,14 +16,10 @@ use \WP_Error as WP_Error;
  * @return void
  */
 function setup() {
-	$n = function( $function ) {
-		return __NAMESPACE__ . "\\$function";
-	};
-
-	add_action( 'init', $n( 'i18n' ) );
-	add_action( 'init', $n( 'init' ) );
-	add_action( 'admin_enqueue_scripts', $n( 'admin_scripts' ) );
-	add_action( 'admin_enqueue_scripts', $n( 'admin_styles' ) );
+	add_action( 'init', __NAMESPACE__ . '\\i18n' );
+	add_action( 'init', __NAMESPACE__ . '\\init' );
+	add_action( 'admin_enqueue_scripts', __NAMESPACE__ . '\\admin_scripts' );
+	add_action( 'admin_enqueue_scripts', __NAMESPACE__ . '\\admin_styles' );
 
 	do_action( 'magic_login_loaded' );
 }

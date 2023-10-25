@@ -17,12 +17,8 @@ use function MagicLogin\Login\process_login_request;
  * @since 1.1
  */
 function setup() {
-	$n = function ( $function ) {
-		return __NAMESPACE__ . "\\$function";
-	};
-
-	add_shortcode( 'magic_login_form', $n( 'shortcode_login_form' ) );
-	add_filter( 'magic_login_redirect', $n( 'maybe_shortcode_redirect' ), 99, 2 );
+	add_shortcode( 'magic_login_form', __NAMESPACE__ . '\\shortcode_login_form' );
+	add_filter( 'magic_login_redirect', __NAMESPACE__ . '\\maybe_shortcode_redirect', 99, 2 );
 }
 
 /**

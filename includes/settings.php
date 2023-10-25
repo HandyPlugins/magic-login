@@ -29,18 +29,14 @@ use function MagicLogin\Utils\get_ttl_with_interval;
  * @return void
  */
 function setup() {
-	$n = function ( $function ) {
-		return __NAMESPACE__ . "\\$function";
-	};
-
 	if ( MAGIC_LOGIN_IS_NETWORK ) {
-		add_action( 'network_admin_menu', $n( 'admin_menu' ) );
+		add_action( 'network_admin_menu', __NAMESPACE__ . '\\admin_menu' );
 	} else {
-		add_action( 'admin_menu', $n( 'admin_menu' ) );
+		add_action( 'admin_menu', __NAMESPACE__ . '\\admin_menu' );
 	}
 
-	add_action( 'admin_init', $n( 'save_settings' ) );
-	add_filter( 'admin_body_class', $n( 'add_sui_admin_body_class' ) );
+	add_action( 'admin_init', __NAMESPACE__ . '\\save_settings' );
+	add_filter( 'admin_body_class', __NAMESPACE__ . '\\add_sui_admin_body_class' );
 }
 
 /**
