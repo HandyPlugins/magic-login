@@ -2,9 +2,9 @@
 Contributors:      handyplugins,m_uysl
 Tags:              login, passwordless, passwordless-login, magic-login, magic-link
 Requires at least: 5.0
-Tested up to:      6.3
+Tested up to:      6.4
 Requires PHP:      7.2
-Stable tag:        1.9
+Stable tag:        1.9.1
 License:           GPLv2 or later
 License URI:       http://www.gnu.org/licenses/gpl-2.0.html
 Donate link:       https://handyplugins.co/donate/
@@ -84,6 +84,11 @@ Magic Login uses WordPress built-in mail functions. So, it depends on your confi
 
 You can use `[magic_login_form]` shortcode or block. [Learn More.](https://handyplugins.co/magic-login-pro/docs/add-login-form-to-a-page/)
 
+= Why are users redirected back to the page where they added the magic login form via shortcode? =
+
+This behavior occurs because the magic login form is designed to use the current page as the target redirection URL by default. It's a way to ensure a smooth user experience by bringing users back to the page they started from.
+However, if you wish to alter this behavior, you can easily do so by passing an empty redirect_to="" parameter within the shortcode.  [Learn More.](https://handyplugins.co/magic-login-pro/docs/shortcode/)
+
 
 == Screenshots ==
 
@@ -93,6 +98,12 @@ You can use `[magic_login_form]` shortcode or block. [Learn More.](https://handy
 4. Login Block
 
 == Changelog ==
+
+= 1.9.1 (October 26, 2023) =
+* Added French translation.
+* Dependency updates.
+* Fix deprecated variable format.
+* Tested with WP 6.4
 
 = 1.9 (July 25, 2023) =
 * Added: AJAX support for login requests.
