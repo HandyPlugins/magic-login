@@ -1,0 +1,15 @@
+.magic-login-spinner-container {
+	text-align: left;
+	margin-bottom: 5px;
+	padding: 5px 0px;
+}
+
+.magic-login-spinner-image {
+	vertical-align: middle;
+	margin-right: 5px;
+}
+
+.magic-login-spinner-message {
+	display: inline-block;
+	vertical-align: middle;
+}

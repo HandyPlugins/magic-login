@@ -1,5 +1,5 @@
 /* stylelint-disable selector-id-pattern,sh-waqar/declaration-use-variable */
-
+@import url("../frontend/spinner");
 .editor-styles-wrapper .magicloginform-inner *,
 .magicloginform-inner * {
 	display: block;

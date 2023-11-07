@@ -179,7 +179,7 @@ function render_login_block( $args ) {
 			<?php endif; ?>
 		</div>
 		<?php if ( $login_request['show_form'] ) : ?>
-			<form name="magicloginform" class="block-login-form" id="magicloginform" action="<?php echo esc_url( $form_action ); ?>" method="post" autocomplete="off" data-ajax-url="<?php echo esc_url( admin_url( 'admin-ajax.php' ) ); ?>">
+			<form name="magicloginform" class="block-login-form" id="magicloginform" action="<?php echo esc_url( $form_action ); ?>" method="post" autocomplete="off" data-ajax-url="<?php echo esc_url( admin_url( 'admin-ajax.php' ) ); ?>" data-ajax-spinner="<?php echo esc_url( get_admin_url() . 'images/spinner.gif' ); ?>" data-ajax-sending-msg="<?php esc_attr_e( 'Sending...', 'magic-login' ); ?>">
 			<div class="magicloginform-inner">
 					<?php if ( ! empty( $args['loginLabel'] ) ) : ?>
 						<label for="user_login"><?php echo esc_html( $args['loginLabel'] ); ?></label>

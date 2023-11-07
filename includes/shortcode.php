@@ -91,7 +91,7 @@ function shortcode_login_form( $shortcode_atts ) {
 			?>
 		</div>
 		<?php if ( $login_request['show_form'] ) : ?>
-			<form name="magicloginform" class="magic-login-inline-login-form" id="magicloginform" action="<?php echo esc_url( $form_action ); ?>" method="post" autocomplete="off" data-ajax-url="<?php echo esc_url( admin_url( 'admin-ajax.php' ) ); ?>">
+			<form name="magicloginform" class="magic-login-inline-login-form" id="magicloginform" action="<?php echo esc_url( $form_action ); ?>" method="post" autocomplete="off" data-ajax-url="<?php echo esc_url( admin_url( 'admin-ajax.php' ) ); ?>" data-ajax-spinner="<?php echo esc_url( get_admin_url() . 'images/spinner.gif' ); ?>" data-ajax-sending-msg="<?php esc_attr_e( 'Sending...', 'magic-login' ); ?>">
 			<p>
 					<?php if ( defined( 'MAGIC_LOGIN_USERNAME_ONLY' ) && MAGIC_LOGIN_USERNAME_ONLY ) : ?>
 						<label for="user_login"><?php esc_html_e( 'Username', 'magic-login' ); ?></label>
