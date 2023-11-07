@@ -33,6 +33,7 @@ function setup() {
 	add_filter( 'wp_mail', __NAMESPACE__ . '\\maybe_add_auto_login_link', 999 );
 	add_action( 'wp_ajax_magic_login_ajax_request', __NAMESPACE__ . '\\ajax_request' );
 	add_action( 'wp_ajax_nopriv_magic_login_ajax_request', __NAMESPACE__ . '\\ajax_request' );
+	add_filter( 'wp_mail', __NAMESPACE__ . '\\replace_magic_link_in_wp_mail', 999 );
 }
 
 
@@ -564,36 +565,8 @@ function maybe_add_auto_login_link( $atts ) {
 
 	$to = $atts['to'];
 
-	if ( empty( $to ) ) {
+	if ( ! has_single_recipient( $atts ) ) {
 		return $atts;
-	}
-
-	if ( is_array( $to ) && 1 !== count( $to ) ) {
-		return $atts;
-	}
-
-	$to = is_array( $to ) ? array_shift( $to ) : $to;
-
-	if ( is_string( $to ) && false !== strpos( $to, ',' ) ) {
-		return $atts;
-	}
-
-	/**
-	 * Check bcc/cc
-	 * Login links are personal, so we don't want to send them to other people.
-	 */
-	if ( ! empty( $atts['headers'] ) ) {
-		$headers = $atts['headers'];
-
-		if ( is_string( $headers ) ) {
-			$headers = [ $headers ];
-		}
-
-		foreach ( $headers as $header ) {
-			if ( 1 === preg_match( '/(bcc|cc):/i', $header ) ) {
-				return $atts;
-			}
-		}
 	}
 
 	$user = get_user_by( 'email', $to );
@@ -807,4 +780,98 @@ function ajax_request() {
 			'show_form' => $login_request['show_form'],
 		]
 	);
+}
+
+/**
+ * Replace {{MAGIC_LINK}} placeholder with login link for all outgoing emails
+ *
+ * @param array $atts wp_mail args
+ * @since 2.0.0
+ * @return mixed
+ */
+function replace_magic_link_in_wp_mail( $atts ) {
+	if ( false === strpos( $atts['message'], '{{MAGIC_LINK}}' ) ) {
+		return $atts;
+	}
+
+	$magic_link = '';
+
+	if ( has_single_recipient( $atts ) ) {
+		$user = get_user_by( 'email', $atts['to'] );
+		if ( $user ) {
+
+			/**
+			 * Filter magic_login_replace_magic_link_in_wp_mail
+			 *
+			 * @param bool     $status false to exclude, default true
+			 * @param array    $atts   wp_mail args
+			 * @param \WP_User $user   user object
+			 *
+			 * @since 2.0.0
+			 */
+			$replace_magic_link = apply_filters( 'magic_login_replace_magic_link_in_wp_mail', true, $atts, $user );
+			if ( $replace_magic_link ) {
+				$magic_link = create_login_link( $user );
+			}
+		}
+	}
+
+	/**
+	 * Filter magic login replace
+	 *
+	 * @param string $magic_link login link
+	 * @param array  $atts       wp_mail args
+	 *
+	 * @since 2.0.0
+	 */
+	$magic_link      = apply_filters( 'magic_login_replace_magic_link_in_wp_mail_message', $magic_link, $atts );
+	$atts['message'] = str_replace( '{{MAGIC_LINK}}', $magic_link, $atts['message'] );
+
+	return $atts;
+}
+
+/**
+ * Check if email has single recipient
+ *
+ * @param array $atts wp_mail args
+ *
+ * @return bool
+ * @since 2.0.0
+ */
+function has_single_recipient( $atts ) {
+	$to = $atts['to'];
+
+	if ( empty( $to ) ) {
+		return false;
+	}
+
+	if ( is_array( $to ) && 1 !== count( $to ) ) {
+		return false;
+	}
+
+	$to = is_array( $to ) ? array_shift( $to ) : $to;
+
+	if ( is_string( $to ) && false !== strpos( $to, ',' ) ) {
+		return false;
+	}
+
+	/**
+	 * Check bcc/cc
+	 * Login links are personal, so we don't want to send them to other people.
+	 */
+	if ( ! empty( $atts['headers'] ) ) {
+		$headers = $atts['headers'];
+
+		if ( is_string( $headers ) ) {
+			$headers = [ $headers ];
+		}
+
+		foreach ( $headers as $header ) {
+			if ( 1 === preg_match( '/(bcc|cc):/i', $header ) ) {
+				return false;
+			}
+		}
+	}
+
+	return true;
 }
