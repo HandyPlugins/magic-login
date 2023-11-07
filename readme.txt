@@ -4,7 +4,7 @@ Tags:              login, passwordless, passwordless-login, magic-login, magic-l
 Requires at least: 5.0
 Tested up to:      6.4
 Requires PHP:      7.2
-Stable tag:        1.9.1
+Stable tag:        2.0
 License:           GPLv2 or later
 License URI:       http://www.gnu.org/licenses/gpl-2.0.html
 Donate link:       https://handyplugins.co/donate/
@@ -98,6 +98,14 @@ However, if you wish to alter this behavior, you can easily do so by passing an 
 4. Login Block
 
 == Changelog ==
+
+= 2.0 (November 07, 2023) =
+* Add {{MAGIC_LINK}} support to all outgoing emails that received by a single user.
+* Add new placeholder supports: {{FIRST_NAME}}, {{LAST_NAME}}, {{FULL_NAME}}, {{DISPLAY_NAME}}, {{USER_EMAIL}}
+* Add ajax spinner to the login form.
+* Dependency updates.
+* Minor tweaks on settings form.
+
 
 = 1.9.1 (October 26, 2023) =
 * Added French translation.
