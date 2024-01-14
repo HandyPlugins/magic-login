@@ -1,10 +1,10 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: Plugins - Magic Login &#8211; Passwordless "
-"Authentication for WordPress - Stable (latest release)\n"
+"Project-Id-Version: Plugins - Magic Login &#8211; Passwordless Authentication for "
+"WordPress - Stable (latest release)\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/magic-login-pro\n"
 "POT-Creation-Date: 2023-02-18T14:19:48+00:00\n"
-"PO-Revision-Date: 2023-02-18 17:20+0300\n"
+"PO-Revision-Date: 2024-01-14 14:15+0100\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: de\n"
@@ -12,7 +12,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Poedit 3.2.2\n"
+"X-Generator: Poedit 3.4\n"
 
 #. Plugin Name of the plugin
 #: includes/settings.php:75 includes/settings.php:76 includes/settings.php:98
@@ -39,14 +39,13 @@ msgstr "https://handyplugins.co/"
 msgid "Login with Email"
 msgstr "Anmeldung mit E-Mail"
 
-#: includes/block.php:71 includes/login.php:51
-#: assets/js/admin/login-block.js:36
+#: includes/block.php:71 includes/login.php:51 assets/js/admin/login-block.js:36
 msgid ""
-"Please enter your username or email address. You will receive an email "
-"message to log in."
+"Please enter your username or email address. You will receive an email message to "
+"log in."
 msgstr ""
-"Bitte gib deinen Benutzernamen oder deine Mail-Adresse ein. Du erhältst eine "
-"E-Mail, zum einzuloggen."
+"Bitte gib deinen Benutzernamen oder deine Mail-Adresse ein. Du erhältst eine E-"
+"Mail, zum einzuloggen."
 
 #: includes/block.php:75 includes/login.php:209 includes/shortcode.php:96
 #: assets/js/admin/login-block.js:43
@@ -59,10 +58,8 @@ msgid "Send me the link"
 msgstr "Sende mir den Link"
 
 #: includes/login.php:49
-msgid ""
-"Please enter your username. You will receive an email message to log in."
-msgstr ""
-"Bitte gib deinen Benutzernamen. Du erhältst eine E-Mail, zum einzuloggen."
+msgid "Please enter your username. You will receive an email message to log in."
+msgstr "Bitte gib deinen Benutzernamen. Du erhältst eine E-Mail, zum einzuloggen."
 
 #: includes/login.php:76
 msgid "There is no account with that username."
@@ -70,13 +67,12 @@ msgstr "Es gibt kein Konto mit diesem Benutzernamen."
 
 #: includes/login.php:78
 msgid "There is no account with that username or email address."
-msgstr ""
-"Es gibt kein Konto mit diesem Benutzernamen oder dieser E-Mail-Adresse."
+msgstr "Es gibt kein Konto mit diesem Benutzernamen oder dieser E-Mail-Adresse."
 
 #: includes/login.php:91
 msgid ""
-"Please check your inbox for the login link. If you did not receive a login "
-"email, check your spam folder too."
+"Please check your inbox for the login link. If you did not receive a login email, "
+"check your spam folder too."
 msgstr ""
 "Bitte überprüfe deinen E-Mail Posteingang auf den Login-Link. Wenn du keine "
 "Anmelde-E-Mail erhalten hast, überprüfe bitte auch den Spam-Ordner."
@@ -92,18 +88,18 @@ msgstr "Benutzername"
 #. translators: 1: User login 2: Dashboard URL
 #: includes/login.php:289
 msgid ""
-"Invalid magic login token, but you are logged in as '%1$s'. <a "
-"href=\"%2$s\">Go to the dashboard instead</a>?"
+"Invalid magic login token, but you are logged in as '%1$s'. <a href=\"%2$s\">Go "
+"to the dashboard instead</a>?"
 msgstr ""
 "Ungültiges magisches Login-Token, aber Sie sind als ‘%1$s’ eingeloggt. <a "
-"href=“%2$s”>Gehen Sie stattdessen zum Dashboard</a>?"
+"href=\"%2$s\">Gehen Sie stattdessen zum Dashboard</a>?"
 
 #. translators: %s: Login URL
 #: includes/login.php:292
 msgid "Invalid magic login token. <a href=\"%s\">Try signing in instead</a>?"
 msgstr ""
-"Ungültiges magisches Login-Token. <a href=\"%s\">Versuchen Sie stattdessen, "
-"sich anzumelden</a>?"
+"Ungültiges magisches Login-Token. <a href=\"%s\">Versuchen Sie stattdessen, sich "
+"anzumelden</a>?"
 
 #: includes/login.php:416
 msgid "Send me the login link"
@@ -115,10 +111,9 @@ msgstr "oder"
 
 #. translators: %s: The magic login link
 #: includes/login.php:627
-msgid ""
-"<a href=\"%s\" target=\"_blank\" rel=\"noopener\">Click here to login</a>."
+msgid "<a href=\"%s\" target=\"_blank\" rel=\"noopener\">Click here to login</a>."
 msgstr ""
-"<a href=“%s” target=“_blank” rel=“noopener”>Hier Klicken zum Einloggen!</a>."
+"<a href=\"%s\" target=\"_blank\" rel=\"noopener\">Hier Klicken zum Einloggen!</a>."
 
 #. translators: %s: The magic login link
 #: includes/login.php:631
@@ -136,12 +131,11 @@ msgstr "Magic login ist für Ihre Domain nicht erlaubt!"
 
 #: includes/security.php:94
 msgid ""
-"You have created too many login requests! Please check your emails including "
-"your spam box to see one of the login links that we have already sent."
+"You have created too many login requests! Please check your emails including your "
+"spam box to see one of the login links that we have already sent."
 msgstr ""
-"Sie haben zu viele Login-Links erzeugt. Bitte überprüfen Sie Ihr E-Mail "
-"Postfach und auch Ihren Spamordner und benutzen Sie einen der empfangenen "
-"Links."
+"Sie haben zu viele Login-Links erzeugt. Bitte überprüfen Sie Ihr E-Mail Postfach "
+"und auch Ihren Spamordner und benutzen Sie einen der empfangenen Links."
 
 #: includes/security.php:150
 msgid "Too many failed login attempts. Please try again later."
@@ -152,14 +146,12 @@ msgstr ""
 #: includes/security.php:154
 msgid "Too many failed login attempts. Please try again in %s."
 msgstr ""
-"Zu viele fehlgeschlagene Anmeldeversuche. Bitte versuchen Sie es in %s "
-"erneut."
+"Zu viele fehlgeschlagene Anmeldeversuche. Bitte versuchen Sie es in %s erneut."
 
 #: includes/security.php:218
-msgid ""
-"Too many failed login attempts. <a href=\"%s\">Try signing in instead</a>?"
+msgid "Too many failed login attempts. <a href=\"%s\">Try signing in instead</a>?"
 msgstr ""
-"Zu viele fehlgeschlagene Anmeldeversuche. <a href=“%s”>Versuchen Sie, sich "
+"Zu viele fehlgeschlagene Anmeldeversuche. <a href=\"%s\">Versuchen Sie, sich "
 "stattdessen anzumelden</a>?"
 
 #: includes/security.php:242
@@ -183,8 +175,7 @@ msgid "Force Magic Login"
 msgstr "Magic-Login bevorzugen"
 
 #: includes/settings.php:131
-msgid ""
-"Change default login behaviour and use magic login as default login method."
+msgid "Change default login behaviour and use magic login as default login method."
 msgstr ""
 "Ändern Sie das Standard-Anmeldeverhalten und verwenden Sie Magic Login als "
 "Standard-Anmeldemethode."
@@ -201,15 +192,14 @@ msgstr "Magisches Anmeldeformular ist zugänglich <a href=\"%1$s\">%1$s</a>"
 #. translators: 1: Magic Login shortcode 2: Documentation URL 3: 'Learn More' text
 #: includes/settings.php:167
 msgid ""
-"In order to add a login form to any page, you can use shortcode <code>%1$s</"
-"code> or block. <a href=\"%2$s\" target=\"_blank\" rel=\"noopener\">%3$s</a>"
+"In order to add a login form to any page, you can use shortcode <code>%1$s</code> "
+"or block. <a href=\"%2$s\" target=\"_blank\" rel=\"noopener\">%3$s</a>"
 msgstr ""
 "Um das Anmeldeformular auf einer beliebigen Seite anzuzeigen, kannst Du den "
 "Shortcode <code>%1$s</code> oder Block <a href=\"%2$s\" target=\"_blank\" "
 "rel=\"noopener\">%3$s</a> nutzen."
 
-#: includes/settings.php:170 includes/settings.php:214
-#: includes/settings.php:246
+#: includes/settings.php:170 includes/settings.php:214 includes/settings.php:246
 msgid "Learn More."
 msgstr "Mehr erfahren."
 
@@ -219,8 +209,7 @@ msgstr "Auf Login Formular anzeigen"
 
 #: includes/settings.php:186
 msgid "Adds magic login button to WordPress login form."
-msgstr ""
-"Fügt dem WordPress-Anmeldeformular eine Magic Login-Schaltfläche hinzu."
+msgstr "Fügt dem WordPress-Anmeldeformular eine Magic Login-Schaltfläche hinzu."
 
 #: includes/settings.php:200
 msgid "Add magic login button to standard login form"
@@ -231,11 +220,9 @@ msgid "Token Lifespan"
 msgstr "Token-Lebensspanne"
 
 #: includes/settings.php:213
-msgid ""
-"The TTL (time to live) of the login link. WP-Cron removes expired tokens."
+msgid "The TTL (time to live) of the login link. WP-Cron removes expired tokens."
 msgstr ""
-"DIe Lebensdauer des Login-Links. WP-Cron entfernt abgelaufene Tokens "
-"automatisch."
+"DIe Lebensdauer des Login-Links. WP-Cron entfernt abgelaufene Tokens automatisch."
 
 #: includes/settings.php:243
 msgid "Token Validity"
@@ -251,11 +238,11 @@ msgstr "Auto-Login Links"
 
 #: includes/settings.php:270
 msgid ""
-"If the recipient exists, automatically adds the login link to outgoing "
-"emails sent from WordPress. "
+"If the recipient exists, automatically adds the login link to outgoing emails "
+"sent from WordPress. "
 msgstr ""
-"Wenn der Empfänger existiert, wird der Login-Link automatisch zu ausgehenden "
-"E-Mails von WordPress hinzugefügt. "
+"Wenn der Empfänger existiert, wird der Login-Link automatisch zu ausgehenden E-"
+"Mails von WordPress hinzugefügt. "
 
 #: includes/settings.php:284
 msgid "Add magic login links to outgoing emails"
@@ -263,11 +250,11 @@ msgstr "Magische Login-Links zu ausgehenden E-Mails hinzufügen"
 
 #: includes/settings.php:286
 msgid ""
-"This could be useful when there is an action waiting for the user. (eg: "
-"reply comment, complete shopping etc...)"
+"This could be useful when there is an action waiting for the user. (eg: reply "
+"comment, complete shopping etc...)"
 msgstr ""
-"Dies könnte hilfreich sein, wenn eine Aktion auf eine Benutzereingabe "
-"wartet. (z.B. Kommentar, Shopping etc…)"
+"Dies könnte hilfreich sein, wenn eine Aktion auf eine Benutzereingabe wartet. (z."
+"B. Kommentar, Shopping etc…)"
 
 #: includes/settings.php:297
 msgid "Brute Force Protection"
@@ -276,8 +263,7 @@ msgstr "Schutz vor Brute-Force-Angriffen"
 #: includes/settings.php:299
 msgid "Enable additional security mechanisms to limit login requests."
 msgstr ""
-"Aktivieren Sie zusätzliche Sicherheitsmechanismen, um Login-Anfragen zu "
-"begrenzen."
+"Aktivieren Sie zusätzliche Sicherheitsmechanismen, um Login-Anfragen zu begrenzen."
 
 #: includes/settings.php:313
 msgid "Enable brute force protection"
@@ -285,11 +271,11 @@ msgstr "Brute-Force-Schutz aktivieren"
 
 #: includes/settings.php:354
 msgid ""
-"Block the IP address for %1$s minutes when it fails to login %2$s times in "
-"%3$s minutes."
+"Block the IP address for %1$s minutes when it fails to login %2$s times in %3$s "
+"minutes."
 msgstr ""
-"Sperren Sie die IP-Adresse für %1$s Minuten, wenn sie sich innerhalb von "
-"%3$s Minuten %2$s Mal nicht anmelden kann."
+"Sperren Sie die IP-Adresse für %1$s Minuten, wenn sie sich innerhalb von %3$s "
+"Minuten %2$s Mal nicht anmelden kann."
 
 #: includes/settings.php:371
 msgid "Login Request Throttling"
@@ -297,8 +283,7 @@ msgstr "Drosselung von Login-Anfragen"
 
 #: includes/settings.php:373
 msgid "Limit login URL generation for the given time span."
-msgstr ""
-"Begrenzen Sie die Generierung von Login-URLs für die angegebene Zeitspanne."
+msgstr "Begrenzen Sie die Generierung von Login-URLs für die angegebene Zeitspanne."
 
 #: includes/settings.php:427
 msgid "IP Check"
@@ -306,12 +291,11 @@ msgstr "IP-Check"
 
 #: includes/settings.php:430
 msgid ""
-"The user should log in from the same IP that makes a login request. (except "
-"for the login links generated via CLI)"
+"The user should log in from the same IP that makes a login request. (except for "
+"the login links generated via CLI)"
 msgstr ""
-"Der Benutzer sollte sich von derselben IP-Adresse aus anmelden, von der aus "
-"er eine Anmeldeanfrage stellt. (außer bei den über CLI generierten "
-"Anmeldelinks)"
+"Der Benutzer sollte sich von derselben IP-Adresse aus anmelden, von der aus er "
+"eine Anmeldeanfrage stellt. (außer bei den über CLI generierten Anmeldelinks)"
 
 #: includes/settings.php:446
 msgid "Enable IP address check"
@@ -323,8 +307,7 @@ msgstr "Einschränkung der Domäne"
 
 #: includes/settings.php:458
 msgid "Allow only listed domains to login via magic links."
-msgstr ""
-"Erlauben Sie nur aufgelisteten Domains die Anmeldung über magische Links."
+msgstr "Erlauben Sie nur aufgelisteten Domains die Anmeldung über magische Links."
 
 #: includes/settings.php:473
 msgid "Enable domain restriction"
@@ -344,13 +327,11 @@ msgstr "E-Mail Inhalt"
 
 #: includes/settings.php:538
 msgid ""
-"Supported placeholders: {{SITEURL}}, {{USERNAME}}, {{SITENAME}}, "
-"{{EXPIRES}}, {{MAGIC_LINK}}, {{EXPIRES_WITH_INTERVAL}}, "
-"{{TOKEN_VALIDITY_COUNT}}"
+"Supported placeholders: {{SITEURL}}, {{USERNAME}}, {{SITENAME}}, {{EXPIRES}}, "
+"{{MAGIC_LINK}}, {{EXPIRES_WITH_INTERVAL}}, {{TOKEN_VALIDITY_COUNT}}"
 msgstr ""
-"Unterstützte Platzhalter: {{SITEURL}}, {{USERNAME}}, {{SITENAME}}, "
-"{{EXPIRES}}, {{EXPIRES_WITH_INTERVAL}}, {{MAGIC_LINK}}, "
-"{{TOKEN_VALIDITY_COUNT}}"
+"Unterstützte Platzhalter: {{SITEURL}}, {{USERNAME}}, {{SITENAME}}, {{EXPIRES}}, "
+"{{EXPIRES_WITH_INTERVAL}}, {{MAGIC_LINK}}, {{TOKEN_VALIDITY_COUNT}}"
 
 #: includes/settings.php:548
 msgid "Login Redirect"
@@ -358,8 +339,7 @@ msgstr "Login-Umleitung"
 
 #: includes/settings.php:550
 msgid "Redirect users to custom URL after login."
-msgstr ""
-"Leiten Sie Benutzer nach der Anmeldung zu einer benutzerdefinierten URL um."
+msgstr "Leiten Sie Benutzer nach der Anmeldung zu einer benutzerdefinierten URL um."
 
 #: includes/settings.php:566
 msgid "Enable custom login redirection"
@@ -400,8 +380,8 @@ msgstr "Tokens Zurücksetzen"
 #: includes/settings.php:664
 msgid "If you want to clean all tokens at once click to reset button."
 msgstr ""
-"Wenn Sie alle Token auf einmal löschen möchten, klicken Sie auf die "
-"Schaltfläche Zurücksetzen."
+"Wenn Sie alle Token auf einmal löschen möchten, klicken Sie auf die Schaltfläche "
+"Zurücksetzen."
 
 #: includes/settings.php:668
 msgid "Reset"
@@ -425,11 +405,11 @@ msgstr "Einstellungen aktualisieren"
 
 #: includes/settings.php:723
 msgid ""
-"Made with <i class=\"sui-icon-heart\"></i> by <a href=\"%s\" "
-"rel=\"noopener\" target=\"_blank\">HandyPlugins</a>"
+"Made with <i class=\"sui-icon-heart\"></i> by <a href=\"%s\" rel=\"noopener\" "
+"target=\"_blank\">HandyPlugins</a>"
 msgstr ""
-"Made with <i class=\"sui-icon-heart\"></i> by <a href=\"%s\" "
-"rel=\"noopener\" target=\"_blank\">HandyPlugins</a>"
+"Made with <i class=\"sui-icon-heart\"></i> by <a href=\"%s\" rel=\"noopener\" "
+"target=\"_blank\">HandyPlugins</a>"
 
 #: includes/settings.php:733
 msgid "FAQ"
@@ -461,8 +441,8 @@ msgstr "Einstellungen gespeichert."
 
 #: includes/settings.php:894
 msgid ""
-"Please activate your license on this domain. A valid license key is required "
-"for access to automatic updates and support."
+"Please activate your license on this domain. A valid license key is required for "
+"access to automatic updates and support."
 msgstr ""
 "Bitte aktivieren Sie Ihre Lizenz. Eine gültige Lizenz wird für automatische "
 "Updates und Support benötigt."
@@ -472,15 +452,13 @@ msgid "Login link could not be generated because: Invalid ajax nonce!"
 msgstr "Login-Link konnte nicht generiert werden, weil: Ungültige ajax nonce!"
 
 #: includes/user-profile.php:42
-msgid ""
-"Login link could not be generated because: You cannot perform this action!"
+msgid "Login link could not be generated because: You cannot perform this action!"
 msgstr ""
-"Login-Link konnte nicht generiert werden, weil: Sie können diese Aktion "
-"nicht durchführen!"
+"Login-Link konnte nicht generiert werden, weil: Sie können diese Aktion nicht "
+"durchführen!"
 
 #: includes/user-profile.php:47
-msgid ""
-"Login link could not be generated because: An invalid user id has been sent!"
+msgid "Login link could not be generated because: An invalid user id has been sent!"
 msgstr ""
 "Login-Link konnte nicht generiert werden, weil: Es wurde eine ungültige "
 "Benutzerkennung gesendet!"
@@ -504,12 +482,12 @@ msgstr "Magic-Login-Link erzeugen"
 #. translators: %1$s:  redirect query arg.
 #: includes/user-profile.php:123
 msgid ""
-"You can append <code>%1$s</code> to the login URL for automatic redirection "
-"in case you have not specified the redirection URL from the plugin settings."
+"You can append <code>%1$s</code> to the login URL for automatic redirection in "
+"case you have not specified the redirection URL from the plugin settings."
 msgstr ""
-"Sie können <code>%1$s</code> an die Login-URL für die automatische "
-"Weiterleitung anhängen, falls Sie die Weiterleitungs-URL nicht in den Plugin-"
-"Einstellungen angegeben haben."
+"Sie können <code>%1$s</code> an die Login-URL für die automatische Weiterleitung "
+"anhängen, falls Sie die Weiterleitungs-URL nicht in den Plugin-Einstellungen "
+"angegeben haben."
 
 #: includes/utils.php:129
 msgid "Log in to {{SITENAME}}"
@@ -520,11 +498,11 @@ msgstr "Anmelden bei {{SITENAME}}"
 msgid ""
 "Hi {{USERNAME}},\n"
 "\n"
-"Click and confirm that you want to log in to {{SITENAME}}. This link will "
-"expire in {{EXPIRES_WITH_INTERVAL}} and can only be used once:\n"
+"Click and confirm that you want to log in to {{SITENAME}}. This link will expire "
+"in {{EXPIRES_WITH_INTERVAL}} and can only be used once:\n"
 "\n"
-"<a href=\"{{MAGIC_LINK}}\" target=\"_blank\" rel=\"noreferrer noopener\">Log "
-"In</a>\n"
+"<a href=\"{{MAGIC_LINK}}\" target=\"_blank\" rel=\"noreferrer noopener\">Log In</"
+"a>\n"
 "\n"
 "Need the link? {{MAGIC_LINK}}\n"
 "\n"
@@ -537,18 +515,17 @@ msgid ""
 msgstr ""
 "Moin {{USERNAME}},\n"
 "\n"
-"Hier können Sie sich mit einem Klick bei {{SITENAME}} anmelden. Dieser Link "
-"wird in {{EXPIRES_WITH_INTERVAL}} ablaufen und kann nur einmal genutzt "
-"werden.\n"
+"Hier können Sie sich mit einem Klick bei {{SITENAME}} anmelden. Dieser Link wird "
+"in {{EXPIRES_WITH_INTERVAL}} ablaufen und kann nur einmal genutzt werden.\n"
 "\n"
-"<a href=“{{MAGIC_LINK}}” target=“_blank” rel=“noreferrer noopener”>Login</"
+"<a href=\"{{MAGIC_LINK}}\" target=\"_blank\" rel=\"noreferrer noopener\">Login</"
 "a>\n"
 "\n"
 "Hier nochmal im Klartext: {{MAGIC_LINK}}\n"
 "\n"
 "\n"
-"Wenn Sie nicht vor haben sich bei {{SITENAME}} anzumelden, können Sie die "
-"Mail einfach löschen.\n"
+"Wenn Sie nicht vor haben sich bei {{SITENAME}} anzumelden, können Sie die Mail "
+"einfach löschen.\n"
 "\n"
 "Viele Grüße,\n"
 "Ihre {{SITENAME}}\n"
@@ -588,8 +565,7 @@ msgstr "Es ist ein Fehler aufgetreten, bitte versuchen Sie es erneut."
 
 #: includes/utils.php:397
 msgid "Please enter a valid license key and activate it."
-msgstr ""
-"Bitte geben Sie einen gültigen Lizenzschlüssel ein und aktivieren Sie ihn."
+msgstr "Bitte geben Sie einen gültigen Lizenzschlüssel ein und aktivieren Sie ihn."
 
 #: includes/utils.php:411
 msgid "Minute(s)"
@@ -678,12 +654,12 @@ msgstr "Benutzerdefinierte Umleitung für dieses Anmeldeformular abbrechen"
 
 #~ msgid ""
 #~ "With our pro version of magic login, you will unlock the advanced "
-#~ "configurations of the plugin and get access to the WP-CLI command along "
-#~ "with our premium support."
+#~ "configurations of the plugin and get access to the WP-CLI command along with "
+#~ "our premium support."
 #~ msgstr ""
 #~ "Mit unserer Pro-Version von magic login schalten Sie die erweiterten "
-#~ "Konfigurationen des Plugins frei und erhalten Zugriff auf den WP-CLI-"
-#~ "Befehl sowie unseren Premium-Support."
+#~ "Konfigurationen des Plugins frei und erhalten Zugriff auf den WP-CLI-Befehl "
+#~ "sowie unseren Premium-Support."
 
 #~ msgid "login links from the same IP within"
 #~ msgstr "Login-Links von der gleichen IP "
