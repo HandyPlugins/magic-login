@@ -63,7 +63,7 @@ function create_login_link( $user ) {
 	);
 
 	if ( ! empty( $_POST['redirect_to'] ) ) {
-		$query_args['redirect_to'] = esc_url_raw( $_POST['redirect_to'] ); // phpcs:ignore
+		$query_args['redirect_to'] = urlencode( wp_unslash( $_POST['redirect_to'] ) ); // phpcs:ignore
 	}
 
 	$login_url = esc_url_raw( add_query_arg( $query_args, wp_login_url() ) );
