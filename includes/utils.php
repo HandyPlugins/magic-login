@@ -208,6 +208,20 @@ function get_user_tokens( $user_id, $clear_expired = false ) {
 	$tokens = get_user_meta( $user_id, TOKEN_USER_META, true );
 	$tokens = is_array( $tokens ) ? $tokens : [];
 
+	/**
+	 * Filter user tokens
+	 *
+	 * @hook   magic_login_user_tokens
+	 *
+	 * @param  {array} $tokens User tokens.
+	 * @param  {int} $user_id User ID.
+	 * @param  {boolean} $clear_expired Whether to clear expired tokens or not.
+	 *
+	 * @return {array} New value
+	 * @since  2.1
+	 */
+	$tokens = (array) apply_filters( 'magic_login_user_tokens', $tokens, $user_id, $clear_expired );
+
 	if ( $clear_expired ) {
 		$settings = get_settings(); //phpcs:ignore
 		$ttl      = absint( $settings['token_ttl'] );
