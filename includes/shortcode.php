@@ -60,6 +60,8 @@ function shortcode_login_form( $shortcode_atts ) {
 		wp_enqueue_script( 'magic-login-frontend', MAGIC_LOGIN_URL . 'dist/js/frontend.js', [ 'jquery' ], MAGIC_LOGIN_VERSION, true );
 	}
 
+	$add_redirection_field = empty( $settings['enable_login_redirection'] ) || empty( $settings['enforce_redirection_rules'] );
+
 	$form_action = apply_filters( 'magic_login_shortcode_form_action', '' );
 
 	$login_request = process_login_request();
@@ -110,7 +112,9 @@ function shortcode_login_form( $shortcode_atts ) {
 
 					?>
 					<input type="submit" name="wp-submit" id="wp-submit" class="magic-login-submit button button-primary button-large" value="<?php esc_attr_e( 'Send me the link', 'magic-login' ); ?>" />
-					<input type="hidden" name="redirect_to" value="<?php echo esc_url( $atts['redirect_to'] ); ?>" />
+					<?php if ( $add_redirection_field ): ?>
+						<input type="hidden" name="redirect_to" value="<?php echo esc_url( $atts['redirect_to'] ); ?>" />
+					<?php endif; ?>
 					<input type="hidden" name="testcookie" value="1" />
 			</form>
 		<?php endif; ?>

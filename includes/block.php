@@ -114,6 +114,7 @@ function register_blocks() {
 function render_login_block( $args ) {
 
 	$settings = \MagicLogin\Utils\get_settings();
+	$add_redirection_field = empty( $settings['enable_login_redirection'] ) || empty( $settings['enforce_redirection_rules'] );
 
 	if ( $settings['enable_ajax'] ) {
 		wp_enqueue_script( 'magic-login-frontend', MAGIC_LOGIN_URL . 'dist/js/frontend.js', [ 'jquery' ], MAGIC_LOGIN_VERSION, true );
@@ -191,7 +192,7 @@ function render_login_block( $args ) {
 						<input type="submit" name="wp-submit" id="wp-submit" class="magic-login-submit button button-primary button-large" value="<?php echo esc_attr( $args['buttonLabel'] ); ?>" />
 					<?php endif; ?>
 
-					<?php if ( ! empty( $args['redirectTo'] ) && ! $args['cancelRedirection'] ) : ?>
+					<?php if ( ! empty( $args['redirectTo'] ) && ! $args['cancelRedirection'] && $add_redirection_field ) : ?>
 						<input type="hidden" name="redirect_to" value="<?php echo esc_url( $args['redirectTo'] ); ?>" />
 					<?php endif; ?>
 					<input type="hidden" name="testcookie" value="1" />

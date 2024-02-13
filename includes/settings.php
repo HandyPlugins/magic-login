@@ -282,6 +282,70 @@ function settings_page() {
 							</div>
 						</div>
 
+						<!-- Woo Integration  -->
+						<div class="sui-box-settings-row sui-disabled">
+							<div class="sui-box-settings-col-1">
+								<span class="sui-settings-label">
+									<?php esc_html_e( 'Enable Magic Login for WooCommerce', 'magic-login' ); ?>
+									<span class="sui-tag sui-tag-pro"><?php esc_html_e( 'Pro', 'magic-login' ); ?></span>
+								</span>
+								<span class="sui-description">
+									<?php esc_html_e( 'Integrates with WooCommerce login form.', 'magic-login' ); ?>
+									<a href="<?php echo esc_url( get_doc_url( 'woocommerce-integration' ) ); ?>" target="_blank"><?php esc_html_e( 'Learn More.', 'magic-login' ); ?></a>
+								</span>
+							</div>
+
+							<div class="sui-box-settings-col-2">
+								<div class="sui-form-field">
+									<label for="enable_woo_integration" class="sui-toggle">
+										<input type="checkbox"
+											   value="1"
+											   name="enable_woo_integration"
+											   id="enable_woo_integration"
+											   aria-labelledby="integrate-to-woocommerce-form-label"
+											   aria-controls="woo-detail-controls"
+											<?php checked( 1, $settings['enable_woo_integration'] ); ?>
+										>
+										<span class="sui-toggle-slider" aria-hidden="true"></span>
+										<span id="integrate-to-woocommerce-form-label" class="sui-toggle-label"><?php esc_html_e( 'Integrate magic login with WooCommerce login form', 'magic-login' ); ?></span>
+										<span class="sui-description">
+											<?php esc_html_e( 'Streamline checkout experience for returning customers.', 'magic-login' ); ?>
+										</span>
+									</label>
+								</div>
+								<div style=" <?php echo( ! $settings['enable_woo_integration'] ? 'display:none' : '' ); ?>" tabindex="0" id="woo-detail-controls" class="sui-toggle-content sui-border-frame">
+									<div class="sui-form-field" role="radiogroup">
+										<span class="sui-label"><?php esc_html_e( 'Magic Login Form Position on WooCommerce', 'magic-login' ); ?></span>
+
+										<label for="woo_position_before" class="sui-radio">
+											<input
+												type="radio"
+												name="woo_position"
+												id="woo_position_before"
+												aria-labelledby="label-woo_position"
+												value="before"
+												<?php checked( 'before', $settings['woo_position'] ); ?>
+											/>
+											<span aria-hidden="true"></span>
+											<span id="label-woo_position"><?php esc_html_e( 'Before WooCommerce Login Form', 'magic-login' ); ?></span>
+										</label>
+										<label for="woo_position_after" class="sui-radio">
+											<input
+												type="radio"
+												name="woo_position"
+												id="woo_position_after"
+												aria-labelledby="label-woo_position"
+												value="after"
+												<?php checked( 'after', $settings['woo_position'] ); ?>
+											/>
+											<span aria-hidden="true"></span>
+											<span id="label-woo_position"><?php esc_html_e( 'After WooCommerce Login Form', 'magic-login' ); ?></span>
+										</label>
+									</div>
+								</div>
+							</div>
+						</div>
+
 						<!-- Brute Force Protection -->
 						<div class="sui-box-settings-row sui-disabled">
 							<div class="sui-box-settings-col-1">
@@ -586,33 +650,52 @@ function settings_page() {
 										<div class="sui-form-field">
 											<label for="enable_wp_login_redirection" class="sui-toggle">
 												<input type="checkbox"
-												       value="1"
-												       id="enable_wp_login_redirection"
-												       name="enable_wp_login_redirection"
-												       aria-labelledby="enable-wp-login-redirection-label"
-												       aria-describedby="enable-wp-login-redirection-description"
-												       aria-controls="enable-wp-login-redirection-controls"
+													   value="1"
+													   id="enable_wp_login_redirection"
+													   name="enable_wp_login_redirection"
+													   aria-labelledby="enable-wp-login-redirection-label"
+													   aria-describedby="enable-wp-login-redirection-description"
+													   aria-controls="enable-wp-login-redirection-controls"
 													<?php checked( 1, $settings['enable_wp_login_redirection'] ); ?>
 												>
 												<span class="sui-toggle-slider" aria-hidden="true"></span>
 												<span id="enable-wp-login-redirection-label" class="sui-toggle-label"><?php esc_html_e( 'Apply redirection to normal WordPress login too.', 'magic-login' ); ?></span>
+												<span class="sui-description"><?php esc_html_e( 'Enable this option to apply redirection rules for both password and passwordless logins, ensuring a seamless navigation experience post-login.', 'magic-login' ); ?></span>
 											</label>
 										</div>
 
-										<label for="enable_role_based_redirection" class="sui-toggle">
-											<input type="checkbox"
-											       value="1"
-											       id="enable_role_based_redirection"
-											       name="enable_role_based_redirection"
-											       aria-labelledby="enable-role-based-redirection-label"
-											       aria-describedby="enable-role-based-redirection-description"
-											       aria-controls="enable-role-based-redirection-controls"
-												<?php checked( 1, $settings['enable_role_based_redirection'] ); ?>
-											>
-											<span class="sui-toggle-slider" aria-hidden="true"></span>
-											<span id="enable-role-based-redirection-label" class="sui-toggle-label"><?php esc_html_e( 'Enable role-based redirection.', 'magic-login' ); ?></span>
-											<span id="description-role-based-login-redirect" class="sui-description"><?php esc_html_e( 'Leave it blank to use default redirection rule.', 'magic-login' ); ?></span>
-										</label>
+										<div class="sui-form-field">
+											<label for="enforce_redirection_rules" class="sui-toggle">
+												<input type="checkbox"
+													   value="1"
+													   id="enforce_redirection_rules"
+													   name="enforce_redirection_rules"
+													   aria-labelledby="enforce-redirection-rules-label"
+													   aria-describedby="enforce-redirection-rules-description"
+													<?php checked( 1, $settings['enforce_redirection_rules'] ); ?>
+												>
+												<span class="sui-toggle-slider" aria-hidden="true"></span>
+												<span id="enforce-redirection-rules-label" class="sui-toggle-label"><?php esc_html_e( 'Override block/shortcode specific redirections.', 'magic-login' ); ?></span>
+												<span class="sui-description"><?php esc_html_e( 'When this option is enabled, block/shortcode-based redirections will be ignored.', 'magic-login' ); ?></span>
+											</label>
+										</div>
+
+										<div class="sui-form-field">
+											<label for="enable_role_based_redirection" class="sui-toggle">
+												<input type="checkbox"
+													   value="1"
+													   id="enable_role_based_redirection"
+													   name="enable_role_based_redirection"
+													   aria-labelledby="enable-role-based-redirection-label"
+													   aria-describedby="enable-role-based-redirection-description"
+													   aria-controls="enable-role-based-redirection-controls"
+													<?php checked( 1, $settings['enable_role_based_redirection'] ); ?>
+												>
+												<span class="sui-toggle-slider" aria-hidden="true"></span>
+												<span id="enable-role-based-redirection-label" class="sui-toggle-label"><?php esc_html_e( 'Enable role-based redirection.', 'magic-login' ); ?></span>
+												<span id="description-role-based-login-redirect" class="sui-description"><?php esc_html_e( 'Leave it blank to use default redirection rule.', 'magic-login' ); ?></span>
+											</label>
+										</div>
 
 										<div style=" <?php echo( ! $settings['enable_role_based_redirection'] ? 'display:none' : '' ); ?>" tabindex="0" id="enable-role-based-redirection-controls" class="sui-toggle-content sui-border-frame">
 											<?php

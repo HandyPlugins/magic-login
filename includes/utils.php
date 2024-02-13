@@ -117,12 +117,15 @@ function get_settings() {
 		'login_email'                   => get_default_login_email_text(),
 		'enable_login_redirection'      => false,
 		'default_redirection_url'       => '',
+		'enforce_redirection_rules'     => true,
 		'enable_wp_login_redirection'   => false,
 		'enable_role_based_redirection' => false,
 		'role_based_redirection_rules'  => [],
 		'email_subject'                 => __( 'Log in to {{SITENAME}}', 'magic-login' ),
 		'auto_login_links'              => false,
 		'enable_ajax'                   => false,
+		'enable_woo_integration'        => false,
+		'woo_position'                  => 'before',
 	];
 
 	if ( MAGIC_LOGIN_IS_NETWORK ) {
