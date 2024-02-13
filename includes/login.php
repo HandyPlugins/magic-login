@@ -451,7 +451,7 @@ function print_login_button() {
 					'<div class="magic-login-normal-login">' +
 					'<button type="submit" name="wp-submit" id="wp-login-submit" class="button button-primary button-hero" value="<?php echo esc_attr( __( 'Log In', 'magic-login' ) ); // phpcs:ignore ?>"><?php echo esc_attr( __( 'Log In', 'magic-login' ) ); ?></button>'+
 					'</div>'+
-					'<span class="magic-login-or-seperator"></span>' +
+					'<span class="magic-login-or-separator"></span>' +
 					'<div id="continue-with-magic-login" class="continue-with-magic-login">' +
 					'<button type="button" value="<?php echo esc_url( $login_url ); ?>" class="button button-primary button-hero" id="magic-login-button">' +
 					'<?php esc_html_e( 'Send me the login link', 'magic-login' ); ?>' +
@@ -539,7 +539,7 @@ function login_css() {
 			float: none;
 		}
 
-		.magic-login-or-seperator {
+		.magic-login-or-separator {
 			display: block;
 			text-align: center;
 			position: relative;
@@ -547,7 +547,7 @@ function login_css() {
 			width: 100%;
 		}
 
-		.magic-login-or-seperator:before {
+		.magic-login-or-separator:before {
 			content: "<?php esc_html_e( 'or', 'magic-login' ); ?>";
 			background-color: #fff;
 			font-size: 13px;
@@ -558,7 +558,7 @@ function login_css() {
 			z-index: 1;
 		}
 
-		.magic-login-or-seperator:after {
+		.magic-login-or-separator:after {
 			content: "";
 			width: 100%;
 			position: absolute;

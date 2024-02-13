@@ -2,7 +2,7 @@
  * MagicLogin
  */
 
-/* Global - global pieces like media queries, mixins and placholders */
+/* Global - global pieces like media queries, mixins and placeholders */
 @import url("global/index");
 
 /* Base - base styles such as fonts, typography, and wordpress overrides */
