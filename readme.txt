@@ -1,10 +1,10 @@
 === Magic Login - Passwordless Authentication for WordPress ===
-Contributors:      handyplugins,m_uysl
+Contributors:      handyplugins, m_uysl
 Tags:              login, passwordless, passwordless-login, magic-login, magic-link
 Requires at least: 5.0
 Tested up to:      6.4
 Requires PHP:      7.2
-Stable tag:        2.0.1
+Stable tag:        2.1
 License:           GPLv2 or later
 License URI:       http://www.gnu.org/licenses/gpl-2.0.html
 Donate link:       https://handyplugins.co/donate/
@@ -35,6 +35,8 @@ Here are the premium features that come with Magic Login Pro:
 - __Domain Restriction:__ Allow only certain domains to use the magic link.
 - __Login Email Customization:__ Customize login message by using email placeholders.
 - __Login Redirect:__ Redirect users to a specific page right after login. You can also redirect different pages based on the user role.
+- __WooCommerce Integration:__ Seamless checkout experience for returning customers. [Learn more](https://handyplugins.co/magic-login-pro/docs/woocommerce-integration/).
+
 
 By upgrading to Magic Login Pro you also get access to one-on-one help from our knowledgeable support team and our extensive documentation site.
 
@@ -98,6 +100,12 @@ However, if you wish to alter this behavior, you can easily do so by passing an 
 4. Login Block
 
 == Changelog ==
+
+= 2.1 (February 13, 2024) =
+* Updated settings page with PRO features.
+* Added new attributes for shortcode; it's more flexible than ever. [Learn More](https://handyplugins.co/magic-login-pro/docs/shortcode/)
+* Fix: Encode the redirect_to parameter in the login link. (Better nG firewall compatibility)
+* Dependency updates.
 
 = 2.0.1 (January 15, 2024) =
 * Fix German language that breaks auto-login links.
