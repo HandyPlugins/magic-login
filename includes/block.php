@@ -113,7 +113,7 @@ function register_blocks() {
  */
 function render_login_block( $args ) {
 
-	$settings = \MagicLogin\Utils\get_settings();
+	$settings              = \MagicLogin\Utils\get_settings();
 	$add_redirection_field = empty( $settings['enable_login_redirection'] ) || empty( $settings['enforce_redirection_rules'] );
 
 	if ( $settings['enable_ajax'] ) {

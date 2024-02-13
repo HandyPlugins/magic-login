@@ -40,12 +40,28 @@ function setup() {
 /**
  * Process login request
  *
+ * @param array $args  Custom messages - Added in 2.1
+ *                     eg: [
+ *                     'info_message' => 'Custom message'
+ *                     'error_message' => 'Custom message'
+ *                     'success_message' => 'Custom message'
+ *                     ]
+ *
  * @return array
  */
-function process_login_request() {
-	$show_form    = true;
-	$errors       = new WP_Error();
-	$info         = '<p class="message">' . __( 'Please enter your username or email address. You will receive an email message to log in.', 'magic-login' ) . '</p>';
+function process_login_request( $args = array() ) {
+	$show_form = true;
+	$errors    = new WP_Error();
+	if ( defined( 'MAGIC_LOGIN_USERNAME_ONLY' ) && MAGIC_LOGIN_USERNAME_ONLY ) {
+		$info = '<p class="message">' . __( 'Please enter your username. You will receive an email message to log in.', 'magic-login' ) . '</p>';
+	} else {
+		$info = '<p class="message">' . __( 'Please enter your username or email address. You will receive an email message to log in.', 'magic-login' ) . '</p>';
+	}
+
+	if ( ! empty( $args['info_message'] ) ) {
+		$info = '<p class="message">' . $args['info_message'] . '</p>';
+	}
+
 	$is_processed = false;
 
 	// process form request
@@ -73,6 +89,11 @@ function process_login_request() {
 			} else {
 				$errors = new WP_Error( 'missing_user', esc_html__( 'There is no account with that username or email address.', 'magic-login' ) );
 			}
+
+			if ( ! empty( $args['error_message'] ) ) {
+				$errors = new WP_Error( 'missing_user', $args['error_message'] );
+			}
+
 			$show_form = true;
 		} elseif ( null !== $send_link ) {
 			$info      = '';
@@ -85,6 +106,10 @@ function process_login_request() {
 		if ( ! is_wp_error( $errors ) ) {
 			$show_form = false;
 			$info      = '<p class="message magic_login_block_login_success">' . __( 'Please check your inbox for the login link. If you did not receive a login email, check your spam folder too.', 'magic-login' ) . '</p>';
+
+			if ( ! empty( $args['success_message'] ) ) {
+				$info = '<p class="message magic_login_block_login_success">' . $args['success_message'] . '</p>';
+			}
 		}
 	}
 
@@ -750,7 +775,14 @@ function ajax_request() {
 		$_POST['redirect_to'] = $form_data['redirect_to'];
 	}
 
-	$login_request = process_login_request();
+	$args = []; // pass custom messages to backend
+	if ( ! empty( $form_data['messages'] ) ) {
+		foreach ( $form_data['messages'] as $key => $value ) {
+			$args[ $key . '_message' ] = wp_kses_post( $value );
+		}
+	}
+
+	$login_request = process_login_request( $args );
 
 	if ( ! empty( $login_request['info'] ) ) {
 		wp_send_json_success(

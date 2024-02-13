@@ -10,6 +10,8 @@ namespace MagicLogin\Shortcode;
 use function MagicLogin\Core\style_url;
 use function MagicLogin\Login\process_login_request;
 
+// phpcs:disable WordPress.WhiteSpace.PrecisionAlignment.Found
+
 /**
  * Default setup routine
  *
@@ -32,8 +34,14 @@ function setup() {
 function shortcode_login_form( $shortcode_atts ) {
 	$atts = shortcode_atts(
 		[
-			'redirect_to'    => ( is_ssl() ? 'https://' : 'http://' ) . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'], // phpcs:ignore
-			'hide_logged_in' => true,
+			'redirect_to'     => ( is_ssl() ? 'https://' : 'http://' ) . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'], // phpcs:ignore
+			'hide_logged_in'  => true,
+			'error_message'   => '',
+			'info_message'    => '',
+			'success_message' => '',
+			'label'           => '',
+			'button_text'     => '',
+			'class'           => '',
 		],
 		$shortcode_atts
 	);
@@ -64,7 +72,8 @@ function shortcode_login_form( $shortcode_atts ) {
 
 	$form_action = apply_filters( 'magic_login_shortcode_form_action', '' );
 
-	$login_request = process_login_request();
+	$login_request = process_login_request( $atts );
+	$button_text   = ! empty( $atts['button_text'] ) ? $atts['button_text'] : esc_html__( 'Send me the link', 'magic-login' );
 	?>
 	<div id="magic-login-shortcode">
 		<div class="magic-login-form-header">
@@ -93,29 +102,45 @@ function shortcode_login_form( $shortcode_atts ) {
 			?>
 		</div>
 		<?php if ( $login_request['show_form'] ) : ?>
-			<form name="magicloginform" class="magic-login-inline-login-form" id="magicloginform" action="<?php echo esc_url( $form_action ); ?>" method="post" autocomplete="off" data-ajax-url="<?php echo esc_url( admin_url( 'admin-ajax.php' ) ); ?>" data-ajax-spinner="<?php echo esc_url( get_admin_url() . 'images/spinner.gif' ); ?>" data-ajax-sending-msg="<?php esc_attr_e( 'Sending...', 'magic-login' ); ?>">
-			<p>
-					<?php if ( defined( 'MAGIC_LOGIN_USERNAME_ONLY' ) && MAGIC_LOGIN_USERNAME_ONLY ) : ?>
-						<label for="user_login"><?php esc_html_e( 'Username', 'magic-login' ); ?></label>
-					<?php else : ?>
-						<label for="user_login"><?php esc_html_e( 'Username or Email Address', 'magic-login' ); ?></label>
-					<?php endif; ?>
-					<input type="text" name="log" id="user_login" class="input" value="" size="20" autocapitalize="off" autocomplete="username" required />
-					<?php
+			<form name="magicloginform"
+				  class="magic-login-inline-login-form <?php echo esc_attr( $atts['class'] ); ?>"
+				  id="magicloginform"
+				  action="<?php echo esc_url( $form_action ); ?>"
+				  method="post"
+				  autocomplete="off"
+				  data-ajax-url="<?php echo esc_url( admin_url( 'admin-ajax.php' ) ); ?>"
+				  data-ajax-spinner="<?php echo esc_url( get_admin_url() . 'images/spinner.gif' ); ?>"
+				  data-ajax-sending-msg="<?php esc_attr_e( 'Sending...', 'magic-login' ); ?>"
+			>
 
-					/**
-					 * Fires following the 'email' field in the login form.
-					 *
-					 * @since 1.0
-					 */
-					do_action( 'magic_login_form' );
+				<?php if ( ! empty( $atts['label'] ) ) : ?>
+					<label for="user_login"><?php echo wp_kses_post( $atts['label'] ); ?></label>
+				<?php elseif ( defined( 'MAGIC_LOGIN_USERNAME_ONLY' ) && MAGIC_LOGIN_USERNAME_ONLY ) : ?>
+					<label for="user_login"><?php esc_html_e( 'Username', 'magic-login' ); ?></label>
+				<?php else : ?>
+					<label for="user_login"><?php esc_html_e( 'Username or Email Address', 'magic-login' ); ?></label>
+				<?php endif; ?>
+				<input type="text" name="log" id="user_login" class="input" value="" size="20" autocapitalize="off" autocomplete="username" required />
+				<?php
 
-					?>
-					<input type="submit" name="wp-submit" id="wp-submit" class="magic-login-submit button button-primary button-large" value="<?php esc_attr_e( 'Send me the link', 'magic-login' ); ?>" />
-					<?php if ( $add_redirection_field ): ?>
-						<input type="hidden" name="redirect_to" value="<?php echo esc_url( $atts['redirect_to'] ); ?>" />
-					<?php endif; ?>
-					<input type="hidden" name="testcookie" value="1" />
+				/**
+				 * Fires following the 'email' field in the login form.
+				 *
+				 * @since 1.0
+				 */
+				do_action( 'magic_login_form' );
+
+				?>
+				<?php if ( $add_redirection_field ) : ?>
+					<input type="hidden" name="redirect_to" value="<?php echo esc_url( $atts['redirect_to'] ); ?>" />
+				<?php endif; ?>
+				<input type="hidden" name="testcookie" value="1" />
+				<?php if ( $settings['enable_ajax'] ) : ?>
+					<input type="hidden" name="messages[info]" value="<?php echo esc_attr( $atts['info_message'] ); ?>" />
+					<input type="hidden" name="messages[error]" value="<?php echo esc_attr( $atts['error_message'] ); ?>" />
+					<input type="hidden" name="messages[success]" value="<?php echo esc_attr( $atts['success_message'] ); ?>" />
+				<?php endif; ?>
+				<input type="submit" name="wp-submit" id="wp-submit" class="magic-login-submit button button-primary button-large" value="<?php echo esc_attr( $button_text ); ?>" />
 			</form>
 		<?php endif; ?>
 	</div>
