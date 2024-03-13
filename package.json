@@ -44,6 +44,7 @@
       "login-block-style": "./assets/css/blocks/login-block.css",
       "shortcode-style": "./assets/css/shortcode/shortcode-style.css"
     },
-    "wpDependencyExternals": false
+    "wpDependencyExternals": false,
+    "useBlockAssets": false
   }
 }
