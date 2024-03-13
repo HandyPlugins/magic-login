@@ -102,6 +102,10 @@ However, if you wish to alter this behavior, you can easily do so by passing an 
 
 == Changelog ==
 
+= 2.1.1 (March 13, 2024) =
+* Tested with WP 6.5
+* Dependency updates.
+
 = 2.1 (February 13, 2024) =
 * Updated settings page with PRO features.
 * Added new attributes for shortcode; it's more flexible than ever. [Learn More](https://handyplugins.co/magic-login-pro/docs/shortcode/)
