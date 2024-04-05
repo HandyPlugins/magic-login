@@ -594,6 +594,7 @@ function maybe_add_auto_login_link( $atts ) {
 		return $atts;
 	}
 
+	$to   = is_array( $to ) ? array_shift( $to ) : $to;
 	$user = get_user_by( 'email', $to );
 
 	if ( ! $user ) {
