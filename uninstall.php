@@ -11,6 +11,11 @@ if ( ! defined( 'WP_UNINSTALL_PLUGIN' ) ) {
 	exit;
 }
 
+// don't perform uninstallation routine if pro version is active
+if ( defined( 'MAGIC_LOGIN_PRO_PLUGIN_FILE' ) ) {
+	return;
+}
+
 require_once 'plugin.php';
 
 // delete plugin settings
