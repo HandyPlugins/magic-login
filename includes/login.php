@@ -314,12 +314,20 @@ function handle_login_request() {
 
 	do_action( 'magic_login_handle_login_request' );
 
+	$settings       = \MagicLogin\Utils\get_settings();
+
 	if ( is_user_logged_in() ) {
 		/* translators: 1: User login 2: Dashboard URL */
 		$error = sprintf( __( 'Invalid magic login token, but you are logged in as \'%1$s\'. <a href="%2$s">Go to the dashboard instead</a>?', 'magic-login' ), wp_get_current_user()->user_login, admin_url() );
 	} else {
 		/* translators: %s: Login URL */
 		$error = sprintf( __( 'Invalid magic login token. <a href="%s">Try signing in instead</a>?', 'magic-login' ), wp_login_url() );
+
+		if ( $settings['is_default'] ) {
+			/* translators: %s: Magic Login URL */
+			$login_url = esc_url( add_query_arg( 'action', 'magic_login', wp_login_url() ) );
+			$error     = sprintf( __( 'Invalid magic login token. Please try to create <a href="%s">a new login link</a>?', 'magic-login' ), $login_url );
+		}
 	}
 
 	// Use a generic error message to ensure user ids can't be sniffed
@@ -329,7 +337,6 @@ function handle_login_request() {
 		wp_die( $error ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 	}
 
-	$settings       = \MagicLogin\Utils\get_settings();
 	$token_validity = $settings['token_validity'];
 
 	$tokens        = get_user_tokens( $user->ID, true );
