@@ -33,11 +33,14 @@
 				}
 
 				// Trigger a custom event after the AJAX request is complete
-				$form.trigger('magic-login:login:ajax-complete', [response]);
+				$form.trigger('magic-login:login:ajax-success', [response]);
 			}
-		).done(function () {
+		).fail(function (response) {
+			// Trigger a custom event after the failed AJAX request
+			$form.trigger('magic-login:login:ajax-fail', [response]);
+		}).always(function () {
 			$form.find('.magic-login-submit ').attr('disabled', false);
-			$form.trigger('magic-login:login:done');
+			$form.trigger('magic-login:login:always');
 		});
 	});
 })(jQuery);
