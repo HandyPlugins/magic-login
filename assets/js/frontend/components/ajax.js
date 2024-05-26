@@ -4,6 +4,7 @@
 		e.preventDefault();
 
 		const $form = $(this);
+		$form.trigger('magic-login:login:before-submit');
 
 		$.post(
 			$form.data('ajax-url'),
@@ -19,6 +20,8 @@
 					$form
 						.find('.magic-login-submit ')
 						.attr('disabled', 'disabled');
+
+					$form.trigger('magic-login:login:before-send');
 				},
 				action: 'magic_login_ajax_request',
 				data: $('#magicloginform').serialize(),
@@ -28,9 +31,13 @@
 				if (!response.data.show_form) {
 					$form.hide();
 				}
+
+				// Trigger a custom event after the AJAX request is complete
+				$form.trigger('magic-login:login:ajax-complete', [response]);
 			}
 		).done(function () {
 			$form.find('.magic-login-submit ').attr('disabled', false);
+			$form.trigger('magic-login:login:done');
 		});
 	});
 })(jQuery);
