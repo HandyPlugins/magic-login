@@ -127,6 +127,43 @@ function get_settings() {
 		'enable_ajax'                   => false,
 		'enable_woo_integration'        => false,
 		'woo_position'                  => 'before',
+		'registration'                  => [
+			'enable'               => false,
+			'mode'                 => 'auto', // or standard|shortcode
+			'fallback_email_field' => true, // show email field on auto registration mode as a fallback
+			'show_name_field'      => true,
+			'require_name_field'   => true,
+			'show_terms_field'     => false,
+			'require_terms_field'  => false,
+			'terms'                => '',
+			'send_email'           => true,
+			'email_subject'        => esc_html__( 'Welcome to {{SITENAME}}', 'magic-login' ),
+			'email_content'        => get_default_registration_email_text(),
+		],
+		'spam_protection'               => [
+			'service'             => 'recaptcha',
+			'enable_login'        => false,
+			'enable_registration' => false,
+		],
+		'recaptcha'                     => [
+			'type'         => 'v3',
+			'v2_checkbox'  => [
+				'site_key'   => '',
+				'secret_key' => '',
+			],
+			'v2_invisible' => [
+				'site_key'   => '',
+				'secret_key' => '',
+			],
+			'v3'           => [
+				'site_key'   => '',
+				'secret_key' => '',
+			],
+		],
+		'cf_turnstile'                  => [
+			'site_key'   => '',
+			'secret_key' => '',
+		],
 	];
 
 	if ( MAGIC_LOGIN_IS_NETWORK ) {
@@ -135,7 +172,8 @@ function get_settings() {
 		$settings = get_option( SETTING_OPTION, [] );
 	}
 
-	$settings = wp_parse_args( $settings, $defaults );
+	// Merge settings with defaults, ensuring new additions and nested arrays are included
+	$settings = array_replace_recursive( $defaults, $settings );
 
 	return $settings;
 }
@@ -497,3 +535,33 @@ function get_ttl_by_user( $user_id ) {
 }
 
 
+/**
+ * Default registration email message
+ *
+ * @return mixed|string|void
+ * @since 2.2
+ */
+function get_default_registration_email_text() {
+	$email_text = __(
+		'Hi there,
+<br>
+Thank you for signing up to {{SITENAME}}! We are excited to have you on board.
+<br>
+To get started, simply use the magic link below to log in:
+<br><br>
+<a href="{{MAGIC_LINK}}" target="_blank" rel="noreferrer noopener">Click here to log in</a>
+<br>
+If the button above does not work, you can also copy and paste the following URL into your browser:
+<br>
+{{MAGIC_LINK}}
+<br><br>
+We hope you enjoy your experience with us. If you have any questions or need assistance, feel free to reach out.
+<br><br>
+Regards,<br>
+All at {{SITENAME}}<br>
+{{SITEURL}}',
+		'magic-login'
+	);
+
+	return $email_text;
+}
