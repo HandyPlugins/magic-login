@@ -334,7 +334,7 @@ function get_ttl_with_interval( $timeout_in_minutes ) {
  * @return string final URL
  */
 function get_doc_url( $path = null, $fragment = '' ) {
-	$doc_base       = 'https://handyplugins.co/magic-login-pro/docs/';
+	$doc_base       = 'https://handyplugins.co/';
 	$utm_parameters = '?utm_source=wp_admin&utm_medium=plugin&utm_campaign=settings_page';
 
 	if ( ! empty( $path ) ) {

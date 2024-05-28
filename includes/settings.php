@@ -158,7 +158,7 @@ function settings_page() {
 															/* translators: 1: Magic Login shortcode 2: Documentation URL 3: 'Learn More' text */
 															__( 'In order to add a login form to any page, you can use shortcode <code>%1$s</code> or block. <a href="%2$s" target="_blank" rel="noopener">%3$s</a>' ),
 															'[magic_login_form]',
-															get_doc_url( 'add-login-form-to-a-page' ),
+															get_doc_url( 'docs/add-magic-login-form-to-a-page/' ),
 															__( 'Learn More.', 'magic-login' )
 														)
 													);
@@ -203,7 +203,7 @@ function settings_page() {
 								<span class="sui-settings-label" id="token_ttl_label"><?php esc_html_e( 'Token Lifespan', 'magic-login' ); ?></span>
 								<span class="sui-description">
 									<?php esc_html_e( 'The TTL (time to live) of the login link. WP-Cron removes expired tokens.', 'magic-login' ); ?>
-									<a href="<?php echo esc_url( get_doc_url( 'token-lifespan' ) ); ?>" target="_blank"><?php esc_html_e( 'Learn More.', 'magic-login' ); ?></a>
+									<a href="<?php echo esc_url( get_doc_url( 'docs/magic-login-token-lifespan' ) ); ?>" target="_blank"><?php esc_html_e( 'Learn More.', 'magic-login' ); ?></a>
 								</span>
 							</div>
 
@@ -235,7 +235,7 @@ function settings_page() {
 								<span class="sui-settings-label" id="token_validity_label"><?php esc_html_e( 'Token Validity', 'magic-login' ); ?></span>
 								<span class="sui-description">
 									<?php esc_html_e( 'Specify how many times a token can be used.', 'magic-login' ); ?>
-									<a href="<?php echo esc_url( get_doc_url( 'token-validity' ) ); ?>" target="_blank"><?php esc_html_e( 'Learn More.', 'magic-login' ); ?></a>
+									<a href="<?php echo esc_url( get_doc_url( 'docs/magic-login-token-validity/' ) ); ?>" target="_blank"><?php esc_html_e( 'Learn More.', 'magic-login' ); ?></a>
 								</span>
 							</div>
 
@@ -291,7 +291,7 @@ function settings_page() {
 								</span>
 								<span class="sui-description">
 									<?php esc_html_e( 'Integrates with WooCommerce login form.', 'magic-login' ); ?>
-									<a href="<?php echo esc_url( get_doc_url( 'woocommerce-integration' ) ); ?>" target="_blank"><?php esc_html_e( 'Learn More.', 'magic-login' ); ?></a>
+									<a href="<?php echo esc_url( get_doc_url( 'docs/magic-login-woocommerce-integration/' ) ); ?>" target="_blank"><?php esc_html_e( 'Learn More.', 'magic-login' ); ?></a>
 								</span>
 							</div>
 
