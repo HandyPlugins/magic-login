@@ -7,6 +7,7 @@
 
 namespace MagicLogin\Login;
 
+use function MagicLogin\Utils\get_email_placeholders_by_user;
 use const MagicLogin\Constants\CRON_HOOK_NAME;
 use const MagicLogin\Constants\TOKEN_USER_META;
 use function MagicLogin\Utils\create_login_link;
@@ -148,12 +149,6 @@ function action_magic_login() {
  * @return bool
  */
 function send_login_link( $user, $login_link = false ) {
-	if ( is_multisite() ) {
-		$site_name = get_network()->site_name;
-	} else {
-		$site_name = wp_specialchars_decode( get_option( 'blogname' ), ENT_QUOTES );
-	}
-
 	if ( ! $login_link ) {
 		$login_link = create_login_link( $user );
 	}
@@ -162,29 +157,8 @@ function send_login_link( $user, $login_link = false ) {
 	$login_email   = $settings['login_email'];
 	$email_subject = $settings['email_subject'];
 
-	list( $token_ttl, $selected_interval ) = get_ttl_with_interval( $settings['token_ttl'] );
-	$selected_interval_str                 = strtolower( $selected_interval );
-
-	$allowed_intervals = get_allowed_intervals();
-
-	if ( isset( $allowed_intervals[ $selected_interval ] ) ) {
-		$selected_interval_str = strtolower( $allowed_intervals[ $selected_interval ] ); // translated interval
-	}
-
-	$placeholder_values = [
-		'{{SITEURL}}'               => home_url(),
-		'{{USERNAME}}'              => $user->user_login,
-		'{{FIRST_NAME}}'            => $user->first_name,
-		'{{LAST_NAME}}'             => $user->last_name,
-		'{{FULL_NAME}}'             => $user->first_name . ' ' . $user->last_name,
-		'{{DISPLAY_NAME}}'          => $user->display_name,
-		'{{USER_EMAIL}}'            => $user->user_email,
-		'{{SITENAME}}'              => $site_name,
-		'{{EXPIRES}}'               => $settings['token_ttl'],
-		'{{EXPIRES_WITH_INTERVAL}}' => $token_ttl . ' ' . $selected_interval_str,
-		'{{MAGIC_LINK}}'            => $login_link,
-		'{{TOKEN_VALIDITY_COUNT}}'  => $settings['token_validity'],
-	];
+	$placeholder_values                   = get_email_placeholders_by_user( $user );
+	$placeholder_values['{{MAGIC_LINK}}'] = $login_link;
 
 	$login_email   = str_replace( array_keys( $placeholder_values ), $placeholder_values, $login_email );
 	$email_subject = str_replace( array_keys( $placeholder_values ), $placeholder_values, $email_subject );
