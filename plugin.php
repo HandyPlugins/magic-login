@@ -45,6 +45,38 @@ if ( file_exists( MAGIC_LOGIN_PATH . '/vendor/autoload.php' ) ) {
 	require_once MAGIC_LOGIN_PATH . 'vendor/autoload.php';
 }
 
+
+/**
+ * PSR-4-ish autoloading
+ *
+ * @since 2.0
+ */
+spl_autoload_register(
+	function ( $class ) {
+		// project-specific namespace prefix.
+		$prefix = 'MagicLogin\\';
+
+		// base directory for the namespace prefix.
+		$base_dir = __DIR__ . '/includes/classes/';
+
+		// does the class use the namespace prefix?
+		$len = strlen( $prefix );
+
+		if ( strncmp( $prefix, $class, $len ) !== 0 ) {
+			return;
+		}
+
+		$relative_class = substr( $class, $len );
+
+		$file = $base_dir . str_replace( '\\', '/', $relative_class ) . '.php';
+
+		// if the file exists, require it.
+		if ( file_exists( $file ) ) {
+			require $file;
+		}
+	}
+);
+
 // Include files.
 require_once MAGIC_LOGIN_INC . 'constants.php';
 require_once MAGIC_LOGIN_INC . 'utils.php';
