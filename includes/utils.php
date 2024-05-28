@@ -7,6 +7,7 @@
 
 namespace MagicLogin\Utils;
 
+use MagicLogin\Encryption;
 use const MagicLogin\Constants\CRON_HOOK_NAME;
 use const MagicLogin\Constants\SETTING_OPTION;
 use const MagicLogin\Constants\TOKEN_USER_META;
@@ -369,3 +370,130 @@ function is_magic_login_settings_screen() {
 
 	return false;
 }
+
+/**
+ * Mask given string
+ *
+ * @param string $input_string  String
+ * @param int    $unmask_length The length of unmask
+ *
+ * @return string
+ * @since 2.2
+ */
+function mask_string( $input_string, $unmask_length ) {
+	$output_string = substr( $input_string, 0, $unmask_length );
+
+	if ( strlen( $input_string ) > $unmask_length ) {
+		$output_string .= str_repeat( '*', strlen( $input_string ) - $unmask_length );
+	}
+
+	return $output_string;
+}
+
+
+/**
+ * Check if the given value is masked
+ *
+ * @param string $value       The value to check
+ * @param int    $mask_length The length of the mask
+ *
+ * @return bool
+ * @since 2.2
+ */
+function is_masked_value( $value, $mask_length = 3 ) {
+	// Get the last characters of the string
+	$last_chars = substr( $value, - $mask_length );
+
+	// Check if the last characters are asterisks
+	return str_repeat( '*', $mask_length ) === $last_chars;
+}
+
+/**
+ * Get email placeholders by user
+ *
+ * @param \WP_User $user User object
+ *
+ * @return array
+ * @since 2.2
+ */
+function get_email_placeholders_by_user( $user ) {
+	if ( is_multisite() ) {
+		$site_name = get_network()->site_name;
+	} else {
+		$site_name = wp_specialchars_decode( get_option( 'blogname' ), ENT_QUOTES );
+	}
+
+	$settings = \MagicLogin\Utils\get_settings();
+	$ttl      = get_ttl_by_user( $user->ID );
+
+	list( $token_ttl, $selected_interval ) = get_ttl_with_interval( $ttl );
+	$selected_interval_str = strtolower( $selected_interval );
+	$allowed_intervals     = get_allowed_intervals();
+
+	if ( isset( $allowed_intervals[ $selected_interval ] ) ) {
+		$selected_interval_str = strtolower( $allowed_intervals[ $selected_interval ] ); // translated interval
+	}
+
+	$placeholders = [
+		'{{SITEURL}}'               => home_url(),
+		'{{USERNAME}}'              => $user->user_login,
+		'{{FIRST_NAME}}'            => $user->first_name,
+		'{{LAST_NAME}}'             => $user->last_name,
+		'{{FULL_NAME}}'             => $user->first_name . ' ' . $user->last_name,
+		'{{DISPLAY_NAME}}'          => $user->display_name,
+		'{{USER_EMAIL}}'            => $user->user_email,
+		'{{SITENAME}}'              => $site_name,
+		'{{EXPIRES}}'               => $ttl,
+		'{{EXPIRES_WITH_INTERVAL}}' => $token_ttl . ' ' . $selected_interval_str,
+		'{{TOKEN_VALIDITY_COUNT}}'  => $settings['token_validity'],
+	];
+
+	return $placeholders;
+}
+
+/**
+ * Get decrypted value
+ *
+ * @param string $value encrypted value
+ *
+ * @return bool|mixed|string
+ * @since 2.2
+ */
+function get_decrypted_value( $value ) {
+	$encryption      = new Encryption();
+	$decrypted_value = $encryption->decrypt( $value );
+
+	if ( false !== $decrypted_value ) {
+		return $decrypted_value;
+	}
+
+	return $value;
+}
+
+/**
+ * Get the token TTL by user
+ *
+ * @param int $user_id User ID
+ *
+ * @return int TTL in minutes
+ * @since 2.2
+ */
+function get_ttl_by_user( $user_id ) {
+	$settings = \MagicLogin\Utils\get_settings();
+	$ttl      = $settings['token_ttl'];
+
+	/**
+	 * Filter the token TTL by user
+	 *
+	 * @hook   magic_login_token_ttl_by_user
+	 *
+	 * @param  {int} $ttl TTL in minutes
+	 * @param  {int} $user_id User ID
+	 *
+	 * @return {int} New value
+	 * @since  2.2
+	 */
+	return apply_filters( 'magic_login_token_ttl_by_user', $ttl, $user_id );
+}
+
+
