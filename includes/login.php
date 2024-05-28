@@ -314,7 +314,7 @@ function handle_login_request() {
 
 	do_action( 'magic_login_handle_login_request' );
 
-	$settings       = \MagicLogin\Utils\get_settings();
+	$settings = \MagicLogin\Utils\get_settings();
 
 	if ( is_user_logged_in() ) {
 		/* translators: 1: User login 2: Dashboard URL */
