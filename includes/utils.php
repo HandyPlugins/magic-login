@@ -262,8 +262,7 @@ function get_user_tokens( $user_id, $clear_expired = false ) {
 	$tokens = (array) apply_filters( 'magic_login_user_tokens', $tokens, $user_id, $clear_expired );
 
 	if ( $clear_expired ) {
-		$settings = get_settings(); //phpcs:ignore
-		$ttl      = absint( $settings['token_ttl'] );
+		$ttl = get_ttl_by_user( $user_id );
 
 		if ( 0 === $ttl ) { // means token lives forever till used
 			return $tokens;
@@ -465,8 +464,8 @@ function get_email_placeholders_by_user( $user ) {
 	$ttl      = get_ttl_by_user( $user->ID );
 
 	list( $token_ttl, $selected_interval ) = get_ttl_with_interval( $ttl );
-	$selected_interval_str = strtolower( $selected_interval );
-	$allowed_intervals     = get_allowed_intervals();
+	$selected_interval_str                 = strtolower( $selected_interval );
+	$allowed_intervals                     = get_allowed_intervals();
 
 	if ( isset( $allowed_intervals[ $selected_interval ] ) ) {
 		$selected_interval_str = strtolower( $allowed_intervals[ $selected_interval ] ); // translated interval

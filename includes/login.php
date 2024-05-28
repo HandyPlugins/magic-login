@@ -8,6 +8,7 @@
 namespace MagicLogin\Login;
 
 use function MagicLogin\Utils\get_email_placeholders_by_user;
+use function MagicLogin\Utils\get_ttl_by_user;
 use const MagicLogin\Constants\CRON_HOOK_NAME;
 use const MagicLogin\Constants\TOKEN_USER_META;
 use function MagicLogin\Utils\create_login_link;
@@ -385,8 +386,7 @@ function handle_login_request() {
  * @param int $user_id user id
  */
 function cleanup_expired_tokens( $user_id ) {
-	$settings    = \MagicLogin\Utils\get_settings();
-	$ttl         = absint( $settings['token_ttl'] );
+	$ttl         = get_ttl_by_user( $user_id );
 	$tokens      = get_user_meta( $user_id, TOKEN_USER_META, true );
 	$tokens      = is_string( $tokens ) ? array( $tokens ) : $tokens;
 	$live_tokens = array();
@@ -616,8 +616,8 @@ function maybe_add_auto_login_link( $atts ) {
  * @since 1.6
  */
 function add_auto_login_link_to_message( $args, $user ) {
-	$settings                              = \MagicLogin\Utils\get_settings();
-	list( $token_ttl, $selected_interval ) = get_ttl_with_interval( $settings['token_ttl'] );
+	$ttl                                   = get_ttl_by_user( $user->ID );
+	list( $token_ttl, $selected_interval ) = get_ttl_with_interval( $ttl );
 	$selected_interval_str                 = strtolower( $selected_interval );
 	$allowed_intervals                     = get_allowed_intervals();
 	if ( isset( $allowed_intervals[ $selected_interval ] ) ) {
