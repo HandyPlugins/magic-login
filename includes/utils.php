@@ -543,13 +543,13 @@ function get_ttl_by_user( $user_id ) {
 function get_default_registration_email_text() {
 	$email_text = __(
 		'Hi there,
-<br>
+<br><br>
 Thank you for signing up to {{SITENAME}}! We are excited to have you on board.
 <br>
 To get started, simply use the magic link below to log in:
 <br><br>
 <a href="{{MAGIC_LINK}}" target="_blank" rel="noreferrer noopener">Click here to log in</a>
-<br>
+<br><br>
 If the button above does not work, you can also copy and paste the following URL into your browser:
 <br>
 {{MAGIC_LINK}}
