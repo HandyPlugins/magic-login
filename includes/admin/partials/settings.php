@@ -746,7 +746,7 @@ $settings = \MagicLogin\Utils\get_settings();
 										<?php
 										echo wp_kses_post(
 											sprintf(
-											/* translators: 2: Documentation URL 3: 'Learn More' text */
+											/* translators: 1: Documentation URL 2: 'Learn More' text */
 												__( 'Activate registration feature. <a href="%1$s" target="_blank" rel="noopener">%2$s</a>', 'magic-login' ),
 												get_doc_url( 'docs/magic-login-registration/' ),
 												__( 'Learn More.', 'magic-login' )
@@ -1044,7 +1044,7 @@ $settings = \MagicLogin\Utils\get_settings();
 										<?php
 										echo wp_kses_post(
 											sprintf(
-											/* translators: 2: Documentation URL 3: 'Learn More' text */
+											/* translators: 1: Documentation URL 2: 'Learn More' text */
 												__( '<a href="%1$s" target="_blank" rel="noopener">%2$s</a>', 'magic-login' ),
 												get_doc_url( 'docs/magic-login-spam-protection/' ),
 												__( 'Learn More.', 'magic-login' )
