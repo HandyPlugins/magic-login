@@ -52,76 +52,121 @@ function setup() {
  * @return array
  */
 function process_login_request( $args = array() ) {
-	$show_form = true;
-	$errors    = new WP_Error();
+	$show_form              = true;
+	$show_registration_form = false;
+	$errors                 = new WP_Error();
+	$is_processed           = false;
+
+	// Default info message
 	if ( defined( 'MAGIC_LOGIN_USERNAME_ONLY' ) && MAGIC_LOGIN_USERNAME_ONLY ) {
 		$info = '<p class="message">' . __( 'Please enter your username. You will receive an email message to log in.', 'magic-login' ) . '</p>';
 	} else {
 		$info = '<p class="message">' . __( 'Please enter your username or email address. You will receive an email message to log in.', 'magic-login' ) . '</p>';
 	}
 
+	// Override info message if provided in $args
 	if ( ! empty( $args['info_message'] ) ) {
 		$info = '<p class="message">' . $args['info_message'] . '</p>';
 	}
 
-	$is_processed = false;
-
-	// process form request
+	// Process form request if method is POST
 	if ( isset( $_SERVER['REQUEST_METHOD'] ) && 'POST' === $_SERVER['REQUEST_METHOD'] && ! empty( $_POST['log'] ) ) {
-		$user_name = sanitize_user( wp_unslash( $_POST['log'] ) );
-		$user      = get_user_by( 'login', $user_name );
+		$result                 = handle_login_submission( $args );
+		$is_processed           = $result['is_processed'];
+		$errors                 = $result['errors'];
+		$info                   = $result['info'];
+		$show_form              = $result['show_form'];
+		$show_registration_form = $result['show_registration_form'];
+	}
 
-		if ( ! defined( 'MAGIC_LOGIN_USERNAME_ONLY' ) || false === MAGIC_LOGIN_USERNAME_ONLY ) {
-			if ( ! $user && strpos( $user_name, '@' ) ) {
-				$user = get_user_by( 'email', $user_name );
-			}
+	return [
+		'show_form'              => $show_form,
+		'errors'                 => $errors,
+		'info'                   => $info,
+		'is_processed'           => $is_processed,
+		'show_registration_form' => $show_registration_form,
+	];
+}
+
+/**
+ * Handle login submission POST request
+ *
+ * @param array $args Arguments
+ *
+ * @return array
+ * @since 2.2
+ */
+function handle_login_submission( $args ) {
+	$show_form              = true;
+	$show_registration_form = false;
+	$errors                 = new WP_Error();
+
+	$user_name = isset( $_POST['log'] ) ? sanitize_user( wp_unslash( $_POST['log'] ) ) : '';
+	$user      = get_user_by( 'login', $user_name );
+
+	if ( ! defined( 'MAGIC_LOGIN_USERNAME_ONLY' ) || false === MAGIC_LOGIN_USERNAME_ONLY ) {
+		if ( ! $user && strpos( $user_name, '@' ) ) {
+			$user = get_user_by( 'email', $user_name );
 		}
+	}
 
-		$is_processed = true;
+	$is_processed = true;
 
-		/**
-		 * Short circuit to prevent unwanted requests
-		 */
-		$send_link = apply_filters( 'magic_login_pre_send_login_link', null, $user );
+	// Apply pre-process filter
+	$result = apply_filters( 'magic_login_pre_process_login_request', null );
 
-		if ( ! is_a( $user, '\WP_User' ) ) {
-			$info = '';
-			if ( defined( 'MAGIC_LOGIN_USERNAME_ONLY' ) && MAGIC_LOGIN_USERNAME_ONLY ) {
-				$errors = new WP_Error( 'missing_user', esc_html__( 'There is no account with that username.', 'magic-login' ) );
-			} else {
-				$errors = new WP_Error( 'missing_user', esc_html__( 'There is no account with that username or email address.', 'magic-login' ) );
-			}
+	if ( is_wp_error( $result ) ) {
+		return [
+			'is_processed'           => $is_processed,
+			'errors'                 => $result,
+			'info'                   => '',
+			'show_form'              => $show_form,
+			'show_registration_form' => $show_registration_form,
+		];
+	}
 
-			if ( ! empty( $args['error_message'] ) ) {
-				$errors = new WP_Error( 'missing_user', $args['error_message'] );
-			}
+	// Apply pre-send link filter
+	$send_link = apply_filters( 'magic_login_pre_send_login_link', null, $user );
 
-			$show_form = true;
-		} elseif ( null !== $send_link ) {
-			$info      = '';
-			$errors    = $send_link;
-			$show_form = false;
+	if ( ! is_a( $user, '\WP_User' ) ) {
+		$info = '';
+		if ( defined( 'MAGIC_LOGIN_USERNAME_ONLY' ) && MAGIC_LOGIN_USERNAME_ONLY ) {
+			$errors = new WP_Error( 'missing_user', esc_html__( 'There is no account with that username.', 'magic-login' ) );
 		} else {
-			$errors = send_login_link( $user );
+			$errors = new WP_Error( 'missing_user', esc_html__( 'There is no account with that username or email address.', 'magic-login' ) );
 		}
 
-		if ( ! is_wp_error( $errors ) ) {
-			$show_form = false;
-			$info      = '<p class="message magic_login_block_login_success">' . __( 'Please check your inbox for the login link. If you did not receive a login email, check your spam folder too.', 'magic-login' ) . '</p>';
+		if ( ! empty( $args['error_message'] ) ) {
+			$errors = new WP_Error( 'missing_user', $args['error_message'] );
+		}
 
-			if ( ! empty( $args['success_message'] ) ) {
-				$info = '<p class="message magic_login_block_login_success">' . $args['success_message'] . '</p>';
-			}
+		$show_form = true;
+	} elseif ( null !== $send_link ) {
+		$info      = '';
+		$errors    = $send_link;
+		$show_form = false;
+	} else {
+		$errors = send_login_link( $user );
+	}
+
+	if ( ! is_wp_error( $errors ) ) {
+		$show_form = false;
+		$info      = '<p class="message magic_login_block_login_success">' . __( 'Please check your inbox for the login link. If you did not receive a login email, check your spam folder too.', 'magic-login' ) . '</p>';
+
+		if ( ! empty( $args['success_message'] ) ) {
+			$info = '<p class="message magic_login_block_login_success">' . $args['success_message'] . '</p>';
 		}
 	}
 
 	return [
-		'show_form'    => $show_form,
-		'errors'       => $errors,
-		'info'         => $info,
-		'is_processed' => $is_processed,
+		'is_processed'           => $is_processed,
+		'errors'                 => $errors,
+		'info'                   => $info,
+		'show_form'              => $show_form,
+		'show_registration_form' => $show_registration_form,
 	];
 }
+
 
 /**
  * Login form actions
@@ -309,6 +354,7 @@ function handle_login_request() {
 	$user = get_user_by( 'id', (int) $_GET['user_id'] ); //phpcs:ignore WordPress.Security.NonceVerification.Recommended
 	if ( ! $user ) {
 		do_action( 'magic_login_invalid_user' );
+		$error = apply_filters( 'magic_login_error_message', $error, 'invalid_user' );
 		wp_die( $error ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 	}
 
@@ -344,8 +390,10 @@ function handle_login_request() {
 		 * Invalid token error message.
 		 * Since 1.2
 		 */
-		$error_message = apply_filters( 'magic_login_invalid_token_error_message', $error );
-		wp_die( wp_kses_post( $error_message ) );
+		$error = apply_filters( 'magic_login_invalid_token_error_message', $error );
+		$error = apply_filters( 'magic_login_error_message', $error, 'invalid_token' );
+
+		wp_die( wp_kses_post( $error ) );
 	}
 
 	/**
@@ -741,20 +789,22 @@ function ajax_request() {
 	if ( ! isset( $_POST['data'] ) ) {
 		wp_send_json_error(
 			[
-				'message'   => esc_html__( 'Invalid request', 'magic-login' ),
-				'show_form' => true,
+				'message'                => esc_html__( 'Invalid request', 'magic-login' ),
+				'show_form'              => true,
+				'show_registration_form' => false,
 			]
 		);
 	}
 
 	parse_str( wp_unslash( $_POST['data'] ), $form_data ); // phpcs:ignore WordPress.Security.ValidatedSanitizedInput.InputNotSanitized
 
-	if ( $form_data['log'] ) {
-		$_POST['log'] = $form_data['log'];
-	}
+	$global_data = [ 'log', 'redirect_to', 'g-recaptcha-response', 'cf-turnstile-response' ];
 
-	if ( $form_data['redirect_to'] ) {
-		$_POST['redirect_to'] = $form_data['redirect_to'];
+	// populate super global $_POST with form data
+	foreach ( $global_data as $key ) {
+		if ( isset( $form_data[ $key ] ) ) {
+			$_POST[ $key ] = $form_data[ $key ];
+		}
 	}
 
 	$args = []; // pass custom messages to backend
