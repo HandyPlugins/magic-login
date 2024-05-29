@@ -11,6 +11,9 @@ namespace MagicLogin\Block;
 use function MagicLogin\Core\script_url;
 use function MagicLogin\Login\process_login_request;
 
+if ( ! defined( 'ABSPATH' ) ) {
+	exit; // Exit if accessed directly.
+}
 /**
  * Default setup routine
  *

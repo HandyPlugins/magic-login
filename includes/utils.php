@@ -12,6 +12,10 @@ use const MagicLogin\Constants\CRON_HOOK_NAME;
 use const MagicLogin\Constants\SETTING_OPTION;
 use const MagicLogin\Constants\TOKEN_USER_META;
 
+if ( ! defined( 'ABSPATH' ) ) {
+	exit; // Exit if accessed directly.
+}
+
 /**
  * Create token
  *

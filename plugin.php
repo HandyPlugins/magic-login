@@ -18,6 +18,10 @@
 
 namespace MagicLogin;
 
+if ( ! defined( 'ABSPATH' ) ) {
+	exit; // Exit if accessed directly.
+}
+
 // Useful global constants.
 define( 'MAGIC_LOGIN_VERSION', '2.1.3' );
 define( 'MAGIC_LOGIN_PLUGIN_FILE', __FILE__ );

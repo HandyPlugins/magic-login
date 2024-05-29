@@ -10,6 +10,9 @@ namespace MagicLogin\Core;
 use function MagicLogin\Utils\is_magic_login_settings_screen;
 use \WP_Error as WP_Error;
 
+if ( ! defined( 'ABSPATH' ) ) {
+	exit; // Exit if accessed directly.
+}
 /**
  * Default setup routine
  *

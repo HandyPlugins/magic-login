@@ -11,6 +11,9 @@ use function MagicLogin\Core\style_url;
 use function MagicLogin\Login\process_login_request;
 
 // phpcs:disable WordPress.WhiteSpace.PrecisionAlignment.Found
+if ( ! defined( 'ABSPATH' ) ) {
+	exit; // Exit if accessed directly.
+}
 
 /**
  * Default setup routine
