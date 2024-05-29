@@ -4,12 +4,12 @@ Tags:              login, passwordless, passwordless-login, magic-login, magic-l
 Requires at least: 5.0
 Tested up to:      6.5
 Requires PHP:      7.2
-Stable tag:        2.1.3
+Stable tag:        2.2
 License:           GPLv2 or later
 License URI:       http://www.gnu.org/licenses/gpl-2.0.html
 Donate link:       https://handyplugins.co/donate/
 
-Passwordless login for WordPress.
+Passwordless login for WordPress. Streamline the login process by sending magic links to your users.
 
 == Description ==
 
@@ -28,6 +28,7 @@ __Auto Login__: Magic Login also supports auto-login links for outgoing emails. 
 
 Here are the premium features that come with Magic Login Pro:
 
+- __Registration:__ Enable easy user registration directly from the login form or with a shortcode. [Learn more](https://handyplugins.co/docs/magic-login-registration/).
 - __CLI Command:__ Use WP-CLI to create login links.
 - __Brute Force Protection:__ Limit rate of login attempts and block IP temporarily.
 - __Login request throttling:__ Limit login link generation for a certain period.
@@ -35,7 +36,9 @@ Here are the premium features that come with Magic Login Pro:
 - __Domain Restriction:__ Allow only certain domains to use the magic link.
 - __Login Email Customization:__ Customize login message by using email placeholders.
 - __Login Redirect:__ Redirect users to a specific page right after login. You can also redirect different pages based on the user role.
-- __WooCommerce Integration:__ Seamless checkout experience for returning customers. [Learn more](https://handyplugins.co/magic-login-pro/docs/woocommerce-integration/).
+- __WooCommerce Integration:__ Seamless checkout experience for returning customers. [Learn more](https://handyplugins.co/docs/magic-login-woocommerce-integration/).
+- __reCAPTCHA Integration:__ Safeguard your login and registration forms from spam with Google reCAPTCHA. [Learn more](https://handyplugins.co/docs/magic-login-spam-protection/#1-toc-title).
+- __Cloudflare Turnstile Integration:__ Enhance spam protection for your login and registration forms using Cloudflare Turnstile. [Learn more](https://handyplugins.co/docs/magic-login-spam-protection/#2-toc-title).
 
 
 By upgrading to Magic Login Pro you also get access to one-on-one help from our knowledgeable support team and our extensive documentation site.
@@ -43,7 +46,7 @@ By upgrading to Magic Login Pro you also get access to one-on-one help from our 
 **[Learn more about Magic Login Pro](https://handyplugins.co/magic-login-pro/)**
 
 = Documentation =
-Our documentation can be found on [https://handyplugins.co/magic-login-pro/docs/](https://handyplugins.co/magic-login-pro/docs/)
+Our documentation can be found on [https://handyplugins.co/docs-category/magic-login-pro/](https://handyplugins.co/docs-category/magic-login-pro/)
 
 = Contributing & Bug Report =
 Bug reports and pull requests are welcome on [Github](https://github.com/HandyPlugins/magic-login). Some of our features are pro only, please consider before sending PR.
@@ -85,12 +88,12 @@ Magic Login uses WordPress built-in mail functions. So, it depends on your confi
 
 = How can I use a passwordless login form on any page? =
 
-You can use `[magic_login_form]` shortcode or block. [Learn More.](https://handyplugins.co/magic-login-pro/docs/add-login-form-to-a-page/)
+You can use `[magic_login_form]` shortcode or block. [Learn More.](https://handyplugins.co/docs/add-magic-login-form-to-a-page/)
 
 = Why are users redirected back to the page where they added the magic login form via shortcode? =
 
 This behavior occurs because the magic login form is designed to use the current page as the target redirection URL by default. It's a way to ensure a smooth user experience by bringing users back to the page they started from.
-However, if you wish to alter this behavior, you can easily do so by passing an empty redirect_to="" parameter within the shortcode.  [Learn More.](https://handyplugins.co/magic-login-pro/docs/shortcode/)
+However, if you wish to alter this behavior, you can easily do so by passing an empty redirect_to="" parameter within the shortcode.  [Learn More.](https://handyplugins.co/docs/magic-login-shortcode/)
 
 
 == Screenshots ==
@@ -101,6 +104,17 @@ However, if you wish to alter this behavior, you can easily do so by passing an 
 4. Login Block
 
 == Changelog ==
+
+= 2.2 (May 29, 2024) =
+* [Added] Settings UI update with reflecting new PRO features.
+* [Added] Custom events for AJAX requests.
+* [Added] New filter `magic_login_token_ttl_by_user` to customize TTL for users.
+* [Added] New filter `magic_login_error_message` to customize error messages.
+* [Improved] Form styles.
+* [Refactored] Improved settings page UI.
+* [Refactored] Enhanced class autoloading.
+* [Updated] Dependency updates.
+* Learn more about the new features: [Magic Login Pro 2.2](https://handyplugins.co/blog/magic-login-registration-and-spam-protection/)
 
 = 2.1.3 (April 19, 2024) =
 * Improvements on uninstallation process.
@@ -115,7 +129,7 @@ However, if you wish to alter this behavior, you can easily do so by passing an 
 
 = 2.1 (February 13, 2024) =
 * Updated settings page with PRO features.
-* Added new attributes for shortcode; it's more flexible than ever. [Learn More](https://handyplugins.co/magic-login-pro/docs/shortcode/)
+* Added new attributes for shortcode; it's more flexible than ever. [Learn More](https://handyplugins.co/docs/magic-login-shortcode/)
 * Fix: Encode the redirect_to parameter in the login link. (Better nG firewall compatibility)
 * Dependency updates.
 
