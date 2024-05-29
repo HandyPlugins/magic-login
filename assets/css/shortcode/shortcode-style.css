@@ -13,21 +13,33 @@
 	width: 320px;
 }
 
+#magic-login-shortcode .magic-login-inline-login-form {
+	width: 100%;
+}
+
 #magic-login-shortcode label {
+	margin-bottom:5px;
 	display: block;
 	width: 100%;
 }
 
 #magic-login-shortcode .input {
+	padding: 5px;
 	margin: 0;
 	width: 100%;
+	box-sizing: border-box;
 }
 
 #magic-login-shortcode .magic-login-submit {
 	margin: 10px 0 0 0;
+	padding: 5px;
 	width: 100%;
+	box-sizing: border-box;
 }
 
+#magic-login-register .registration_result .success,
+#magic-login-register .registration_result .error,
+#magic-login-register .registration_result .info,
 #magic-login-shortcode .message,
 #magic-login-shortcode .success,
 #magic-login-shortcode #login_error {
@@ -38,14 +50,24 @@
 	padding: 12px;
 }
 
+#magic-login-register .registration_result .success,
 #magic-login-shortcode .success {
 	border-left-color: #00a32a;
 }
 
+#magic-login-register .registration_result .error,
 #magic-login-shortcode #login_error {
 	border-left-color: #d63638;
 }
 
 .magic-login-submit{
 	cursor:pointer;
+}
+
+#magic-login-woo-wrapper > #magic-login-shortcode {
+	width: 100%;
+}
+
+#magic-login-woo-wrapper .magic-login-inline-login-form {
+	width: 100%;
 }

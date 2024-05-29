@@ -1,5 +1,6 @@
 /* stylelint-disable selector-id-pattern,sh-waqar/declaration-use-variable */
 @import url("../frontend/spinner");
+
 .editor-styles-wrapper .magicloginform-inner *,
 .magicloginform-inner * {
 	display: block;
@@ -10,8 +11,11 @@
 .magicloginform-inner input[type] {
 	margin-bottom: 5px;
 	padding: 5px 10px;
+	box-sizing: border-box;
 }
 
+
+#magic-login-register .registration_result .error,
 .magic_login_block_login_error {
 	border: 1px dotted #d63638;
 	color: #d63638;
@@ -19,12 +23,20 @@
 	padding: 5px 10px;
 }
 
+#magic-login-register .registration_result .success,
 .magic_login_block_login_success {
 	border: 1px dotted #00a32a;
 	color: #00a32a;
 	margin-bottom: 5px;
 	padding: 5px 10px;
 }
+
+#magic-login-register .registration_result .info{
+	border: 1px dotted #72aee6;
+	margin-bottom: 5px;
+	padding: 5px 10px;
+}
+
 
 .editor-styles-wrapper #magic-login-login-block .magic-login-block-description,
 #magic-login-login-block .magic-login-block-description,
@@ -36,4 +48,10 @@
 
 .magic-login-submit{
 	cursor:pointer;
+	box-sizing: border-box;
+}
+
+
+#magicloginform label {
+	margin-bottom:5px;
 }
