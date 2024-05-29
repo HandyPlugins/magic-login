@@ -2,23 +2,23 @@
 # This file is distributed under the GPL v2 or later.
 msgid ""
 msgstr ""
-"Project-Id-Version: Magic Login 2.1.3\n"
+"Project-Id-Version: Magic Login 2.2\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/magic-login\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2024-04-19T07:24:07+00:00\n"
+"POT-Creation-Date: 2024-05-29T14:35:31+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.9.0\n"
 "X-Domain: magic-login\n"
 
 #. Plugin Name of the plugin
 #: plugin.php
-#: includes/settings.php:65
-#: includes/settings.php:66
-#: includes/settings.php:86
+#: includes/admin/dashboard.php:61
+#: includes/admin/dashboard.php:62
+#: includes/admin/partials/header.php:18
 #: assets/js/admin/login-block.js:11
 msgid "Magic Login"
 msgstr ""
@@ -43,409 +43,630 @@ msgstr ""
 msgid "https://handyplugins.co/"
 msgstr ""
 
-#: includes/block.php:67
-#: assets/js/admin/login-block.js:32
-msgid "Login with Email"
+#: includes/admin/dashboard.php:102
+msgid "Tokens has been removed."
 msgstr ""
 
-#: includes/block.php:71
-#: includes/login.php:58
-#: assets/js/admin/login-block.js:36
-msgid "Please enter your username or email address. You will receive an email message to log in."
+#: includes/admin/dashboard.php:104
+msgid "Tokens could not be removed."
 msgstr ""
 
-#: includes/block.php:75
-#: includes/login.php:238
-#: includes/shortcode.php:121
-#: assets/js/admin/login-block.js:43
-msgid "Username or Email Address"
+#: includes/admin/dashboard.php:146
+msgid "Settings saved."
 msgstr ""
 
-#: includes/block.php:79
-#: includes/login.php:253
-#: includes/shortcode.php:76
-#: assets/js/admin/login-block.js:47
-msgid "Send me the link"
+#. translators: %s: HandyPlugins URL
+#: includes/admin/partials/footer.php:26
+msgid "Made with <i class=\"sui-icon-heart\"></i> by <a href=\"%s\" rel=\"noopener\" target=\"_blank\">HandyPlugins</a>"
 msgstr ""
 
-#: includes/block.php:183
-#: includes/shortcode.php:113
-msgid "Sending..."
+#: includes/admin/partials/footer.php:36
+msgid "FAQ"
 msgstr ""
 
-#: includes/login.php:56
-msgid "Please enter your username. You will receive an email message to log in."
+#: includes/admin/partials/footer.php:37
+msgid "Blog"
 msgstr ""
 
-#: includes/login.php:88
-msgid "There is no account with that username."
+#: includes/admin/partials/footer.php:38
+msgid "Support"
 msgstr ""
 
-#: includes/login.php:90
-msgid "There is no account with that username or email address."
+#: includes/admin/partials/footer.php:39
+msgid "Docs"
 msgstr ""
 
-#: includes/login.php:108
-msgid "Please check your inbox for the login link. If you did not receive a login email, check your spam folder too."
-msgstr ""
-
-#: includes/login.php:131
-msgid "Log in"
-msgstr ""
-
-#: includes/login.php:236
-#: includes/shortcode.php:119
-msgid "Username"
-msgstr ""
-
-#. translators: 1: User login 2: Dashboard URL
-#: includes/login.php:319
-msgid "Invalid magic login token, but you are logged in as '%1$s'. <a href=\"%2$s\">Go to the dashboard instead</a>?"
-msgstr ""
-
-#. translators: %s: Login URL
-#: includes/login.php:322
-msgid "Invalid magic login token. <a href=\"%s\">Try signing in instead</a>?"
-msgstr ""
-
-#: includes/login.php:452
-msgid "Log In"
-msgstr ""
-
-#: includes/login.php:457
-msgid "Send me the login link"
-msgstr ""
-
-#: includes/login.php:551
-msgid "or"
-msgstr ""
-
-#. translators: %s: The magic login link
-#: includes/login.php:654
-msgid "<a href=\"%s\" target=\"_blank\" rel=\"noopener\">Click here to login</a>."
-msgstr ""
-
-#. translators: %s: The magic login link
-#: includes/login.php:658
-msgid "Auto Login: %s"
-msgstr ""
-
-#. translators: 1: TTL value (number) 2: Unit (minute(s), hour(s), days(s))
-#: includes/login.php:665
-msgid "Login link will expire in %1$s %2$s."
-msgstr ""
-
-#: includes/login.php:763
-msgid "Invalid request"
-msgstr ""
-
-#: includes/settings.php:93
+#: includes/admin/partials/header.php:25
 msgid "Documentation"
 msgstr ""
 
-#: includes/settings.php:107
+#: includes/admin/partials/settings.php:35
 msgid "Settings"
 msgstr ""
 
-#: includes/settings.php:112
-#: includes/settings.php:797
+#: includes/admin/partials/settings.php:40
+#: includes/admin/partials/settings.php:1391
 msgid "Update settings"
 msgstr ""
 
-#: includes/settings.php:122
+#: includes/admin/partials/settings.php:49
+msgid "Login"
+msgstr ""
+
+#: includes/admin/partials/settings.php:53
+#: includes/admin/partials/settings.php:744
+msgid "Registration"
+msgstr ""
+
+#: includes/admin/partials/settings.php:54
+#: includes/admin/partials/settings.php:59
+#: includes/admin/partials/settings.php:236
+#: includes/admin/partials/settings.php:300
+#: includes/admin/partials/settings.php:375
+#: includes/admin/partials/settings.php:432
+#: includes/admin/partials/settings.php:462
+#: includes/admin/partials/settings.php:507
+#: includes/admin/partials/settings.php:532
+#: includes/admin/partials/settings.php:560
+msgid "Pro"
+msgstr ""
+
+#: includes/admin/partials/settings.php:58
+msgid "Spam Protection"
+msgstr ""
+
+#: includes/admin/partials/settings.php:68
 msgid "Force Magic Login"
 msgstr ""
 
-#: includes/settings.php:123
+#: includes/admin/partials/settings.php:69
 msgid "Change default login behaviour and use magic login as default login method."
 msgstr ""
 
-#: includes/settings.php:137
+#: includes/admin/partials/settings.php:83
 msgid "Use magic login by default"
 msgstr ""
 
 #. translators: 1: Login URL with Magic Login flavour
-#: includes/settings.php:144
+#: includes/admin/partials/settings.php:90
 msgid "Magic login form is accessible <a href=\"%1$s\">%1$s</a>"
 msgstr ""
 
-#: includes/settings.php:162
-#: includes/settings.php:206
-#: includes/settings.php:238
-#: includes/settings.php:294
+#: includes/admin/partials/settings.php:108
+#: includes/admin/partials/settings.php:152
+#: includes/admin/partials/settings.php:184
+#: includes/admin/partials/settings.php:240
+#: includes/admin/partials/settings.php:752
+#: includes/admin/partials/settings.php:957
+#: includes/admin/partials/settings.php:1050
 msgid "Learn More."
 msgstr ""
 
-#: includes/settings.php:177
+#: includes/admin/partials/settings.php:123
 msgid "Show on Login Form"
 msgstr ""
 
-#: includes/settings.php:178
+#: includes/admin/partials/settings.php:124
 msgid "Adds magic login button to WordPress login form."
 msgstr ""
 
-#: includes/settings.php:192
+#: includes/admin/partials/settings.php:138
 msgid "Add magic login button to standard login form"
 msgstr ""
 
-#: includes/settings.php:203
+#: includes/admin/partials/settings.php:149
 msgid "Token Lifespan"
 msgstr ""
 
-#: includes/settings.php:205
+#: includes/admin/partials/settings.php:151
 msgid "The TTL (time to live) of the login link. WP-Cron removes expired tokens."
 msgstr ""
 
-#: includes/settings.php:235
+#: includes/admin/partials/settings.php:181
 msgid "Token Validity"
 msgstr ""
 
-#: includes/settings.php:237
+#: includes/admin/partials/settings.php:183
 msgid "Specify how many times a token can be used."
 msgstr ""
 
-#: includes/settings.php:261
+#: includes/admin/partials/settings.php:207
 msgid "Auto Login Links"
 msgstr ""
 
-#: includes/settings.php:262
+#: includes/admin/partials/settings.php:208
 msgid "If the recipient exists, automatically adds the login link to outgoing emails sent from WordPress. "
 msgstr ""
 
-#: includes/settings.php:276
+#: includes/admin/partials/settings.php:222
 msgid "Add magic login links to outgoing emails"
 msgstr ""
 
-#: includes/settings.php:278
+#: includes/admin/partials/settings.php:224
 msgid "This could be useful when there is an action waiting for the user. (eg: reply comment, complete shopping etc...)"
 msgstr ""
 
-#: includes/settings.php:289
+#: includes/admin/partials/settings.php:235
 msgid "Enable Magic Login for WooCommerce"
 msgstr ""
 
-#: includes/settings.php:290
-#: includes/settings.php:354
-#: includes/settings.php:429
-#: includes/settings.php:486
-#: includes/settings.php:516
-#: includes/settings.php:561
-#: includes/settings.php:586
-#: includes/settings.php:613
-msgid "Pro"
-msgstr ""
-
-#: includes/settings.php:293
+#: includes/admin/partials/settings.php:239
 msgid "Integrates with WooCommerce login form."
 msgstr ""
 
-#: includes/settings.php:310
+#: includes/admin/partials/settings.php:256
 msgid "Integrate magic login with WooCommerce login form"
 msgstr ""
 
-#: includes/settings.php:312
+#: includes/admin/partials/settings.php:258
 msgid "Streamline checkout experience for returning customers."
 msgstr ""
 
-#: includes/settings.php:318
+#: includes/admin/partials/settings.php:264
 msgid "Magic Login Form Position on WooCommerce"
 msgstr ""
 
-#: includes/settings.php:330
+#: includes/admin/partials/settings.php:276
 msgid "Before WooCommerce Login Form"
 msgstr ""
 
-#: includes/settings.php:342
+#: includes/admin/partials/settings.php:288
 msgid "After WooCommerce Login Form"
 msgstr ""
 
-#: includes/settings.php:353
+#: includes/admin/partials/settings.php:299
 msgid "Brute Force Protection"
 msgstr ""
 
-#: includes/settings.php:356
+#: includes/admin/partials/settings.php:302
 msgid "Enable additional security mechanisms to limit login requests."
 msgstr ""
 
-#: includes/settings.php:370
+#: includes/admin/partials/settings.php:316
 msgid "Enable brute force protection"
 msgstr ""
 
-#: includes/settings.php:411
+#: includes/admin/partials/settings.php:357
 msgid "Block the IP address for %1$s minutes when it fails to login %2$s times in %3$s minutes."
 msgstr ""
 
-#: includes/settings.php:428
+#: includes/admin/partials/settings.php:374
 msgid "Login Request Throttling"
 msgstr ""
 
-#: includes/settings.php:431
+#: includes/admin/partials/settings.php:377
 msgid "Limit login URL generation for the given time span."
 msgstr ""
 
-#: includes/settings.php:485
+#: includes/admin/partials/settings.php:431
 msgid "IP Check"
 msgstr ""
 
-#: includes/settings.php:489
+#: includes/admin/partials/settings.php:435
 msgid "The user should log in from the same IP that makes a login request. (except for the login links generated via CLI)"
 msgstr ""
 
-#: includes/settings.php:505
+#: includes/admin/partials/settings.php:451
 msgid "Enable IP address check"
 msgstr ""
 
-#: includes/settings.php:515
+#: includes/admin/partials/settings.php:461
 msgid "Domain Restriction"
 msgstr ""
 
-#: includes/settings.php:518
+#: includes/admin/partials/settings.php:464
 msgid "Allow only listed domains to login via magic links."
 msgstr ""
 
-#: includes/settings.php:533
+#: includes/admin/partials/settings.php:479
 msgid "Enable domain restriction"
 msgstr ""
 
-#: includes/settings.php:548
+#: includes/admin/partials/settings.php:494
 msgid "Enter allowed domains line by line."
 msgstr ""
 
-#: includes/settings.php:560
+#: includes/admin/partials/settings.php:506
+#: includes/admin/partials/settings.php:991
 msgid "Email Subject"
 msgstr ""
 
-#: includes/settings.php:585
+#: includes/admin/partials/settings.php:531
+#: includes/admin/partials/settings.php:1003
 msgid "Email Content"
 msgstr ""
 
-#: includes/settings.php:602
+#: includes/admin/partials/settings.php:549
+#: includes/admin/partials/settings.php:1020
 msgid "Supported placeholders: {{SITEURL}}, {{USERNAME}}, {{FIRST_NAME}}, {{LAST_NAME}}, {{FULL_NAME}}, {{DISPLAY_NAME}}, {{USER_EMAIL}, {{SITENAME}}, {{EXPIRES}}, {{MAGIC_LINK}}, {{EXPIRES_WITH_INTERVAL}}, {{TOKEN_VALIDITY_COUNT}}"
 msgstr ""
 
-#: includes/settings.php:612
+#: includes/admin/partials/settings.php:559
 msgid "Login Redirect"
 msgstr ""
 
-#: includes/settings.php:615
+#: includes/admin/partials/settings.php:562
 msgid "Redirect users to custom URL after login."
 msgstr ""
 
-#: includes/settings.php:631
+#: includes/admin/partials/settings.php:578
 msgid "Enable custom login redirection"
 msgstr ""
 
-#: includes/settings.php:637
+#: includes/admin/partials/settings.php:584
 msgid "Target URL:"
 msgstr ""
 
-#: includes/settings.php:647
+#: includes/admin/partials/settings.php:594
 msgid "By default it redirects to admin dashboard"
 msgstr ""
 
-#: includes/settings.php:662
+#: includes/admin/partials/settings.php:609
 msgid "Apply redirection to normal WordPress login too."
 msgstr ""
 
-#: includes/settings.php:663
+#: includes/admin/partials/settings.php:610
 msgid "Enable this option to apply redirection rules for both password and passwordless logins, ensuring a seamless navigation experience post-login."
 msgstr ""
 
-#: includes/settings.php:678
+#: includes/admin/partials/settings.php:625
 msgid "Override block/shortcode specific redirections."
 msgstr ""
 
-#: includes/settings.php:679
+#: includes/admin/partials/settings.php:626
 msgid "When this option is enabled, block/shortcode-based redirections will be ignored."
 msgstr ""
 
-#: includes/settings.php:695
+#: includes/admin/partials/settings.php:642
 msgid "Enable role-based redirection."
 msgstr ""
 
-#: includes/settings.php:696
+#: includes/admin/partials/settings.php:643
 msgid "Leave it blank to use default redirection rule."
 msgstr ""
 
-#: includes/settings.php:708
+#: includes/admin/partials/settings.php:655
 msgid "Role"
 msgstr ""
 
-#: includes/settings.php:709
+#: includes/admin/partials/settings.php:656
 msgid "Target URL"
 msgstr ""
 
-#: includes/settings.php:747
+#: includes/admin/partials/settings.php:694
 msgid "Enable AJAX"
 msgstr ""
 
-#: includes/settings.php:748
+#: includes/admin/partials/settings.php:695
 msgid "It will ajaxify the login requests on pages that use shortcode or block."
 msgstr ""
 
-#: includes/settings.php:762
+#: includes/admin/partials/settings.php:709
 msgid "Enable AJAX for requesting magic login links."
 msgstr ""
 
-#: includes/settings.php:763
+#: includes/admin/partials/settings.php:710
 msgid "It allows to send links without refreshing the current page."
 msgstr ""
 
-#: includes/settings.php:772
+#: includes/admin/partials/settings.php:719
 msgid "Reset Tokens"
 msgstr ""
 
-#: includes/settings.php:773
+#: includes/admin/partials/settings.php:720
 msgid "If you want to clean all tokens at once click to reset button."
 msgstr ""
 
-#: includes/settings.php:777
+#: includes/admin/partials/settings.php:724
 msgid "Reset"
 msgstr ""
 
-#: includes/settings.php:786
+#: includes/admin/partials/settings.php:733
+#: includes/admin/partials/settings.php:1030
+#: includes/admin/partials/settings.php:1372
 msgid "Try Magic Login Pro Today"
 msgstr ""
 
-#. translators: %s: HandyPlugins URL
-#: includes/settings.php:813
-msgid "Made with <i class=\"sui-icon-heart\"></i> by <a href=\"%s\" rel=\"noopener\" target=\"_blank\">HandyPlugins</a>"
+#. translators: 1: Documentation URL 2: 'Learn More' text
+#: includes/admin/partials/settings.php:750
+msgid "Activate registration feature. <a href=\"%1$s\" target=\"_blank\" rel=\"noopener\">%2$s</a>"
 msgstr ""
 
-#: includes/settings.php:823
-msgid "FAQ"
+#: includes/admin/partials/settings.php:769
+msgid "Enable registration."
 msgstr ""
 
-#: includes/settings.php:824
-msgid "Blog"
+#: includes/admin/partials/settings.php:770
+msgid "Allow users to register your site magically."
 msgstr ""
 
-#: includes/settings.php:825
-msgid "Support"
+#: includes/admin/partials/settings.php:779
+msgid "Registration Mode"
 msgstr ""
 
-#: includes/settings.php:826
-msgid "Docs"
+#: includes/admin/partials/settings.php:780
+msgid "Choose how you want to handle the registration process."
 msgstr ""
 
-#: includes/settings.php:861
-msgid "Tokens has been removed."
+#: includes/admin/partials/settings.php:796
+msgid "Automatically register if the user enters an email address that has not registered."
 msgstr ""
 
-#: includes/settings.php:863
-msgid "Tokens could not be removed."
+#: includes/admin/partials/settings.php:812
+msgid "Standard registration form."
 msgstr ""
 
-#: includes/settings.php:905
-msgid "Settings saved."
+#: includes/admin/partials/settings.php:813
+msgid "The registration form will be displayed if the email address is not found during login."
 msgstr ""
 
-#: includes/utils.php:124
+#: includes/admin/partials/settings.php:829
+msgid "Only with registration shortcode, do not integrate with magic login form."
+msgstr ""
+
+#: includes/admin/partials/settings.php:846
+msgid "Show the email field if a username or invalid email is entered."
+msgstr ""
+
+#: includes/admin/partials/settings.php:866
+msgid "Show first name and last name fields for registration."
+msgstr ""
+
+#: includes/admin/partials/settings.php:880
+#: includes/admin/partials/settings.php:913
+msgid "Mark as required."
+msgstr ""
+
+#: includes/admin/partials/settings.php:898
+msgid "Show terms field."
+msgstr ""
+
+#: includes/admin/partials/settings.php:917
+msgid "The visitors will required to accept following terms you stated in the textarea."
+msgstr ""
+
+#: includes/admin/partials/settings.php:939
+msgid "Enter the condition text you want the users to accept."
+msgstr ""
+
+#. translators: 1: Magic Login registration shortcode 2: Documentation URL 3: 'Learn More' text
+#: includes/admin/partials/settings.php:954
+msgid "To add a registration form to any page, use the shortcode <code>%1$s</code>. <a href=\"%2$s\" target=\"_blank\" rel=\"noopener\">%3$s</a>"
+msgstr ""
+
+#: includes/admin/partials/settings.php:972
+msgid "Registration Email"
+msgstr ""
+
+#: includes/admin/partials/settings.php:986
+msgid "Send a registration email after signup."
+msgstr ""
+
+#: includes/admin/partials/settings.php:1042
+msgid "A CAPTCHA is an anti-spam technique which helps to protect your website from spam and abuse."
+msgstr ""
+
+#: includes/admin/partials/settings.php:1043
+msgid "Magic Login currently supports both reCAPTCHA and Cloudflare Turnstile if you do not want to use captcha service."
+msgstr ""
+
+#. translators: 1: Documentation URL 2: 'Learn More' text
+#: includes/admin/partials/settings.php:1048
+msgid "<a href=\"%1$s\" target=\"_blank\" rel=\"noopener\">%2$s</a>"
+msgstr ""
+
+#: includes/admin/partials/settings.php:1072
+msgid "reCAPTCHA"
+msgstr ""
+
+#: includes/admin/partials/settings.php:1088
+msgid "Cloudflare Turnstile"
+msgstr ""
+
+#: includes/admin/partials/settings.php:1099
+msgid "reCaptcha API Keys"
+msgstr ""
+
+#. Translators: 1. Opening <a> tag with link to Google recaptcha, 2. closing <a> tag.
+#: includes/admin/partials/settings.php:1104
+msgid "Enter the API keys for each reCAPTCHA type you want to use in your forms. Note that each reCAPTCHA type requires a different set of API keys. %1$sGenerate API keys%2$s"
+msgstr ""
+
+#: includes/admin/partials/settings.php:1121
+#: includes/admin/partials/settings.php:1128
+msgid "v2 Checkbox"
+msgstr ""
+
+#: includes/admin/partials/settings.php:1140
+#: includes/admin/partials/settings.php:1147
+msgid "v2 Invisible"
+msgstr ""
+
+#: includes/admin/partials/settings.php:1157
+#: includes/admin/partials/settings.php:1164
+msgid "v3 reCaptcha"
+msgstr ""
+
+#: includes/admin/partials/settings.php:1175
+msgid "Enter the API keys for reCAPTCHA v2 Checkbox type below:"
+msgstr ""
+
+#: includes/admin/partials/settings.php:1178
+#: includes/admin/partials/settings.php:1211
+#: includes/admin/partials/settings.php:1244
+#: includes/admin/partials/settings.php:1294
+msgid "Site Key"
+msgstr ""
+
+#: includes/admin/partials/settings.php:1182
+#: includes/admin/partials/settings.php:1215
+#: includes/admin/partials/settings.php:1248
+msgid "Enter your site key here"
+msgstr ""
+
+#: includes/admin/partials/settings.php:1191
+#: includes/admin/partials/settings.php:1224
+#: includes/admin/partials/settings.php:1257
+msgid "Secret Key"
+msgstr ""
+
+#: includes/admin/partials/settings.php:1195
+#: includes/admin/partials/settings.php:1228
+#: includes/admin/partials/settings.php:1261
+msgid "Enter your secret key here"
+msgstr ""
+
+#: includes/admin/partials/settings.php:1208
+msgid "Enter the API keys for reCAPTCHA v2 Invisible type below:"
+msgstr ""
+
+#: includes/admin/partials/settings.php:1241
+msgid "Enter the API keys for reCAPTCHA v3 type below:"
+msgstr ""
+
+#: includes/admin/partials/settings.php:1282
+msgid "Cloudflare Turnstile API Keys"
+msgstr ""
+
+#. Translators: 1. Opening <a> tag with link to Cloudflare Turnstile, 2. closing <a> tag.
+#: includes/admin/partials/settings.php:1287
+msgid "Enter the API keys for Cloudflare Turnstile. %1$sLearn More%2$s"
+msgstr ""
+
+#: includes/admin/partials/settings.php:1306
+msgid "Site Secret"
+msgstr ""
+
+#: includes/admin/partials/settings.php:1309
+msgid "Enter your site secret here"
+msgstr ""
+
+#: includes/admin/partials/settings.php:1328
+msgid "Spam Protection for Registration"
+msgstr ""
+
+#: includes/admin/partials/settings.php:1341
+msgid "Enable spam protection for registration form."
+msgstr ""
+
+#: includes/admin/partials/settings.php:1349
+msgid "Spam Protection for Login"
+msgstr ""
+
+#: includes/admin/partials/settings.php:1362
+msgid "Enable spam protection for login form."
+msgstr ""
+
+#: includes/block.php:70
+#: assets/js/admin/login-block.js:32
+msgid "Login with Email"
+msgstr ""
+
+#: includes/block.php:74
+#: includes/login.php:66
+#: assets/js/admin/login-block.js:36
+msgid "Please enter your username or email address. You will receive an email message to log in."
+msgstr ""
+
+#: includes/block.php:78
+#: includes/login.php:260
+#: includes/shortcode.php:124
+#: assets/js/admin/login-block.js:43
+msgid "Username or Email Address"
+msgstr ""
+
+#: includes/block.php:82
+#: includes/login.php:275
+#: includes/shortcode.php:79
+#: assets/js/admin/login-block.js:47
+msgid "Send me the link"
+msgstr ""
+
+#: includes/block.php:186
+#: includes/shortcode.php:116
+msgid "Sending..."
+msgstr ""
+
+#: includes/login.php:64
+msgid "Please enter your username. You will receive an email message to log in."
+msgstr ""
+
+#: includes/login.php:136
+msgid "There is no account with that username."
+msgstr ""
+
+#: includes/login.php:138
+msgid "There is no account with that username or email address."
+msgstr ""
+
+#: includes/login.php:156
+msgid "Please check your inbox for the login link. If you did not receive a login email, check your spam folder too."
+msgstr ""
+
+#: includes/login.php:180
+msgid "Log in"
+msgstr ""
+
+#: includes/login.php:258
+#: includes/shortcode.php:122
+msgid "Username"
+msgstr ""
+
+#. translators: 1: User login 2: Dashboard URL
+#: includes/login.php:343
+msgid "Invalid magic login token, but you are logged in as '%1$s'. <a href=\"%2$s\">Go to the dashboard instead</a>?"
+msgstr ""
+
+#. translators: %s: Login URL
+#: includes/login.php:346
+msgid "Invalid magic login token. <a href=\"%s\">Try signing in instead</a>?"
+msgstr ""
+
+#: includes/login.php:351
+msgid "Invalid magic login token. Please try to create <a href=\"%s\">a new login link</a>?"
+msgstr ""
+
+#: includes/login.php:483
+msgid "Log In"
+msgstr ""
+
+#: includes/login.php:488
+msgid "Send me the login link"
+msgstr ""
+
+#: includes/login.php:582
+msgid "or"
+msgstr ""
+
+#. translators: %s: The magic login link
+#: includes/login.php:685
+msgid "<a href=\"%s\" target=\"_blank\" rel=\"noopener\">Click here to login</a>."
+msgstr ""
+
+#. translators: %s: The magic login link
+#: includes/login.php:689
+msgid "Auto Login: %s"
+msgstr ""
+
+#. translators: 1: TTL value (number) 2: Unit (minute(s), hour(s), days(s))
+#: includes/login.php:696
+msgid "Login link will expire in %1$s %2$s."
+msgstr ""
+
+#: includes/login.php:794
+msgid "Invalid request"
+msgstr ""
+
+#: includes/utils.php:129
 msgid "Log in to {{SITENAME}}"
 msgstr ""
 
+#: includes/utils.php:144
+msgid "Welcome to {{SITENAME}}"
+msgstr ""
+
 #. translators: Do not translate USERNAME, SITENAME,EXPIRES, MAGIC_LINK, SITENAME, SITEUR, EXPIRES_WITH_INTERVAL: those are placeholders.
-#: includes/utils.php:149
+#: includes/utils.php:192
 msgid ""
 "Hi {{USERNAME}},\n"
 "\n"
@@ -463,16 +684,37 @@ msgid ""
 "{{SITEURL}}"
 msgstr ""
 
-#: includes/utils.php:293
+#: includes/utils.php:335
 msgid "Minute(s)"
 msgstr ""
 
-#: includes/utils.php:294
+#: includes/utils.php:336
 msgid "Hour(s)"
 msgstr ""
 
-#: includes/utils.php:295
+#: includes/utils.php:337
 msgid "Day(s)"
+msgstr ""
+
+#: includes/utils.php:548
+msgid ""
+"Hi there,\n"
+"<br><br>\n"
+"Thank you for signing up to {{SITENAME}}! We are excited to have you on board.\n"
+"<br>\n"
+"To get started, simply use the magic link below to log in:\n"
+"<br><br>\n"
+"<a href=\"{{MAGIC_LINK}}\" target=\"_blank\" rel=\"noreferrer noopener\">Click here to log in</a>\n"
+"<br><br>\n"
+"If the button above does not work, you can also copy and paste the following URL into your browser:\n"
+"<br>\n"
+"{{MAGIC_LINK}}\n"
+"<br><br>\n"
+"We hope you enjoy your experience with us. If you have any questions or need assistance, feel free to reach out.\n"
+"<br><br>\n"
+"Regards,<br>\n"
+"All at {{SITENAME}}<br>\n"
+"{{SITEURL}}"
 msgstr ""
 
 #: assets/js/admin/login-block.js:12
