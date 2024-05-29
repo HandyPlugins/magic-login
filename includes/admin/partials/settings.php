@@ -1170,7 +1170,7 @@ $settings = \MagicLogin\Utils\get_settings();
 													<div class="sui-tabs-content">
 
 														<?php // TAB: v2 Checkbox ?>
-														<div tabindex="0" role="tabpanel" id="v2-checkbox-tab" class="sui-tab-content sui-tab-boxed active" aria-labelledby="v2-checkbox">
+														<div tabindex="0" role="tabpanel" id="v2-checkbox-tab" class="sui-tab-content sui-tab-boxed <?php echo( 'v2_checkbox' === $settings['recaptcha']['type'] ? 'active' : '' ); ?>" aria-labelledby="v2-checkbox">
 
 															<span class="sui-description"><?php esc_html_e( 'Enter the API keys for reCAPTCHA v2 Checkbox type below:', 'magic-login' ); ?></span>
 
@@ -1203,7 +1203,7 @@ $settings = \MagicLogin\Utils\get_settings();
 														</div>
 
 														<?php // TAB: v2 Invisible. ?>
-														<div tabindex="0" role="tabpanel" id="v2-invisible-tab" class="sui-tab-content sui-tab-boxed" aria-labelledby="v2-invisible" hidden>
+														<div tabindex="0" role="tabpanel" id="v2-invisible-tab" class="sui-tab-content sui-tab-boxed  <?php echo( 'v2_invisible' === $settings['recaptcha']['type'] ? 'active' : '' ); ?>" aria-labelledby="v2-invisible" hidden>
 
 															<span class="sui-description"><?php esc_html_e( 'Enter the API keys for reCAPTCHA v2 Invisible type below:', 'magic-login' ); ?></span>
 
@@ -1236,7 +1236,7 @@ $settings = \MagicLogin\Utils\get_settings();
 														</div>
 
 														<?php // TAB: v3 reCaptcha. ?>
-														<div tabindex="0" role="tabpanel" id="v3-recaptcha-tab" class="sui-tab-content sui-tab-boxed" aria-labelledby="recaptcha-v3" hidden>
+														<div tabindex="0" role="tabpanel" id="v3-recaptcha-tab" class="sui-tab-content sui-tab-boxed <?php echo( 'v3' === $settings['recaptcha']['type'] ? 'active' : '' ); ?>" aria-labelledby="recaptcha-v3" hidden>
 
 															<span class="sui-description"><?php esc_html_e( 'Enter the API keys for reCAPTCHA v3 type below:', 'magic-login' ); ?></span>
 
