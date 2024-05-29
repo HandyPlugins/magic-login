@@ -742,8 +742,18 @@ $settings = \MagicLogin\Utils\get_settings();
 							<div class="sui-box-settings-row sui-disabled">
 								<div class="sui-box-settings-col-1">
 									<span class="sui-settings-label"><?php esc_html_e( 'Registration', 'magic-login' ); ?></span>
-									<span id="reset-tokens" class="sui-description"><?php esc_html_e( 'Activate registration feature.', 'magic-login' ); ?></span>
-								</div>
+									<span class="sui-description">
+										<?php
+										echo wp_kses_post(
+											sprintf(
+											/* translators: 2: Documentation URL 3: 'Learn More' text */
+												__( 'Activate registration feature. <a href="%1$s" target="_blank" rel="noopener">%2$s</a>', 'magic-login' ),
+												get_doc_url( 'docs/magic-login-registration/' ),
+												__( 'Learn More.', 'magic-login' )
+											)
+										);
+										?>
+									</span>								</div>
 								<div class="sui-box-settings-col-2">
 									<div class="sui-form-field">
 										<label for="registration_enable" class="sui-toggle">
@@ -1031,6 +1041,16 @@ $settings = \MagicLogin\Utils\get_settings();
 									<span class="sui-description">
 										<?php esc_html_e( 'A CAPTCHA is an anti-spam technique which helps to protect your website from spam and abuse.', 'magic-login' ); ?>
 										<?php esc_html_e( 'Magic Login currently supports both reCAPTCHA and Cloudflare Turnstile if you do not want to use captcha service.', 'magic-login' ); ?>
+										<?php
+										echo wp_kses_post(
+											sprintf(
+											/* translators: 2: Documentation URL 3: 'Learn More' text */
+												__( '<a href="%1$s" target="_blank" rel="noopener">%2$s</a>', 'magic-login' ),
+												get_doc_url( 'docs/magic-login-spam-protection/' ),
+												__( 'Learn More.', 'magic-login' )
+											)
+										);
+										?>
 									</span>
 								</div>
 
