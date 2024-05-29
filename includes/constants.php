@@ -18,4 +18,4 @@ const BLOG_URL    = 'https://handyplugins.co/blog/';
 const FAQ_URL     = 'https://handyplugins.co/magic-login-pro/#faq';
 const SUPPORT_URL = 'https://wordpress.org/support/plugin/magic-login/';
 const GITHUB_URL  = 'https://github.com/HandyPlugins';
-const TWITTER_URL = 'https://twitter.com/HandyPlugins';
+const TWITTER_URL = 'https://x.com/HandyPlugins';
