@@ -46,7 +46,8 @@ function shortcode_login_form( $shortcode_atts ) {
 			'button_text'     => '',
 			'class'           => '',
 		],
-		$shortcode_atts
+		$shortcode_atts,
+		'magic_login_form'
 	);
 
 	// accept on/off yes/no true/false
