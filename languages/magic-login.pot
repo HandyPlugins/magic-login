@@ -2,16 +2,16 @@
 # This file is distributed under the GPL v2 or later.
 msgid ""
 msgstr ""
-"Project-Id-Version: Magic Login 2.2\n"
+"Project-Id-Version: Magic Login 2.3\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/magic-login\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2024-05-29T14:35:31+00:00\n"
+"POT-Creation-Date: 2024-07-10T11:54:57+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"X-Generator: WP-CLI 2.9.0\n"
+"X-Generator: WP-CLI 2.10.0\n"
 "X-Domain: magic-login\n"
 
 #. Plugin Name of the plugin
@@ -85,7 +85,7 @@ msgid "Settings"
 msgstr ""
 
 #: includes/admin/partials/settings.php:40
-#: includes/admin/partials/settings.php:1391
+#: includes/admin/partials/settings.php:1430
 msgid "Update settings"
 msgstr ""
 
@@ -94,7 +94,7 @@ msgid "Login"
 msgstr ""
 
 #: includes/admin/partials/settings.php:53
-#: includes/admin/partials/settings.php:744
+#: includes/admin/partials/settings.php:783
 msgid "Registration"
 msgstr ""
 
@@ -108,6 +108,7 @@ msgstr ""
 #: includes/admin/partials/settings.php:507
 #: includes/admin/partials/settings.php:532
 #: includes/admin/partials/settings.php:560
+#: includes/admin/partials/settings.php:721
 msgid "Pro"
 msgstr ""
 
@@ -136,9 +137,10 @@ msgstr ""
 #: includes/admin/partials/settings.php:152
 #: includes/admin/partials/settings.php:184
 #: includes/admin/partials/settings.php:240
-#: includes/admin/partials/settings.php:752
-#: includes/admin/partials/settings.php:957
-#: includes/admin/partials/settings.php:1050
+#: includes/admin/partials/settings.php:730
+#: includes/admin/partials/settings.php:791
+#: includes/admin/partials/settings.php:996
+#: includes/admin/partials/settings.php:1089
 msgid "Learn More."
 msgstr ""
 
@@ -267,17 +269,17 @@ msgid "Enter allowed domains line by line."
 msgstr ""
 
 #: includes/admin/partials/settings.php:506
-#: includes/admin/partials/settings.php:991
+#: includes/admin/partials/settings.php:1030
 msgid "Email Subject"
 msgstr ""
 
 #: includes/admin/partials/settings.php:531
-#: includes/admin/partials/settings.php:1003
+#: includes/admin/partials/settings.php:1042
 msgid "Email Content"
 msgstr ""
 
 #: includes/admin/partials/settings.php:549
-#: includes/admin/partials/settings.php:1020
+#: includes/admin/partials/settings.php:1059
 msgid "Supported placeholders: {{SITEURL}}, {{USERNAME}}, {{FIRST_NAME}}, {{LAST_NAME}}, {{FULL_NAME}}, {{DISPLAY_NAME}}, {{USER_EMAIL}, {{SITENAME}}, {{EXPIRES}}, {{MAGIC_LINK}}, {{EXPIRES_WITH_INTERVAL}}, {{TOKEN_VALIDITY_COUNT}}"
 msgstr ""
 
@@ -349,211 +351,224 @@ msgstr ""
 msgid "It allows to send links without refreshing the current page."
 msgstr ""
 
-#: includes/admin/partials/settings.php:719
+#: includes/admin/partials/settings.php:720
+msgid "API Access"
+msgstr ""
+
+#. translators: 1: Documentation URL 2: 'Learn More' text
+#: includes/admin/partials/settings.php:728
+msgid "Allows external systems to interact with your application programmatically by enabling REST API endpoints. <a href=\"%1$s\" target=\"_blank\" rel=\"noopener\">%2$s</a>"
+msgstr ""
+
+#: includes/admin/partials/settings.php:748
+msgid "Enable REST API."
+msgstr ""
+
+#: includes/admin/partials/settings.php:758
 msgid "Reset Tokens"
 msgstr ""
 
-#: includes/admin/partials/settings.php:720
+#: includes/admin/partials/settings.php:759
 msgid "If you want to clean all tokens at once click to reset button."
 msgstr ""
 
-#: includes/admin/partials/settings.php:724
+#: includes/admin/partials/settings.php:763
 msgid "Reset"
 msgstr ""
 
-#: includes/admin/partials/settings.php:733
-#: includes/admin/partials/settings.php:1030
-#: includes/admin/partials/settings.php:1372
+#: includes/admin/partials/settings.php:772
+#: includes/admin/partials/settings.php:1069
+#: includes/admin/partials/settings.php:1411
 msgid "Try Magic Login Pro Today"
 msgstr ""
 
 #. translators: 1: Documentation URL 2: 'Learn More' text
-#: includes/admin/partials/settings.php:750
+#: includes/admin/partials/settings.php:789
 msgid "Activate registration feature. <a href=\"%1$s\" target=\"_blank\" rel=\"noopener\">%2$s</a>"
 msgstr ""
 
-#: includes/admin/partials/settings.php:769
+#: includes/admin/partials/settings.php:808
 msgid "Enable registration."
 msgstr ""
 
-#: includes/admin/partials/settings.php:770
+#: includes/admin/partials/settings.php:809
 msgid "Allow users to register your site magically."
 msgstr ""
 
-#: includes/admin/partials/settings.php:779
+#: includes/admin/partials/settings.php:818
 msgid "Registration Mode"
 msgstr ""
 
-#: includes/admin/partials/settings.php:780
+#: includes/admin/partials/settings.php:819
 msgid "Choose how you want to handle the registration process."
 msgstr ""
 
-#: includes/admin/partials/settings.php:796
+#: includes/admin/partials/settings.php:835
 msgid "Automatically register if the user enters an email address that has not registered."
 msgstr ""
 
-#: includes/admin/partials/settings.php:812
+#: includes/admin/partials/settings.php:851
 msgid "Standard registration form."
 msgstr ""
 
-#: includes/admin/partials/settings.php:813
+#: includes/admin/partials/settings.php:852
 msgid "The registration form will be displayed if the email address is not found during login."
 msgstr ""
 
-#: includes/admin/partials/settings.php:829
+#: includes/admin/partials/settings.php:868
 msgid "Only with registration shortcode, do not integrate with magic login form."
 msgstr ""
 
-#: includes/admin/partials/settings.php:846
+#: includes/admin/partials/settings.php:885
 msgid "Show the email field if a username or invalid email is entered."
 msgstr ""
 
-#: includes/admin/partials/settings.php:866
+#: includes/admin/partials/settings.php:905
 msgid "Show first name and last name fields for registration."
 msgstr ""
 
-#: includes/admin/partials/settings.php:880
-#: includes/admin/partials/settings.php:913
+#: includes/admin/partials/settings.php:919
+#: includes/admin/partials/settings.php:952
 msgid "Mark as required."
 msgstr ""
 
-#: includes/admin/partials/settings.php:898
+#: includes/admin/partials/settings.php:937
 msgid "Show terms field."
 msgstr ""
 
-#: includes/admin/partials/settings.php:917
+#: includes/admin/partials/settings.php:956
 msgid "The visitors will required to accept following terms you stated in the textarea."
 msgstr ""
 
-#: includes/admin/partials/settings.php:939
+#: includes/admin/partials/settings.php:978
 msgid "Enter the condition text you want the users to accept."
 msgstr ""
 
 #. translators: 1: Magic Login registration shortcode 2: Documentation URL 3: 'Learn More' text
-#: includes/admin/partials/settings.php:954
+#: includes/admin/partials/settings.php:993
 msgid "To add a registration form to any page, use the shortcode <code>%1$s</code>. <a href=\"%2$s\" target=\"_blank\" rel=\"noopener\">%3$s</a>"
 msgstr ""
 
-#: includes/admin/partials/settings.php:972
+#: includes/admin/partials/settings.php:1011
 msgid "Registration Email"
 msgstr ""
 
-#: includes/admin/partials/settings.php:986
+#: includes/admin/partials/settings.php:1025
 msgid "Send a registration email after signup."
 msgstr ""
 
-#: includes/admin/partials/settings.php:1042
+#: includes/admin/partials/settings.php:1081
 msgid "A CAPTCHA is an anti-spam technique which helps to protect your website from spam and abuse."
 msgstr ""
 
-#: includes/admin/partials/settings.php:1043
+#: includes/admin/partials/settings.php:1082
 msgid "Magic Login currently supports both reCAPTCHA and Cloudflare Turnstile if you do not want to use captcha service."
 msgstr ""
 
 #. translators: 1: Documentation URL 2: 'Learn More' text
-#: includes/admin/partials/settings.php:1048
+#: includes/admin/partials/settings.php:1087
 msgid "<a href=\"%1$s\" target=\"_blank\" rel=\"noopener\">%2$s</a>"
 msgstr ""
 
-#: includes/admin/partials/settings.php:1072
+#: includes/admin/partials/settings.php:1111
 msgid "reCAPTCHA"
 msgstr ""
 
-#: includes/admin/partials/settings.php:1088
+#: includes/admin/partials/settings.php:1127
 msgid "Cloudflare Turnstile"
 msgstr ""
 
-#: includes/admin/partials/settings.php:1099
+#: includes/admin/partials/settings.php:1138
 msgid "reCaptcha API Keys"
 msgstr ""
 
 #. Translators: 1. Opening <a> tag with link to Google recaptcha, 2. closing <a> tag.
-#: includes/admin/partials/settings.php:1104
+#: includes/admin/partials/settings.php:1143
 msgid "Enter the API keys for each reCAPTCHA type you want to use in your forms. Note that each reCAPTCHA type requires a different set of API keys. %1$sGenerate API keys%2$s"
 msgstr ""
 
-#: includes/admin/partials/settings.php:1121
-#: includes/admin/partials/settings.php:1128
+#: includes/admin/partials/settings.php:1160
+#: includes/admin/partials/settings.php:1167
 msgid "v2 Checkbox"
 msgstr ""
 
-#: includes/admin/partials/settings.php:1140
-#: includes/admin/partials/settings.php:1147
+#: includes/admin/partials/settings.php:1179
+#: includes/admin/partials/settings.php:1186
 msgid "v2 Invisible"
 msgstr ""
 
-#: includes/admin/partials/settings.php:1157
-#: includes/admin/partials/settings.php:1164
+#: includes/admin/partials/settings.php:1196
+#: includes/admin/partials/settings.php:1203
 msgid "v3 reCaptcha"
 msgstr ""
 
-#: includes/admin/partials/settings.php:1175
+#: includes/admin/partials/settings.php:1214
 msgid "Enter the API keys for reCAPTCHA v2 Checkbox type below:"
 msgstr ""
 
-#: includes/admin/partials/settings.php:1178
-#: includes/admin/partials/settings.php:1211
-#: includes/admin/partials/settings.php:1244
-#: includes/admin/partials/settings.php:1294
+#: includes/admin/partials/settings.php:1217
+#: includes/admin/partials/settings.php:1250
+#: includes/admin/partials/settings.php:1283
+#: includes/admin/partials/settings.php:1333
 msgid "Site Key"
 msgstr ""
 
-#: includes/admin/partials/settings.php:1182
-#: includes/admin/partials/settings.php:1215
-#: includes/admin/partials/settings.php:1248
+#: includes/admin/partials/settings.php:1221
+#: includes/admin/partials/settings.php:1254
+#: includes/admin/partials/settings.php:1287
 msgid "Enter your site key here"
 msgstr ""
 
-#: includes/admin/partials/settings.php:1191
-#: includes/admin/partials/settings.php:1224
-#: includes/admin/partials/settings.php:1257
+#: includes/admin/partials/settings.php:1230
+#: includes/admin/partials/settings.php:1263
+#: includes/admin/partials/settings.php:1296
 msgid "Secret Key"
 msgstr ""
 
-#: includes/admin/partials/settings.php:1195
-#: includes/admin/partials/settings.php:1228
-#: includes/admin/partials/settings.php:1261
+#: includes/admin/partials/settings.php:1234
+#: includes/admin/partials/settings.php:1267
+#: includes/admin/partials/settings.php:1300
 msgid "Enter your secret key here"
 msgstr ""
 
-#: includes/admin/partials/settings.php:1208
+#: includes/admin/partials/settings.php:1247
 msgid "Enter the API keys for reCAPTCHA v2 Invisible type below:"
 msgstr ""
 
-#: includes/admin/partials/settings.php:1241
+#: includes/admin/partials/settings.php:1280
 msgid "Enter the API keys for reCAPTCHA v3 type below:"
 msgstr ""
 
-#: includes/admin/partials/settings.php:1282
+#: includes/admin/partials/settings.php:1321
 msgid "Cloudflare Turnstile API Keys"
 msgstr ""
 
 #. Translators: 1. Opening <a> tag with link to Cloudflare Turnstile, 2. closing <a> tag.
-#: includes/admin/partials/settings.php:1287
+#: includes/admin/partials/settings.php:1326
 msgid "Enter the API keys for Cloudflare Turnstile. %1$sLearn More%2$s"
 msgstr ""
 
-#: includes/admin/partials/settings.php:1306
+#: includes/admin/partials/settings.php:1345
 msgid "Site Secret"
 msgstr ""
 
-#: includes/admin/partials/settings.php:1309
+#: includes/admin/partials/settings.php:1348
 msgid "Enter your site secret here"
 msgstr ""
 
-#: includes/admin/partials/settings.php:1328
+#: includes/admin/partials/settings.php:1367
 msgid "Spam Protection for Registration"
 msgstr ""
 
-#: includes/admin/partials/settings.php:1341
+#: includes/admin/partials/settings.php:1380
 msgid "Enable spam protection for registration form."
 msgstr ""
 
-#: includes/admin/partials/settings.php:1349
+#: includes/admin/partials/settings.php:1388
 msgid "Spam Protection for Login"
 msgstr ""
 
-#: includes/admin/partials/settings.php:1362
+#: includes/admin/partials/settings.php:1401
 msgid "Enable spam protection for login form."
 msgstr ""
 
@@ -570,20 +585,20 @@ msgstr ""
 
 #: includes/block.php:78
 #: includes/login.php:260
-#: includes/shortcode.php:124
+#: includes/shortcode.php:125
 #: assets/js/admin/login-block.js:43
 msgid "Username or Email Address"
 msgstr ""
 
 #: includes/block.php:82
 #: includes/login.php:275
-#: includes/shortcode.php:79
+#: includes/shortcode.php:80
 #: assets/js/admin/login-block.js:47
 msgid "Send me the link"
 msgstr ""
 
 #: includes/block.php:186
-#: includes/shortcode.php:116
+#: includes/shortcode.php:117
 msgid "Sending..."
 msgstr ""
 
@@ -608,7 +623,7 @@ msgid "Log in"
 msgstr ""
 
 #: includes/login.php:258
-#: includes/shortcode.php:122
+#: includes/shortcode.php:123
 msgid "Username"
 msgstr ""
 
@@ -657,16 +672,16 @@ msgstr ""
 msgid "Invalid request"
 msgstr ""
 
-#: includes/utils.php:129
+#: includes/utils.php:130
 msgid "Log in to {{SITENAME}}"
 msgstr ""
 
-#: includes/utils.php:144
+#: includes/utils.php:145
 msgid "Welcome to {{SITENAME}}"
 msgstr ""
 
 #. translators: Do not translate USERNAME, SITENAME,EXPIRES, MAGIC_LINK, SITENAME, SITEUR, EXPIRES_WITH_INTERVAL: those are placeholders.
-#: includes/utils.php:192
+#: includes/utils.php:194
 msgid ""
 "Hi {{USERNAME}},\n"
 "\n"
@@ -684,19 +699,19 @@ msgid ""
 "{{SITEURL}}"
 msgstr ""
 
-#: includes/utils.php:335
+#: includes/utils.php:337
 msgid "Minute(s)"
 msgstr ""
 
-#: includes/utils.php:336
+#: includes/utils.php:338
 msgid "Hour(s)"
 msgstr ""
 
-#: includes/utils.php:337
+#: includes/utils.php:339
 msgid "Day(s)"
 msgstr ""
 
-#: includes/utils.php:548
+#: includes/utils.php:550
 msgid ""
 "Hi there,\n"
 "<br><br>\n"
