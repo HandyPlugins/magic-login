@@ -2,9 +2,9 @@
 Contributors:      handyplugins, m_uysl
 Tags:              login, passwordless, passwordless-login, magic-login, magic-link
 Requires at least: 5.0
-Tested up to:      6.5
+Tested up to:      6.6
 Requires PHP:      7.2
-Stable tag:        2.2
+Stable tag:        2.3
 License:           GPLv2 or later
 License URI:       http://www.gnu.org/licenses/gpl-2.0.html
 Donate link:       https://handyplugins.co/donate/
@@ -39,7 +39,7 @@ Here are the premium features that come with Magic Login Pro:
 - __WooCommerce Integration:__ Seamless checkout experience for returning customers. [Learn more](https://handyplugins.co/docs/magic-login-woocommerce-integration/).
 - __reCAPTCHA Integration:__ Safeguard your login and registration forms from spam with Google reCAPTCHA. [Learn more](https://handyplugins.co/docs/magic-login-spam-protection/#1-toc-title).
 - __Cloudflare Turnstile Integration:__ Enhance spam protection for your login and registration forms using Cloudflare Turnstile. [Learn more](https://handyplugins.co/docs/magic-login-spam-protection/#2-toc-title).
-
+- __API Support:__ Integrate Magic Login with your custom applications using the REST API.
 
 By upgrading to Magic Login Pro you also get access to one-on-one help from our knowledgeable support team and our extensive documentation site.
 
@@ -104,6 +104,13 @@ However, if you wish to alter this behavior, you can easily do so by passing an 
 4. Login Block
 
 == Changelog ==
+
+= 2.3 (July 10, 2024) =
+* [Added] [REST API](https://handyplugins.co/docs/magic-login-rest-api/) option to UI.
+* [Added] Passing `magic_login_form` to shortcode_attr for better customization.
+* [Updated] Dependency updates.
+* Tested with WP 6.6
+* Learn more about the new features: [Magic Login 2.3](https://handyplugins.co/blog/magic-login-rest-api-support/)
 
 = 2.2 (May 29, 2024) =
 * [Added] Settings UI update with reflecting new PRO features.
