@@ -713,6 +713,45 @@ $settings = \MagicLogin\Utils\get_settings();
 								</div>
 							</div>
 
+							<!-- Enable REST API -->
+							<div class="sui-box-settings-row sui-disabled">
+								<div class="sui-box-settings-col-1">
+									<span class="sui-settings-label" for="enable_rest_api">
+										<?php esc_html_e( 'API Access', 'magic-login' ); ?>
+										<span class="sui-tag sui-tag-pro"><?php esc_html_e( 'Pro', 'magic-login' ); ?></span>
+									</span>
+									<span class="sui-description">
+										<?php
+										echo wp_kses_post(
+											sprintf(
+											/* translators: 1: Documentation URL 2: 'Learn More' text */
+												__( 'Allows external systems to interact with your application programmatically by enabling REST API endpoints. <a href="%1$s" target="_blank" rel="noopener">%2$s</a>', 'magic-login' ),
+												get_doc_url( 'docs/magic-login-rest-api/' ),
+												__( 'Learn More.', 'magic-login' )
+											)
+										);
+										?>
+									</span>
+								</div>
+
+								<div class="sui-box-settings-col-2">
+									<div class="sui-form-field">
+										<label for="enable_rest_api" class="sui-toggle">
+											<input type="checkbox"
+												   value="1"
+												   name="enable_rest_api"
+												   id="enable_rest_api"
+												   aria-labelledby="enable-ajax-form-label"
+												<?php checked( 1, $settings['enable_rest_api'] ); ?>
+											>
+											<span class="sui-toggle-slider" aria-hidden="true"></span>
+											<span id="enable-rest-api-form-label" class="sui-toggle-label"><?php esc_html_e( 'Enable REST API.', 'magic-login' ); ?></span>
+
+										</label>
+									</div>
+								</div>
+							</div>
+
 							<!-- Reset Tokens -->
 							<div class="sui-box-settings-row">
 								<div class="sui-box-settings-col-1">

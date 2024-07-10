@@ -96,6 +96,7 @@ function get_client_ip() {
 	 */
 	return apply_filters( 'magic_login_client_ip', $_SERVER['REMOTE_ADDR'] ); // phpcs:ignore
 }
+
 /**
  * Get settings with defaults
  *
@@ -168,6 +169,7 @@ function get_settings() {
 			'site_key'   => '',
 			'secret_key' => '',
 		],
+		'enable_rest_api'               => false,
 	];
 
 	if ( MAGIC_LOGIN_IS_NETWORK ) {
