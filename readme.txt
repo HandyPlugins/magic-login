@@ -19,10 +19,19 @@ Streamline the login process by sending links to your users. No more passwords t
 
 **[Learn more about Magic Login](https://handyplugins.co/magic-login-pro/)**
 
-= How does it work? 🪄 =
-Magic login uses a technique called "magic links". The magic link is a unique link sent directly to your email inbox which allows you to authenticate.
+= Key Features 🌟 =
 
-__Auto Login__: Magic Login also supports auto-login links for outgoing emails. It's useful when pending action from a user, such as reply a comment, complete the checkout, etc..
+- **Passwordless Authentication**: No more forgotten passwords or complex requirements.
+- **Magic Links**: Secure, unique links sent directly to users' email inboxes.
+- **Auto Login**: Support for auto-login links in outgoing emails. It's useful when pending action from a user, such as reply a comment, complete the checkout, etc.
+- **User-Friendly**: Simplifies the login process for all users.
+- **Enhanced Security**: Reduces risks associated with weak passwords.
+
+= How does it work? 🪄 =
+
+1. User enters their email address.
+2. A unique magic link is sent to their inbox.
+3. Clicking the link authenticates and logs in the user.
 
 = PRO Features 🎩 =
 
@@ -43,7 +52,7 @@ Here are the premium features that come with Magic Login Pro:
 
 By upgrading to Magic Login Pro you also get access to one-on-one help from our knowledgeable support team and our extensive documentation site.
 
-**[Learn more about Magic Login Pro](https://handyplugins.co/magic-login-pro/)**
+**[Explore Magic Login Pro](https://handyplugins.co/magic-login-pro/)**
 
 = Documentation =
 Our documentation can be found on [https://handyplugins.co/docs-category/magic-login-pro/](https://handyplugins.co/docs-category/magic-login-pro/)
