@@ -1,10 +1,10 @@
-=== Magic Login - Passwordless Authentication for WordPress ===
+=== Magic Login - Passwordless Authentication for WordPress - Login Without Password ===
 Contributors:      handyplugins, m_uysl
 Tags:              login, passwordless, passwordless-login, magic-login, magic-link
 Requires at least: 5.0
 Tested up to:      6.6
 Requires PHP:      7.2
-Stable tag:        2.3
+Stable tag:        2.3.1
 License:           GPLv2 or later
 License URI:       http://www.gnu.org/licenses/gpl-2.0.html
 Donate link:       https://handyplugins.co/donate/
@@ -113,6 +113,10 @@ However, if you wish to alter this behavior, you can easily do so by passing an 
 4. Login Block
 
 == Changelog ==
+
+= 2.3.1 (September 09, 2024) =
+* Minor tweaks and adjustments.
+* [Updated] Dependencies.
 
 = 2.3 (July 10, 2024) =
 * [Added] [REST API](https://handyplugins.co/docs/magic-login-rest-api/) option to UI.
