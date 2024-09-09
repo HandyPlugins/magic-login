@@ -27,7 +27,7 @@
     "@wordpress/server-side-render": "^4.25",
     "@wpmudev/shared-ui": "2.12.24",
     "10up-toolkit": "^6",
-    "@wordpress/scripts": "^26.19.0"
+    "@wordpress/scripts": "^29.0.0"
   },
   "engines": {
     "node": ">=12.0.0"
