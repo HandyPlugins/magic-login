@@ -1,4 +1,5 @@
 // Ajaxify the form submission for shortcode and block
+window.magicLoginAjaxEnabled = true;
 (function ($) {
 	$(document).on('submit', '#magicloginform', function (e) {
 		e.preventDefault();
