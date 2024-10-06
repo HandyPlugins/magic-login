@@ -522,6 +522,12 @@ function login_css() {
 
 	?>
 	<style>
+
+		form[name="validate_2fa_form"] #magic-login-button,
+		form[name="validate_2fa_form"] .magic-login-or-separator {
+			display: none;
+		}
+
 		form[name="validate_2fa_form"] .submit {
 			display: none;
 		}
@@ -752,6 +758,7 @@ function is_auto_login_link_excluded_mail( $args ) {
 			__( '[%s] Password Reset' ),
 			__( '[%s] Password Changed' ),
 			__( '[%s] Email Change Request' ),
+			__( 'Your login confirmation code' ),
 		]
 	);
 
