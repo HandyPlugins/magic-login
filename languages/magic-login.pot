@@ -2,14 +2,14 @@
 # This file is distributed under the GPL v2 or later.
 msgid ""
 msgstr ""
-"Project-Id-Version: Magic Login 2.3.1\n"
+"Project-Id-Version: Magic Login 2.3.2\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/magic-login\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2024-09-09T11:04:53+00:00\n"
+"POT-Creation-Date: 2024-10-07T09:14:21+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.10.0\n"
 "X-Domain: magic-login\n"
@@ -649,26 +649,26 @@ msgstr ""
 msgid "Send me the login link"
 msgstr ""
 
-#: includes/login.php:582
+#: includes/login.php:588
 msgid "or"
 msgstr ""
 
 #. translators: %s: The magic login link
-#: includes/login.php:685
+#: includes/login.php:691
 msgid "<a href=\"%s\" target=\"_blank\" rel=\"noopener\">Click here to login</a>."
 msgstr ""
 
 #. translators: %s: The magic login link
-#: includes/login.php:689
+#: includes/login.php:695
 msgid "Auto Login: %s"
 msgstr ""
 
 #. translators: 1: TTL value (number) 2: Unit (minute(s), hour(s), days(s))
-#: includes/login.php:696
+#: includes/login.php:702
 msgid "Login link will expire in %1$s %2$s."
 msgstr ""
 
-#: includes/login.php:794
+#: includes/login.php:801
 msgid "Invalid request"
 msgstr ""
 
