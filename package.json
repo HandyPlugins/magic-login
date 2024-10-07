@@ -10,7 +10,7 @@
   },
   "license": "GPL-2.0-or-later",
   "scripts": {
-    "start": "composer install && npm install --production=false && npm run build",
+    "start": "composer install && npm install --include=dev && npm run build",
     "watch": "10up-toolkit watch",
     "build": "10up-toolkit build",
     "format-js": "10up-toolkit format-js",
@@ -19,18 +19,18 @@
     "test": "10up-toolkit test-unit-jest",
     "make-pot": "wp i18n make-pot . languages/magic-login.pot --domain='magic-login'",
     "make-json": "wp i18n make-json languages --no-purge",
-    "build-release": "npm install --production=false && composer install --no-dev -o && npm run build && npm run make-pot",
+    "build-release": "npm install --include=dev && composer install --no-dev -o && npm run build && npm run make-pot",
     "lint-release": "npm install && composer install && npm run lint"
   },
   "devDependencies": {
-    "@wordpress/element": "^4.0.0",
-    "@wordpress/server-side-render": "^4.25",
+    "@wordpress/element": "^6.9.0",
+    "@wordpress/server-side-render": "^5.9",
     "@wpmudev/shared-ui": "2.12.24",
-    "10up-toolkit": "^6",
-    "@wordpress/scripts": "^29.0.0"
+    "10up-toolkit": "^6.2",
+    "@wordpress/scripts": "^30.1"
   },
   "engines": {
-    "node": ">=12.0.0"
+    "node": ">=18.0.0"
   },
   "dependencies": {
     "normalize.css": "^8.0.1"
