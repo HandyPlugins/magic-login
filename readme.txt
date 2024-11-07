@@ -2,7 +2,7 @@
 Contributors:      handyplugins, m_uysl
 Tags:              login, passwordless, passwordless-login, magic-login, magic-link
 Requires at least: 5.0
-Tested up to:      6.6
+Tested up to:      6.7
 Requires PHP:      7.2
 Stable tag:        2.3.2
 License:           GPLv2 or later
