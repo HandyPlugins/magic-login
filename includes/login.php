@@ -30,7 +30,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 function setup() {
 	add_action( 'login_form_magic_login', __NAMESPACE__ . '\\action_magic_login' );
 	add_action( 'login_form_login', __NAMESPACE__ . '\\maybe_redirect' );
-	add_action( 'init', __NAMESPACE__ . '\\handle_login_request' );
+	add_action( 'init', __NAMESPACE__ . '\\handle_login_request', 1 );
 	add_action( CRON_HOOK_NAME, __NAMESPACE__ . '\\cleanup_expired_tokens' );
 	add_action( 'login_footer', __NAMESPACE__ . '\\print_login_button' );
 	add_action( 'login_head', __NAMESPACE__ . '\\login_css' );
@@ -396,6 +396,10 @@ function handle_login_request() {
 		$error = apply_filters( 'magic_login_error_message', $error, 'invalid_token' );
 
 		wp_die( wp_kses_post( $error ) );
+	}
+
+	if ( headers_sent() ) {
+		error_log( 'Magic Login: Headers already sent. Can not set auth cookie.' ); // phpcs:ignore WordPress.PHP.DevelopmentFunctions.error_log_error_log
 	}
 
 	/**
