@@ -863,6 +863,10 @@ function ajax_request() {
  * @return mixed
  */
 function replace_magic_link_in_wp_mail( $atts ) {
+	if ( ! is_array( $atts ) || empty( $atts['message'] ) ) {
+		return $atts;
+	}
+
 	if ( false === strpos( $atts['message'], '{{MAGIC_LINK}}' ) ) {
 		return $atts;
 	}
