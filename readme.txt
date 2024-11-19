@@ -4,7 +4,7 @@ Tags:              login, passwordless, passwordless-login, magic-login, magic-l
 Requires at least: 5.0
 Tested up to:      6.7
 Requires PHP:      7.2
-Stable tag:        2.3.2
+Stable tag:        2.3.3
 License:           GPLv2 or later
 License URI:       http://www.gnu.org/licenses/gpl-2.0.html
 Donate link:       https://handyplugins.co/donate/
@@ -113,6 +113,12 @@ However, if you wish to alter this behavior, you can easily do so by passing an 
 4. Login Block
 
 == Changelog ==
+
+= 2.3.3 (November 19, 2024) =
+* [Improved] Enhanced login request handling with prioritized processing and added logging for header_sent scenarios.
+* [Improved] Implemented pre-validation checks before magic link replacement to prevent potential issues.
+* [Updated] Dependencies.
+* Tested with WP 6.7
 
 = 2.3.2 (October 07, 2024) =
 * [Improved] Two-factor compatibility.
