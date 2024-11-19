@@ -275,7 +275,7 @@ function get_user_tokens( $user_id, $clear_expired = false ) {
 		}
 
 		foreach ( $tokens as $index => $token_data ) {
-			if ( empty( $token_data ) ) {
+			if ( empty( $token_data ) || ! isset( $token_data['time'] ) ) {
 				unset( $tokens[ $index ] );
 				continue;
 			}
