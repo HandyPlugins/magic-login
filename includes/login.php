@@ -501,11 +501,11 @@ function print_login_button() {
 					if ( loginInput != null && loginInput.value.length > 0 ) {
 						let frm = document.getElementById('loginform') || null;
 						if ( frm ) {
-							frm.action = "<?php echo esc_url( $login_url ); ?>";
+							frm.action = "<?php echo esc_url_raw( $login_url ); ?>";
 							frm.submit();
 						}
 					}else{
-						location.href = "<?php echo esc_url( $login_url ); ?>";
+						location.href = "<?php echo esc_url_raw( $login_url ); ?>";
 					}
 				}
 			}
