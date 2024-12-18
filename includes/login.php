@@ -9,6 +9,7 @@ namespace MagicLogin\Login;
 
 use function MagicLogin\Utils\get_email_placeholders_by_user;
 use function MagicLogin\Utils\get_ttl_by_user;
+use function MagicLogin\Utils\get_wp_login_url;
 use const MagicLogin\Constants\CRON_HOOK_NAME;
 use const MagicLogin\Constants\TOKEN_USER_META;
 use function MagicLogin\Utils\create_login_link;
@@ -252,7 +253,7 @@ function login_form() {
 		$user_login = wp_unslash( $_POST['log'] ); // phpcs:ignore
 	}
 	?>
-	<form name="magicloginform" id="magicloginform" action="<?php echo esc_url( site_url( 'wp-login.php?action=magic_login', 'login_post' ) ); ?>" method="post" autocomplete="off">
+	<form name="magicloginform" id="magicloginform" action="<?php echo esc_url( get_wp_login_url() ); ?>" method="post" autocomplete="off">
 		<p>
 			<?php if ( defined( 'MAGIC_LOGIN_USERNAME_ONLY' ) && MAGIC_LOGIN_USERNAME_ONLY ) : ?>
 				<label for="user_login"><?php esc_html_e( 'Username', 'magic-login' ); ?></label>
@@ -469,7 +470,7 @@ function print_login_button() {
 		return;
 	}
 
-	$login_url = site_url( 'wp-login.php?action=magic_login', 'login_post' );
+	$login_url = get_wp_login_url();
 
 	if ( isset( $_GET['redirect_to'] ) ) { // phpcs:ignore WordPress.Security.NonceVerification.Recommended
 		$login_url = esc_url( add_query_arg( 'redirect_to', $_GET['redirect_to'], $login_url ) ); // phpcs:ignore

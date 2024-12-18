@@ -232,13 +232,34 @@ function is_network_wide( $plugin_file ) {
 	return is_plugin_active_for_network( plugin_basename( $plugin_file ) );
 }
 
+
 /**
  * Get login link
  *
  * @return mixed|string
  */
 function get_magic_login_url() {
-	return esc_url_raw( site_url( 'wp-login.php?action=magic_login', 'login_post' ) );
+	_deprecated_function( __FUNCTION__, '2.3.4', __NAMESPACE__ . '\get_wp_login_url' );
+
+	return get_wp_login_url();
+}
+
+/**
+ * Get login link
+ *
+ * @return mixed|string
+ */
+function get_wp_login_url() {
+	$url = site_url( 'wp-login.php?action=magic_login', 'login_post' );
+	/**
+	 * Filter the login URL for magic login
+	 *
+	 * @hook  magic_login_get_wp_login_url
+	 * @since 2.3.4
+	 */
+	$url = apply_filters( 'magic_login_get_wp_login_url', $url );
+
+	return esc_url_raw( $url );
 }
 
 /**

@@ -88,7 +88,7 @@ $settings = \MagicLogin\Utils\get_settings();
 												sprintf(
 												/* translators: 1: Login URL with Magic Login flavour */
 													__( 'Magic login form is accessible <a href="%1$s">%1$s</a>', 'magic-login' ),
-													esc_url( site_url( 'wp-login.php?action=magic_login', 'login_post' ) )
+													esc_url( \MagicLogin\Utils\get_wp_login_url() )
 												)
 											);
 											?>
