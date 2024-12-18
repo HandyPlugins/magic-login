@@ -872,6 +872,9 @@ function replace_magic_link_in_wp_mail( $atts ) {
 		return $atts;
 	}
 
+	// replace encoded placeholder
+	$atts['message'] = str_replace( '%7B%7BMAGIC_LINK%7D%7D', '{{MAGIC_LINK}}', $atts['message'] );
+
 	if ( false === strpos( $atts['message'], '{{MAGIC_LINK}}' ) ) {
 		return $atts;
 	}
