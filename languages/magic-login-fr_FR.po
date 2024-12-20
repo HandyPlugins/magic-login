@@ -370,7 +370,7 @@ msgstr "Jeton de connexion magique invalide, mais vous êtes connecté en tant q
 #: includes/shortcode.php:116
 #: assets/js/admin/login-block.js:47
 msgid "Send me the link"
-msgstr "Envoyer moi le lien"
+msgstr "Envoyez-moi un lien"
 
 #: includes/block.php:75
 #: includes/login.php:212
