@@ -416,7 +416,7 @@ function get_doc_url( $path = null, $fragment = '' ) {
 }
 
 /**
- * Check weather current screen is magic login settings page or not
+ * Check whether current screen is magic login settings page or not
  *
  * @return bool
  * @since 1.2.1
