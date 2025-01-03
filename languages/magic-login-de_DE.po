@@ -222,7 +222,7 @@ msgstr "Token-Lebensspanne"
 #: includes/settings.php:213
 msgid "The TTL (time to live) of the login link. WP-Cron removes expired tokens."
 msgstr ""
-"DIe Lebensdauer des Login-Links. WP-Cron entfernt abgelaufene Tokens automatisch."
+"Die Lebensdauer des Login-Links. WP-Cron entfernt abgelaufene Tokens automatisch."
 
 #: includes/settings.php:243
 msgid "Token Validity"

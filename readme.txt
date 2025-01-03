@@ -58,7 +58,7 @@ By upgrading to Magic Login Pro you also get access to one-on-one help from our 
 Our documentation can be found on [https://handyplugins.co/docs-category/magic-login-pro/](https://handyplugins.co/docs-category/magic-login-pro/)
 
 = Contributing & Bug Report =
-Bug reports and pull requests are welcome on [Github](https://github.com/HandyPlugins/magic-login). Some of our features are pro only, please consider before sending PR.
+Bug reports and pull requests are welcome on [GitHub](https://github.com/HandyPlugins/magic-login). Some of our features are pro only, please consider before sending PR.
 
 __If you like Magic Login, then consider checking out our other projects:__
 

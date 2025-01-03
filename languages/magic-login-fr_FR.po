@@ -159,7 +159,7 @@ msgstr "En savoir plus."
 #. text
 #: includes/settings.php:163
 msgid "In order to add a login form to any page, you can use shortcode <code>%1$s</code> or block. <a href=\"%2$s\" target=\"_blank\" rel=\"noopener\">%3$s</a>"
-msgstr "Pour ajouter un formulaire de connexion à n'importe quelle page, vous pouvez utiliser un shortcod <code>%1$s</code> ou un bloc.  <a href=\"%2$s\" target=\"_blank\" rel=\"noopener\">%3$s</a>"
+msgstr "Pour ajouter un formulaire de connexion à n'importe quelle page, vous pouvez utiliser un shortcode <code>%1$s</code> ou un bloc.  <a href=\"%2$s\" target=\"_blank\" rel=\"noopener\">%3$s</a>"
 
 #: includes/login.php:78
 msgid "There is no account with that username or email address."
