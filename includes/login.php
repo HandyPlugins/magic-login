@@ -882,7 +882,10 @@ function replace_magic_link_in_wp_mail( $atts ) {
 	$magic_link = '';
 
 	if ( has_single_recipient( $atts ) ) {
-		$user = get_user_by( 'email', $atts['to'] );
+		$to   = $atts['to'];
+		$to   = is_array( $to ) ? array_shift( $to ) : $to;
+		$user = get_user_by( 'email', $to );
+
 		if ( $user ) {
 
 			/**
