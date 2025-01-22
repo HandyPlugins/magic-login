@@ -473,7 +473,7 @@ function print_login_button() {
 	$login_url = get_wp_login_url();
 
 	if ( isset( $_GET['redirect_to'] ) ) { // phpcs:ignore WordPress.Security.NonceVerification.Recommended
-		$login_url = esc_url( add_query_arg( 'redirect_to', $_GET['redirect_to'], $login_url ) ); // phpcs:ignore
+		$login_url = esc_url_raw( add_query_arg( 'redirect_to', urlencode( $_GET['redirect_to'] ), $login_url ) ); // phpcs:ignore
 	}
 
 	?>
