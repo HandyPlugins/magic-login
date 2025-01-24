@@ -1076,7 +1076,7 @@ $settings = \MagicLogin\Utils\get_settings();
 						<div role="tabpanel" tabindex="0" id="spam_protection__content" class="sui-tab-content magic-login-main-tab-content sui-disabled" aria-labelledby="spam_protection__tab">
 							<div class="sui-box-settings-row sui-disabled">
 								<div class="sui-box-settings-col-1">
-									<span class="sui-settings-label" id="spam_protection_service_label"><?php esc_html_e( 'Spam Protection Service', 'easy-text-to-speech' ); ?></span>
+									<span class="sui-settings-label" id="spam_protection_service_label"><?php esc_html_e( 'Spam Protection Service', 'magic-login' ); ?></span>
 									<span class="sui-description">
 										<?php esc_html_e( 'A CAPTCHA is an anti-spam technique which helps to protect your website from spam and abuse.', 'magic-login' ); ?>
 										<?php esc_html_e( 'Magic Login currently supports both reCAPTCHA and Cloudflare Turnstile if you do not want to use captcha service.', 'magic-login' ); ?>
