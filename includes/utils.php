@@ -20,14 +20,34 @@ if ( ! defined( 'ABSPATH' ) ) {
  * Create token
  *
  * @param object $user \WP_User object
+ * @param string $context Context (email|sms) @since 2.4
  *
  * @return string
  */
-function create_user_token( $user ) {
+function create_user_token( $user, $context = 'email' ) {
 	$settings     = get_settings(); // phpcs:ignore
 	$tokens       = get_user_meta( $user->ID, TOKEN_USER_META, true );
 	$tokens       = is_string( $tokens ) ? array( $tokens ) : $tokens;
 	$new_token    = sha1( wp_generate_password() );
+
+	if ( 'sms' === $context ) {
+		$new_token = rand( 100000, 999999 ); // 6-digit PIN for SMS
+	}
+
+	/**
+	 * Filter the token
+	 *
+	 * @hook   magic_login_create_user_token
+	 *
+	 * @param  {string} $new_token New token
+	 * @param  {int} $user->ID User ID
+	 * @param  {string} $context Context
+	 *
+	 * @return {string} New value
+	 * @since  2.4
+	 */
+	$new_token = apply_filters( 'magic_login_create_user_token', $new_token, $user->ID, $context );
+
 	$hashed_token = hash_hmac( 'sha256', $new_token, wp_salt() );
 
 	$ip = sha1( get_client_ip() );
@@ -54,12 +74,16 @@ function create_user_token( $user ) {
 /**
  * Create login link for given user
  *
- * @param object $user WP_User object
+ * @param object $user    WP_User object
+ * @param string $redirect_to Redirect URL
+ * @param string $context Context (email|email_code|sms|sms_code) @since 2.4
  *
  * @return mixed|string
  */
-function create_login_link( $user ) {
-	$token = create_user_token( $user );
+function create_login_link( $user, $redirect_to = null, $context = 'email' ) {
+	global $magic_login_token;
+	$token             = create_user_token( $user, $context );
+	$magic_login_token = $token;
 
 	$query_args = array(
 		'user_id'     => $user->ID,
@@ -71,7 +95,26 @@ function create_login_link( $user ) {
 		$query_args['redirect_to'] = urlencode( wp_unslash( $_POST['redirect_to'] ) ); // phpcs:ignore
 	}
 
+	if ( ! empty( $redirect_to ) ) {
+		$query_args['redirect_to'] = urlencode( $redirect_to );
+	}
+
 	$login_url = esc_url_raw( add_query_arg( $query_args, wp_login_url() ) );
+
+	/**
+	 * Filter the login URL
+	 *
+	 * @hook   magic_login_create_login_link
+	 *
+	 * @param  {string} $login_url Login URL
+	 * @param  {object} $user WP_User object
+	 * @param  {string} $redirect_to Redirect URL
+	 * @param  {string} $context Context
+	 *
+	 * @return {string} New value
+	 * @since  2.4
+	 */
+	$login_url = apply_filters( 'magic_login_create_login_link', $login_url, $user, $redirect_to, $context );
 
 	return $login_url;
 }

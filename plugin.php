@@ -104,10 +104,11 @@ if ( ! defined( 'MAGIC_LOGIN_IS_NETWORK' ) ) {
 function setup_magic_login() {
 	// Bootstrap.
 	Core\setup();
-	Login\setup();
+	LoginManager::setup();
 	Shortcode\setup();
 	Block\setup();
 	Admin\Dashboard\setup();
+	CodeLogin::setup();
 }
 
 add_action( 'plugins_loaded', __NAMESPACE__ . '\\setup_magic_login' );
