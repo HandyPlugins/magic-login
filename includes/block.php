@@ -9,6 +9,7 @@ namespace MagicLogin\Block;
 
 // phpcs:disable WordPress.WP.I18n.MissingTranslatorsComment
 use MagicLogin\CodeLogin;
+use MagicLogin\LoginManager;
 use function MagicLogin\Core\script_url;
 use function MagicLogin\Login\process_login_request;
 
@@ -144,7 +145,7 @@ function render_login_block( $args ) {
 	}
 
 	ob_start();
-	$login_request = process_login_request();
+	$login_request = LoginManager::process_login_request();
 	if ( false === $login_request['show_form'] && ! $args['hideFormAfterSubmit'] ) {
 		$login_request['show_form'] = true;
 	}
