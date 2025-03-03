@@ -1,0 +1,22 @@
+.magic-login-code-form {
+	min-width: 320px;
+}
+
+.magic-login-code-form .success,
+.magic-login-code-form .error,
+.magic-login-code-form .info {
+	background-color: #fff;
+	border-left: 4px solid #72aee6;
+	margin-bottom: 20px;
+	margin-left: 0;
+	padding: 12px;
+}
+
+.magic-login-code-form .success {
+	border-left-color: #00a32a;
+}
+
+.magic-login-code-form .error {
+	border-left-color: #d63638;
+}
+

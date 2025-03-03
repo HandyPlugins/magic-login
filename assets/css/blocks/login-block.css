@@ -1,5 +1,6 @@
 /* stylelint-disable selector-id-pattern,sh-waqar/declaration-use-variable */
 @import url("../frontend/spinner");
+@import url("../shared/code-login");
 
 .editor-styles-wrapper .magicloginform-inner *,
 .magicloginform-inner * {

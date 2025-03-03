@@ -5,6 +5,7 @@
 /* stylelint-disable sh-waqar/declaration-use-variable */
 /* stylelint-disable selector-id-pattern */
 @import url("../frontend/spinner");
+@import url("../shared/code-login");
 
 #magic-login-shortcode {
 	display: flex;
