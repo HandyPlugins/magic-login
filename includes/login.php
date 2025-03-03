@@ -492,7 +492,6 @@ function print_login_button() {
 					'<button type="button" value="<?php echo esc_url( $login_url ); ?>" class="button button-primary button-hero" id="magic-login-button">' +
 					'<?php esc_html_e( 'Send me the login link', 'magic-login' ); ?>' +
 					'</button>'+
-					'</a>' +
 					'</div>'
 				);
 
