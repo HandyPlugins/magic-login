@@ -165,8 +165,8 @@ function shortcode_login_form( $shortcode_atts ) {
  * @return mixed
  */
 function maybe_shortcode_redirect( $redirect_url, $user ) {
-	if ( isset( $_GET['redirect_to'] ) && $_GET['redirect_to'] ) { // phpcs:ignore
-		$redirect_url = esc_url_raw( $_GET['redirect_to'] ); // phpcs:ignore
+	if ( isset( $_REQUEST['redirect_to'] ) && $_REQUEST['redirect_to'] ) { // phpcs:ignore
+		$redirect_url = esc_url_raw( $_REQUEST['redirect_to'] ); // phpcs:ignore
 	}
 
 	return $redirect_url;
