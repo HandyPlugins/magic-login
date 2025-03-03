@@ -254,8 +254,203 @@ if ( ! defined( 'ABSPATH' ) ) {
 					</label>
 				</div>
 			</div>
+			<div class="sui-form-field">
+				<label for="enable_woo_customer_login" class="sui-toggle">
+					<input type="checkbox"
+						   value="1"
+						   name="enable_woo_customer_login"
+						   id="enable_woo_customer_login"
+						   aria-controls="woo-detail-my-account-controls"
+						<?php checked( 1, $settings['enable_woo_customer_login'] ); ?>
+					>
+					<span class="sui-toggle-slider" aria-hidden="true"></span>
+					<span class="sui-toggle-label">
+						<?php esc_html_e( 'Enable on Customer Login Form', 'magic-login' ); ?>
+					</span>
+				</label>
+				<span class="sui-description">
+					<?php esc_html_e( 'Automatically add Magic Login to WooCommerce customer login forms, including the My Account login page and other areas where the login form is used.', 'magic-login' ); ?>
+				</span>
+			</div>
+			<div style=" <?php echo( ! $settings['enable_woo_customer_login'] ? 'display:none' : '' ); ?>"
+				 tabindex="0" id="woo-detail-my-account-controls" class="sui-toggle-content sui-border-frame">
+				<div class="sui-form-field" role="radiogroup">
+					<span class="sui-label"><?php esc_html_e( 'Magic Login Form Position on WooCommerce Customer Login Form', 'magic-login' ); ?></span>
+
+					<label for="woo_customer_login_position_before" class="sui-radio">
+						<input type="radio"
+							   name="woo_customer_login_position"
+							   id="woo_customer_login_position_before"
+							   value="before"
+							<?php checked( 'before', $settings['woo_customer_login_position'] ); ?>
+						/>
+						<span aria-hidden="true"></span>
+						<span><?php esc_html_e( 'Before Login Form', 'magic-login' ); ?></span>
+					</label>
+
+					<label for="woo_customer_login_position_after" class="sui-radio">
+						<input type="radio"
+							   name="woo_customer_login_position"
+							   id="woo_customer_login_position_after"
+							   value="after"
+							<?php checked( 'after', $settings['woo_customer_login_position'] ); ?>
+						/>
+						<span aria-hidden="true"></span>
+						<span><?php esc_html_e( 'After Login Form', 'magic-login' ); ?></span>
+					</label>
+				</div>
+			</div>
 		</div>
 	</div>
+
+	<!-- EDD Integration  -->
+	<div class="sui-box-settings-row sui-disabled">
+		<div class="sui-box-settings-col-1">
+			<span class="sui-settings-label">
+				<?php esc_html_e( 'Enable Magic Login for Easy Digital Downloads', 'magic-login' ); ?>
+			</span>
+			<span class="sui-description">
+				<?php esc_html_e( 'Integrates with Easy Digital Downloads checkout page.', 'magic-login' ); ?>
+				<a href="<?php echo esc_url( get_doc_url( 'docs/magic-login-edd-integration/' ) ); ?>" target="_blank">
+					<?php esc_html_e( 'Learn More.', 'magic-login' ); ?>
+				</a>
+			</span>
+		</div>
+
+		<div class="sui-box-settings-col-2">
+			<div class="sui-form-field">
+				<label for="enable_edd_checkout" class="sui-toggle">
+					<input type="checkbox"
+						   value="1"
+						   name="enable_edd_checkout"
+						   id="enable_edd_checkout"
+						   aria-labelledby="integrate-to-edd-form-label"
+						   aria-controls="edd-checkout-detail-controls"
+						<?php checked( 1, $settings['enable_edd_checkout'] ); ?>
+					>
+					<span class="sui-toggle-slider" aria-hidden="true"></span>
+					<span id="integrate-to-edd-form-label" class="sui-toggle-label">
+						<?php esc_html_e( 'Integrate magic login with EDD checkout page', 'magic-login' ); ?>
+					</span>
+					<span class="sui-description">
+						<?php esc_html_e( 'Allow customers to log in quickly during checkout.', 'magic-login' ); ?>
+					</span>
+				</label>
+			</div>
+
+			<div style=" <?php echo( ! $settings['enable_edd_checkout'] ? 'display:none' : '' ); ?>"
+				 tabindex="0" id="edd-checkout-detail-controls" class="sui-toggle-content sui-border-frame">
+				<div class="sui-form-field" role="radiogroup">
+					<span class="sui-label"><?php esc_html_e( 'Magic Login Form Position on EDD Checkout', 'magic-login' ); ?></span>
+
+					<label for="edd_checkout_position_before_purchase_form" class="sui-radio">
+						<input
+							type="radio"
+							name="edd_checkout_position"
+							id="edd_checkout_position_before_purchase_form"
+							aria-labelledby="label-edd_checkout_position"
+							value="edd_before_purchase_form"
+							<?php checked( 'edd_before_purchase_form', $settings['edd_checkout_position'] ); ?>
+						/>
+						<span aria-hidden="true"></span>
+						<span id="label-edd_checkout_position"><?php esc_html_e( 'Before purchase form', 'magic-login' ); ?></span>
+					</label>
+					<label for="edd_checkout_position_after_purchase_form" class="sui-radio">
+						<input
+							type="radio"
+							name="edd_checkout_position"
+							id="edd_checkout_position_after_purchase_form"
+							aria-labelledby="label-edd_checkout_position"
+							value="edd_after_purchase_form"
+							<?php checked( 'edd_after_purchase_form', $settings['edd_checkout_position'] ); ?>
+						/>
+						<span aria-hidden="true"></span>
+						<span id="label-edd_checkout_position"><?php esc_html_e( 'After purchase form', 'magic-login' ); ?></span>
+					</label>
+
+					<label for="edd_checkout_position_before_checkout_cart" class="sui-radio">
+						<input
+							type="radio"
+							name="edd_checkout_position"
+							id="edd_checkout_position_before_checkout_cart"
+							aria-labelledby="label-edd_checkout_position"
+							value="edd_before_checkout_cart"
+							<?php checked( 'edd_before_checkout_cart', $settings['edd_checkout_position'] ); ?>
+						/>
+						<span aria-hidden="true"></span>
+						<span id="label-edd_checkout_position"><?php esc_html_e( 'Before checkout cart', 'magic-login' ); ?></span>
+					</label>
+					<label for="edd_after_checkout_cart" class="sui-radio">
+						<input
+							type="radio"
+							name="edd_checkout_position"
+							id="edd_after_checkout_cart"
+							aria-labelledby="label-edd_checkout_position"
+							value="edd_after_checkout_cart"
+							<?php checked( 'edd_after_checkout_cart', $settings['edd_checkout_position'] ); ?>
+						/>
+						<span aria-hidden="true"></span>
+						<span id="label-edd_checkout_position"><?php esc_html_e( 'After checkout cart', 'magic-login' ); ?></span>
+					</label>
+				</div>
+			</div>
+
+			<div class="sui-form-field">
+				<label for="enable_edd_login" class="sui-toggle">
+					<input type="checkbox"
+						   value="1"
+						   name="enable_edd_login"
+						   id="enable_edd_login"
+						   aria-labelledby="integrate-to-edd-form-label"
+						   aria-controls="edd-login-detail-controls"
+						<?php checked( 1, $settings['enable_edd_login'] ); ?>
+					>
+					<span class="sui-toggle-slider" aria-hidden="true"></span>
+					<span id="integrate-to-edd-form-label" class="sui-toggle-label">
+						<?php esc_html_e( 'Integrate magic login with EDD login page', 'magic-login' ); ?>
+					</span>
+					<span class="sui-description">
+						<?php esc_html_e( 'Allow customers to log in without needing to remember password.', 'magic-login' ); ?>
+					</span>
+				</label>
+			</div>
+
+			<div style=" <?php echo( ! $settings['enable_edd_login'] ? 'display:none' : '' ); ?>"
+				 tabindex="0" id="edd-login-detail-controls" class="sui-toggle-content sui-border-frame">
+				<div class="sui-form-field" role="radiogroup">
+					<span class="sui-label"><?php esc_html_e( 'Magic Login Form Position on EDD Login', 'magic-login' ); ?></span>
+
+					<label for="edd_login_position_before_purchase_form" class="sui-radio">
+						<input
+							type="radio"
+							name="edd_login_position"
+							id="edd_login_position_before_purchase_form"
+							aria-labelledby="label-edd_login_position"
+							value="before"
+							<?php checked( 'before', $settings['edd_login_position'] ); ?>
+						/>
+						<span aria-hidden="true"></span>
+						<span id="label-edd_login_position"><?php esc_html_e( 'Before content', 'magic-login' ); ?></span>
+					</label>
+
+					<label for="edd_login_position_after_purchase_form" class="sui-radio">
+						<input
+							type="radio"
+							name="edd_login_position"
+							id="edd_login_position_after_purchase_form"
+							aria-labelledby="label-edd_login_position"
+							value="after"
+							<?php checked( 'after', $settings['edd_login_position'] ); ?>
+						/>
+						<span aria-hidden="true"></span>
+						<span id="label-edd_login_position"><?php esc_html_e( 'After content', 'magic-login' ); ?></span>
+					</label>
+
+				</div>
+			</div>
+		</div>
+	</div>
+
 
 	<!-- Brute Force Protection -->
 	<div class="sui-box-settings-row sui-disabled">
