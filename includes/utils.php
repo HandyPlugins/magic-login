@@ -175,18 +175,26 @@ function get_settings() {
 		'enable_ajax'                   => false,
 		'enable_woo_integration'        => false,
 		'woo_position'                  => 'before',
+		'enable_woo_customer_login'     => false,
+		'woo_customer_login_position'   => 'before',
+		'enable_edd_checkout'           => false,
+		'edd_checkout_position'         => 'edd_before_purchase_form',
+		'enable_edd_login'              => false,
+		'edd_login_position'            => 'before',
 		'registration'                  => [
-			'enable'               => false,
-			'mode'                 => 'auto', // or standard|shortcode
-			'fallback_email_field' => true, // show email field on auto registration mode as a fallback
-			'show_name_field'      => true,
-			'require_name_field'   => true,
-			'show_terms_field'     => false,
-			'require_terms_field'  => false,
-			'terms'                => '',
-			'send_email'           => true,
-			'email_subject'        => esc_html__( 'Welcome to {{SITENAME}}', 'magic-login' ),
-			'email_content'        => get_default_registration_email_text(),
+			'enable'                    => false,
+			'mode'                      => 'auto', // or standard|shortcode
+			'fallback_email_field'      => true, // show email field on auto registration mode as a fallback
+			'show_name_field'           => true,
+			'require_name_field'        => true,
+			'show_terms_field'          => false,
+			'require_terms_field'       => false,
+			'terms'                     => '',
+			'send_email'                => true,
+			'email_subject'             => esc_html__( 'Welcome to {{SITENAME}}', 'magic-login' ),
+			'email_content'             => get_default_registration_email_text(),
+			'enable_domain_restriction' => false,
+			'allowed_domains'           => '',
 		],
 		'spam_protection'               => [
 			'service'             => 'recaptcha',
@@ -194,7 +202,7 @@ function get_settings() {
 			'enable_registration' => false,
 		],
 		'recaptcha'                     => [
-			'type'         => 'v3',
+			'type'         => 'v3', // which version to use
 			'v2_checkbox'  => [
 				'site_key'   => '',
 				'secret_key' => '',
@@ -213,6 +221,28 @@ function get_settings() {
 			'secret_key' => '',
 		],
 		'enable_rest_api'               => false,
+		'sms'                           => [
+			'enable'                           => false,
+			'provider'                         => 'twilio',
+			'twilio'                           => [
+				'account_sid' => '',
+				'auth_token'  => '',
+				'from'        => '',
+			],
+			/**
+			 * phone_only: Only send SMS if the user enters their phone number (instead of email) when logging in.
+			 * sms_and_email: If the user has a phone number linked to their account, send both SMS and email.
+			 * sms_or_email: Always send SMS if the user has a phone number, but do not send email notifications.
+			 */
+			'sms_sending_strategy'             => 'phone_only',
+			'wp_registration'                  => false,
+			'wp_require_phone'                 => false,
+			'magic_registration'               => false,
+			'magic_registration_require_phone' => false,
+			'login_message'                    => esc_html__( 'Your login code is here: {{MAGIC_LOGIN_CODE}} Your code will expire in {{EXPIRES_WITH_INTERVAL}}', 'magic-login' ),
+			'send_registration_message'        => false,
+			'registration_message'             => esc_html__( 'Welcome {{FULL_NAME}}! 🎉 Your account on {{SITENAME}} has been created. You can login here: {{MAGIC_LINK}}.', 'magic-login' ),
+		],
 	];
 
 	if ( MAGIC_LOGIN_IS_NETWORK ) {
