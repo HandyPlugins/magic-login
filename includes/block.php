@@ -8,6 +8,7 @@
 namespace MagicLogin\Block;
 
 // phpcs:disable WordPress.WP.I18n.MissingTranslatorsComment
+use MagicLogin\CodeLogin;
 use function MagicLogin\Core\script_url;
 use function MagicLogin\Login\process_login_request;
 
@@ -182,7 +183,9 @@ function render_login_block( $args ) {
 				<p class="magic-login-block-description"><?php echo esc_html( $args['description'] ); ?></p>
 			<?php endif; ?>
 		</div>
-		<?php if ( $login_request['show_form'] ) : ?>
+		<?php if ( $login_request['code_login'] ) : ?>
+			<?php CodeLogin::code_form(); ?>
+		<?php elseif ( $login_request['show_form'] ) : ?>
 			<form name="magicloginform" class="block-login-form" id="magicloginform" action="<?php echo esc_url( $form_action ); ?>" method="post" autocomplete="off" data-ajax-url="<?php echo esc_url( admin_url( 'admin-ajax.php' ) ); ?>" data-ajax-spinner="<?php echo esc_url( get_admin_url() . 'images/spinner.gif' ); ?>" data-ajax-sending-msg="<?php esc_attr_e( 'Sending...', 'magic-login' ); ?>">
 			<div class="magicloginform-inner">
 					<?php if ( ! empty( $args['loginLabel'] ) ) : ?>

@@ -7,6 +7,7 @@
 
 namespace MagicLogin\Shortcode;
 
+use MagicLogin\CodeLogin;
 use function MagicLogin\Core\style_url;
 use function MagicLogin\Login\process_login_request;
 
@@ -105,7 +106,9 @@ function shortcode_login_form( $shortcode_atts ) {
 			}
 			?>
 		</div>
-		<?php if ( $login_request['show_form'] ) : ?>
+		<?php if ( $login_request['code_login'] ) : ?>
+			<?php CodeLogin::code_form(); ?>
+		<?php elseif ( $login_request['show_form'] ) : ?>
 			<form name="magicloginform"
 				  class="magic-login-inline-login-form <?php echo esc_attr( $atts['class'] ); ?>"
 				  id="magicloginform"
