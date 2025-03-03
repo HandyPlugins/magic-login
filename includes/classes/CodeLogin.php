@@ -57,6 +57,18 @@ class CodeLogin {
 			return;
 		}
 
+		if ( ! isset( $_POST['magic_login_code_form_nonce'] ) || ! wp_verify_nonce( sanitize_text_field( wp_unslash( $_POST['magic_login_code_form_nonce'] ) ), 'magic-login-code-login' ) ) {
+			$nonce_err = new WP_Error( 'invalid_nonce', esc_html__( 'Invalid nonce', 'magic-login' ) );
+
+			if ( defined( 'DOING_AJAX' ) && DOING_AJAX ) {
+				wp_send_json_error( [ 'message' => $nonce_err->get_error_message() ] );
+			}
+
+			$magic_login_code_login_result = $nonce_err;
+
+			return $nonce_err;
+		}
+
 		/**
 		 * Pre process code login request
 		 *
@@ -70,6 +82,8 @@ class CodeLogin {
 			if ( defined( 'DOING_AJAX' ) && DOING_AJAX ) {
 				wp_send_json_error( [ 'message' => $result->get_error_message() ] );
 			}
+
+			$magic_login_code_login_result = $result;
 
 			return $result;
 		}
@@ -96,6 +110,8 @@ class CodeLogin {
 			if ( defined( 'DOING_AJAX' ) && DOING_AJAX ) {
 				wp_send_json_error( [ 'message' => $do_login->get_error_message() ] );
 			}
+
+			$magic_login_code_login_result = $do_login;
 
 			return $do_login;
 		}
@@ -201,6 +217,7 @@ class CodeLogin {
 				<?php endif; ?>
 				<input type="hidden" name="log" value="<?php echo esc_attr( $log ); ?>" />
 				<input type="hidden" name="testcookie" value="1" />
+				<?php wp_nonce_field( 'magic-login-code-login', 'magic_login_code_form_nonce' ); ?>
 			</p>
 		</form>
 		<?php
