@@ -249,6 +249,50 @@ $settings = \MagicLogin\Utils\get_settings();
 		</div>
 	</div>
 
+	<!-- Allowed Domain -->
+	<div class="sui-box-settings-row">
+		<div class="sui-box-settings-col-1">
+			<span class="sui-settings-label">
+				<?php esc_html_e( 'Domain Restriction', 'magic-login' ); ?>
+			</span>
+			<span id="domain-restriction-description" class="sui-description"><?php esc_html_e( 'Allow only listed domains for registration.', 'magic-login' ); ?></span>
+		</div>
+		<div class="sui-box-settings-col-2">
+			<div class="sui-form-field">
+				<label for="enable_registration_domain_restriction" class="sui-toggle">
+					<input
+						type="checkbox"
+						value="1"
+						name="enable_registration_domain_restriction"
+						id="enable_registration_domain_restriction"
+						aria-describedby="enable-registration-domain-restriction-description"
+						aria-controls="enable-registration-domain-restriction-controls"
+						<?php checked( 1, $settings['registration']['enable_domain_restriction'] ); ?>
+					>
+					<span class="sui-toggle-slider" aria-hidden="true"></span>
+					<span id="domain-restriction-label" class="sui-toggle-label"><?php esc_html_e( 'Enable domain restriction', 'magic-login' ); ?></span>
+					<span class="sui-description">
+					</span>
+				</label>
+
+				<div style=" <?php echo( ! $settings['registration']['enable_domain_restriction'] ? 'display:none' : '' ); ?>" tabindex="0" id="enable-registration-domain-restriction-controls" class="sui-toggle-content sui-border-frame">
+					<div class="sui-form-field">
+																<textarea
+																	placeholder="example.com"
+																	id="allowed_registration_domains"
+																	name="allowed_registration_domains"
+																	class="sui-form-control"
+																	aria-describedby="allowed-domains-description"
+																	rows="7"
+																><?php echo esc_textarea( $settings['registration']['allowed_domains'] ); ?></textarea>
+						<span id="allowed-domains-description" class="sui-description"><?php esc_html_e( 'Enter allowed domains line by line.', 'magic-login' ); ?></span>
+					</div>
+				</div>
+			</div>
+
+		</div>
+	</div>
+
 	<!-- Registration Email -->
 	<div class="sui-box-settings-row sui-disabled">
 		<div class="sui-box-settings-col-1">
