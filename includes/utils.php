@@ -20,18 +20,28 @@ if ( ! defined( 'ABSPATH' ) ) {
  * Create token
  *
  * @param object $user \WP_User object
- * @param string $context Context (email|sms) @since 2.4
+ * @param string $context Context (email|email_code|sms|sms_code) @since 2.4
  *
  * @return string
  */
 function create_user_token( $user, $context = 'email' ) {
-	$settings     = get_settings(); // phpcs:ignore
-	$tokens       = get_user_meta( $user->ID, TOKEN_USER_META, true );
-	$tokens       = is_string( $tokens ) ? array( $tokens ) : $tokens;
-	$new_token    = sha1( wp_generate_password() );
+	$settings  = get_settings(); // phpcs:ignore
+	$tokens    = get_user_meta( $user->ID, TOKEN_USER_META, true );
+	$tokens    = is_string( $tokens ) ? array( $tokens ) : $tokens;
+	$new_token = sha1( wp_generate_password() );
 
-	if ( 'sms' === $context ) {
-		$new_token = rand( 100000, 999999 ); // 6-digit PIN for SMS
+	switch ( $context ) {
+		case 'sms':
+			// helps to keep url link short due to 300 char limit for most of the SMS providers
+			$new_token = substr( $new_token, 0, 12 );
+			break;
+		case 'sms_code':
+			// 6-digit PIN for SMS
+			$new_token = wp_rand( 100000, 999999 );
+			break;
+		case 'email_code':
+			$new_token = strtoupper( substr( str_shuffle( 'ABCDEFGHJKLMNPQRSTUVWXYZ23456789' ), 0, 10 ) );
+			break;
 	}
 
 	/**
