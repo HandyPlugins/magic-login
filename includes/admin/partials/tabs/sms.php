@@ -101,7 +101,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 					sprintf(
 					/* translators: 1: Documentation URL 2: 'Learn More' text */
 						__( '<a href="%1$s" target="_blank" rel="noopener">%2$s</a>', 'magic-login' ),
-						get_doc_url( 'docs/magic-login-sms/' ),
+						get_doc_url( 'docs/passwordless-authentication-with-sms/' ),
 						__( 'Learn More', 'magic-login' )
 					)
 				);
