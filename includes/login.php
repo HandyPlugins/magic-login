@@ -10,7 +10,6 @@ namespace MagicLogin\Login;
 
 use MagicLogin\CodeLogin;
 use MagicLogin\LoginManager;
-use MagicLogin\SmsService;
 use function MagicLogin\Utils\get_email_placeholders_by_user;
 use function MagicLogin\Utils\get_user_by_log_input;
 use function MagicLogin\Utils\get_wp_login_url;
