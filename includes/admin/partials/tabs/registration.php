@@ -293,6 +293,31 @@ $settings = \MagicLogin\Utils\get_settings();
 		</div>
 	</div>
 
+	<!-- Registration Role -->
+	<div class="sui-box-settings-row">
+		<div class="sui-box-settings-col-1">
+			<span class="sui-settings-label" id="registration_role_key"><?php esc_html_e( 'User Role', 'magic-login' ); ?></span>
+		</div>
+
+		<?php
+		$roles = wp_roles()->get_names();
+		?>
+		<div class="sui-box-settings-col-2">
+			<div class="sui-form-field">
+				<select name="registration_role" id="select-magic-login-registration-role" class="sui-select">
+					<option value=""><?php esc_html_e( 'Default role (from General Settings)', 'magic-login' ); ?></option>
+					<?php foreach ( $roles as $role => $role_name ) : ?>
+						<option <?php selected( $role, $settings['registration']['role'] ); ?> value="<?php echo esc_attr( $role ); ?>">
+							<?php echo esc_attr( translate_user_role( $role_name ) ); ?>
+						</option>
+					<?php endforeach; ?>
+				</select>
+				<span class="sui-description"><?php esc_html_e( 'Choose the default role assigned to newly registered users. If no role is selected, WordPress will use the default role from General Settings.', 'magic-login' ); ?></span>
+			</div>
+		</div>
+	</div>
+
+
 	<!-- Registration Email -->
 	<div class="sui-box-settings-row sui-disabled">
 		<div class="sui-box-settings-col-1">

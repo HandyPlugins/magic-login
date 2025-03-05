@@ -205,6 +205,7 @@ function get_settings() {
 			'email_content'             => get_default_registration_email_text(),
 			'enable_domain_restriction' => false,
 			'allowed_domains'           => '',
+			'role'                      => '',
 		],
 		'spam_protection'               => [
 			'service'             => 'recaptcha',
