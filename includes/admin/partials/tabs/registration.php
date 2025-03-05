@@ -250,7 +250,7 @@ $settings = \MagicLogin\Utils\get_settings();
 	</div>
 
 	<!-- Allowed Domain -->
-	<div class="sui-box-settings-row">
+	<div class="sui-box-settings-row sui-disabled">
 		<div class="sui-box-settings-col-1">
 			<span class="sui-settings-label">
 				<?php esc_html_e( 'Domain Restriction', 'magic-login' ); ?>
@@ -294,7 +294,7 @@ $settings = \MagicLogin\Utils\get_settings();
 	</div>
 
 	<!-- Registration Role -->
-	<div class="sui-box-settings-row">
+	<div class="sui-box-settings-row sui-disabled">
 		<div class="sui-box-settings-col-1">
 			<span class="sui-settings-label" id="registration_role_key"><?php esc_html_e( 'User Role', 'magic-login' ); ?></span>
 		</div>

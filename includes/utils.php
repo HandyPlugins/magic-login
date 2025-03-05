@@ -675,3 +675,24 @@ All at {{SITENAME}}<br>
 
 	return $email_text;
 }
+
+
+/**
+ * Get user by log input
+ *
+ * @param string $input Input. It can be username, email or phone number
+ *
+ * @return false|mixed|\WP_User|null
+ * @since 2.4
+ */
+function get_user_by_log_input( $input ) {
+	$user = get_user_by( 'login', $input );
+
+	if ( ! defined( 'MAGIC_LOGIN_USERNAME_ONLY' ) || false === MAGIC_LOGIN_USERNAME_ONLY ) {
+		if ( ! $user && strpos( $input, '@' ) ) {
+			$user = get_user_by( 'email', $input );
+		}
+	}
+
+	return $user;
+}

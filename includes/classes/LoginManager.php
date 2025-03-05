@@ -937,8 +937,6 @@ class LoginManager {
 			<p>
 				<?php if ( defined( 'MAGIC_LOGIN_USERNAME_ONLY' ) && MAGIC_LOGIN_USERNAME_ONLY ) : ?>
 					<label for="user_login"><?php esc_html_e( 'Username', 'magic-login' ); ?></label>
-				<?php elseif ( SmsService::is_sms_login_enabled() ) : ?>
-					<label for="user_login"><?php esc_html_e( 'Username, Email Address, or Phone Number', 'magic-login' ); ?></label>
 				<?php else : ?>
 					<label for="user_login"><?php esc_html_e( 'Username or Email Address', 'magic-login' ); ?></label>
 				<?php endif; ?>
@@ -1020,12 +1018,7 @@ class LoginManager {
 
 		$settings = \MagicLogin\Utils\get_settings();
 
-		if ( SmsService::is_sms_login_enabled() && preg_match( '/^\+?[1-9]\d{1,14}$/', $user_name ) ) {
-			$phone_login = true;
-			if ( strpos( $settings['sms']['login_message'], '{{MAGIC_LOGIN_CODE}}' ) ) {
-				$code_login = true;
-			}
-		} elseif ( false !== strpos( $settings['login_email'], '{{MAGIC_LOGIN_CODE}}' ) ) {
+		if ( false !== strpos( $settings['login_email'], '{{MAGIC_LOGIN_CODE}}' ) ) {
 			$code_login = true;
 		}
 
