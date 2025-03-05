@@ -482,7 +482,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 					<div class="sui-form-field">
 						<?php
 						$brute_force_fields = array(
-							'brute_force_bantime' => array(
+							'brute_force_bantime'       => array(
 								'min' => 1,
 								'max' => 1440,
 							),
@@ -490,7 +490,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 								'min' => 1,
 								'max' => 100,
 							),
-							'brute_force_login_time' => array(
+							'brute_force_login_time'    => array(
 								'min' => 1,
 								'max' => 600,
 							),

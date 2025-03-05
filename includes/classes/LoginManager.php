@@ -1069,7 +1069,7 @@ class LoginManager {
 			 */
 			$error_message = apply_filters( 'magic_login_missing_user_error_message', $error_message, $error_code, $args );
 
-			$errors = new WP_Error( $error_code, $error_message );
+			$errors      = new WP_Error( $error_code, $error_message );
 			$show_form   = true;
 			$code_login  = false;
 			$phone_login = false;

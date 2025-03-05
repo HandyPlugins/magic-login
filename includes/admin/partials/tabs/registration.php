@@ -359,13 +359,13 @@ $settings = \MagicLogin\Utils\get_settings();
 					$settings['registration']['email_content'],
 					'registration_email_content',
 					[
-						'textarea_name' => 'registration_email_content',
-						'editor_css' => '',
-						'editor_height' => 150,
+						'textarea_name'    => 'registration_email_content',
+						'editor_css'       => '',
+						'editor_height'    => 150,
 						'drag_drop_upload' => false,
-						'tinymce' => false,
-						'teeny'   => false,
-						'media_buttons' => false,
+						'tinymce'          => false,
+						'teeny'            => false,
+						'media_buttons'    => false,
 					]
 				);
 				?>
