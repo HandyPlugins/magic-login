@@ -4,7 +4,7 @@ Tags:              login, passwordless, passwordless-login, magic-login, magic-l
 Requires at least: 5.0
 Tested up to:      6.7
 Requires PHP:      7.2
-Stable tag:        2.3.5
+Stable tag:        2.4
 License:           GPLv2 or later
 License URI:       http://www.gnu.org/licenses/gpl-2.0.html
 Donate link:       https://handyplugins.co/donate/
@@ -37,6 +37,7 @@ Streamline the login process by sending links to your users. No more passwords t
 
 Here are the premium features that come with Magic Login Pro:
 
+- __SMS Login:__ Send magic login links via SMS. [Learn more](https://handyplugins.co/docs/passwordless-authentication-with-sms/).
 - __Registration:__ Enable easy user registration directly from the login form or with a shortcode. [Learn more](https://handyplugins.co/docs/magic-login-registration/).
 - __CLI Command:__ Use WP-CLI to create login links.
 - __Brute Force Protection:__ Limit rate of login attempts and block IP temporarily.
@@ -46,6 +47,8 @@ Here are the premium features that come with Magic Login Pro:
 - __Login Email Customization:__ Customize login message by using email placeholders.
 - __Login Redirect:__ Redirect users to a specific page right after login. You can also redirect different pages based on the user role.
 - __WooCommerce Integration:__ Seamless checkout experience for returning customers. [Learn more](https://handyplugins.co/docs/magic-login-woocommerce-integration/).
+- __Easy Digital Downloads (EDD) Integration:__ Enhance the checkout experience with seamless magic login support. [Learn more](https://handyplugins.co/docs/magic-login-edd-integration/).
+- __FluentCRM Integration:__ Send magic login links directly via FluentCRM. [Learn more](https://handyplugins.co/docs/magic-login-fluent-crm/).
 - __reCAPTCHA Integration:__ Safeguard your login and registration forms from spam with Google reCAPTCHA. [Learn more](https://handyplugins.co/docs/magic-login-spam-protection/#1-toc-title).
 - __Cloudflare Turnstile Integration:__ Enhance spam protection for your login and registration forms using Cloudflare Turnstile. [Learn more](https://handyplugins.co/docs/magic-login-spam-protection/#2-toc-title).
 - __API Support:__ Integrate Magic Login with your custom applications using the REST API.
@@ -113,6 +116,15 @@ However, if you wish to alter this behavior, you can easily do so by passing an 
 4. Login Block
 
 == Changelog ==
+
+= 2.4 (March 05, 2025) =
+* [New Feature] Code Login – Users can log in with a code sent to their email or phone number instead of clicking a link.
+* [Improvement] UI update for SMS Login feature. [Learn More](https://handyplugins.co/docs/passwordless-authentication-with-sms/)
+* [Improvement] Applied `login_redirect` filter before `magic_login_redirect` to allow other plugins to modify the redirect URL.
+* [Improvement] login.php is now deprecated in favor of LoginManager class.
+* [Fix] Properly encode the redirection URL on the wp-login page.
+* [Fix] Corrected various typos. Props [@szepeviktor](https://github.com/szepeviktor)
+* Read the full update: [Magic Login 2.4](https://handyplugins.co/blog/magic-login-2-4-now-with-sms-login/)
 
 = 2.3.5 (January 03, 2025) =
 * [Fixed] Ensure proper handling of email recipient for {{MAGIC_LINK}} integration.
