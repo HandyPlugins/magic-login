@@ -1142,7 +1142,7 @@ class LoginManager {
 
 		if ( ! $login_link ) {
 			$context    = $code_login ? 'email_code' : 'email';
-			$login_link = create_login_link( $user, null, $context );
+			$login_link = create_login_link( $user, $context );
 		}
 
 		$settings      = \MagicLogin\Utils\get_settings();

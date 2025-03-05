@@ -85,12 +85,12 @@ function create_user_token( $user, $context = 'email' ) {
  * Create login link for given user
  *
  * @param object $user    WP_User object
- * @param string $redirect_to Redirect URL
  * @param string $context Context (email|email_code|sms|sms_code) @since 2.4
+ * @param string $redirect_to Redirect URL
  *
  * @return mixed|string
  */
-function create_login_link( $user, $redirect_to = null, $context = 'email' ) {
+function create_login_link( $user, $context = 'email', $redirect_to = null ) {
 	global $magic_login_token;
 	$token             = create_user_token( $user, $context );
 	$magic_login_token = $token;
@@ -118,13 +118,13 @@ function create_login_link( $user, $redirect_to = null, $context = 'email' ) {
 	 *
 	 * @param  {string} $login_url Login URL
 	 * @param  {object} $user WP_User object
-	 * @param  {string} $redirect_to Redirect URL
 	 * @param  {string} $context Context
+	 * @param  {string} $redirect_to Redirect URL
 	 *
 	 * @return {string} New value
 	 * @since  2.4
 	 */
-	$login_url = apply_filters( 'magic_login_create_login_link', $login_url, $user, $redirect_to, $context );
+	$login_url = apply_filters( 'magic_login_create_login_link', $login_url, $user, $context, $redirect_to );
 
 	return $login_url;
 }
