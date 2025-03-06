@@ -37,7 +37,6 @@ window.magicLoginAjaxEnabled = true;
 					$form.parent().replaceWith(response.data.code_form);
 					$('.magic-login-code-form-header').find('.info').html($(response.data.info).text()).show();
 					$('#magiclogincodeform').find('.magic-login-code-cancel').hide();
-					maybeInitializeSpamProtection();
 				}
 
 				// Trigger a custom event after the AJAX request is complete
