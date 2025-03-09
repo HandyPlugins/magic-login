@@ -250,9 +250,9 @@ function get_settings() {
 			'wp_require_phone'                 => false,
 			'magic_registration'               => false,
 			'magic_registration_require_phone' => false,
-			'login_message'                    => esc_html__( 'Your login code is here: {{MAGIC_LOGIN_CODE}} Your code will expire in {{EXPIRES_WITH_INTERVAL}}', 'magic-login' ),
+			'login_message'                    => esc_html__( 'Here is your login code: {{MAGIC_LOGIN_CODE}}. It will expire in {{EXPIRES_WITH_INTERVAL}}.', 'magic-login' ),
 			'send_registration_message'        => false,
-			'registration_message'             => esc_html__( 'Welcome {{FULL_NAME}}! 🎉 Your account on {{SITENAME}} has been created. You can login here: {{MAGIC_LINK}}.', 'magic-login' ),
+			'registration_message'             => esc_html__( 'Welcome {{FULL_NAME}}! Your account on {{SITENAME}} has been created. You can login here: {{MAGIC_LINK}}.', 'magic-login' ),
 		],
 	];
 
