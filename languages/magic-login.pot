@@ -2,14 +2,14 @@
 # This file is distributed under the GPL v2 or later.
 msgid ""
 msgstr ""
-"Project-Id-Version: Magic Login 2.4\n"
+"Project-Id-Version: Magic Login 2.4.1\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/magic-login\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2025-03-05T20:03:58+00:00\n"
+"POT-Creation-Date: 2025-03-10T10:52:07+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.10.0\n"
 "X-Domain: magic-login\n"
@@ -966,11 +966,11 @@ msgid "Welcome to {{SITENAME}}"
 msgstr ""
 
 #: includes/utils.php:253
-msgid "Your login code is here: {{MAGIC_LOGIN_CODE}} Your code will expire in {{EXPIRES_WITH_INTERVAL}}"
+msgid "Here is your login code: {{MAGIC_LOGIN_CODE}}. It will expire in {{EXPIRES_WITH_INTERVAL}}."
 msgstr ""
 
 #: includes/utils.php:255
-msgid "Welcome {{FULL_NAME}}! 🎉 Your account on {{SITENAME}} has been created. You can login here: {{MAGIC_LINK}}."
+msgid "Welcome {{FULL_NAME}}! Your account on {{SITENAME}} has been created. You can login here: {{MAGIC_LINK}}."
 msgstr ""
 
 #. translators: Do not translate USERNAME, SITENAME,EXPIRES, MAGIC_LINK, SITENAME, SITEUR, EXPIRES_WITH_INTERVAL: those are placeholders.
