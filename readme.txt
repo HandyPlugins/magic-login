@@ -4,7 +4,7 @@ Tags:              login, passwordless, passwordless-login, magic-login, magic-l
 Requires at least: 5.0
 Tested up to:      6.7
 Requires PHP:      7.2
-Stable tag:        2.4
+Stable tag:        2.4.1
 License:           GPLv2 or later
 License URI:       http://www.gnu.org/licenses/gpl-2.0.html
 Donate link:       https://handyplugins.co/donate/
@@ -116,6 +116,9 @@ However, if you wish to alter this behavior, you can easily do so by passing an 
 4. Login Block
 
 == Changelog ==
+
+= 2.4.1 (March 10, 2025) =
+* Small tweaks and improvements.
 
 = 2.4 (March 05, 2025) =
 * [New Feature] Code Login – Users can log in with a code sent to their email or phone number instead of clicking a link.
