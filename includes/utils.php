@@ -559,12 +559,15 @@ function is_masked_value( $value, $mask_length = 3 ) {
 /**
  * Get email placeholders by user
  *
- * @param \WP_User $user User object
+ * @param \WP_User $user       User object
+ * @param string   $login_link Login link (@since 2.4.2)
  *
  * @return array
  * @since 2.2
  */
-function get_email_placeholders_by_user( $user ) {
+function get_email_placeholders_by_user( $user, $login_link ) {
+	global $magic_login_token;
+
 	if ( is_multisite() ) {
 		$site_name = get_network()->site_name;
 	} else {
@@ -575,8 +578,8 @@ function get_email_placeholders_by_user( $user ) {
 	$ttl      = get_ttl_by_user( $user->ID );
 
 	list( $token_ttl, $selected_interval ) = get_ttl_with_interval( $ttl );
-	$selected_interval_str                 = strtolower( $selected_interval );
-	$allowed_intervals                     = get_allowed_intervals();
+	$selected_interval_str = strtolower( $selected_interval );
+	$allowed_intervals     = get_allowed_intervals();
 
 	if ( isset( $allowed_intervals[ $selected_interval ] ) ) {
 		$selected_interval_str = strtolower( $allowed_intervals[ $selected_interval ] ); // translated interval
@@ -594,9 +597,22 @@ function get_email_placeholders_by_user( $user ) {
 		'{{EXPIRES}}'               => $ttl,
 		'{{EXPIRES_WITH_INTERVAL}}' => $token_ttl . ' ' . $selected_interval_str,
 		'{{TOKEN_VALIDITY_COUNT}}'  => $settings['token_validity'],
+		'{{MAGIC_LINK}}'            => $login_link,
+		'{{MAGIC_LOGIN_CODE}}'      => $magic_login_token,
 	];
 
-	return $placeholders;
+
+	/**
+	 * Filter the email placeholders
+	 *
+	 * @hook   magic_login_email_placeholders
+	 *
+	 * @param  {array} $placeholders Placeholders
+	 *
+	 * @return {array} New value
+	 * @since  2.4.2
+	 */
+	return apply_filters( 'magic_login_email_placeholders', $placeholders, $user->ID );
 }
 
 /**

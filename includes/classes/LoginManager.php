@@ -1124,15 +1124,13 @@ class LoginManager {
 	/**
 	 * Send magic link to user
 	 *
-	 * @param object            $user       \WP_User object
+	 * @param \WP_User          $user       User  object
 	 * @param mixed|string|bool $login_link use given link when it provided. @since 1.9
 	 * @param mixed|string|bool $code_login create login link with code. @since 2.4
 	 *
 	 * @return bool
 	 */
 	public static function send_login_link( $user, $login_link = false, $code_login = false ) {
-		global $magic_login_token;
-
 		if ( ! $login_link ) {
 			$context    = $code_login ? 'email_code' : 'email';
 			$login_link = create_login_link( $user, $context );
@@ -1142,9 +1140,7 @@ class LoginManager {
 		$login_email   = $settings['login_email'];
 		$email_subject = $settings['email_subject'];
 
-		$placeholder_values                         = get_email_placeholders_by_user( $user );
-		$placeholder_values['{{MAGIC_LINK}}']       = $login_link;
-		$placeholder_values['{{MAGIC_LOGIN_CODE}}'] = $magic_login_token;
+		$placeholder_values = get_email_placeholders_by_user( $user, $login_link );
 
 		$login_email   = str_replace( array_keys( $placeholder_values ), $placeholder_values, $login_email );
 		$email_subject = str_replace( array_keys( $placeholder_values ), $placeholder_values, $email_subject );
