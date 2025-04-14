@@ -2,9 +2,9 @@
 Contributors:      handyplugins, m_uysl
 Tags:              login, passwordless, passwordless-login, magic-login, magic-link
 Requires at least: 5.0
-Tested up to:      6.7
+Tested up to:      6.8
 Requires PHP:      7.2
-Stable tag:        2.4.1
+Stable tag:        2.4.2
 License:           GPLv2 or later
 License URI:       http://www.gnu.org/licenses/gpl-2.0.html
 Donate link:       https://handyplugins.co/donate/
@@ -116,6 +116,11 @@ However, if you wish to alter this behavior, you can easily do so by passing an 
 4. Login Block
 
 == Changelog ==
+
+= 2.4.2 (April 14, 2025) =
+* [Added] New filter `magic_login_email_placeholders` to customize email placeholders.
+* [Updated] Dependencies.
+* Tested with WP 6.8
 
 = 2.4.1 (March 10, 2025) =
 * Small tweaks and improvements.
