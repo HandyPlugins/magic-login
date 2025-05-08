@@ -206,6 +206,8 @@ function get_settings() {
 			'enable_domain_restriction' => false,
 			'allowed_domains'           => '',
 			'role'                      => '',
+			'enable_redirection'        => false,
+			'redirection_url'           => '',
 		],
 		'spam_protection'               => [
 			'service'             => 'recaptcha',

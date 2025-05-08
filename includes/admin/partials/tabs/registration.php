@@ -375,6 +375,59 @@ $settings = \MagicLogin\Utils\get_settings();
 
 	</div>
 
+
+	<!-- Registration Redirection -->
+	<div class="sui-box-settings-row sui-disabled">
+		<div class="sui-box-settings-col-1">
+			<span class="sui-settings-label">
+				<?php esc_html_e( 'Redirection', 'magic-login' ); ?>
+			</span>
+			<span id="domain-restriction-description" class="sui-description">
+				<?php esc_html_e( 'Redirect users to a specific page after successful registration.', 'magic-login' ); ?>
+			</span>
+		</div>
+		<div class="sui-box-settings-col-2">
+			<div class="sui-form-field">
+				<label for="enable_registration_redirection" class="sui-toggle">
+					<input
+						type="checkbox"
+						value="1"
+						name="enable_registration_redirection"
+						id="enable_registration_redirection"
+						aria-describedby="enable-registration-redirection-description"
+						aria-controls="enable-registration-redirection-controls"
+						<?php checked( 1, $settings['registration']['enable_redirection'] ); ?>
+					>
+					<span class="sui-toggle-slider" aria-hidden="true"></span>
+					<span id="domain-restriction-label" class="sui-toggle-label"><?php esc_html_e( 'Enable redirection', 'magic-login' ); ?></span>
+					<span class="sui-description">
+					</span>
+				</label>
+
+				<div style=" <?php echo( ! $settings['registration']['enable_redirection'] ? 'display:none' : '' ); ?>" tabindex="0" id="enable-registration-redirection-controls" class="sui-toggle-content sui-border-frame">
+					<div class="sui-form-field">
+						<label for="registration_redirection_url" class="sui-label">
+							<?php esc_html_e( 'Redirection URL', 'magic-login' ); ?>
+						</label>
+						<input
+							placeholder="https://example.com/welcome"
+							id="registration_redirection_url"
+							name="registration_redirection_url"
+							class="sui-form-control"
+							aria-labelledby="label-registration-redirection-url"
+							aria-describedby="description-registration-redirection-url"
+							value="<?php echo esc_url( $settings['registration']['redirection_url'] ); ?>"
+						/>
+						<span class="sui-description">
+							<?php esc_html_e( 'Enter the URL to which users will be redirected after completing registration.', 'magic-login' ); ?>
+						</span>
+					</div>
+				</div>
+			</div>
+
+		</div>
+	</div>
+
 	<!-- Upsell ads -->
 	<div class="sui-box-settings-row sui-upsell-row">
 		<div class="sui-upsell-notice" style="padding-left: 0;">
