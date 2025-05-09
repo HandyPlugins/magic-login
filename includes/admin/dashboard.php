@@ -97,12 +97,33 @@ function save_settings() {
 	$nonce = filter_input( INPUT_POST, 'magic_login_settings', FILTER_SANITIZE_SPECIAL_CHARS );
 	if ( wp_verify_nonce( $nonce, 'magic_login_settings' ) ) {
 
-		if ( isset( $_POST['reset_tokens'] ) ) {
+		// if it's export settings
+		if ( isset( $_POST['magic_login_form_action'] ) && 'export_settings' === $_POST['magic_login_form_action'] ) {
+			export_settings();
+			exit;
+		}
+
+		// if it's import settings
+		if ( isset( $_POST['magic_login_form_action'] ) && 'import_settings' === $_POST['magic_login_form_action'] ) {
+			import_settings();
+
+			return;
+		}
+
+		if ( isset( $_POST['magic_login_form_action'] ) && 'reset_tokens' === $_POST['magic_login_form_action'] ) {
 			if ( false !== delete_all_tokens() ) {
 				add_settings_error( SETTING_OPTION, 'magic-login', esc_html__( 'Tokens has been removed.', 'magic-login' ), 'success' );
 			} else {
 				add_settings_error( SETTING_OPTION, 'magic-login', esc_html__( 'Tokens could not be removed.', 'magic-login' ), 'error' );
 			}
+
+			return;
+		}
+
+		if ( isset( $_POST['magic_login_form_action'] ) && 'reset_settings' === $_POST['magic_login_form_action'] ) {
+
+			\MagicLogin\Tools::reset_settings();
+			add_settings_error( SETTING_OPTION, 'magic-login', esc_html__( 'Settings have been reset.', 'magic-login' ), 'success' );
 
 			return;
 		}
@@ -148,4 +169,53 @@ function save_settings() {
 		return;
 	}
 
+}
+
+
+
+/**
+ * Export settings
+ *
+ * @return void
+ */
+function export_settings() {
+	$export = \MagicLogin\Tools::generate_export_settings( false, false );
+
+	$filename = 'magic-login-settings-' . sanitize_title( wp_parse_url( home_url(), PHP_URL_HOST ) ) . '-' . gmdate( 'Y-m-d-H-i-s' ) . '.json';
+	header( 'Content-Type: application/json' );
+	header( 'Content-Disposition: attachment; filename="' . $filename . '"' );
+	echo wp_json_encode( $export, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES );
+	exit;
+}
+
+/**
+ * Import settings from JSON file.
+ *
+ * @return void
+ */
+function import_settings() {
+	if ( empty( $_FILES['import_file']['tmp_name'] ) ) {
+		add_settings_error( SETTING_OPTION, 'magic-login', esc_html__( 'No file uploaded.', 'magic-login' ), 'error' );
+
+		return;
+	}
+
+	$tmp_file = sanitize_text_field( wp_unslash( $_FILES['import_file']['tmp_name'] ) );
+
+	$file     = file_get_contents( $tmp_file ); // phpcs:ignore WordPress.WP.AlternativeFunctions.file_get_contents_file_get_contents
+	$imported = json_decode( $file, true );
+
+	if ( json_last_error() !== JSON_ERROR_NONE || empty( $imported ) ) {
+		add_settings_error( SETTING_OPTION, 'magic-login', esc_html__( 'Invalid or malformed JSON file.', 'magic-login' ), 'error' );
+
+		return;
+	}
+
+	$success = \MagicLogin\Tools::process_import_settings( $imported, false );
+
+	if ( $success ) {
+		add_settings_error( SETTING_OPTION, 'magic-login', esc_html__( 'Settings imported successfully.', 'magic-login' ), 'success' );
+	} else {
+		add_settings_error( SETTING_OPTION, 'magic-login', esc_html__( 'Failed to import settings.', 'magic-login' ), 'error' );
+	}
 }

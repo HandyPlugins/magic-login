@@ -32,6 +32,24 @@ jQuery(document).ready(function ($) {
 		$('#' + $(this).val() + '-details').show();
 	});
 
+	$('#magic-login-import-file-input').on('change', function () {
+		const elm = $(this)[0];
+		if (elm.files.length) {
+			const file = elm.files[0];
+			$('#magic-login-import-file-name').text(file.name);
+			$('#magic-login-import-upload-wrap').addClass('sui-has_file');
+			$('#magic-login-import-btn').removeAttr('disabled');
+		} else {
+			$('#magic-login-import-file-name').text('');
+			$('#magic-login-import-upload-wrap').removeClass('sui-has_file');
+			$('#magic-login-import-btn').attr('disabled', 'disabled');
+		}
+	});
+
+	$('#magic-login-import-remove-file').on('click', function () {
+		$('#magic-login-import-file-input').val('').trigger('change');
+	});
+
 });
 
 document.addEventListener('DOMContentLoaded', function () {

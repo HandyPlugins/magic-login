@@ -23,7 +23,7 @@ $settings = \MagicLogin\Utils\get_settings();
 
 ?>
 
-<form method="post" action="">
+<form method="post" action="" enctype="multipart/form-data" id="magic-login-settings-form">
 	<?php wp_nonce_field( 'magic_login_settings', 'magic_login_settings' ); ?>
 	<section class="sui-row-with-sidenav">
 
@@ -62,6 +62,9 @@ $settings = \MagicLogin\Utils\get_settings();
 							<?php esc_html_e( 'SMS', 'magic-login' ); ?>
 							<span class="sui-tag sui-tag-pro"><?php esc_html_e( 'Pro', 'magic-login' ); ?></span>
 						</button>
+						<button type="button" role="tab" id="tools__tab" class="sui-tab-item magic-login-main-tab-item" aria-controls="tools__content" aria-selected="false" tabindex="-1">
+							<?php esc_html_e( 'Tools', 'magic-login' ); ?>
+						</button>
 					</div>
 
 					<div class="sui-tabs-content">
@@ -69,6 +72,7 @@ $settings = \MagicLogin\Utils\get_settings();
 						<?php require __DIR__ . '/tabs/registration.php'; ?>
 						<?php require __DIR__ . '/tabs/spam-protection.php'; ?>
 						<?php require __DIR__ . '/tabs/sms.php'; ?>
+						<?php require __DIR__ . '/tabs/tools.php'; ?>
 					</div>
 
 				</div>

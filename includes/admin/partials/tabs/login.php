@@ -912,19 +912,6 @@ if ( ! defined( 'ABSPATH' ) ) {
 		</div>
 	</div>
 
-	<!-- Reset Tokens -->
-	<div class="sui-box-settings-row">
-		<div class="sui-box-settings-col-1">
-			<span class="sui-settings-label"><?php esc_html_e( 'Reset Tokens', 'magic-login' ); ?></span>
-			<span id="reset-tokens" class="sui-description"><?php esc_html_e( 'If you want to clean all tokens at once click to reset button.', 'magic-login' ); ?></span>
-		</div>
-		<div class="sui-box-settings-col-2">
-			<div class="sui-form-field">
-				<input type="submit" name="reset_tokens" id="reset_tokens" aria-describedby="reset-tokens" class="sui-button sui-button-ghost" value="<?php echo esc_attr( __( 'Reset', 'magic-login' ) ); ?>">
-			</div>
-		</div>
-	</div>
-
 	<!-- Upsell ads -->
 	<div class="sui-box-settings-row sui-upsell-row">
 		<div class="sui-upsell-notice" style="padding-left: 0;">
