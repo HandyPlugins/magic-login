@@ -7,11 +7,6 @@
 
 namespace MagicLogin;
 
-use function MagicLogin\Utils\get_decrypted_value;
-use const MagicLogin\Constants\DB_VERSION_OPTION_NAME;
-use const MagicLogin\Constants\LICENSE_ENDPOINT;
-use const MagicLogin\Constants\LICENSE_INFO_TRANSIENT;
-use const MagicLogin\Constants\LICENSE_KEY_OPTION;
 use const MagicLogin\Constants\SETTING_OPTION;
 
 /**
