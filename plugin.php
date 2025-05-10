@@ -5,7 +5,7 @@
  * Description:       Passwordless login for WordPress.
  * Version:           2.4.2
  * Requires at least: 5.0
- * Requires PHP:      7.2
+ * Requires PHP:      7.4
  * Author:            HandyPlugins
  * Author URI:        https://handyplugins.co/
  * License:           GPL v2 or later
