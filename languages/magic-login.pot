@@ -2,14 +2,14 @@
 # This file is distributed under the GPL v2 or later.
 msgid ""
 msgstr ""
-"Project-Id-Version: Magic Login 2.4.2\n"
+"Project-Id-Version: Magic Login 2.5\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/magic-login\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2025-04-14T08:25:23+00:00\n"
+"POT-Creation-Date: 2025-05-10T12:39:33+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.11.0\n"
 "X-Domain: magic-login\n"
@@ -43,16 +43,36 @@ msgstr ""
 msgid "https://handyplugins.co/"
 msgstr ""
 
-#: includes/admin/dashboard.php:102
+#: includes/admin/dashboard.php:115
 msgid "Tokens has been removed."
 msgstr ""
 
-#: includes/admin/dashboard.php:104
+#: includes/admin/dashboard.php:117
 msgid "Tokens could not be removed."
 msgstr ""
 
-#: includes/admin/dashboard.php:146
+#: includes/admin/dashboard.php:126
+msgid "Settings have been reset."
+msgstr ""
+
+#: includes/admin/dashboard.php:167
 msgid "Settings saved."
+msgstr ""
+
+#: includes/admin/dashboard.php:198
+msgid "No file uploaded."
+msgstr ""
+
+#: includes/admin/dashboard.php:209
+msgid "Invalid or malformed JSON file."
+msgstr ""
+
+#: includes/admin/dashboard.php:217
+msgid "Settings imported successfully."
+msgstr ""
+
+#: includes/admin/dashboard.php:219
+msgid "Failed to import settings."
 msgstr ""
 
 #. translators: %s: HandyPlugins URL
@@ -85,7 +105,7 @@ msgid "Settings"
 msgstr ""
 
 #: includes/admin/partials/settings.php:40
-#: includes/admin/partials/settings.php:84
+#: includes/admin/partials/settings.php:88
 msgid "Update settings"
 msgstr ""
 
@@ -119,6 +139,10 @@ msgstr ""
 
 #: includes/admin/partials/settings.php:62
 msgid "SMS"
+msgstr ""
+
+#: includes/admin/partials/settings.php:66
+msgid "Tools"
 msgstr ""
 
 #: includes/admin/partials/tabs/login.php:33
@@ -366,7 +390,7 @@ msgstr ""
 
 #: includes/admin/partials/tabs/login.php:709
 #: includes/admin/partials/tabs/registration.php:372
-msgid "Supported placeholders: {{SITEURL}}, {{USERNAME}}, {{FIRST_NAME}}, {{LAST_NAME}}, {{FULL_NAME}}, {{DISPLAY_NAME}}, {{USER_EMAIL}, {{SITENAME}}, {{EXPIRES}}, {{MAGIC_LINK}}, {{EXPIRES_WITH_INTERVAL}}, {{TOKEN_VALIDITY_COUNT}}"
+msgid "Supported placeholders: {{SITEURL}}, {{USERNAME}}, {{FIRST_NAME}}, {{LAST_NAME}}, {{FULL_NAME}}, {{DISPLAY_NAME}}, {{USER_EMAIL}, {{SITENAME}}, {{EXPIRES}}, {{MAGIC_LINK}}, {{MAGIC_LOGIN_QR}}, {{MAGIC_LOGIN_QR_IMG}}, {{EXPIRES_WITH_INTERVAL}}, {{TOKEN_VALIDITY_COUNT}}"
 msgstr ""
 
 #: includes/admin/partials/tabs/login.php:719
@@ -450,20 +474,8 @@ msgstr ""
 msgid "Enable REST API."
 msgstr ""
 
-#: includes/admin/partials/tabs/login.php:918
-msgid "Reset Tokens"
-msgstr ""
-
 #: includes/admin/partials/tabs/login.php:919
-msgid "If you want to clean all tokens at once click to reset button."
-msgstr ""
-
-#: includes/admin/partials/tabs/login.php:923
-msgid "Reset"
-msgstr ""
-
-#: includes/admin/partials/tabs/login.php:932
-#: includes/admin/partials/tabs/registration.php:382
+#: includes/admin/partials/tabs/registration.php:435
 #: includes/admin/partials/tabs/sms.php:366
 #: includes/admin/partials/tabs/spam-protection.php:356
 msgid "Try Magic Login Pro Today"
@@ -558,6 +570,26 @@ msgstr ""
 
 #: includes/admin/partials/tabs/registration.php:338
 msgid "Send a registration email after signup."
+msgstr ""
+
+#: includes/admin/partials/tabs/registration.php:383
+msgid "Redirection"
+msgstr ""
+
+#: includes/admin/partials/tabs/registration.php:386
+msgid "Redirect users to a specific page after successful registration."
+msgstr ""
+
+#: includes/admin/partials/tabs/registration.php:402
+msgid "Enable redirection"
+msgstr ""
+
+#: includes/admin/partials/tabs/registration.php:410
+msgid "Redirection URL"
+msgstr ""
+
+#: includes/admin/partials/tabs/registration.php:422
+msgid "Enter the URL to which users will be redirected after completing registration."
 msgstr ""
 
 #: includes/admin/partials/tabs/sms.php:26
@@ -816,6 +848,78 @@ msgstr ""
 msgid "Enable spam protection for login form."
 msgstr ""
 
+#: includes/admin/partials/tabs/tools.php:19
+msgid "Reset"
+msgstr ""
+
+#: includes/admin/partials/tabs/tools.php:20
+msgid "Reset plugin settings or delete user tokens. This cannot be undone."
+msgstr ""
+
+#: includes/admin/partials/tabs/tools.php:26
+msgid "Reset Settings"
+msgstr ""
+
+#: includes/admin/partials/tabs/tools.php:30
+msgid "Reset License"
+msgstr ""
+
+#: includes/admin/partials/tabs/tools.php:34
+msgid "Delete All Tokens"
+msgstr ""
+
+#: includes/admin/partials/tabs/tools.php:44
+msgid "Export"
+msgstr ""
+
+#: includes/admin/partials/tabs/tools.php:45
+msgid "Exports current plugin settings as a JSON file."
+msgstr ""
+
+#: includes/admin/partials/tabs/tools.php:60
+msgid "Include sensitive data (e.g. API credentials)"
+msgstr ""
+
+#: includes/admin/partials/tabs/tools.php:61
+msgid "Encrypted values will be decrypted and exported in plain text. Use only if migrating to another site."
+msgstr ""
+
+#: includes/admin/partials/tabs/tools.php:73
+msgid "Include license key"
+msgstr ""
+
+#: includes/admin/partials/tabs/tools.php:81
+msgid "Download Settings"
+msgstr ""
+
+#: includes/admin/partials/tabs/tools.php:92
+msgid "Import"
+msgstr ""
+
+#: includes/admin/partials/tabs/tools.php:94
+msgid "Choose a configuration file to import your Magic Login settings. This will overwrite your current settings."
+msgstr ""
+
+#: includes/admin/partials/tabs/tools.php:110
+msgid "Activate license key after import"
+msgstr ""
+
+#: includes/admin/partials/tabs/tools.php:113
+msgid "If the file contains a license key, it will be activated automatically after import."
+msgstr ""
+
+#: includes/admin/partials/tabs/tools.php:123
+msgid "Upload file"
+msgstr ""
+
+#: includes/admin/partials/tabs/tools.php:133
+msgid "Upload and Import"
+msgstr ""
+
+#: includes/admin/partials/tabs/tools.php:137
+msgid "Choose a JSON(.json) file to import the configuration."
+msgstr ""
+
 #: includes/block.php:72
 #: assets/js/admin/login-block.js:32
 msgid "Login with Email"
@@ -965,16 +1069,16 @@ msgstr ""
 msgid "Welcome to {{SITENAME}}"
 msgstr ""
 
-#: includes/utils.php:253
+#: includes/utils.php:255
 msgid "Here is your login code: {{MAGIC_LOGIN_CODE}}. It will expire in {{EXPIRES_WITH_INTERVAL}}."
 msgstr ""
 
-#: includes/utils.php:255
+#: includes/utils.php:257
 msgid "Welcome {{FULL_NAME}}! Your account on {{SITENAME}} has been created. You can login here: {{MAGIC_LINK}}."
 msgstr ""
 
 #. translators: Do not translate USERNAME, SITENAME,EXPIRES, MAGIC_LINK, SITENAME, SITEUR, EXPIRES_WITH_INTERVAL: those are placeholders.
-#: includes/utils.php:278
+#: includes/utils.php:280
 msgid ""
 "Hi {{USERNAME}},\n"
 "\n"
@@ -992,19 +1096,19 @@ msgid ""
 "{{SITEURL}}"
 msgstr ""
 
-#: includes/utils.php:442
+#: includes/utils.php:444
 msgid "Minute(s)"
 msgstr ""
 
-#: includes/utils.php:443
+#: includes/utils.php:445
 msgid "Hour(s)"
 msgstr ""
 
-#: includes/utils.php:444
+#: includes/utils.php:446
 msgid "Day(s)"
 msgstr ""
 
-#: includes/utils.php:671
+#: includes/utils.php:672
 msgid ""
 "Hi there,\n"
 "<br><br>\n"
