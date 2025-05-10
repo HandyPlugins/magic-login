@@ -3,8 +3,8 @@ Contributors:      handyplugins, m_uysl
 Tags:              login, passwordless, passwordless-login, magic-login, magic-link
 Requires at least: 5.0
 Tested up to:      6.8
-Requires PHP:      7.2
-Stable tag:        2.4.2
+Requires PHP:      7.4
+Stable tag:        2.5
 License:           GPLv2 or later
 License URI:       http://www.gnu.org/licenses/gpl-2.0.html
 Donate link:       https://handyplugins.co/donate/
@@ -26,6 +26,7 @@ Streamline the login process by sending links to your users. No more passwords t
 - **Auto Login**: Support for auto-login links in outgoing emails. It's useful when pending action from a user, such as reply a comment, complete the checkout, etc.
 - **User-Friendly**: Simplifies the login process for all users.
 - **Enhanced Security**: Reduces risks associated with weak passwords.
+- **Tools**:  Export, import, and reset plugin settings easily from the admin panel or WP-CLI. [Learn more](https://handyplugins.co/docs/magic-login-tools/)
 
 = How does it work? 🪄 =
 
@@ -38,8 +39,9 @@ Streamline the login process by sending links to your users. No more passwords t
 Here are the premium features that come with Magic Login Pro:
 
 - __SMS Login:__ Send magic login links via SMS. [Learn more](https://handyplugins.co/docs/passwordless-authentication-with-sms/).
+- __QR Code Login:__ Let users log in by scanning a QR code. [Learn more](https://handyplugins.co/docs/qr-code-login/).
 - __Registration:__ Enable easy user registration directly from the login form or with a shortcode. [Learn more](https://handyplugins.co/docs/magic-login-registration/).
-- __CLI Command:__ Use WP-CLI to create login links.
+- __CLI Command:__ Use WP-CLI to create login links, generate QR codes, export/import settings, and more. [Learn more](https://handyplugins.co/docs/magic-login-cli-command/).
 - __Brute Force Protection:__ Limit rate of login attempts and block IP temporarily.
 - __Login request throttling:__ Limit login link generation for a certain period.
 - __IP Check:__ Enhance the security by restricting users to log in from the same IP address that requested the link.
@@ -59,6 +61,8 @@ By upgrading to Magic Login Pro you also get access to one-on-one help from our 
 
 = Documentation =
 Our documentation can be found on [https://handyplugins.co/docs-category/magic-login-pro/](https://handyplugins.co/docs-category/magic-login-pro/)
+
+Hook reference: [https://handyplugins.co/docs/magic-login-hooks-doc/](https://handyplugins.co/docs/magic-login-hooks-doc/)
 
 = Contributing & Bug Report =
 Bug reports and pull requests are welcome on [GitHub](https://github.com/HandyPlugins/magic-login). Some of our features are pro only, please consider before sending PR.
@@ -116,6 +120,13 @@ However, if you wish to alter this behavior, you can easily do so by passing an 
 4. Login Block
 
 == Changelog ==
+
+= 2.5 (May 10, 2025) =
+* [New] Tools Section – Added reset, export, and import options in the settings panel. [Learn more](https://handyplugins.co/docs/magic-login-tools/)
+* [Updated] Settings UI – Visual and structural improvements to reflect new PRO features.
+* [Updated] Dependencies.
+* [Changed] Minimum PHP version raised to 7.4.
+* Read the full update: [Magic Login 2.5](https://handyplugins.co/blog/qr-code-login-for-wordpress/)
 
 = 2.4.2 (April 14, 2025) =
 * [Added] New filter `magic_login_email_placeholders` to customize email placeholders.
