@@ -697,6 +697,7 @@ class LoginManager {
 			return;
 		}
 
+		nocache_headers();
 		do_action( 'magic_login_handle_login_request' );
 		// Use a generic error message to ensure user ids can't be sniffed
 		$user_id = (int) $_GET['user_id']; //phpcs:ignore WordPress.Security.NonceVerification.Recommended
