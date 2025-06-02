@@ -4,7 +4,7 @@ Tags:              login, passwordless, passwordless-login, magic-login, magic-l
 Requires at least: 5.0
 Tested up to:      6.8
 Requires PHP:      7.4
-Stable tag:        2.5
+Stable tag:        2.5.1
 License:           GPLv2 or later
 License URI:       http://www.gnu.org/licenses/gpl-2.0.html
 Donate link:       https://handyplugins.co/donate/
@@ -120,6 +120,9 @@ However, if you wish to alter this behavior, you can easily do so by passing an 
 4. Login Block
 
 == Changelog ==
+
+= 2.5.1 (Jun 02, 2025) =
+* [Added] No-cache headers for magic login links to prevent caching issues.
 
 = 2.5 (May 10, 2025) =
 * [New] Tools Section – Added reset, export, and import options in the settings panel. [Learn more](https://handyplugins.co/docs/magic-login-tools/)
