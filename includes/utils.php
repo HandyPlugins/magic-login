@@ -598,7 +598,7 @@ function get_email_placeholders_by_user( $user, $login_link ) {
 		'{{SITENAME}}'              => $site_name,
 		'{{EXPIRES}}'               => $ttl,
 		'{{EXPIRES_WITH_INTERVAL}}' => $token_ttl . ' ' . $selected_interval_str,
-		'{{TOKEN_VALIDITY_COUNT}}'  => $settings['token_validity'],
+		'{{TOKEN_VALIDITY_COUNT}}'  => get_token_validity_by_user( $user->ID ),
 		'{{MAGIC_LINK}}'            => $login_link,
 		'{{MAGIC_LOGIN_CODE}}'      => $magic_login_token,
 	];
@@ -712,4 +712,34 @@ function get_user_by_log_input( $input ) {
 	}
 
 	return $user;
+}
+
+
+/**
+ * Get the token validity by user
+ *
+ * @param int $user_id User ID
+ *
+ * @return int Validity in minutes
+ * @since 2.6
+ */
+function get_token_validity_by_user( $user_id ) {
+	$settings = \MagicLogin\Utils\get_settings();
+	$validity = $settings['token_validity'];
+
+	// Check if there's a user-specific token validity setting which is available in pro version only
+	// yet it's still hookable for fellow devs who want to adjust programmatically
+
+	/**
+	 * Filter the token validity by user
+	 *
+	 * @hook   magic_login_token_validity_by_user
+	 *
+	 * @param int $validity Validity in minutes
+	 * @param int $user_id  User ID
+	 *
+	 * @return int New value
+	 * @since  2.6
+	 */
+	return apply_filters( 'magic_login_token_validity_by_user', $validity, $user_id );
 }

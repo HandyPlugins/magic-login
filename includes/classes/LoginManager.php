@@ -8,6 +8,7 @@
 namespace MagicLogin;
 
 use function MagicLogin\Utils\get_email_placeholders_by_user;
+use function MagicLogin\Utils\get_token_validity_by_user;
 use function MagicLogin\Utils\get_user_by_log_input;
 use function MagicLogin\Utils\get_wp_login_url;
 use function MagicLogin\Utils\get_ttl_by_user;
@@ -760,7 +761,7 @@ class LoginManager {
 		}
 
 		// Validate token.
-		$token_validity = $settings['token_validity'];
+		$token_validity = get_token_validity_by_user( $user->ID );
 		$tokens         = get_user_tokens( $user->ID, true );
 		$is_valid       = false;
 		$current_token  = null;
