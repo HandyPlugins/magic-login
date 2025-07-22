@@ -4,7 +4,7 @@ Tags:              login, passwordless, passwordless-login, magic-login, magic-l
 Requires at least: 5.0
 Tested up to:      6.8
 Requires PHP:      7.4
-Stable tag:        2.5.1
+Stable tag:        2.6
 License:           GPLv2 or later
 License URI:       http://www.gnu.org/licenses/gpl-2.0.html
 Donate link:       https://handyplugins.co/donate/
@@ -120,6 +120,11 @@ However, if you wish to alter this behavior, you can easily do so by passing an 
 4. Login Block
 
 == Changelog ==
+
+= 2.6 (Jul 22, 2025) =
+* [Added] Ability to override TTL and token validity on a per-user basis.
+* [Updated] Dependency packages to latest versions.
+* Read the full update: [Magic Login PRO 2.6](https://handyplugins.co/blog/magic-login-pro-2-6-release/)
 
 = 2.5.1 (Jun 02, 2025) =
 * [Added] No-cache headers for magic login links to prevent caching issues.
