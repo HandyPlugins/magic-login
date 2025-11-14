@@ -759,7 +759,7 @@ function get_settings_capability() {
 	$capability = MAGIC_LOGIN_IS_NETWORK ? 'manage_network_options' : 'manage_options';
 
 	/**
-	 * Filter the capability required to access the Magic Login Pro settings page.
+	 * Filter the capability required to access the Magic Login settings page.
 	 *
 	 * @hook       magic_login_admin_menu_cap
 	 *
@@ -771,7 +771,7 @@ function get_settings_capability() {
 	$capability = apply_filters( 'magic_login_admin_menu_cap', $capability );
 
 	/**
-	 * Filter the capability required to access the Magic Login Pro settings page.
+	 * Filter the capability required to access the Magic Login settings page.
 	 *
 	 * @hook  magic_login_settings_capability
 	 *

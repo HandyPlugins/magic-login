@@ -307,7 +307,7 @@ function maybe_display_encryption_fallback_notice() {
 				<div class="sui-notice-message">
 					<span class="sui-notice-icon sui-icon-warning-alert sui-md" aria-hidden="true"></span>
 					<p>
-						<strong><?php esc_html_e( 'Magic Login Pro Security Notice:', 'magic-login' ); ?></strong>
+						<strong><?php esc_html_e( 'Magic Login Security Notice:', 'magic-login' ); ?></strong>
 						<?php
 						if ( $using_fallback_key && $using_fallback_salt ) {
 							esc_html_e( 'Your encryption key and salt are using default values.', 'magic-login' );
