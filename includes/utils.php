@@ -743,3 +743,38 @@ function get_token_validity_by_user( $user_id ) {
 	 */
 	return apply_filters( 'magic_login_token_validity_by_user', $validity, $user_id );
 }
+
+
+/**
+ * Get required capability to access admin menu/settings page
+ *
+ * @since 2.6.2
+ * @return string
+ */
+function get_settings_capability() {
+	$capability = MAGIC_LOGIN_IS_NETWORK ? 'manage_network_options' : 'manage_options';
+
+	/**
+	 * Filter the capability required to access the Magic Login Pro settings page.
+	 *
+	 * @hook       magic_login_admin_menu_cap
+	 *
+	 * @param string $capability The capability required to access the settings page.
+	 *
+	 * @return string Altered value.
+	 * @deprecated 2.6.2 Use 'magic_login_settings_capability' instead.
+	 */
+	$capability = apply_filters( 'magic_login_admin_menu_cap', $capability );
+
+	/**
+	 * Filter the capability required to access the Magic Login Pro settings page.
+	 *
+	 * @hook  magic_login_settings_capability
+	 *
+	 * @param string $capability The capability required to access the settings page.
+	 *
+	 * @return string Altered value.
+	 * @since 2.6.2
+	 */
+	return apply_filters( 'magic_login_settings_capability', $capability );
+}

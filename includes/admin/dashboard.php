@@ -7,6 +7,7 @@
 
 namespace MagicLogin\Admin\Dashboard;
 
+use function MagicLogin\Utils\get_settings_capability;
 use const MagicLogin\Constants\SETTING_OPTION;
 use function MagicLogin\Utils\delete_all_tokens;
 use function MagicLogin\Utils\get_allowed_intervals;
@@ -54,13 +55,14 @@ function add_sui_admin_body_class( $classes ) {
  * Add menu item
  */
 function admin_menu() {
-	$parent = MAGIC_LOGIN_IS_NETWORK ? 'settings.php' : 'options-general.php';
+	$parent     = MAGIC_LOGIN_IS_NETWORK ? 'settings.php' : 'options-general.php';
+	$capability = get_settings_capability();
 
 	add_submenu_page(
 		$parent,
 		esc_html__( 'Magic Login', 'magic-login' ),
 		esc_html__( 'Magic Login', 'magic-login' ),
-		apply_filters( 'magic_login_admin_menu_cap', 'manage_options' ),
+		$capability,
 		'magic-login',
 		__NAMESPACE__ . '\settings_page'
 	);
@@ -91,6 +93,12 @@ function settings_page() {
 function save_settings() {
 
 	if ( ! is_user_logged_in() ) {
+		return;
+	}
+
+	$capability = get_settings_capability();
+
+	if ( ! current_user_can( $capability ) ) {
 		return;
 	}
 
@@ -179,6 +187,12 @@ function save_settings() {
  * @return void
  */
 function export_settings() {
+	$capability = get_settings_capability();
+
+	if ( ! current_user_can( $capability ) ) {
+		wp_die( esc_html__( 'You do not have sufficient permissions to access this page.', 'magic-login' ) );
+	}
+
 	$export = \MagicLogin\Tools::generate_export_settings( false, false );
 
 	$filename = 'magic-login-settings-' . sanitize_title( wp_parse_url( home_url(), PHP_URL_HOST ) ) . '-' . gmdate( 'Y-m-d-H-i-s' ) . '.json';
@@ -194,8 +208,59 @@ function export_settings() {
  * @return void
  */
 function import_settings() {
-	if ( empty( $_FILES['import_file']['tmp_name'] ) ) {
+	$capability = get_settings_capability();
+
+	if ( ! current_user_can( $capability ) ) {
+		wp_die( esc_html__( 'You do not have sufficient permissions to access this page.', 'magic-login' ) );
+	}
+
+	// Bail if no file uploaded or upload error exists.
+	if ( ! isset( $_FILES['import_file'] ) || ! isset( $_FILES['import_file']['size'], $_FILES['import_file']['tmp_name'], $_FILES['import_file']['name'], $_FILES['import_file']['error'] ) ) {
 		add_settings_error( SETTING_OPTION, 'magic-login', esc_html__( 'No file uploaded.', 'magic-login' ), 'error' );
+
+		return;
+	}
+
+	if ( UPLOAD_ERR_OK !== (int) $_FILES['import_file']['error'] ) {
+		add_settings_error( SETTING_OPTION, 'magic-login', esc_html__( 'There was an error uploading the file.', 'magic-login' ), 'error' );
+
+		return;
+	}
+
+	$file_size = absint( $_FILES['import_file']['size'] );
+
+	// 1 MB = 1048576 bytes.
+	if ( 0 === $file_size || $file_size > 1048576 ) {
+		add_settings_error(
+			SETTING_OPTION,
+			'magic-login',
+			esc_html__( 'File size must be between 1 byte and 1MB.', 'magic-login' ),
+			'error'
+		);
+
+		return;
+	}
+
+	// Prepare sanitized file values.
+	$file_tmp_name = sanitize_text_field( wp_unslash( $_FILES['import_file']['tmp_name'] ) );
+	$file_name     = sanitize_file_name( wp_unslash( $_FILES['import_file']['name'] ) );
+
+	// Validate file extension and MIME type.
+	$file_info = wp_check_filetype_and_ext(
+		$file_tmp_name,
+		$file_name,
+		array(
+			'json' => 'application/json',
+		)
+	);
+
+	if ( ! $file_info['ext'] || 'json' !== $file_info['ext'] ) {
+		add_settings_error(
+			SETTING_OPTION,
+			'magic-login',
+			esc_html__( 'Invalid file type. Only JSON files are allowed.', 'magic-login' ),
+			'error'
+		);
 
 		return;
 	}
