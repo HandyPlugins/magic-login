@@ -902,12 +902,51 @@ if ( ! defined( 'ABSPATH' ) ) {
 					       name="enable_rest_api"
 					       id="enable_rest_api"
 					       aria-labelledby="enable-ajax-form-label"
+						   aria-controls="api-rate-limit-controls"
 						<?php checked( 1, $settings['enable_rest_api'] ); ?>
 					>
 					<span class="sui-toggle-slider" aria-hidden="true"></span>
 					<span id="enable-rest-api-form-label" class="sui-toggle-label"><?php esc_html_e( 'Enable REST API.', 'magic-login' ); ?></span>
 
 				</label>
+				<div style=" <?php echo( ! $settings['enable_rest_api'] ? 'display:none' : '' ); ?>" tabindex="0" id="api-rate-limit-controls" class="sui-toggle-content sui-border-frame">
+					<div class="sui-form-field">
+						<label for="enable_api_rate_limit" class="sui-toggle">
+							<input type="checkbox"
+								   value="1"
+								   name="enable_api_rate_limit"
+								   id="enable_api_rate_limit"
+								   aria-labelledby="enable-api-rate-limit-label"
+								   aria-controls="api-rate-limit-limit-controls"
+								<?php checked( 1, $settings['enable_api_rate_limit'] ); ?>
+							>
+							<span class="sui-toggle-slider" aria-hidden="true"></span>
+							<span id="enable-api-rate-limit-label" class="sui-toggle-label"><?php esc_html_e( 'Enable API Rate Limit', 'magic-login' ); ?></span>
+							<span class="sui-description">
+								<?php esc_html_e( 'Prevent excessive API requests from the same IP address.', 'magic-login' ); ?>
+							</span>
+						</label>
+
+						<div style=" <?php echo( ! $settings['enable_api_rate_limit'] ? 'display:none' : '' ); ?>" tabindex="0" id="api-rate-limit-limit-controls" class="sui-toggle-content sui-border-frame">
+							<div class="sui-form-field">
+								<label for="rate_limit_max_requests" id="label-api-rate-limit" class="sui-label"><?php esc_html_e( 'Max requests per minute:', 'magic-login' ); ?></label>
+								<input
+									placeholder="60"
+									id="rate_limit_max_requests"
+									name="rate_limit_max_requests"
+									min="1"
+									max="1000"
+									type="number"
+									class="sui-form-control"
+									aria-labelledby="label-api-rate-limit"
+									value="<?php echo absint( $settings['rate_limit_max_requests'] ); ?>"
+								/>
+								<span class="sui-description"><?php esc_html_e( 'Maximum number of API requests allowed per minute from a single IP address.', 'magic-login' ); ?></span>
+							</div>
+						</div>
+					</div>
+				</div>
+
 			</div>
 		</div>
 	</div>

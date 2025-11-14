@@ -236,6 +236,8 @@ function get_settings() {
 			'secret_key' => '',
 		],
 		'enable_rest_api'               => false,
+		'enable_api_rate_limit'         => false,
+		'rate_limit_max_requests'       => 60,
 		'sms'                           => [
 			'enable'                           => false,
 			'provider'                         => 'twilio',
