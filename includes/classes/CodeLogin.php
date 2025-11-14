@@ -166,11 +166,7 @@ class CodeLogin {
 	 */
 	public static function code_form() {
 		$log        = '';
-		$cancel_url = '';
-
-		if ( isset( $_SERVER['REQUEST_URI'] ) ) {
-			$cancel_url = esc_url_raw( wp_unslash( $_SERVER['REQUEST_URI'] ) );
-		}
+		$cancel_url = home_url( add_query_arg( null, null ) );
 
 		if ( isset( $_POST['log'] ) && is_string( $_POST['log'] ) ) {
 			$log = wp_unslash( $_POST['log'] ); // phpcs:ignore

@@ -137,7 +137,7 @@ function render_login_block( $args ) {
 	}
 
 	if ( empty( $args['redirectTo'] ) ) {
-		$args['redirectTo'] = ( is_ssl() ? 'https://' : 'http://' ) . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI']; // phpcs:ignore
+		$args['redirectTo'] = home_url( add_query_arg( null, null ) ); // phpcs:ignore
 	}
 
 	if ( ! defined( 'REST_REQUEST' ) && ! is_admin() && is_user_logged_in() && $args['hideLoggedIn'] ) { // already logged-in dont show

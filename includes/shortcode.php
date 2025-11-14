@@ -39,7 +39,7 @@ function setup() {
 function shortcode_login_form( $shortcode_atts ) {
 	$atts = shortcode_atts(
 		[
-			'redirect_to'     => ( is_ssl() ? 'https://' : 'http://' ) . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'], // phpcs:ignore
+			'redirect_to'     => home_url( add_query_arg( null, null ) ), // phpcs:ignore
 			'hide_logged_in'  => true,
 			'error_message'   => '',
 			'info_message'    => '',

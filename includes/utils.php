@@ -136,6 +136,8 @@ function create_login_link( $user, $context = 'email', $redirect_to = null ) {
  * @return mixed
  */
 function get_client_ip() {
+	$adds = isset( $_SERVER['REMOTE_ADDR'] ) ? sanitize_text_field( wp_unslash( $_SERVER['REMOTE_ADDR'] ) ) : '';
+
 	/**
 	 * `HTTP_X_FORWARDED_FOR` removed in 1.5
 	 * Filters the ip address
@@ -147,7 +149,7 @@ function get_client_ip() {
 	 * @return {string} New value.
 	 * @since  1.5
 	 */
-	return apply_filters( 'magic_login_client_ip', $_SERVER['REMOTE_ADDR'] ); // phpcs:ignore
+	return apply_filters( 'magic_login_client_ip', $adds );
 }
 
 /**
