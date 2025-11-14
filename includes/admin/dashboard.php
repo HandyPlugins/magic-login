@@ -7,6 +7,7 @@
 
 namespace MagicLogin\Admin\Dashboard;
 
+use MagicLogin\Encryption;
 use function MagicLogin\Utils\get_settings_capability;
 use const MagicLogin\Constants\SETTING_OPTION;
 use function MagicLogin\Utils\delete_all_tokens;
@@ -282,5 +283,51 @@ function import_settings() {
 		add_settings_error( SETTING_OPTION, 'magic-login', esc_html__( 'Settings imported successfully.', 'magic-login' ), 'success' );
 	} else {
 		add_settings_error( SETTING_OPTION, 'magic-login', esc_html__( 'Failed to import settings.', 'magic-login' ), 'error' );
+	}
+}
+
+
+/**
+ * Display admin notice when encryption keys/salts fall back to defaults
+ *
+ * @return void
+ * @since 2.6.2
+ */
+function maybe_display_encryption_fallback_notice() {
+	$encryption          = new Encryption();
+	$using_fallback_key  = $encryption->is_using_fallback_key();
+	$using_fallback_salt = $encryption->is_using_fallback_salt();
+
+	// If using fallback for either key or salt, show the notice
+	if ( $using_fallback_key || $using_fallback_salt ) {
+		$doc_url = 'https://handyplugins.co/docs/magic-login-security/';
+		?>
+		<div class="sui-notice sui-notice-error">
+			<div class="sui-notice-content">
+				<div class="sui-notice-message">
+					<span class="sui-notice-icon sui-icon-warning-alert sui-md" aria-hidden="true"></span>
+					<p>
+						<strong><?php esc_html_e( 'Magic Login Pro Security Notice:', 'magic-login' ); ?></strong>
+						<?php
+						if ( $using_fallback_key && $using_fallback_salt ) {
+							esc_html_e( 'Your encryption key and salt are using default values.', 'magic-login' );
+						} elseif ( $using_fallback_key ) {
+							esc_html_e( 'Your encryption key is using a default value.', 'magic-login' );
+						} else {
+							esc_html_e( 'Your encryption salt is using a default value.', 'magic-login' );
+						}
+						?>
+						<?php
+						printf(
+						/* translators: %s: documentation URL */
+							esc_html__( 'For better security, please set custom encryption keys and salts in your configuration file. %s', 'magic-login' ),
+							'<a href="' . esc_url( $doc_url ) . '" target="_blank" rel="noopener noreferrer">' . esc_html__( 'Learn more.', 'magic-login' ) . '</a>'
+						);
+						?>
+					</p>
+				</div>
+			</div>
+		</div>
+		<?php
 	}
 }

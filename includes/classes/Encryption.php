@@ -133,4 +133,24 @@ final class Encryption {
 		// If this is reached, you're either not on a live site or have a serious security issue.
 		return 'this-is-not-a-secret-salt';
 	}
+
+	/**
+	 * Checks if encryption key is using fallback value
+	 *
+	 * @return bool True if using fallback key, false otherwise.
+	 * @since 2.6.2
+	 */
+	public function is_using_fallback_key() {
+		return 'this-is-not-a-secret-key' === $this->key;
+	}
+
+	/**
+	 * Checks if encryption salt is using fallback value
+	 *
+	 * @return bool True if using fallback salt, false otherwise.
+	 * @since 2.6.2
+	 */
+	public function is_using_fallback_salt() {
+		return 'this-is-not-a-secret-salt' === $this->salt;
+	}
 }

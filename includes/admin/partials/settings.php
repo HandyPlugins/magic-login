@@ -9,7 +9,7 @@ use function MagicLogin\Utils\get_ttl_with_interval;
 use function MagicLogin\Utils\get_doc_url;
 use function MagicLogin\Utils\get_allowed_intervals;
 use function \MagicLogin\Utils\mask_string;
-
+use function MagicLogin\Admin\Dashboard\maybe_display_encryption_fallback_notice;
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
@@ -22,6 +22,7 @@ $settings = \MagicLogin\Utils\get_settings();
 // phpcs:disable WordPress.WP.I18n.MissingTranslatorsComment
 
 ?>
+<?php maybe_display_encryption_fallback_notice(); ?>
 
 <form method="post" action="" enctype="multipart/form-data" id="magic-login-settings-form">
 	<?php wp_nonce_field( 'magic_login_settings', 'magic_login_settings' ); ?>
