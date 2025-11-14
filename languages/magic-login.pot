@@ -2,22 +2,22 @@
 # This file is distributed under the GPL v2 or later.
 msgid ""
 msgstr ""
-"Project-Id-Version: Magic Login 2.6.1\n"
+"Project-Id-Version: Magic Login 2.6.2\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/magic-login\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2025-11-05T12:30:53+00:00\n"
+"POT-Creation-Date: 2025-11-14T13:34:49+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.12.0\n"
 "X-Domain: magic-login\n"
 
 #. Plugin Name of the plugin
 #: plugin.php
-#: includes/admin/dashboard.php:61
-#: includes/admin/dashboard.php:62
+#: includes/admin/dashboard.php:64
+#: includes/admin/dashboard.php:65
 #: includes/admin/partials/header.php:18
 #: assets/js/admin/login-block.js:11
 msgid "Magic Login"
@@ -43,36 +43,79 @@ msgstr ""
 msgid "https://handyplugins.co/"
 msgstr ""
 
-#: includes/admin/dashboard.php:115
+#: includes/admin/dashboard.php:124
 msgid "Tokens has been removed."
 msgstr ""
 
-#: includes/admin/dashboard.php:117
+#: includes/admin/dashboard.php:126
 msgid "Tokens could not be removed."
 msgstr ""
 
-#: includes/admin/dashboard.php:126
+#: includes/admin/dashboard.php:135
 msgid "Settings have been reset."
 msgstr ""
 
-#: includes/admin/dashboard.php:167
+#: includes/admin/dashboard.php:176
 msgid "Settings saved."
 msgstr ""
 
-#: includes/admin/dashboard.php:198
+#: includes/admin/dashboard.php:194
+#: includes/admin/dashboard.php:215
+msgid "You do not have sufficient permissions to access this page."
+msgstr ""
+
+#: includes/admin/dashboard.php:220
 msgid "No file uploaded."
 msgstr ""
 
-#: includes/admin/dashboard.php:209
+#: includes/admin/dashboard.php:226
+msgid "There was an error uploading the file."
+msgstr ""
+
+#: includes/admin/dashboard.php:238
+msgid "File size must be between 1 byte and 1MB."
+msgstr ""
+
+#: includes/admin/dashboard.php:262
+msgid "Invalid file type. Only JSON files are allowed."
+msgstr ""
+
+#: includes/admin/dashboard.php:275
 msgid "Invalid or malformed JSON file."
 msgstr ""
 
-#: includes/admin/dashboard.php:217
+#: includes/admin/dashboard.php:283
 msgid "Settings imported successfully."
 msgstr ""
 
-#: includes/admin/dashboard.php:219
+#: includes/admin/dashboard.php:285
 msgid "Failed to import settings."
+msgstr ""
+
+#: includes/admin/dashboard.php:310
+msgid "Magic Login Security Notice:"
+msgstr ""
+
+#: includes/admin/dashboard.php:313
+msgid "Your encryption key and salt are using default values."
+msgstr ""
+
+#: includes/admin/dashboard.php:315
+msgid "Your encryption key is using a default value."
+msgstr ""
+
+#: includes/admin/dashboard.php:317
+msgid "Your encryption salt is using a default value."
+msgstr ""
+
+#. translators: %s: documentation URL
+#: includes/admin/dashboard.php:323
+#, php-format
+msgid "For better security, please set custom encryption keys and salts in your configuration file. %s"
+msgstr ""
+
+#: includes/admin/dashboard.php:324
+msgid "Learn more."
 msgstr ""
 
 #. translators: %s: HandyPlugins URL
@@ -101,27 +144,27 @@ msgstr ""
 msgid "Documentation"
 msgstr ""
 
-#: includes/admin/partials/settings.php:35
+#: includes/admin/partials/settings.php:36
 msgid "Settings"
 msgstr ""
 
-#: includes/admin/partials/settings.php:40
-#: includes/admin/partials/settings.php:88
+#: includes/admin/partials/settings.php:41
+#: includes/admin/partials/settings.php:89
 msgid "Update settings"
 msgstr ""
 
-#: includes/admin/partials/settings.php:49
+#: includes/admin/partials/settings.php:50
 msgid "Login"
 msgstr ""
 
-#: includes/admin/partials/settings.php:53
+#: includes/admin/partials/settings.php:54
 #: includes/admin/partials/tabs/registration.php:27
 msgid "Registration"
 msgstr ""
 
-#: includes/admin/partials/settings.php:54
-#: includes/admin/partials/settings.php:59
-#: includes/admin/partials/settings.php:63
+#: includes/admin/partials/settings.php:55
+#: includes/admin/partials/settings.php:60
+#: includes/admin/partials/settings.php:64
 #: includes/admin/partials/tabs/login.php:201
 #: includes/admin/partials/tabs/login.php:460
 #: includes/admin/partials/tabs/login.php:535
@@ -134,15 +177,15 @@ msgstr ""
 msgid "Pro"
 msgstr ""
 
-#: includes/admin/partials/settings.php:58
+#: includes/admin/partials/settings.php:59
 msgid "Spam Protection"
 msgstr ""
 
-#: includes/admin/partials/settings.php:62
+#: includes/admin/partials/settings.php:63
 msgid "SMS"
 msgstr ""
 
-#: includes/admin/partials/settings.php:66
+#: includes/admin/partials/settings.php:67
 msgid "Tools"
 msgstr ""
 
@@ -474,11 +517,27 @@ msgstr ""
 msgid "Allows external systems to interact with your application programmatically by enabling REST API endpoints. <a href=\"%1$s\" target=\"_blank\" rel=\"noopener\">%2$s</a>"
 msgstr ""
 
-#: includes/admin/partials/tabs/login.php:908
+#: includes/admin/partials/tabs/login.php:909
 msgid "Enable REST API."
 msgstr ""
 
-#: includes/admin/partials/tabs/login.php:919
+#: includes/admin/partials/tabs/login.php:924
+msgid "Enable API Rate Limit"
+msgstr ""
+
+#: includes/admin/partials/tabs/login.php:926
+msgid "Prevent excessive API requests from the same IP address."
+msgstr ""
+
+#: includes/admin/partials/tabs/login.php:932
+msgid "Max requests per minute:"
+msgstr ""
+
+#: includes/admin/partials/tabs/login.php:944
+msgid "Maximum number of API requests allowed per minute from a single IP address."
+msgstr ""
+
+#: includes/admin/partials/tabs/login.php:958
 #: includes/admin/partials/tabs/registration.php:435
 #: includes/admin/partials/tabs/sms.php:366
 #: includes/admin/partials/tabs/spam-protection.php:356
@@ -955,7 +1014,7 @@ msgid "Send me the link"
 msgstr ""
 
 #: includes/block.php:190
-#: includes/classes/CodeLogin.php:187
+#: includes/classes/CodeLogin.php:183
 #: includes/classes/LoginManager.php:936
 #: includes/shortcode.php:121
 msgid "Sending..."
@@ -969,20 +1028,20 @@ msgstr ""
 msgid "Login successful! You will be redirected shortly."
 msgstr ""
 
-#: includes/classes/CodeLogin.php:188
+#: includes/classes/CodeLogin.php:184
 #: includes/classes/LoginManager.php:937
 msgid "Please verify that you are not a robot."
 msgstr ""
 
-#: includes/classes/CodeLogin.php:196
+#: includes/classes/CodeLogin.php:192
 msgid "Code"
 msgstr ""
 
-#: includes/classes/CodeLogin.php:210
+#: includes/classes/CodeLogin.php:206
 msgid "Submit"
 msgstr ""
 
-#: includes/classes/CodeLogin.php:212
+#: includes/classes/CodeLogin.php:208
 msgid "Cancel"
 msgstr ""
 
@@ -1076,24 +1135,24 @@ msgstr ""
 msgid "Please enter the code sent to your email."
 msgstr ""
 
-#: includes/utils.php:183
+#: includes/utils.php:185
 msgid "Log in to {{SITENAME}}"
 msgstr ""
 
-#: includes/utils.php:204
+#: includes/utils.php:206
 msgid "Welcome to {{SITENAME}}"
 msgstr ""
 
-#: includes/utils.php:255
+#: includes/utils.php:259
 msgid "Here is your login code: {{MAGIC_LOGIN_CODE}}. It will expire in {{EXPIRES_WITH_INTERVAL}}."
 msgstr ""
 
-#: includes/utils.php:257
+#: includes/utils.php:261
 msgid "Welcome {{FULL_NAME}}! Your account on {{SITENAME}} has been created. You can login here: {{MAGIC_LINK}}."
 msgstr ""
 
 #. translators: Do not translate USERNAME, SITENAME,EXPIRES, MAGIC_LINK, SITENAME, SITEUR, EXPIRES_WITH_INTERVAL: those are placeholders.
-#: includes/utils.php:280
+#: includes/utils.php:284
 msgid ""
 "Hi {{USERNAME}},\n"
 "\n"
@@ -1111,19 +1170,19 @@ msgid ""
 "{{SITEURL}}"
 msgstr ""
 
-#: includes/utils.php:444
+#: includes/utils.php:448
 msgid "Minute(s)"
 msgstr ""
 
-#: includes/utils.php:445
+#: includes/utils.php:449
 msgid "Hour(s)"
 msgstr ""
 
-#: includes/utils.php:446
+#: includes/utils.php:450
 msgid "Day(s)"
 msgstr ""
 
-#: includes/utils.php:672
+#: includes/utils.php:676
 msgid ""
 "Hi there,\n"
 "<br><br>\n"
