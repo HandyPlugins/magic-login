@@ -4,7 +4,7 @@ Tags:              login, passwordless, passwordless-login, magic-login, magic-l
 Requires at least: 5.0
 Tested up to:      6.9
 Requires PHP:      7.4
-Stable tag:        2.6.2
+Stable tag:        2.6.3
 License:           GPLv2 or later
 License URI:       http://www.gnu.org/licenses/gpl-2.0.html
 Donate link:       https://handyplugins.co/donate/
@@ -120,6 +120,9 @@ However, if you wish to alter this behavior, you can easily do so by passing an 
 4. Login Block
 
 == Changelog ==
+
+= 2.6.3 (Feb 18, 2026) =
+* [Updated] Dependencies.
 
 = 2.6.2 (Nov 14, 2025) =
 * [Added] Admin notice when placeholder encryption keys/salts are in use.
