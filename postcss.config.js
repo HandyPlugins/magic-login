@@ -3,19 +3,36 @@
  *
  * @return {string} PostCSS options.
  */
+const postcssImport = require( 'postcss-import' );
+const postcssPresetEnv = require( 'postcss-preset-env' );
+const cssnano = require( 'cssnano' );
+
+const removeSharedUiBunnyFontImport = () => ( {
+	postcssPlugin: 'remove-shared-ui-bunny-font-import',
+	AtRule: {
+		import: ( atRule ) => {
+			if ( atRule.params && atRule.params.includes( 'fonts.bunny.net/css?family=Roboto' ) ) {
+				atRule.remove();
+			}
+		},
+	},
+} );
+removeSharedUiBunnyFontImport.postcss = true;
+
 module.exports = ( { file, options, env } ) => ( { /* eslint-disable-line */
-	plugins: {
-		'postcss-import': {},
-		'postcss-preset-env': {
+	plugins: [
+		postcssImport(),
+		removeSharedUiBunnyFontImport(),
+		postcssPresetEnv( {
 			stage: 0,
 			autoprefixer: {
 				grid: true,
 			},
-		},
+		} ),
 		// Minify style on production using cssano.
-		cssnano:
-			env === 'production'
-				? {
+		...( env === 'production'
+			? [
+					cssnano( {
 						preset: [
 							'default',
 							{
@@ -31,7 +48,8 @@ module.exports = ( { file, options, env } ) => ( { /* eslint-disable-line */
 								zindex: false,
 							},
 						],
-				  }
-				: false,
-	},
-});
+					} ),
+			  ]
+			: [] ),
+	],
+} );
