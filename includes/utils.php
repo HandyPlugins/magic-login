@@ -235,6 +235,11 @@ function get_settings() {
 			'site_key'   => '',
 			'secret_key' => '',
 		],
+		'friendly_captcha'              => [
+			'site_key'   => '',
+			'secret_key' => '',
+			'endpoint'   => 'global',
+		],
 		'enable_rest_api'               => false,
 		'enable_api_rate_limit'         => false,
 		'rate_limit_max_requests'       => 60,

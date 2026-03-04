@@ -20,21 +20,21 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 <div role="tabpanel" tabindex="0" id="spam_protection__content" class="sui-tab-content magic-login-main-tab-content sui-disabled" aria-labelledby="spam_protection__tab">
 	<div class="sui-box-settings-row sui-disabled">
-		<div class="sui-box-settings-col-1">
-			<span class="sui-settings-label" id="spam_protection_service_label"><?php esc_html_e( 'Spam Protection Service', 'magic-login' ); ?></span>
-			<span class="sui-description">
-				<?php esc_html_e( 'A CAPTCHA is an anti-spam technique which helps to protect your website from spam and abuse.', 'magic-login' ); ?>
-				<?php esc_html_e( 'Magic Login currently supports both reCAPTCHA and Cloudflare Turnstile if you do not want to use captcha service.', 'magic-login' ); ?>
-				<?php
-				echo wp_kses_post(
-					sprintf(
-					/* translators: 1: Documentation URL 2: 'Learn More' text */
-						__( '<a href="%1$s" target="_blank" rel="noopener">%2$s</a>', 'magic-login' ),
-						get_doc_url( 'docs/magic-login-spam-protection/' ),
-						__( 'Learn More.', 'magic-login' )
-					)
-				);
-				?>
+			<div class="sui-box-settings-col-1">
+				<span class="sui-settings-label" id="spam_protection_service_label"><?php esc_html_e( 'Spam Protection Service', 'magic-login' ); ?></span>
+				<span class="sui-description">
+					<?php esc_html_e( 'A CAPTCHA is an anti-spam technique which helps to protect your website from spam and abuse.', 'magic-login' ); ?>
+					<?php esc_html_e( 'Magic Login currently supports reCAPTCHA, Cloudflare Turnstile, and Friendly Captcha.', 'magic-login' ); ?>
+					<?php
+					echo wp_kses_post(
+						sprintf(
+                        /* translators: 1: Documentation URL 2: 'Learn More' text */
+                            __( '<a href="%1$s" target="_blank" rel="noopener">%2$s</a>', 'magic-login' ),
+                            get_doc_url( 'docs/magic-login-spam-protection/' ),
+                            __( 'Learn More.', 'magic-login' )
+                        )
+					);
+					?>
 			</span>
 		</div>
 
@@ -57,9 +57,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 							</span>
 						</label>
 					</li>
-					<li>
-						<label for="cf_turnstile" class="sui-box-selector">
-							<input
+						<li>
+							<label for="cf_turnstile" class="sui-box-selector">
+								<input
 								<?php checked( $settings['spam_protection']['service'], 'cf_turnstile' ); ?>
 								type="radio"
 								name="spam_protection_service"
@@ -70,11 +70,27 @@ if ( ! defined( 'ABSPATH' ) ) {
 							>
 							<span aria-hidden="true">
 								<span id="cf_turnstile-label" aria-hidden="true"><?php esc_html_e( 'Cloudflare Turnstile', 'magic-login' ); ?></span>
-							</span>
-						</label>
-					</li>
-				</ul>
-			</div>
+								</span>
+							</label>
+						</li>
+						<li>
+							<label for="friendly_captcha" class="sui-box-selector">
+								<input
+									<?php checked( $settings['spam_protection']['service'], 'friendly_captcha' ); ?>
+									type="radio"
+									name="spam_protection_service"
+									value="friendly_captcha"
+									id="friendly_captcha"
+									aria-labelledby="friendly_captcha-label"
+									aria-controls="friendly_captcha-details"
+								>
+								<span aria-hidden="true">
+									<span id="friendly_captcha-label" aria-hidden="true"><?php esc_html_e( 'Friendly Captcha', 'magic-login' ); ?></span>
+								</span>
+							</label>
+						</li>
+					</ul>
+				</div>
 
 			<div class="sui-form-field">
 				<div id="recaptcha-details" class="spam-protection-service-settings" style=" <?php echo( 'recaptcha' !== $settings['spam_protection']['service'] ? 'display:none' : '' ); ?>" tabindex="0">
@@ -259,9 +275,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 					</div>
 				</div>
 
-				<div id="cf_turnstile-details" class="spam-protection-service-settings " style=" <?php echo( 'cf_turnstile' !== $settings['spam_protection']['service'] ? 'display:none' : '' ); ?>" tabindex="0">
-					<div class="sui-tabs sui-side-tabs">
-						<div class="sui-tabs-content">
+					<div id="cf_turnstile-details" class="spam-protection-service-settings " style=" <?php echo( 'cf_turnstile' !== $settings['spam_protection']['service'] ? 'display:none' : '' ); ?>" tabindex="0">
+						<div class="sui-tabs sui-side-tabs">
+							<div class="sui-tabs-content">
 							<div class="sui-tab-content sui-tab-boxed active">
 								<span class="sui-settings-label"><?php esc_html_e( 'Cloudflare Turnstile API Keys', 'magic-login' ); ?></span>
 								<span class="sui-description">
@@ -299,12 +315,76 @@ if ( ! defined( 'ABSPATH' ) ) {
 								</div>
 
 							</div>
+							</div>
 						</div>
 					</div>
-				</div>
 
+					<div id="friendly_captcha-details" class="spam-protection-service-settings " style=" <?php echo( 'friendly_captcha' !== $settings['spam_protection']['service'] ? 'display:none' : '' ); ?>" tabindex="0">
+						<div class="sui-tabs sui-side-tabs">
+							<div class="sui-tabs-content">
+								<div class="sui-tab-content sui-tab-boxed active">
+									<span class="sui-settings-label"><?php esc_html_e( 'Friendly Captcha API Keys', 'magic-login' ); ?></span>
+									<span class="sui-description">
+										<?php
+										printf(
+										/* Translators: 1. Opening <a> tag with link to Friendly Captcha docs, 2. closing <a> tag. */
+											esc_html__( 'Enter the API keys for Friendly Captcha. %1$sLearn More%2$s', 'magic-login' ),
+											'<a href="https://friendlycaptcha.com/docs/"  rel="noopener" target="_blank">',
+											'</a>'
+										);
+										?>
+									</span>
+									<div class="sui-form-field">
+										<label for="friendly_captcha_key" id="friendly_captcha_key_label" class="sui-label"><?php esc_html_e( 'Site Key', 'magic-login' ); ?></label>
+										<input type="text"
+										       name="friendly_captcha_key"
+										       placeholder="<?php esc_attr_e( 'Enter your site key here', 'magic-login' ); ?>"
+										       value="<?php echo esc_attr( $settings['friendly_captcha']['site_key'] ); ?>"
+										       id="friendly_captcha_key"
+										       class="sui-form-control"
+										       aria-labelledby="friendly_captcha_key_label"
+										>
+									</div>
+
+									<div class="sui-form-field">
+										<label for="friendly_captcha_secret" id="friendly_captcha_secret_label" class="sui-label"><?php esc_html_e( 'API Key', 'magic-login' ); ?></label>
+										<input type="text"
+										       name="friendly_captcha_secret"
+										       placeholder="<?php esc_attr_e( 'Enter your API key here', 'magic-login' ); ?>"
+										       value="<?php echo esc_attr( mask_string( \MagicLogin\Utils\get_decrypted_value( $settings['friendly_captcha']['secret_key'] ), 5 ) ); ?>"
+										       id="friendly_captcha_secret"
+										       class="sui-form-control"
+										       aria-labelledby="friendly_captcha_secret_label"
+										>
+									</div>
+
+									<div class="sui-form-field">
+										<label for="friendly_captcha_endpoint" id="friendly_captcha_endpoint_label" class="sui-label"><?php esc_html_e( 'API Endpoint', 'magic-login' ); ?></label>
+										<select
+											name="friendly_captcha_endpoint"
+											id="friendly_captcha_endpoint"
+											class="sui-select"
+											aria-labelledby="friendly_captcha_endpoint_label"
+										>
+											<option value="global" <?php selected( $settings['friendly_captcha']['endpoint'], 'global' ); ?>>
+												<?php esc_html_e( 'Global endpoint', 'magic-login' ); ?>
+											</option>
+											<option value="eu" <?php selected( $settings['friendly_captcha']['endpoint'], 'eu' ); ?>>
+												<?php esc_html_e( 'EU endpoint', 'magic-login' ); ?>
+											</option>
+										</select>
+										<span class="sui-description">
+											<?php esc_html_e( 'Use Global endpoint by default. Select EU endpoint if your Friendly Captcha plan supports EU-only processing.', 'magic-login' ); ?>
+										</span>
+									</div>
+
+								</div>
+							</div>
+						</div>
+					</div>
+
+				</div>
 			</div>
-		</div>
 	</div>
 
 	<div class="sui-box-settings-row sui-disabled">
