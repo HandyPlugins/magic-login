@@ -123,6 +123,7 @@ function render_login_block( $args ) {
 
 	if ( $settings['enable_ajax'] ) {
 		wp_enqueue_script( 'magic-login-frontend', MAGIC_LOGIN_URL . 'dist/js/frontend.js', [ 'jquery' ], MAGIC_LOGIN_VERSION, true );
+		\MagicLogin\Utils\localize_frontend_script();
 	}
 
 	$form_action = apply_filters( 'magic_login_login_block_form_action', '' );
@@ -188,7 +189,7 @@ function render_login_block( $args ) {
 			<?php CodeLogin::code_form(); ?>
 		<?php elseif ( $login_request['show_form'] ) : ?>
 			<form name="magicloginform" class="block-login-form" id="magicloginform" action="<?php echo esc_url( $form_action ); ?>" method="post" autocomplete="off" data-ajax-url="<?php echo esc_url( admin_url( 'admin-ajax.php' ) ); ?>" data-ajax-spinner="<?php echo esc_url( get_admin_url() . 'images/spinner.gif' ); ?>" data-ajax-sending-msg="<?php esc_attr_e( 'Sending...', 'magic-login' ); ?>">
-			<div class="magicloginform-inner">
+				<div class="magicloginform-inner">
 					<?php if ( ! empty( $args['loginLabel'] ) ) : ?>
 						<label for="user_login"><?php echo esc_html( $args['loginLabel'] ); ?></label>
 					<?php endif; ?>

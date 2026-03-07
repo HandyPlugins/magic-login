@@ -130,6 +130,29 @@ function create_login_link( $user, $context = 'email', $redirect_to = null ) {
 }
 
 /**
+ * Localize the frontend script with AJAX nonce data.
+ *
+ * @return void
+ */
+function localize_frontend_script() {
+	static $localized = false;
+
+	if ( $localized ) {
+		return;
+	}
+
+	wp_localize_script(
+		'magic-login-frontend',
+		'magicLoginFrontend',
+		[
+			'ajaxNonce' => wp_create_nonce( 'magic-login-ajax-request' ),
+		]
+	);
+
+	$localized = true;
+}
+
+/**
  * Get client raw ip
  * this should be hashed
  *

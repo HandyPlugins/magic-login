@@ -72,6 +72,7 @@ function shortcode_login_form( $shortcode_atts ) {
 
 	if ( $settings['enable_ajax'] ) {
 		wp_enqueue_script( 'magic-login-frontend', MAGIC_LOGIN_URL . 'dist/js/frontend.js', [ 'jquery' ], MAGIC_LOGIN_VERSION, true );
+		\MagicLogin\Utils\localize_frontend_script();
 	}
 
 	$add_redirection_field = empty( $settings['enable_login_redirection'] ) || empty( $settings['enforce_redirection_rules'] );

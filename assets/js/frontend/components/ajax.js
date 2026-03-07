@@ -12,8 +12,8 @@ window.magicLoginAjaxEnabled = true;
 			{
 				beforeSend() {
 					// show spinner
-					const spinnerImg = '<img src="' + $form.data('ajax-spinner') + '" alt="'+ $form.data('ajax-sending-msg') +'" class="magic-login-spinner-image" />';
-					const spinnerMessage = '<span class="magic-login-spinner-message">'+$form.data('ajax-sending-msg')+'</span>';
+					const spinnerImg = '<img src="' + $form.data('ajax-spinner') + '" alt="' + $form.data('ajax-sending-msg') + '" class="magic-login-spinner-image" />';
+					const spinnerMessage = '<span class="magic-login-spinner-message">' + $form.data('ajax-sending-msg') + '</span>';
 					const spinnerHtml = '<div class="magic-login-spinner-container">' + spinnerImg + spinnerMessage + '</div>';
 
 					$('.magic-login-form-header').html(spinnerHtml);
@@ -25,7 +25,8 @@ window.magicLoginAjaxEnabled = true;
 					$form.trigger('magic-login:login:before-send');
 				},
 				action: 'magic_login_ajax_request',
-				data: $('#magicloginform').serialize(),
+				magic_login_ajax_nonce: window.magicLoginFrontend && window.magicLoginFrontend.ajaxNonce ? window.magicLoginFrontend.ajaxNonce : '',
+				data: $form.serialize(),
 			},
 			function (response) {
 				$('.magic-login-form-header').html(response.data.message);

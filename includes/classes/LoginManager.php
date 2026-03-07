@@ -140,6 +140,16 @@ class LoginManager {
 			);
 		}
 
+		if ( false === check_ajax_referer( 'magic-login-ajax-request', 'magic_login_ajax_nonce', false ) ) {
+			wp_send_json_error(
+				[
+					'message'                => esc_html__( 'Invalid request', 'magic-login' ),
+					'show_form'              => true,
+					'show_registration_form' => false,
+				]
+			);
+		}
+
 		parse_str( wp_unslash( $_POST['data'] ), $form_data ); // phpcs:ignore WordPress.Security.ValidatedSanitizedInput.InputNotSanitized
 
 		$global_data = [ 'log', 'redirect_to', 'g-recaptcha-response', 'cf-turnstile-response' ];
