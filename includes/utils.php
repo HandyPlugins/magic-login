@@ -40,7 +40,13 @@ function create_user_token( $user, $context = 'email' ) {
 			$new_token = wp_rand( 100000, 999999 );
 			break;
 		case 'email_code':
-			$new_token = strtoupper( substr( str_shuffle( 'ABCDEFGHJKLMNPQRSTUVWXYZ23456789' ), 0, 10 ) );
+			$charset        = 'ABCDEFGHJKLMNPQRSTUVWXYZ23456789';
+			$charset_length = strlen( $charset ) - 1;
+			$new_token      = '';
+
+			for ( $i = 0; $i < 10; $i++ ) {
+				$new_token .= $charset[ wp_rand( 0, $charset_length ) ];
+			}
 			break;
 	}
 
