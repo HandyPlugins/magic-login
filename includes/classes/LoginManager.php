@@ -831,6 +831,7 @@ class LoginManager {
 
 		$redirect_to    = apply_filters( 'login_redirect', $redirect_to, $requested_redirect_to, $user );
 		$login_redirect = apply_filters( 'magic_login_redirect', $redirect_to, $user );
+		$login_redirect = wp_validate_redirect( $login_redirect, home_url() );
 
 		// Return early if in code login mode.
 		if ( $code_login ) {
