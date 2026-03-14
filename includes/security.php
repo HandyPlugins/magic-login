@@ -40,7 +40,7 @@ function maybe_enforce_login_request_failsafe( $result, $user = null ) {
 		return $result;
 	}
 
-	$limit = defined( 'MAGIC_LOGIN_REQUEST_FAILSAFE_LIMIT' ) ? absint( MAGIC_LOGIN_REQUEST_FAILSAFE_LIMIT ) : 100;
+	$limit = defined( 'MAGIC_LOGIN_REQUEST_FAILSAFE_LIMIT' ) ? absint( MAGIC_LOGIN_REQUEST_FAILSAFE_LIMIT ) : 60;
 	$limit = absint( apply_filters( 'magic_login_request_failsafe_limit', $limit, $user ) );
 
 	if ( $limit < 1 ) {
@@ -81,7 +81,7 @@ function observe_login_request_failsafe( $user = null ) {
 		return;
 	}
 
-	$limit = defined( 'MAGIC_LOGIN_REQUEST_FAILSAFE_LIMIT' ) ? absint( MAGIC_LOGIN_REQUEST_FAILSAFE_LIMIT ) : 100;
+	$limit = defined( 'MAGIC_LOGIN_REQUEST_FAILSAFE_LIMIT' ) ? absint( MAGIC_LOGIN_REQUEST_FAILSAFE_LIMIT ) : 60;
 	$limit = absint( apply_filters( 'magic_login_request_failsafe_limit', $limit, $user ) );
 
 	if ( $limit < 1 ) {
