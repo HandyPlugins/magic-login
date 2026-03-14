@@ -86,6 +86,7 @@ require_once MAGIC_LOGIN_INC . 'constants.php';
 require_once MAGIC_LOGIN_INC . 'utils.php';
 require_once MAGIC_LOGIN_INC . 'core.php';
 require_once MAGIC_LOGIN_INC . 'login.php';
+require_once MAGIC_LOGIN_INC . 'security.php';
 require_once MAGIC_LOGIN_INC . 'admin/dashboard.php';
 require_once MAGIC_LOGIN_INC . 'shortcode.php';
 require_once MAGIC_LOGIN_INC . 'block.php';
@@ -105,6 +106,7 @@ function setup_magic_login() {
 	// Bootstrap.
 	Core\setup();
 	LoginManager::setup();
+	Security\setup();
 	Shortcode\setup();
 	Block\setup();
 	Admin\Dashboard\setup();

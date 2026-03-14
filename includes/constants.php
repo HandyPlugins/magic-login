@@ -11,6 +11,9 @@ const TOKEN_USER_META = 'magic_login_token';
 const SETTING_OPTION  = 'magic_login_settings';
 const CRON_HOOK_NAME  = 'magic_login_cleanup_expired_tokens';
 
+// transients
+const LOGIN_REQUEST_FAILSAFE_TRANSIENT_PREFIX = 'ml_failsafe_email_track_';
+
 
 // urls
 const DOCS_URL    = 'https://handyplugins.co/docs-category/magic-login-pro/';
