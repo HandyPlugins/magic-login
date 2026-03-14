@@ -2,14 +2,14 @@
 # This file is distributed under the GPL v2 or later.
 msgid ""
 msgstr ""
-"Project-Id-Version: Magic Login 2.6.3\n"
+"Project-Id-Version: Magic Login 2.7\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/magic-login\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2026-02-18T10:36:19+00:00\n"
+"POT-Creation-Date: 2026-03-14T20:33:16+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.12.0\n"
 "X-Domain: magic-login\n"
@@ -540,7 +540,7 @@ msgstr ""
 #: includes/admin/partials/tabs/login.php:958
 #: includes/admin/partials/tabs/registration.php:435
 #: includes/admin/partials/tabs/sms.php:366
-#: includes/admin/partials/tabs/spam-protection.php:356
+#: includes/admin/partials/tabs/spam-protection.php:436
 msgid "Try Magic Login Pro Today"
 msgstr ""
 
@@ -809,7 +809,7 @@ msgid "A CAPTCHA is an anti-spam technique which helps to protect your website f
 msgstr ""
 
 #: includes/admin/partials/tabs/spam-protection.php:27
-msgid "Magic Login currently supports both reCAPTCHA and Cloudflare Turnstile if you do not want to use captcha service."
+msgid "Magic Login currently supports reCAPTCHA, Cloudflare Turnstile, and Friendly Captcha."
 msgstr ""
 
 #: includes/admin/partials/tabs/spam-protection.php:56
@@ -820,99 +820,139 @@ msgstr ""
 msgid "Cloudflare Turnstile"
 msgstr ""
 
-#: includes/admin/partials/tabs/spam-protection.php:83
+#: includes/admin/partials/tabs/spam-protection.php:88
+msgid "Friendly Captcha"
+msgstr ""
+
+#: includes/admin/partials/tabs/spam-protection.php:99
 msgid "reCaptcha API Keys"
 msgstr ""
 
 #. Translators: 1. Opening <a> tag with link to Google recaptcha, 2. closing <a> tag.
-#: includes/admin/partials/tabs/spam-protection.php:88
+#: includes/admin/partials/tabs/spam-protection.php:104
 #, php-format
 msgid "Enter the API keys for each reCAPTCHA type you want to use in your forms. Note that each reCAPTCHA type requires a different set of API keys. %1$sGenerate API keys%2$s"
 msgstr ""
 
-#: includes/admin/partials/tabs/spam-protection.php:105
-#: includes/admin/partials/tabs/spam-protection.php:112
+#: includes/admin/partials/tabs/spam-protection.php:121
+#: includes/admin/partials/tabs/spam-protection.php:128
 msgid "v2 Checkbox"
 msgstr ""
 
-#: includes/admin/partials/tabs/spam-protection.php:124
-#: includes/admin/partials/tabs/spam-protection.php:131
+#: includes/admin/partials/tabs/spam-protection.php:140
+#: includes/admin/partials/tabs/spam-protection.php:147
 msgid "v2 Invisible"
 msgstr ""
 
-#: includes/admin/partials/tabs/spam-protection.php:141
-#: includes/admin/partials/tabs/spam-protection.php:148
+#: includes/admin/partials/tabs/spam-protection.php:157
+#: includes/admin/partials/tabs/spam-protection.php:164
 msgid "v3 reCaptcha"
 msgstr ""
 
-#: includes/admin/partials/tabs/spam-protection.php:159
+#: includes/admin/partials/tabs/spam-protection.php:175
 msgid "Enter the API keys for reCAPTCHA v2 Checkbox type below:"
 msgstr ""
 
-#: includes/admin/partials/tabs/spam-protection.php:162
-#: includes/admin/partials/tabs/spam-protection.php:195
-#: includes/admin/partials/tabs/spam-protection.php:228
-#: includes/admin/partials/tabs/spam-protection.php:278
+#: includes/admin/partials/tabs/spam-protection.php:178
+#: includes/admin/partials/tabs/spam-protection.php:211
+#: includes/admin/partials/tabs/spam-protection.php:244
+#: includes/admin/partials/tabs/spam-protection.php:294
+#: includes/admin/partials/tabs/spam-protection.php:338
 msgid "Site Key"
 msgstr ""
 
-#: includes/admin/partials/tabs/spam-protection.php:166
-#: includes/admin/partials/tabs/spam-protection.php:199
-#: includes/admin/partials/tabs/spam-protection.php:232
+#: includes/admin/partials/tabs/spam-protection.php:182
+#: includes/admin/partials/tabs/spam-protection.php:215
+#: includes/admin/partials/tabs/spam-protection.php:248
+#: includes/admin/partials/tabs/spam-protection.php:341
 msgid "Enter your site key here"
 msgstr ""
 
-#: includes/admin/partials/tabs/spam-protection.php:175
-#: includes/admin/partials/tabs/spam-protection.php:208
-#: includes/admin/partials/tabs/spam-protection.php:241
+#: includes/admin/partials/tabs/spam-protection.php:191
+#: includes/admin/partials/tabs/spam-protection.php:224
+#: includes/admin/partials/tabs/spam-protection.php:257
 msgid "Secret Key"
 msgstr ""
 
-#: includes/admin/partials/tabs/spam-protection.php:179
-#: includes/admin/partials/tabs/spam-protection.php:212
-#: includes/admin/partials/tabs/spam-protection.php:245
+#: includes/admin/partials/tabs/spam-protection.php:195
+#: includes/admin/partials/tabs/spam-protection.php:228
+#: includes/admin/partials/tabs/spam-protection.php:261
 msgid "Enter your secret key here"
 msgstr ""
 
-#: includes/admin/partials/tabs/spam-protection.php:192
+#: includes/admin/partials/tabs/spam-protection.php:208
 msgid "Enter the API keys for reCAPTCHA v2 Invisible type below:"
 msgstr ""
 
-#: includes/admin/partials/tabs/spam-protection.php:225
+#: includes/admin/partials/tabs/spam-protection.php:241
 msgid "Enter the API keys for reCAPTCHA v3 type below:"
 msgstr ""
 
-#: includes/admin/partials/tabs/spam-protection.php:266
+#: includes/admin/partials/tabs/spam-protection.php:282
 msgid "Cloudflare Turnstile API Keys"
 msgstr ""
 
 #. Translators: 1. Opening <a> tag with link to Cloudflare Turnstile, 2. closing <a> tag.
-#: includes/admin/partials/tabs/spam-protection.php:271
+#: includes/admin/partials/tabs/spam-protection.php:287
 #, php-format
 msgid "Enter the API keys for Cloudflare Turnstile. %1$sLearn More%2$s"
 msgstr ""
 
-#: includes/admin/partials/tabs/spam-protection.php:290
+#: includes/admin/partials/tabs/spam-protection.php:306
 msgid "Site Secret"
 msgstr ""
 
-#: includes/admin/partials/tabs/spam-protection.php:293
+#: includes/admin/partials/tabs/spam-protection.php:309
 msgid "Enter your site secret here"
 msgstr ""
 
-#: includes/admin/partials/tabs/spam-protection.php:312
+#: includes/admin/partials/tabs/spam-protection.php:326
+msgid "Friendly Captcha API Keys"
+msgstr ""
+
+#. Translators: 1. Opening <a> tag with link to Friendly Captcha docs, 2. closing <a> tag.
+#: includes/admin/partials/tabs/spam-protection.php:331
+#, php-format
+msgid "Enter the API keys for Friendly Captcha. %1$sLearn More%2$s"
+msgstr ""
+
+#: includes/admin/partials/tabs/spam-protection.php:350
+msgid "API Key"
+msgstr ""
+
+#: includes/admin/partials/tabs/spam-protection.php:353
+msgid "Enter your API key here"
+msgstr ""
+
+#: includes/admin/partials/tabs/spam-protection.php:362
+msgid "API Endpoint"
+msgstr ""
+
+#: includes/admin/partials/tabs/spam-protection.php:370
+msgid "Global endpoint"
+msgstr ""
+
+#: includes/admin/partials/tabs/spam-protection.php:373
+msgid "EU endpoint"
+msgstr ""
+
+#: includes/admin/partials/tabs/spam-protection.php:377
+msgid "Use Global endpoint by default. Select EU endpoint if your Friendly Captcha plan supports EU-only processing."
+msgstr ""
+
+#: includes/admin/partials/tabs/spam-protection.php:392
 msgid "Spam Protection for Registration"
 msgstr ""
 
-#: includes/admin/partials/tabs/spam-protection.php:325
+#: includes/admin/partials/tabs/spam-protection.php:405
 msgid "Enable spam protection for registration form."
 msgstr ""
 
-#: includes/admin/partials/tabs/spam-protection.php:333
+#: includes/admin/partials/tabs/spam-protection.php:413
 msgid "Spam Protection for Login"
 msgstr ""
 
-#: includes/admin/partials/tabs/spam-protection.php:346
+#: includes/admin/partials/tabs/spam-protection.php:426
 msgid "Enable spam protection for login form."
 msgstr ""
 
@@ -994,29 +1034,29 @@ msgid "Login with Email"
 msgstr ""
 
 #: includes/block.php:76
-#: includes/classes/LoginManager.php:886
+#: includes/classes/LoginManager.php:897
 #: assets/js/admin/login-block.js:36
 msgid "Please enter your username or email address. You will receive an email message to log in."
 msgstr ""
 
 #: includes/block.php:80
-#: includes/classes/LoginManager.php:943
-#: includes/shortcode.php:129
+#: includes/classes/LoginManager.php:954
+#: includes/shortcode.php:130
 #: assets/js/admin/login-block.js:43
 msgid "Username or Email Address"
 msgstr ""
 
 #: includes/block.php:84
-#: includes/classes/LoginManager.php:958
-#: includes/shortcode.php:82
+#: includes/classes/LoginManager.php:969
+#: includes/shortcode.php:83
 #: assets/js/admin/login-block.js:47
 msgid "Send me the link"
 msgstr ""
 
-#: includes/block.php:190
+#: includes/block.php:191
 #: includes/classes/CodeLogin.php:183
-#: includes/classes/LoginManager.php:936
-#: includes/shortcode.php:121
+#: includes/classes/LoginManager.php:947
+#: includes/shortcode.php:122
 msgid "Sending..."
 msgstr ""
 
@@ -1029,7 +1069,7 @@ msgid "Login successful! You will be redirected shortly."
 msgstr ""
 
 #: includes/classes/CodeLogin.php:184
-#: includes/classes/LoginManager.php:937
+#: includes/classes/LoginManager.php:948
 msgid "Please verify that you are not a robot."
 msgstr ""
 
@@ -1046,113 +1086,118 @@ msgid "Cancel"
 msgstr ""
 
 #: includes/classes/LoginManager.php:136
+#: includes/classes/LoginManager.php:146
 msgid "Invalid request"
 msgstr ""
 
 #. translators: %s: The magic login link
-#: includes/classes/LoginManager.php:318
+#: includes/classes/LoginManager.php:328
 #, php-format
 msgid "<a href=\"%s\" target=\"_blank\" rel=\"noopener\">Click here to login</a>."
 msgstr ""
 
 #. translators: %s: The magic login link
-#: includes/classes/LoginManager.php:322
+#: includes/classes/LoginManager.php:332
 #, php-format
 msgid "Auto Login: %s"
 msgstr ""
 
 #. translators: 1: TTL value (number) 2: Unit (minute(s), hour(s), days(s))
-#: includes/classes/LoginManager.php:328
+#: includes/classes/LoginManager.php:338
 #, php-format
 msgid "Login link will expire in %1$s %2$s."
 msgstr ""
 
-#: includes/classes/LoginManager.php:542
+#: includes/classes/LoginManager.php:552
 msgid "or"
 msgstr ""
 
-#: includes/classes/LoginManager.php:627
+#: includes/classes/LoginManager.php:637
 msgid "Log In"
 msgstr ""
 
-#: includes/classes/LoginManager.php:632
+#: includes/classes/LoginManager.php:642
 msgid "Send me the login link"
 msgstr ""
 
-#: includes/classes/LoginManager.php:727
+#: includes/classes/LoginManager.php:737
 #, php-format
 msgid "Invalid magic login token, but you are logged in as '%1$s'. <a href=\"%2$s\">Go to the dashboard instead</a>?"
 msgstr ""
 
-#: includes/classes/LoginManager.php:734
+#: includes/classes/LoginManager.php:744
 #, php-format
 msgid "Invalid magic login token. <a href=\"%s\">Try signing in instead</a>?"
 msgstr ""
 
-#: includes/classes/LoginManager.php:741
+#: includes/classes/LoginManager.php:751
 #, php-format
 msgid "Invalid magic login token. Please try to create <a href=\"%s\">a new login link</a>?"
 msgstr ""
 
-#: includes/classes/LoginManager.php:749
+#: includes/classes/LoginManager.php:759
 msgid "Invalid login code."
 msgstr ""
 
-#: includes/classes/LoginManager.php:842
+#: includes/classes/LoginManager.php:853
 msgid "Log in"
 msgstr ""
 
-#: includes/classes/LoginManager.php:885
+#: includes/classes/LoginManager.php:896
 msgid "Please enter your username. You will receive an email message to log in."
 msgstr ""
 
-#: includes/classes/LoginManager.php:941
-#: includes/shortcode.php:127
+#: includes/classes/LoginManager.php:952
+#: includes/shortcode.php:128
 msgid "Username"
 msgstr ""
 
-#: includes/classes/LoginManager.php:1050
+#: includes/classes/LoginManager.php:1061
 msgid "There is no account with that username."
 msgstr ""
 
-#: includes/classes/LoginManager.php:1052
+#: includes/classes/LoginManager.php:1063
 msgid "There is no account with that username or email address."
 msgstr ""
 
-#: includes/classes/LoginManager.php:1056
+#: includes/classes/LoginManager.php:1067
 msgid "Unable to process your request. Please try again."
 msgstr ""
 
-#: includes/classes/LoginManager.php:1095
+#: includes/classes/LoginManager.php:1106
 msgid "Please check your inbox for the login link. If you did not receive a login email, check your spam folder too."
 msgstr ""
 
-#: includes/classes/LoginManager.php:1098
+#: includes/classes/LoginManager.php:1109
 msgid "Please check your phone for the login link."
 msgstr ""
 
-#: includes/classes/LoginManager.php:1106
+#: includes/classes/LoginManager.php:1117
 msgid "Please enter the code sent to your email."
 msgstr ""
 
-#: includes/utils.php:185
+#: includes/security.php:66
+msgid "We have already sent several login emails recently. Please check your inbox and spam folder before requesting another link."
+msgstr ""
+
+#: includes/utils.php:214
 msgid "Log in to {{SITENAME}}"
 msgstr ""
 
-#: includes/utils.php:206
+#: includes/utils.php:235
 msgid "Welcome to {{SITENAME}}"
 msgstr ""
 
-#: includes/utils.php:259
+#: includes/utils.php:293
 msgid "Here is your login code: {{MAGIC_LOGIN_CODE}}. It will expire in {{EXPIRES_WITH_INTERVAL}}."
 msgstr ""
 
-#: includes/utils.php:261
+#: includes/utils.php:295
 msgid "Welcome {{FULL_NAME}}! Your account on {{SITENAME}} has been created. You can login here: {{MAGIC_LINK}}."
 msgstr ""
 
 #. translators: Do not translate USERNAME, SITENAME,EXPIRES, MAGIC_LINK, SITENAME, SITEUR, EXPIRES_WITH_INTERVAL: those are placeholders.
-#: includes/utils.php:284
+#: includes/utils.php:318
 msgid ""
 "Hi {{USERNAME}},\n"
 "\n"
@@ -1170,19 +1215,19 @@ msgid ""
 "{{SITEURL}}"
 msgstr ""
 
-#: includes/utils.php:448
+#: includes/utils.php:482
 msgid "Minute(s)"
 msgstr ""
 
-#: includes/utils.php:449
+#: includes/utils.php:483
 msgid "Hour(s)"
 msgstr ""
 
-#: includes/utils.php:450
+#: includes/utils.php:484
 msgid "Day(s)"
 msgstr ""
 
-#: includes/utils.php:676
+#: includes/utils.php:710
 msgid ""
 "Hi there,\n"
 "<br><br>\n"
