@@ -2,9 +2,9 @@
 Contributors:      handyplugins, m_uysl
 Tags:              login, passwordless, passwordless-login, magic-login, magic-link
 Requires at least: 5.0
-Tested up to:      6.9
+Tested up to:      7.0
 Requires PHP:      7.4
-Stable tag:        2.6.3
+Stable tag:        2.7
 License:           GPLv2 or later
 License URI:       http://www.gnu.org/licenses/gpl-2.0.html
 Donate link:       https://handyplugins.co/donate/
@@ -53,6 +53,7 @@ Here are the premium features that come with Magic Login Pro:
 - __FluentCRM Integration:__ Send magic login links directly via FluentCRM. [Learn more](https://handyplugins.co/docs/magic-login-fluent-crm/).
 - __reCAPTCHA Integration:__ Safeguard your login and registration forms from spam with Google reCAPTCHA. [Learn more](https://handyplugins.co/docs/magic-login-spam-protection/#1-toc-title).
 - __Cloudflare Turnstile Integration:__ Enhance spam protection for your login and registration forms using Cloudflare Turnstile. [Learn more](https://handyplugins.co/docs/magic-login-spam-protection/#2-toc-title).
+- __Friendly Captcha Integration:__ Protect your login and registration forms from bots with privacy-friendly Friendly Captcha. [Learn more](https://handyplugins.co/docs/magic-login-spam-protection/#3-toc-title).
 - __API Support:__ Integrate Magic Login with your custom applications using the REST API.
 
 By upgrading to Magic Login Pro you also get access to one-on-one help from our knowledgeable support team and our extensive documentation site.
@@ -120,6 +121,16 @@ However, if you wish to alter this behavior, you can easily do so by passing an 
 4. Login Block
 
 == Changelog ==
+
+= 2.7 (Mar 14, 2026) =
+* [Added] Friendly captcha. (UI)
+* [Improved] Load fonts locally to enhance privacy.
+* [Improved] Added nonce validation to AJAX-based login requests.
+* [Improved] Added final login redirect validation for both standard and AJAX login flows.
+* [Improved] Strengthened the randomness used for generated email login codes.
+* [Added] Added a per-user safeguard to limit repeated login emails for the same account.
+* [Updated] Dependencies.
+* Tested with WP 7.0
 
 = 2.6.3 (Feb 18, 2026) =
 * [Updated] Dependencies.
