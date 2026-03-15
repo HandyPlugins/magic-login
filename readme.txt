@@ -4,7 +4,7 @@ Tags:              login, passwordless, passwordless-login, magic-login, magic-l
 Requires at least: 5.0
 Tested up to:      7.0
 Requires PHP:      7.4
-Stable tag:        2.7
+Stable tag:        2.7.1
 License:           GPLv2 or later
 License URI:       http://www.gnu.org/licenses/gpl-2.0.html
 Donate link:       https://handyplugins.co/donate/
@@ -121,6 +121,9 @@ However, if you wish to alter this behavior, you can easily do so by passing an 
 4. Login Block
 
 == Changelog ==
+
+= 2.7.1 (Mar 15, 2026) =
+* [Fixed] Settings import failing on some sites due to restricted MIME type filters when uploading JSON files.
 
 = 2.7 (Mar 14, 2026) =
 * [Added] Friendly captcha. (UI)
