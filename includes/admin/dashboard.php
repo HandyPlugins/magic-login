@@ -243,16 +243,12 @@ function import_settings() {
 	}
 
 	// Prepare sanitized file values.
-	$file_tmp_name = sanitize_text_field( wp_unslash( $_FILES['import_file']['tmp_name'] ) );
-	$file_name     = sanitize_file_name( wp_unslash( $_FILES['import_file']['name'] ) );
+	$file_name = sanitize_file_name( wp_unslash( $_FILES['import_file']['name'] ) );
 
 	// Validate file extension and MIME type.
-	$file_info = wp_check_filetype_and_ext(
-		$file_tmp_name,
+	$file_info = wp_check_filetype(
 		$file_name,
-		array(
-			'json' => 'application/json',
-		)
+		array( 'json' => 'application/json' )
 	);
 
 	if ( ! $file_info['ext'] || 'json' !== $file_info['ext'] ) {
