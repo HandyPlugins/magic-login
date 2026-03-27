@@ -244,6 +244,7 @@ function get_settings() {
 			'service'             => 'recaptcha',
 			'enable_login'        => false,
 			'enable_registration' => false,
+			'enable_honeypot'     => false,
 		],
 		'recaptcha'                     => [
 			'type'         => 'v3', // which version to use

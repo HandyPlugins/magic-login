@@ -13,6 +13,8 @@ use function MagicLogin\Utils\get_user_by_log_input;
 use function MagicLogin\Utils\get_wp_login_url;
 use function MagicLogin\Utils\get_ttl_by_user;
 use const MagicLogin\Constants\CRON_HOOK_NAME;
+use const MagicLogin\Constants\HONEYPOT_BAIT_FIELD_PREFIX;
+use const MagicLogin\Constants\HONEYPOT_PAYLOAD_FIELD;
 use const MagicLogin\Constants\TOKEN_USER_META;
 use function MagicLogin\Utils\create_login_link;
 use function MagicLogin\Utils\get_allowed_intervals;
@@ -158,6 +160,12 @@ class LoginManager {
 		foreach ( $global_data as $key ) {
 			if ( isset( $form_data[ $key ] ) ) {
 				$_POST[ $key ] = $form_data[ $key ];
+			}
+		}
+
+		foreach ( $form_data as $key => $value ) {
+			if ( HONEYPOT_PAYLOAD_FIELD === $key || 0 === strpos( $key, HONEYPOT_BAIT_FIELD_PREFIX ) ) {
+				$_POST[ $key ] = $value;
 			}
 		}
 

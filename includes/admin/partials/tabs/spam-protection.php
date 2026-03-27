@@ -18,7 +18,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 ?>
 
-<div role="tabpanel" tabindex="0" id="spam_protection__content" class="sui-tab-content magic-login-main-tab-content sui-disabled" aria-labelledby="spam_protection__tab">
+<div role="tabpanel" tabindex="0" id="spam_protection__content" class="sui-tab-content magic-login-main-tab-content" aria-labelledby="spam_protection__tab">
 	<div class="sui-box-settings-row sui-disabled">
 			<div class="sui-box-settings-col-1">
 				<span class="sui-settings-label" id="spam_protection_service_label"><?php esc_html_e( 'Spam Protection Service', 'magic-login' ); ?></span>
@@ -429,10 +429,32 @@ if ( ! defined( 'ABSPATH' ) ) {
 		</div>
 	</div>
 
+	<div class="sui-box-settings-row">
+		<div class="sui-box-settings-col-1">
+			<span class="sui-settings-label"><?php esc_html_e( 'Honeypot Protection', 'magic-login' ); ?></span>
+			<span class="sui-description"><?php esc_html_e( 'Add a hidden field and form timing checks to Magic Login forms without requiring an external CAPTCHA service.', 'magic-login' ); ?></span>
+		</div>
+		<div class="sui-box-settings-col-2">
+			<div class="sui-form-field">
+				<label for="enable_spam_protection_honeypot" class="sui-toggle">
+					<input type="checkbox"
+					       value="1"
+					       name="enable_spam_protection_honeypot"
+					       id="enable_spam_protection_honeypot"
+					       aria-labelledby="enable-spam-protection-honeypot-label"
+						<?php checked( 1, ! empty( $settings['spam_protection']['enable_honeypot'] ) ); ?>
+					>
+					<span class="sui-toggle-slider" aria-hidden="true"></span>
+					<span id="enable-spam-protection-honeypot-label" class="sui-toggle-label"><?php esc_html_e( 'Enable honeypot protection for Magic Login forms.', 'magic-login' ); ?></span>
+				</label>
+			</div>
+		</div>
+	</div>
+
 	<!-- Upsell ads -->
 	<div class="sui-box-settings-row sui-upsell-row">
 		<div class="sui-upsell-notice" style="padding-left: 0;">
-			<p><?php esc_html_e( 'With our pro version of magic login, you will unlock the spam protection features and get access to the WP-CLI command along with our premium support.' ); ?><br>
+			<p><?php esc_html_e( 'With Magic Login Pro, you can add CAPTCHA services for login and registration flows, plus get access to the WP-CLI command along with premium support.' ); ?><br>
 				<a href="https://handyplugins.co/magic-login-pro/?utm_source=wp_admin&utm_medium=plugin&utm_campaign=settings_page_spam_protection" rel="noopener noreferrer nofollow" target="_blank" class="sui-button sui-button-purple" style="margin-top: 10px;color:#fff;"><?php esc_html_e( 'Try Magic Login Pro Today', 'magic-login' ); ?></a>
 			</p>
 		</div>

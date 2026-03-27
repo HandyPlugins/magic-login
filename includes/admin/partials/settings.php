@@ -57,7 +57,6 @@ $settings = \MagicLogin\Utils\get_settings();
 
 						<button type="button" role="tab" id="spam_protection__tab" class="sui-tab-item magic-login-main-tab-item" aria-controls="spam_protection__content" aria-selected="false" tabindex="-1">
 							<?php esc_html_e( 'Spam Protection', 'magic-login' ); ?>
-							<span class="sui-tag sui-tag-pro"><?php esc_html_e( 'Pro', 'magic-login' ); ?></span>
 						</button>
 						<button type="button" role="tab" id="sms__tab" class="sui-tab-item magic-login-main-tab-item" aria-controls="sms__content" aria-selected="false" tabindex="-1">
 							<?php esc_html_e( 'SMS', 'magic-login' ); ?>
@@ -95,4 +94,3 @@ $settings = \MagicLogin\Utils\get_settings();
 	</section>
 
 </form>
-

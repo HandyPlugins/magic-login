@@ -106,6 +106,7 @@ function setup_magic_login() {
 	// Bootstrap.
 	Core\setup();
 	LoginManager::setup();
+	Honeypot::setup();
 	Security\setup();
 	Shortcode\setup();
 	Block\setup();
