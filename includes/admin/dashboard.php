@@ -136,14 +136,14 @@ function save_settings() {
 			return;
 		}
 
-		$settings                     = [];
-		$settings['is_default']       = boolval( filter_input( INPUT_POST, 'is_default' ) );
-		$settings['add_login_button'] = boolval( filter_input( INPUT_POST, 'add_login_button' ) );
-		$settings['token_ttl']        = absint( filter_input( INPUT_POST, 'token_ttl' ) );
-		$settings['token_validity']   = absint( filter_input( INPUT_POST, 'token_validity' ) );
-		$settings['auto_login_links'] = boolval( filter_input( INPUT_POST, 'auto_login_links' ) );
-		$settings['enable_ajax']      = boolval( filter_input( INPUT_POST, 'enable_ajax' ) );
-		$settings['spam_protection']  = [];
+		$settings                                       = [];
+		$settings['is_default']                         = boolval( filter_input( INPUT_POST, 'is_default' ) );
+		$settings['add_login_button']                   = boolval( filter_input( INPUT_POST, 'add_login_button' ) );
+		$settings['token_ttl']                          = absint( filter_input( INPUT_POST, 'token_ttl' ) );
+		$settings['token_validity']                     = absint( filter_input( INPUT_POST, 'token_validity' ) );
+		$settings['auto_login_links']                   = boolval( filter_input( INPUT_POST, 'auto_login_links' ) );
+		$settings['enable_ajax']                        = boolval( filter_input( INPUT_POST, 'enable_ajax' ) );
+		$settings['spam_protection']                    = [];
 		$settings['spam_protection']['enable_honeypot'] = boolval( filter_input( INPUT_POST, 'enable_spam_protection_honeypot' ) );
 
 		// convert TTL in minute

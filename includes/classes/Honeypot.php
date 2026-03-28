@@ -7,7 +7,6 @@
 
 namespace MagicLogin;
 
-use function MagicLogin\Utils\get_settings;
 use function MagicLogin\Utils\get_user_by_log_input;
 use const MagicLogin\Constants\HONEYPOT_BAIT_FIELD_PREFIX;
 use const MagicLogin\Constants\HONEYPOT_PAYLOAD_FIELD;
@@ -56,7 +55,7 @@ class Honeypot {
 	 * @return bool
 	 */
 	public static function is_enabled() {
-		$settings = get_settings();
+		$settings = \MagicLogin\Utils\get_settings();
 
 		return ! empty( $settings['spam_protection']['enable_honeypot'] );
 	}
@@ -111,7 +110,7 @@ class Honeypot {
 			return;
 		}
 
-		$settings = get_settings();
+		$settings = \MagicLogin\Utils\get_settings();
 		if ( empty( $settings['add_login_button'] ) ) {
 			return;
 		}
@@ -125,7 +124,7 @@ class Honeypot {
 					return;
 				}
 
-				loginForm.insertAdjacentHTML('beforeend', <?php echo $fields_html; ?>);
+				loginForm.insertAdjacentHTML('beforeend', <?php echo $fields_html; // phpcs:ignore ?>);
 			})();
 		</script>
 		<?php
