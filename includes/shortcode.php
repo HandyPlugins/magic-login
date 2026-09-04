@@ -167,7 +167,7 @@ function shortcode_login_form( $shortcode_atts ) {
  */
 function maybe_shortcode_redirect( $redirect_url, $user ) {
 	if ( isset( $_REQUEST['redirect_to'] ) && $_REQUEST['redirect_to'] ) { // phpcs:ignore
-		$redirect_url = esc_url_raw( $_REQUEST['redirect_to'] ); // phpcs:ignore
+		$redirect_url = esc_url_raw( wp_unslash( $_REQUEST['redirect_to'] ) ); // phpcs:ignore
 	}
 
 	return $redirect_url;

@@ -630,7 +630,7 @@ class LoginManager {
 		$login_url = get_wp_login_url();
 
 		if ( isset( $_GET['redirect_to'] ) ) { // phpcs:ignore WordPress.Security.NonceVerification.Recommended
-			$login_url = esc_url_raw( add_query_arg( 'redirect_to', urlencode( $_GET['redirect_to'] ), $login_url ) ); // phpcs:ignore
+			$login_url = esc_url_raw( add_query_arg( 'redirect_to', urlencode( wp_unslash( $_GET['redirect_to'] ) ), $login_url ) ); // phpcs:ignore
 		}
 
 		?>
@@ -720,7 +720,7 @@ class LoginManager {
 		do_action( 'magic_login_handle_login_request' );
 		// Use a generic error message to ensure user ids can't be sniffed
 		$user_id = (int) $_GET['user_id']; //phpcs:ignore WordPress.Security.NonceVerification.Recommended
-		$token   = $_GET['token']; //phpcs:ignore
+		$token   = wp_unslash( $_GET['token'] ); //phpcs:ignore WordPress.Security.NonceVerification.Recommended, WordPress.Security.ValidatedSanitizedInput.InputNotSanitized
 		self::authenticate_user_token( $user_id, $token );
 	}
 
@@ -835,7 +835,7 @@ class LoginManager {
 
 		// Determine redirect URL.
 		$redirect_to           = get_user_default_redirect( $user );
-		$requested_redirect_to = isset( $_REQUEST['redirect_to'] ) && is_string( $_REQUEST['redirect_to'] ) ? $_REQUEST['redirect_to'] : ''; // phpcs:ignore
+		$requested_redirect_to = isset( $_REQUEST['redirect_to'] ) && is_string( $_REQUEST['redirect_to'] ) ? wp_unslash( $_REQUEST['redirect_to'] ) : ''; // phpcs:ignore
 
 		$redirect_to    = apply_filters( 'login_redirect', $redirect_to, $requested_redirect_to, $user );
 		$login_redirect = apply_filters( 'magic_login_redirect', $redirect_to, $user );
@@ -976,7 +976,7 @@ class LoginManager {
 			<p class="submit">
 				<input type="submit" name="wp-submit" id="wp-submit" style="float: none;width: 100%;" class="magic-login-submit button button-primary button-hero" value="<?php esc_attr_e( 'Send me the link', 'magic-login' ); ?>" />
 				<?php if ( isset( $_GET['redirect_to'] ) ) : // phpcs:ignore WordPress.Security.NonceVerification.Recommended ?>
-					<input type="hidden" name="redirect_to" value="<?php echo esc_url( $_GET['redirect_to'] ); // phpcs:ignore ?>">
+					<input type="hidden" name="redirect_to" value="<?php echo esc_url( wp_unslash( $_GET['redirect_to'] ) ); // phpcs:ignore ?>">
 				<?php endif; ?>
 				<input type="hidden" name="testcookie" value="1" />
 			</p>

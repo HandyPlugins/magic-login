@@ -209,7 +209,7 @@ class CodeLogin {
 				<?php endif; ?>
 
 				<?php if ( isset( $_POST['redirect_to'] ) ) : // phpcs:ignore WordPress.Security.NonceVerification.Recommended ?>
-					<input type="hidden" name="redirect_to" value="<?php echo esc_url( $_POST['redirect_to'] ); // phpcs:ignore ?>">
+					<input type="hidden" name="redirect_to" value="<?php echo esc_url( wp_unslash( $_POST['redirect_to'] ) ); // phpcs:ignore ?>">
 				<?php endif; ?>
 				<input type="hidden" name="log" value="<?php echo esc_attr( $log ); ?>" />
 				<input type="hidden" name="testcookie" value="1" />
