@@ -22,7 +22,7 @@ class CodeLogin {
 	/**
 	 * Return an instance of the current class
 	 *
-	 * @since
+	 * @since 2.4
 	 */
 	public static function setup() {
 		static $instance = false;
