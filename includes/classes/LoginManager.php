@@ -395,15 +395,18 @@ class LoginManager {
 		$excluded_subjects = apply_filters(
 			'magic_login_auto_login_excluded_subjects',
 			[
-				__( '[%s] New Admin Email Address' ),
-				__( '[%s] Network Admin Email Change Request' ),
-				__( '[%s] Admin Email Changed' ),
-				__( '[%s] Notice of Network Admin Email Change' ),
-				__( '[%s] Login Details' ),
-				__( '[%s] Password Reset' ),
-				__( '[%s] Password Changed' ),
-				__( '[%s] Email Change Request' ),
-				__( 'Your login confirmation code' ),
+				// These intentionally use WP core's own "default" text domain (not 'magic-login')
+				// because they must match the untranslated/core-translated subjects WP core itself
+				// sends, not a magic-login-specific translation.
+				__( '[%s] New Admin Email Address', 'default' ),
+				__( '[%s] Network Admin Email Change Request', 'default' ),
+				__( '[%s] Admin Email Changed', 'default' ),
+				__( '[%s] Notice of Network Admin Email Change', 'default' ),
+				__( '[%s] Login Details', 'default' ),
+				__( '[%s] Password Reset', 'default' ),
+				__( '[%s] Password Changed', 'default' ),
+				__( '[%s] Email Change Request', 'default' ),
+				__( 'Your login confirmation code', 'default' ),
 			]
 		);
 
@@ -1175,7 +1178,9 @@ class LoginManager {
 			if ( false !== stripos( $header, 'text/html' ) ) {
 				// convert line breaks to br when content type is html but
 				// input doesn't contain HTML tags (adding <br/> can ruin the templating)
-				if ( strip_tags( $login_email, '<a>' ) === $login_email ) {
+				// wp_strip_all_tags() has no allowed-tags argument, and the default email
+				// template legitimately contains an <a> link, so the native function is required here.
+				if ( strip_tags( $login_email, '<a>' ) === $login_email ) { // phpcs:ignore WordPress.WP.AlternativeFunctions.strip_tags_strip_tags
 					$login_email = nl2br( $login_email );
 				}
 				break;

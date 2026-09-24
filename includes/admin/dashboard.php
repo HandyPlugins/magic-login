@@ -161,7 +161,7 @@ function save_settings() {
 			}
 		}
 
-		$token_interval    = sanitize_text_field( filter_input( INPUT_POST, 'token_interval' ) );
+		$token_interval    = sanitize_text_field( filter_input( INPUT_POST, 'token_interval' ) ?? '' );
 		$allowed_intervals = get_allowed_intervals();
 
 		if ( isset( $allowed_intervals[ $token_interval ] ) ) {
