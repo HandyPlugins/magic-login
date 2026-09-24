@@ -10,7 +10,6 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 // phpcs:disable WordPress.WhiteSpace.PrecisionAlignment.Found
 // phpcs:disable Generic.WhiteSpace.DisallowSpaceIndent.SpacesUsed
-// phpcs:disable WordPress.WP.I18n.MissingTranslatorsComment
 
 ?>
 <div role="tabpanel" tabindex="0" id="tools__content" class="sui-tab-content magic-login-main-tab-content" aria-labelledby="tools__tab">
@@ -124,7 +123,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 					</label>
 					<div class="sui-upload-file">
 						<span id="magic-login-import-file-name"></span>
-						<button type="button" id="magic-login-import-remove-file" aria-label="Remove file">
+						<button type="button" id="magic-login-import-remove-file" aria-label="<?php esc_attr_e( 'Remove file', 'magic-login' ); ?>">
 							<span class="sui-icon-close" aria-hidden="true"></span>
 						</button>
 					</div>

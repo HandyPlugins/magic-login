@@ -7,7 +7,6 @@
 
 namespace MagicLogin\Block;
 
-// phpcs:disable WordPress.WP.I18n.MissingTranslatorsComment
 use MagicLogin\CodeLogin;
 use MagicLogin\LoginManager;
 use function MagicLogin\Core\script_url;

@@ -15,7 +15,6 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 // phpcs:disable WordPress.WhiteSpace.PrecisionAlignment.Found
 // phpcs:disable Generic.WhiteSpace.DisallowSpaceIndent.SpacesUsed
-// phpcs:disable WordPress.WP.I18n.MissingTranslatorsComment
 
 ?>
 <div role="tabpanel" tabindex="0" id="sms__content" class="sui-tab-content magic-login-main-tab-content sui-disabled" aria-labelledby="sms__tab">
@@ -48,7 +47,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 							<label for="twilio_account_sid" id="twilio_account_sid_label" class="sui-label"><?php esc_html_e( 'Account SID', 'magic-login' ); ?></label>
 							<input type="text"
 							       name="twilio_account_sid"
-							       placeholder="Enter your account SID here"
+							       placeholder="<?php esc_attr_e( 'Enter your account SID here', 'magic-login' ); ?>"
 							       value="<?php echo esc_attr( $settings['sms']['twilio']['account_sid'] ); ?>"
 							       id="twilio_account_sid"
 							       class="sui-form-control"

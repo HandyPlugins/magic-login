@@ -16,7 +16,6 @@ $settings = \MagicLogin\Utils\get_settings();
 
 // phpcs:disable WordPress.WhiteSpace.PrecisionAlignment.Found
 // phpcs:disable Generic.WhiteSpace.DisallowSpaceIndent.SpacesUsed
-// phpcs:disable WordPress.WP.I18n.MissingTranslatorsComment
 
 ?>
 

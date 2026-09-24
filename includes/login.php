@@ -23,7 +23,6 @@ use function MagicLogin\Utils\get_user_default_redirect;
 use function MagicLogin\Utils\get_user_tokens;
 use \WP_Error as WP_Error;
 
-// phpcs:disable WordPress.WP.I18n.MissingTranslatorsComment
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.

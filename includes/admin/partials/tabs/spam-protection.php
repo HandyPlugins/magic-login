@@ -14,7 +14,6 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 // phpcs:disable WordPress.WhiteSpace.PrecisionAlignment.Found
 // phpcs:disable Generic.WhiteSpace.DisallowSpaceIndent.SpacesUsed
-// phpcs:disable WordPress.WP.I18n.MissingTranslatorsComment
 
 ?>
 
@@ -294,7 +293,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 									<label for="cf_turnstile_key" id="cf_turnstile_key_label" class="sui-label"><?php esc_html_e( 'Site Key', 'magic-login' ); ?></label>
 									<input type="text"
 									       name="cf_turnstile_key"
-									       placeholder="Enter your site key here"
+									       placeholder="<?php esc_attr_e( 'Enter your site key here', 'magic-login' ); ?>"
 									       value="<?php echo esc_attr( $settings['cf_turnstile']['site_key'] ); ?>"
 									       id="cf_turnstile_key"
 									       class="sui-form-control"
