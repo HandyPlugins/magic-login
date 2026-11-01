@@ -23,11 +23,11 @@
     "lint-release": "npm ci && composer install && npm run lint"
   },
   "devDependencies": {
-    "@wordpress/element": "^6.9.0",
-    "@wordpress/server-side-render": "^5.9",
+    "@wordpress/element": "^10.0.0",
+    "@wordpress/server-side-render": "^7.0",
     "@wpmudev/shared-ui": "2.12.27",
     "10up-toolkit": "6.5.1",
-    "@wordpress/scripts": "^36.0"
+    "@wordpress/scripts": "^37.0"
   },
   "engines": {
     "node": ">=20.19.0"
