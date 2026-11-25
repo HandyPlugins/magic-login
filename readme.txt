@@ -2,9 +2,9 @@
 Contributors:      handyplugins, m_uysl
 Tags:              login, passwordless, passwordless-login, magic-login, magic-link
 Requires at least: 5.0
-Tested up to:      7.1
+Tested up to:      7.2
 Requires PHP:      7.4
-Stable tag:        2.8.1
+Stable tag:        2.8.2
 License:           GPLv2 or later
 License URI:       http://www.gnu.org/licenses/gpl-2.0.html
 Donate link:       https://handyplugins.co/donate/
@@ -128,6 +128,14 @@ Yes. Developers can use the `magic_login_honeypot_config` filter to adjust the m
 4. Login Block
 
 == Changelog ==
+
+= 2.8.2 (Nov 25, 2026) =
+* [Fixed] Missing translations in the SMS, spam protection, and tools settings. Props to [@miyanialkesh7](https://github.com/miyanialkesh7)
+* [Fixed] A PHP 8.1 and 8.2 deprecation warning when saving settings. Props to [@miyanialkesh7](https://github.com/miyanialkesh7)
+* [Improved] Handling of WordPress-escaped inputs in login, redirects, and settings forms. Props to [@miyanialkesh7](https://github.com/miyanialkesh7)
+* [Improved] Addressed several issues flagged by WordPress Plugin Check. Props to [@miyanialkesh7](https://github.com/miyanialkesh7)
+* Tested with WP 7.2
+* [Updated] Dependencies.
 
 = 2.8.1 (Aug 03, 2026) =
 * [Fixed] Missing text domains in several admin interface strings.
